@@ -1,0 +1,92 @@
+
+ROM used:   5400/32768 (16%)
+            5400/32768 (16%) including unused fragments
+
+            3.8 Average locations per line
+            20.9 Average locations per statement
+
+RAM used:   63/2048 (3%) at main() level
+            97/2048 (5%) worst case
+
+Stack used: 2 worst case (1 in main + 1 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  548   258 100  Practica 8.c
+  877     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h
+----- -----
+ 1425   258 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     38   0    1             @delay_ms1
+0    168   2    2    803  5.6  RecibirDatos
+0     36   0    0             @goto33200
+0    242   2    0    293  2.8  MAIN
+0   1294  12    6   8207 10.9  IMP_Menus
+0    126   1    0             @const774
+0     34   0    2             @PSTRINGC_9600_31766_31767
+0     54   0    0             @const779
+0     58   1    0             @const780
+0     56   1    2             @ITOF
+0    348   3   14             @DIVFF
+0    242   2   11             @MULFF
+0     32   0    3             @PSTRINGCN_9600_31766_31767
+0    230   2    9             @PRINTF_LD_9600_31766_31767
+0     64   1    5             @FTOSD
+0    142   1   13             @DIV3232
+0    386   4   13             @PRINTF_L32D_9600_31766_31767FPFPF
+0    124   1    0             @const801
+0     78   1    0             @const802
+0     20   0    0             @const803
+0     20   0    0             @const804
+0     80   1    0             @const805
+0     70   1    0             @const806
+0     20   0    0             @const807
+0     20   0    0             @const808
+0     20   0    0             @const809
+0     20   0    0             @const810
+0    104   1    0             @const811
+0     78   1    0             @const812
+0     20   0    0             @const813
+0     20   0    0             @const814
+0     96   1    0             @const815
+0     70   1    0             @const816
+0     20   0    0             @const817
+0     20   0    0             @const818
+0     20   0    0             @const819
+0     20   0    0             @const820
+0     80   1    0             @const821
+0     78   1    0             @const822
+0     20   0    0             @const823
+0     44   0    0             @const824
+0     28   0    0             @const825
+0     60   1    0     72  2.7  ROTACION_MDC
+0    212   2    2    482  6.6  ROTACION_MP
+0     62   1    6             @WRITEBITA
+0     68   1    5             @DIV1616
+0     88   1    1    325  3.7  IMP_Display
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               6
+    Statements              258
+    Comments                257
+    Volume (V)              12191
+    Difficulty (D)          31.1
+    Effort to implement (E) 379460
+    Time to implement (T)   5 hours, 51 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   59
+    Maintainability (MI)    35
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000AC   166  0  
+000AE-07FFE  5230  27364  
+
+
+

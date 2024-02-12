@@ -1,0 +1,71 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+005     main.secuencia
+006     main.leds
+007     @delay_ms1.P1
+F83     PORTD
+F83     PSP_DATA
+F8A     LATB
+F93     TRISB
+F95     TRISD
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+000030  main
+000030  @cinit1
+000046  @cinit2
+0000F0  @goto16704
+
+Project Directory:
+    C:\Users\diego\Desktop\Automatizacion\Microsistemas\2\
+
+Project Files:
+    2ra Clase.c                                             [25-ene.-24 22:41  CRC=F8634FCD]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+
+Source signature=A094AF79
+Program memory checksum=0000
+Hex file CRC=C86C
+
+Units:
+    C:\Users\diego\Desktop\Automatizacion\Microsistemas\2\2ra Clase (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   2ra Clase.xsym
+    Errors:      2ra Clase.err
+    Ext Symbols: 2ra Clase.esym
+    INHX32:      2ra Clase.hex
+    Symbols:     2ra Clase.sym
+    List:        2ra Clase.lst
+    Debug/COFF:  2ra Clase.cof
+    Project:     2ra Clase.ccspjt
+    Call Tree:   2ra Clase.tre
+    Statistics:  2ra Clase.STA

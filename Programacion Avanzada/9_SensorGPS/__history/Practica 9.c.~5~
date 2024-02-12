@@ -1,0 +1,17 @@
+#include <18f4550.h>   // Libreria del Microcontrolador
+//#device adc = 10 // Resolucion del ADC en bits
+#fuses INTRC, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1 // Fusibles (Configuraciones del microcontrolador)
+#use delay(clock = 8M)
+// rs232(rcp = (Pin receptor), xmit = (pin transmisor), baud = (Velocidad de transferencia), bits = 8, parity = n)
+#use rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n) 
+
+#include <stdlib.h>
+
+void main()
+{  
+   while(true)
+   {
+      char buffer = getc();
+      printf("%c", buffer);
+   }
+}

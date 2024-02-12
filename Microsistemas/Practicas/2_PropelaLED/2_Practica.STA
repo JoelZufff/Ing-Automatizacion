@@ -1,0 +1,50 @@
+
+ROM used:   518/32768 (2%)
+            518/32768 (2%) including unused fragments
+
+            0.5 Average locations per line
+            25.9 Average locations per statement
+
+RAM used:   38/2048 (2%) at main() level
+            45/2048 (2%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   76    20 100  2_Practica.c
+  877     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h
+----- -----
+  953    20 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     38   4    1             @delay_ms1
+0     20   2    0     50  1.5  LEDS
+0     98   9    0    147  3.4  MAIN
+0    124  12    4    322  5.8  animation
+0     68   7    5             @DIV1616
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               3
+    Statements              20
+    Comments                170
+    Volume (V)              675
+    Difficulty (D)          10.2
+    Effort to implement (E) 6852
+    Time to implement (T)   6 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   3
+    Maintainability (MI)    73
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000AC   166  0  
+000AE-07FFE   348  32246  
+
+
+

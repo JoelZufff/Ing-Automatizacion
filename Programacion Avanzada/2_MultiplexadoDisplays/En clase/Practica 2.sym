@@ -1,0 +1,74 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-00D vec_c
+00E     main.i
+00F     main.j
+010     main.time
+011     main.B
+012     displays.d
+013     displays.u
+014     @delay_ms1.P1
+014     displays.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002E  displays
+000074  main
+000074  @cinit1
+00008A  @cinit2
+005D  loop
+
+Project Directory:
+    C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 2\En clase\
+
+Project Files:
+    Practica 2.c                                            [23-ago.-23 21:50  CRC=8BC5821D]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+
+Source signature=33F6E1C9
+Program memory checksum=0000
+Hex file CRC=F73B
+
+Units:
+    C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 2\En clase\Practica 2 (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   Practica 2.xsym
+    Errors:      Practica 2.err
+    Ext Symbols: Practica 2.esym
+    INHX32:      Practica 2.hex
+    Symbols:     Practica 2.sym
+    List:        Practica 2.lst
+    Debug/COFF:  Practica 2.cof
+    Project:     Practica 2.ccspjt
+    Call Tree:   Practica 2.tre
+    Statistics:  Practica 2.STA

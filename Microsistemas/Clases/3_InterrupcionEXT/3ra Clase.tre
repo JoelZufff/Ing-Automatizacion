@@ -1,0 +1,15 @@
+ÀÄ3ra Clase
+   ÃÄMAIN  0/102  Ram=1
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ÃÄblink  0/38  Ram=0
+   ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ÃÄblink2  0/38  Ram=0
+   ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ÀÄblink3  0/88  Ram=1
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÃÄ@delay_ms1  0/38  Ram=1
+      ÀÄ@delay_ms1  0/38  Ram=1

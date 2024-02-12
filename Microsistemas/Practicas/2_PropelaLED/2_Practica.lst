@@ -1,0 +1,324 @@
+CCS PCH C Compiler, Version 5.112, 29001               06-feb.-24 12:16
+
+               Filename:   C:\Users\diego\Desktop\Microsistemas\Practicas\2\2_Practica.lst
+
+               ROM used:   518 bytes (2%)
+                           Largest free fragment is 32246
+               RAM used:   38 (2%) at main() level
+                           45 (2%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 31
+
+*
+0000:  GOTO   01A8
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  FF5,15
+003C:  MOVFF  FF6,16
+0040:  MOVFF  FF7,17
+0044:  MOVFF  00,0E
+0048:  MOVFF  01,0F
+004C:  MOVFF  02,10
+0050:  MOVFF  03,11
+0054:  BTFSS  FF2.4
+0056:  GOTO   0060
+005A:  BTFSC  FF2.1
+005C:  GOTO   00AE
+0060:  MOVFF  0E,00
+0064:  MOVFF  0F,01
+0068:  MOVFF  10,02
+006C:  MOVFF  11,03
+0070:  MOVFF  0C,FE9
+0074:  MOVFF  07,FEA
+0078:  BSF    07.7
+007A:  MOVFF  08,FE1
+007E:  MOVFF  09,FE2
+0082:  MOVFF  0A,FD9
+0086:  MOVFF  0B,FDA
+008A:  MOVFF  12,FF3
+008E:  MOVFF  13,FF4
+0092:  MOVFF  14,FFA
+0096:  MOVFF  15,FF5
+009A:  MOVFF  16,FF6
+009E:  MOVFF  17,FF7
+00A2:  MOVF   04,W
+00A4:  MOVFF  06,FE0
+00A8:  MOVFF  05,FD8
+00AC:  RETFIE 0
+.................... // Preprocesadores de Microcontrolador //
+.................... #include    <18f4550.h>                                                 // Libreria del Microcontrolador
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+*
+00C2:  CLRF   01
+00C4:  CLRF   02
+00C6:  CLRF   00
+00C8:  CLRF   03
+00CA:  MOVF   2B,W
+00CC:  BNZ   00D2
+00CE:  MOVF   2A,W
+00D0:  BZ    0102
+00D2:  MOVLW  10
+00D4:  MOVWF  2C
+00D6:  BCF    FD8.0
+00D8:  RLCF   28,F
+00DA:  RLCF   29,F
+00DC:  RLCF   00,F
+00DE:  RLCF   03,F
+00E0:  MOVF   2B,W
+00E2:  SUBWF  03,W
+00E4:  BNZ   00EA
+00E6:  MOVF   2A,W
+00E8:  SUBWF  00,W
+00EA:  BNC   00FA
+00EC:  MOVF   2A,W
+00EE:  SUBWF  00,F
+00F0:  BTFSS  FD8.0
+00F2:  DECF   03,F
+00F4:  MOVF   2B,W
+00F6:  SUBWF  03,F
+00F8:  BSF    FD8.0
+00FA:  RLCF   01,F
+00FC:  RLCF   02,F
+00FE:  DECFSZ 2C,F
+0100:  BRA    00D6
+0102:  GOTO   014C (RETURN)
+.................... 
+.................... #list
+.................... 
+.................... #fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR       // Fusibles (Configuraciones del microcontrolador)
+.................... #use        delay(clock = 8M)                                           // Configuracion de frecuencia y delay
+0106:  CLRF   FEA
+0108:  MOVLW  28
+010A:  MOVWF  FE9
+010C:  MOVF   FEF,W
+010E:  BZ    012A
+0110:  MOVLW  02
+0112:  MOVWF  01
+0114:  CLRF   00
+0116:  DECFSZ 00,F
+0118:  BRA    0116
+011A:  DECFSZ 01,F
+011C:  BRA    0114
+011E:  MOVLW  97
+0120:  MOVWF  00
+0122:  DECFSZ 00,F
+0124:  BRA    0122
+0126:  DECFSZ FEF,F
+0128:  BRA    0110
+012A:  RETURN 0
+.................... //#use        rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n)
+.................... 
+.................... // Establecemos direccion de registros
+.................... #BYTE       TRISD       = 0xF95
+.................... #BYTE       LATD        = 0xF8C
+.................... 
+.................... #BYTE       TRISB       = 0xF93
+.................... 
+.................... #BYTE       INTCON      = 0xFF2
+.................... 
+.................... // Arreglos de letras para impresion
+.................... int hearth[8] = { 0b00001110, 0b00111111, 0b01111111, 0b11111110, 0b11111110, 0b01111111, 0b00111111, 0b00001110 };
+.................... 
+.................... void animation();
+.................... 
+.................... int16       timer = 0, period = 0;
+.................... int1        flag = FALSE;
+.................... 
+.................... #int_ext
+.................... void LEDS()
+.................... {
+....................     period          = timer;
+*
+00AE:  MOVFF  22,24
+00B2:  MOVFF  21,23
+....................     timer           = 0;
+00B6:  CLRF   22
+00B8:  CLRF   21
+.................... 
+....................     flag            = TRUE;
+00BA:  BSF    25.0
+00BC:  BCF    FF2.1
+00BE:  GOTO   0060
+.................... }
+.................... 
+.................... 
+.................... void main()
+*
+01A8:  CLRF   FF8
+01AA:  BCF    FD0.7
+01AC:  BSF    07.7
+01AE:  MOVLW  70
+01B0:  MOVWF  FD3
+01B2:  MOVF   FD3,W
+01B4:  CLRF   22
+01B6:  CLRF   21
+01B8:  CLRF   24
+01BA:  CLRF   23
+01BC:  BCF    25.0
+01BE:  MOVF   FC1,W
+01C0:  ANDLW  C0
+01C2:  IORLW  0F
+01C4:  MOVWF  FC1
+01C6:  MOVLW  07
+01C8:  MOVWF  FB4
+01CA:  MOVLW  0E
+01CC:  MOVWF  19
+01CE:  MOVLW  3F
+01D0:  MOVWF  1A
+01D2:  MOVLW  7F
+01D4:  MOVWF  1B
+01D6:  MOVLW  FE
+01D8:  MOVWF  1C
+01DA:  MOVWF  1D
+01DC:  MOVLW  7F
+01DE:  MOVWF  1E
+01E0:  MOVLW  3F
+01E2:  MOVWF  1F
+01E4:  MOVLW  0E
+01E6:  MOVWF  20
+.................... {   
+....................     // Configuracion de puertos I/O
+....................     TRISB = 0b00000001;                 // 0 Salida | 1 Entrada
+01E8:  MOVLW  01
+01EA:  MOVWF  F93
+....................     TRISD = 0b00000000;                 // 0 Salida | 1 Entrada
+01EC:  CLRF   F95
+.................... 
+....................     // Configuracion de Interrupciones
+....................     INTCON = 0b11010000;
+01EE:  MOVLW  D0
+01F0:  MOVWF  FF2
+.................... 
+....................     while(TRUE)
+....................     {   
+....................         if(flag)
+01F2:  BTFSS  25.0
+01F4:  BRA    01FA
+....................             animation();
+01F6:  BRA    012C
+01F8:  BRA    0206
+....................         else
+....................         {
+....................             delay_ms(1);
+01FA:  MOVLW  01
+01FC:  MOVWF  28
+01FE:  RCALL  0106
+....................             timer++;
+0200:  INCF   21,F
+0202:  BTFSC  FD8.2
+0204:  INCF   22,F
+....................         }
+0206:  BRA    01F2
+....................     }
+.................... }
+.................... 
+0208:  SLEEP 
+.................... void animation()
+.................... {
+....................     flag = FALSE;
+*
+012C:  BCF    25.0
+....................     
+....................     for(int frame = 0; frame < 8 && !flag; frame++)                          // Reproduccion del caracter por frames
+012E:  CLRF   26
+0130:  MOVF   26,W
+0132:  SUBLW  07
+0134:  BNC   01A2
+0136:  BTFSC  25.0
+0138:  BRA    01A2
+....................         for(int ms = 0; ms < (period / 12 / 8) && !flag; ms++, timer++)
+013A:  CLRF   27
+013C:  MOVFF  24,29
+0140:  MOVFF  23,28
+0144:  CLRF   2B
+0146:  MOVLW  0C
+0148:  MOVWF  2A
+014A:  BRA    00C2
+014C:  MOVFF  02,29
+0150:  MOVFF  01,28
+0154:  RRCF   02,W
+0156:  MOVWF  03
+0158:  RRCF   01,W
+015A:  MOVWF  02
+015C:  RRCF   03,F
+015E:  RRCF   02,F
+0160:  RRCF   03,F
+0162:  RRCF   02,F
+0164:  MOVLW  1F
+0166:  ANDWF  03,F
+0168:  MOVFF  02,01
+016C:  MOVF   03,F
+016E:  BNZ   0176
+0170:  MOVF   01,W
+0172:  SUBWF  27,W
+0174:  BC    019E
+0176:  BTFSC  25.0
+0178:  BRA    019E
+....................         {
+....................             LATD = hearth[frame];
+017A:  CLRF   03
+017C:  MOVF   26,W
+017E:  ADDLW  19
+0180:  MOVWF  FE9
+0182:  MOVLW  00
+0184:  ADDWFC 03,W
+0186:  MOVWF  FEA
+0188:  MOVFF  FEF,F8C
+....................             delay_ms(1);
+018C:  MOVLW  01
+018E:  MOVWF  28
+0190:  RCALL  0106
+0192:  MOVF   27,W
+0194:  INCF   27,F
+0196:  INCF   21,F
+0198:  BTFSC  FD8.2
+019A:  INCF   22,F
+019C:  BRA    013C
+019E:  INCF   26,F
+01A0:  BRA    0130
+....................         }
+.................... 
+....................     LATD = 0;
+01A2:  CLRF   F8C
+01A4:  GOTO   0206 (RETURN)
+.................... }
+.................... 
+.................... // Maximo 16 caracteres
+.................... 
+.................... // La cantidad de LEDS en encendidos es la altura de la figura
+.................... // Tiempo encendido del LED se traduce como la anchura de la figura
+.................... // Dependiendo la velocidad del ventilador un mismo periodo se puede traducir como mas o menos anchura de la figura
+.................... // Lo que debe variar es el periodo de vuelta pero la anchura de las figuras debe de ser constante
+.................... 
+.................... // Vamos a colocar el iman mirando hacia nosotros pues el el punto de inicio de la imagen
+
+Configuration Fuses:
+   Word  1: C920   PLL1 CPUDIV1 USBDIV INTRC FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 0700   CCP2C1 PBADEN LPT1OSC NOMCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

@@ -1,0 +1,1093 @@
+CCS PCH C Compiler, Version 5.112, 29001               08-sep.-23 16:05
+
+               Filename:   C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 4\Semanal\Practica 4_Semanal.lst
+
+               ROM used:   1574 bytes (5%)
+                           Largest free fragment is 31194
+               RAM used:   37 (2%) at main() level
+                           56 (3%) worst case
+               Stack used: 3 locations
+               Stack size: 31
+
+*
+0000:  GOTO   0496
+.................... #include <18f4550.h>   // Libreria del Microcontrolador
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+.................... 
+.................... #list
+.................... 
+.................... #device adc = 10
+.................... #fuses XT, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1, NOMCLR // Fusibles (Configuraciones del microcontrolador)
+.................... #use delay(clock = 4M) // 4 Megahertz
+0004:  CLRF   FEA
+0006:  MOVLW  34
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BTFSC  FD8.2
+000E:  GOTO   002E
+0012:  MOVLW  01
+0014:  MOVWF  01
+0016:  CLRF   00
+0018:  DECFSZ 00,F
+001A:  BRA    0018
+001C:  DECFSZ 01,F
+001E:  BRA    0016
+0020:  MOVLW  4A
+0022:  MOVWF  00
+0024:  DECFSZ 00,F
+0026:  BRA    0024
+0028:  BRA    002A
+002A:  DECFSZ FEF,F
+002C:  BRA    0012
+002E:  RETURN 0
+.................... 
+.................... #define S1 pin_d4
+.................... #define S2 pin_d5
+.................... #define S3 pin_d6
+.................... #define S4 pin_d7
+.................... #define LED pin_c0
+.................... 
+.................... // Intervalo de MS
+.................... const int16 MAX = 1925;
+.................... const int16 MIN = 50;
+.................... 
+.................... void ROTAR(int16);
+.................... int SEC_I(); // Secuencia Inicial (No genera cola, ni respeta delay)
+.................... int SEC_R(int16, int16 *); // Secuencia con Retraso (Se utiliza para respetar delay)
+.................... 
+.................... int orden[25] = {0}; // Arreglo con orden de ejecucion de secuencias
+.................... int pos = 0; // Contador de secuencias en cola
+.................... 
+.................... void main()
+*
+0496:  CLRF   FF8
+0498:  BCF    FD0.7
+049A:  CLRF   1D
+049C:  MOVF   FC1,W
+049E:  ANDLW  C0
+04A0:  IORLW  0F
+04A2:  MOVWF  FC1
+04A4:  MOVLW  07
+04A6:  MOVWF  FB4
+04A8:  BRA    04B0
+04AA:  DATA 19,40
+04AC:  DATA 04,00
+04AE:  DATA 00,00
+04B0:  MOVLW  00
+04B2:  MOVWF  FF8
+04B4:  MOVLW  04
+04B6:  MOVWF  FF7
+04B8:  MOVLW  AA
+04BA:  MOVWF  FF6
+04BC:  TBLRD*+
+04BE:  MOVF   FF5,W
+04C0:  MOVWF  00
+04C2:  XORLW  00
+04C4:  BZ    04EC
+04C6:  TBLRD*+
+04C8:  MOVF   FF5,W
+04CA:  MOVWF  01
+04CC:  BTFSC  FE8.7
+04CE:  BRA    04DA
+04D0:  ANDLW  3F
+04D2:  MOVWF  FEA
+04D4:  TBLRD*+
+04D6:  MOVFF  FF5,FE9
+04DA:  BTFSC  01.6
+04DC:  TBLRD*+
+04DE:  BTFSS  01.6
+04E0:  TBLRD*+
+04E2:  MOVFF  FF5,FEE
+04E6:  DCFSNZ 00,F
+04E8:  BRA    04BC
+04EA:  BRA    04DE
+04EC:  CLRF   FF8
+04EE:  CLRF   1E
+.................... {
+....................    int posE = 0; // Contador de secuencias ejecutadas
+....................    int16 i;
+....................    
+....................    setup_adc(adc_clock_div_2);
+04F0:  MOVF   FC0,W
+04F2:  ANDLW  C0
+04F4:  MOVWF  FC0
+04F6:  BSF    FC0.7
+04F8:  BSF    FC2.0
+....................    setup_adc_ports(AN0); // Hay un sensor en AN0
+04FA:  MOVF   FC1,W
+04FC:  ANDLW  C0
+04FE:  IORLW  0E
+0500:  MOVWF  FC1
+....................    set_tris_a(0b00000001); // 1 entrada 0 salida
+0502:  MOVLW  01
+0504:  MOVWF  F92
+....................    set_tris_d(0b11110000);
+0506:  MOVLW  F0
+0508:  MOVWF  F95
+....................    set_adc_channel(0);
+050A:  MOVLW  00
+050C:  MOVWF  01
+050E:  MOVF   FC2,W
+0510:  ANDLW  C3
+0512:  IORWF  01,W
+0514:  MOVWF  FC2
+....................    delay_us(50);
+0516:  MOVLW  10
+0518:  MOVWF  00
+051A:  DECFSZ 00,F
+051C:  BRA    051A
+051E:  NOP   
+....................       
+....................    while(true)
+....................    {    
+....................       if(pos == posE) // Ya no hay botones en la cola
+0520:  MOVF   1E,W
+0522:  SUBWF  1D,W
+0524:  BNZ   0562
+....................       {
+....................          output_low(LED); // Se apaga el led de la cola
+0526:  BCF    F94.0
+0528:  BCF    F8B.0
+....................          
+....................          do
+....................          {
+....................             orden[pos] = SEC_I(); // Recibimos un posible boton
+052A:  CLRF   03
+052C:  MOVF   1D,W
+052E:  ADDLW  04
+0530:  MOVWF  01
+0532:  MOVLW  00
+0534:  ADDWFC 03,F
+0536:  MOVFF  01,21
+053A:  MOVFF  03,22
+053E:  BRA    0030
+0540:  MOVFF  22,FEA
+0544:  MOVFF  21,FE9
+0548:  MOVFF  01,FEF
+....................          }
+....................          while(orden[pos] == 0);
+054C:  CLRF   03
+054E:  MOVF   1D,W
+0550:  ADDLW  04
+0552:  MOVWF  FE9
+0554:  MOVLW  00
+0556:  ADDWFC 03,W
+0558:  MOVWF  FEA
+055A:  MOVF   FEF,F
+055C:  BZ    052A
+....................          
+....................          //if(orden[pos] != 0) // Si se recibio un boton presionado
+....................             pos++;
+055E:  INCF   1D,F
+....................       }
+0560:  BRA    05D4
+....................       else // Hay botones en cola, esperamos 2 segundos antes de reproducir el siguiente
+....................       {       
+....................          // Delay de 2000 ms esperando posible presion de boton
+....................          for(i = 1; i <= 2000 ; i++)
+0562:  CLRF   20
+0564:  MOVLW  01
+0566:  MOVWF  1F
+0568:  MOVF   20,W
+056A:  SUBLW  07
+056C:  BNC   05D4
+056E:  BNZ   0576
+0570:  MOVF   1F,W
+0572:  SUBLW  D0
+0574:  BNC   05D4
+....................          {
+....................             delay_ms(1);
+0576:  MOVLW  01
+0578:  MOVWF  34
+057A:  RCALL  0004
+....................                
+....................             orden[pos] = SEC_R(2000-i, &i); // Le envio los ms maximos que se puede atrapar el codigo. (ms totales - ms que han pasado)
+057C:  CLRF   03
+057E:  MOVF   1D,W
+0580:  ADDLW  04
+0582:  MOVWF  01
+0584:  MOVLW  00
+0586:  ADDWFC 03,F
+0588:  MOVFF  01,21
+058C:  MOVFF  03,22
+0590:  MOVLW  D0
+0592:  BSF    FD8.0
+0594:  SUBFWB 1F,W
+0596:  MOVWF  23
+0598:  MOVLW  07
+059A:  SUBFWB 20,W
+059C:  MOVWF  24
+059E:  MOVWF  2E
+05A0:  MOVFF  23,2D
+05A4:  CLRF   30
+05A6:  MOVLW  1F
+05A8:  MOVWF  2F
+05AA:  RCALL  013A
+05AC:  MOVFF  22,FEA
+05B0:  MOVFF  21,FE9
+05B4:  MOVFF  01,FEF
+....................                
+....................             if(orden[pos] != 0) // Si se detecto un boton presionado
+05B8:  CLRF   03
+05BA:  MOVF   1D,W
+05BC:  ADDLW  04
+05BE:  MOVWF  FE9
+05C0:  MOVLW  00
+05C2:  ADDWFC 03,W
+05C4:  MOVWF  FEA
+05C6:  MOVF   FEF,F
+05C8:  BZ    05CC
+....................                pos++;
+05CA:  INCF   1D,F
+05CC:  INCF   1F,F
+05CE:  BTFSC  FD8.2
+05D0:  INCF   20,F
+05D2:  BRA    0568
+....................          }
+....................       }
+....................       
+....................        // Ejecucion, va de uno en uno en el arreglo
+....................       
+....................       switch(orden[posE++])
+05D4:  MOVF   1E,W
+05D6:  INCF   1E,F
+05D8:  CLRF   03
+05DA:  ADDLW  04
+05DC:  MOVWF  FE9
+05DE:  MOVLW  00
+05E0:  ADDWFC 03,W
+05E2:  MOVWF  FEA
+05E4:  MOVF   FEF,W
+05E6:  XORLW  01
+05E8:  BZ    05F8
+05EA:  XORLW  03
+05EC:  BZ    0602
+05EE:  XORLW  01
+05F0:  BZ    060C
+05F2:  XORLW  07
+05F4:  BZ    0616
+05F6:  BRA    0620
+....................       {
+....................          case 1: // S1
+....................             ROTAR(17);
+05F8:  CLRF   22
+05FA:  MOVLW  11
+05FC:  MOVWF  21
+05FE:  RCALL  0296
+....................          break;
+0600:  BRA    0622
+....................          case 2: // S2
+....................             ROTAR(49);
+0602:  CLRF   22
+0604:  MOVLW  31
+0606:  MOVWF  21
+0608:  RCALL  0296
+....................          break;
+060A:  BRA    0622
+....................          case 3: // S3
+....................             ROTAR(85);
+060C:  CLRF   22
+060E:  MOVLW  55
+0610:  MOVWF  21
+0612:  RCALL  0296
+....................          break;
+0614:  BRA    0622
+....................          case 4: // S4
+....................             ROTAR(121);
+0616:  CLRF   22
+0618:  MOVLW  79
+061A:  MOVWF  21
+061C:  RCALL  0296
+....................          break;
+061E:  BRA    0622
+....................          default: // 0, no hace nada ni avanza al siguiente posE
+....................          posE--; // Revertimos el incremento anterior pues no se ejecuto ningun caso
+0620:  DECF   1E,F
+....................          break;
+....................       }
+0622:  BRA    0520
+....................    }
+.................... }
+.................... 
+0624:  SLEEP 
+.................... // Funcion para Rotacion de motor
+.................... 
+.................... // Problema cuando N es 1 (No es muy relevante)
+.................... void ROTAR(int16 N)
+*
+0296:  CLRF   23
+0298:  MOVLW  01
+029A:  MOVWF  24
+.................... {
+....................    int cont=0, pmotor = 1;
+....................    int16 MS, i;
+....................    
+....................    // Hacer las N rotaciones
+....................    
+....................    while(cont < N)
+029C:  MOVF   22,F
+029E:  BNZ   02A6
+02A0:  MOVF   21,W
+02A2:  SUBWF  23,W
+02A4:  BC    0352
+....................    {
+....................       // read_adc() al ser de 10 bits, recibe numeros en el intervalo (0:1023)
+....................       MS = read_adc() * 2 + MIN; // Obtiene el valor del potenciometro
+02A6:  BSF    FC2.1
+02A8:  BTFSC  FC2.1
+02AA:  BRA    02A8
+02AC:  MOVFF  FC4,2A
+02B0:  MOVFF  FC3,29
+02B4:  BCF    FD8.0
+02B6:  RLCF   29,F
+02B8:  RLCF   2A,F
+02BA:  MOVLW  32
+02BC:  ADDWF  29,W
+02BE:  MOVWF  25
+02C0:  MOVLW  00
+02C2:  ADDWFC 2A,W
+02C4:  MOVWF  26
+....................       
+....................       // Queremos que los milisegundos esten en el intervalo establecido al inicio
+....................       //MS = (MS * MAX) / 1023 + MIN; // Probar en fisico, no funciona en simulacion
+....................       
+....................       output_b(pmotor); // Mueve el motor 1 vez
+02C6:  CLRF   F93
+02C8:  MOVFF  24,F8A
+....................       
+....................       pmotor *= 2; // Pasamos al siguiente pin para la sig rotacion
+02CC:  BCF    FD8.0
+02CE:  RLCF   24,F
+....................       cont++; // Contador de rotaciones
+02D0:  INCF   23,F
+....................       
+....................       if(pmotor > 8)
+02D2:  MOVF   24,W
+02D4:  SUBLW  08
+02D6:  BC    02DC
+....................          pmotor = 1;
+02D8:  MOVLW  01
+02DA:  MOVWF  24
+....................          
+....................       // Haremos el delay detectando cada milisegundo si se presiono un boton
+....................       for(i = 1; i <= MS ; i++)
+02DC:  CLRF   28
+02DE:  MOVLW  01
+02E0:  MOVWF  27
+02E2:  MOVF   28,W
+02E4:  SUBWF  26,W
+02E6:  BNC   0350
+02E8:  BNZ   02F0
+02EA:  MOVF   27,W
+02EC:  SUBWF  25,W
+02EE:  BNC   0350
+....................       {
+....................          delay_ms(1);
+02F0:  MOVLW  01
+02F2:  MOVWF  34
+02F4:  RCALL  0004
+....................          
+....................          orden[pos] = SEC_R(MS-i, &i); // Le envio los ms maximos que se puede atrapar el codigo. (ms totales - ms que han pasado)
+02F6:  CLRF   03
+02F8:  MOVF   1D,W
+02FA:  ADDLW  04
+02FC:  MOVWF  01
+02FE:  MOVLW  00
+0300:  ADDWFC 03,F
+0302:  MOVFF  01,29
+0306:  MOVFF  03,2A
+030A:  MOVF   27,W
+030C:  SUBWF  25,W
+030E:  MOVWF  2B
+0310:  MOVF   28,W
+0312:  SUBWFB 26,W
+0314:  MOVWF  2C
+0316:  MOVWF  2E
+0318:  MOVFF  2B,2D
+031C:  CLRF   30
+031E:  MOVLW  27
+0320:  MOVWF  2F
+0322:  RCALL  013A
+0324:  MOVFF  2A,FEA
+0328:  MOVFF  29,FE9
+032C:  MOVFF  01,FEF
+....................          
+....................          if(orden[pos] != 0) // Si se detecto un boton y se guardo una posicion en la cola avanzamos
+0330:  CLRF   03
+0332:  MOVF   1D,W
+0334:  ADDLW  04
+0336:  MOVWF  FE9
+0338:  MOVLW  00
+033A:  ADDWFC 03,W
+033C:  MOVWF  FEA
+033E:  MOVF   FEF,F
+0340:  BZ    0348
+....................          {
+....................             pos++;
+0342:  INCF   1D,F
+....................             output_high(LED);
+0344:  BCF    F94.0
+0346:  BSF    F8B.0
+....................          }
+0348:  INCF   27,F
+034A:  BTFSC  FD8.2
+034C:  INCF   28,F
+034E:  BRA    02E2
+....................       }
+0350:  BRA    029C
+....................    }
+....................    output_b(0);
+0352:  CLRF   F93
+0354:  CLRF   F8A
+....................    
+....................    // Delay de 2 segundos
+....................    
+....................    for(i = 1; i <= 2000 ; i++)
+0356:  CLRF   28
+0358:  MOVLW  01
+035A:  MOVWF  27
+035C:  MOVF   28,W
+035E:  SUBLW  07
+0360:  BNC   03CC
+0362:  BNZ   036A
+0364:  MOVF   27,W
+0366:  SUBLW  D0
+0368:  BNC   03CC
+....................    {
+....................       delay_ms(1);
+036A:  MOVLW  01
+036C:  MOVWF  34
+036E:  RCALL  0004
+....................          
+....................       orden[pos] = SEC_R(2000-i, &i); // Le envio los ms maximos que se puede atrapar el codigo. (ms totales - ms que han pasado)
+0370:  CLRF   03
+0372:  MOVF   1D,W
+0374:  ADDLW  04
+0376:  MOVWF  01
+0378:  MOVLW  00
+037A:  ADDWFC 03,F
+037C:  MOVFF  01,29
+0380:  MOVFF  03,2A
+0384:  MOVLW  D0
+0386:  BSF    FD8.0
+0388:  SUBFWB 27,W
+038A:  MOVWF  2B
+038C:  MOVLW  07
+038E:  SUBFWB 28,W
+0390:  MOVWF  2C
+0392:  MOVWF  2E
+0394:  MOVFF  2B,2D
+0398:  CLRF   30
+039A:  MOVLW  27
+039C:  MOVWF  2F
+039E:  RCALL  013A
+03A0:  MOVFF  2A,FEA
+03A4:  MOVFF  29,FE9
+03A8:  MOVFF  01,FEF
+....................          
+....................       if(orden[pos] != 0) // Si se detecto un boton y se guardo una posicion en la cola avanzamos
+03AC:  CLRF   03
+03AE:  MOVF   1D,W
+03B0:  ADDLW  04
+03B2:  MOVWF  FE9
+03B4:  MOVLW  00
+03B6:  ADDWFC 03,W
+03B8:  MOVWF  FEA
+03BA:  MOVF   FEF,F
+03BC:  BZ    03C4
+....................       {
+....................          pos++;
+03BE:  INCF   1D,F
+....................          output_high(LED);
+03C0:  BCF    F94.0
+03C2:  BSF    F8B.0
+....................       }
+03C4:  INCF   27,F
+03C6:  BTFSC  FD8.2
+03C8:  INCF   28,F
+03CA:  BRA    035C
+....................    }
+....................    
+....................    // Regresamos una posicion extra que avanzo
+....................    
+....................    if(pmotor == 1)
+03CC:  DECFSZ 24,W
+03CE:  BRA    03D6
+....................       pmotor = 8;
+03D0:  MOVLW  08
+03D2:  MOVWF  24
+03D4:  BRA    03DA
+....................    else    
+....................       pmotor /= 2;
+03D6:  BCF    FD8.0
+03D8:  RRCF   24,F
+....................    
+....................    // Volvemos la origen
+....................    
+....................    cont = 0;
+03DA:  CLRF   23
+....................    
+....................    while(cont < N)
+03DC:  MOVF   22,F
+03DE:  BNZ   03E6
+03E0:  MOVF   21,W
+03E2:  SUBWF  23,W
+03E4:  BC    0490
+....................    {
+....................       // read_adc() al ser de 10 bits, recibe numeros en el intervalo (0:1023)
+....................       MS = read_adc() * 2 + MIN; // Obtiene el valor del potenciometro
+03E6:  BSF    FC2.1
+03E8:  BTFSC  FC2.1
+03EA:  BRA    03E8
+03EC:  MOVFF  FC4,2A
+03F0:  MOVFF  FC3,29
+03F4:  BCF    FD8.0
+03F6:  RLCF   29,F
+03F8:  RLCF   2A,F
+03FA:  MOVLW  32
+03FC:  ADDWF  29,W
+03FE:  MOVWF  25
+0400:  MOVLW  00
+0402:  ADDWFC 2A,W
+0404:  MOVWF  26
+....................       
+....................       // Queremos que los milisegundos esten en el intervalo establecido al inicio
+....................       //MS = (MS * MAX) / 1023 + MIN; // Probar en fisico, no funciona en simulacion
+....................       
+....................       output_b(pmotor); // Mueve el motor 1 vez
+0406:  CLRF   F93
+0408:  MOVFF  24,F8A
+....................       
+....................       pmotor /= 2; // Pasamos al siguiente pin para la sig rotacion
+040C:  BCF    FD8.0
+040E:  RRCF   24,F
+....................       cont++; // Contador de rotaciones
+0410:  INCF   23,F
+....................       
+....................       if(pmotor == 0)
+0412:  MOVF   24,F
+0414:  BNZ   041A
+....................          pmotor = 8;
+0416:  MOVLW  08
+0418:  MOVWF  24
+....................          
+....................       // Haremos el delay detectando cada milisegundo si se presiono un boton
+....................       for(i = 1; i <= MS ; i++)
+041A:  CLRF   28
+041C:  MOVLW  01
+041E:  MOVWF  27
+0420:  MOVF   28,W
+0422:  SUBWF  26,W
+0424:  BNC   048E
+0426:  BNZ   042E
+0428:  MOVF   27,W
+042A:  SUBWF  25,W
+042C:  BNC   048E
+....................       {
+....................          delay_ms(1);
+042E:  MOVLW  01
+0430:  MOVWF  34
+0432:  RCALL  0004
+....................          
+....................          orden[pos] = SEC_R(MS-i, &i); // Le envio los ms maximos que se puede atrapar el codigo. (ms totales - ms que han pasado)
+0434:  CLRF   03
+0436:  MOVF   1D,W
+0438:  ADDLW  04
+043A:  MOVWF  01
+043C:  MOVLW  00
+043E:  ADDWFC 03,F
+0440:  MOVFF  01,29
+0444:  MOVFF  03,2A
+0448:  MOVF   27,W
+044A:  SUBWF  25,W
+044C:  MOVWF  2B
+044E:  MOVF   28,W
+0450:  SUBWFB 26,W
+0452:  MOVWF  2C
+0454:  MOVWF  2E
+0456:  MOVFF  2B,2D
+045A:  CLRF   30
+045C:  MOVLW  27
+045E:  MOVWF  2F
+0460:  RCALL  013A
+0462:  MOVFF  2A,FEA
+0466:  MOVFF  29,FE9
+046A:  MOVFF  01,FEF
+....................          
+....................          if(orden[pos] != 0) // Si se detecto un boton y se guardo una posicion en la cola avanzamos
+046E:  CLRF   03
+0470:  MOVF   1D,W
+0472:  ADDLW  04
+0474:  MOVWF  FE9
+0476:  MOVLW  00
+0478:  ADDWFC 03,W
+047A:  MOVWF  FEA
+047C:  MOVF   FEF,F
+047E:  BZ    0486
+....................          {
+....................             pos++;
+0480:  INCF   1D,F
+....................             output_high(LED);
+0482:  BCF    F94.0
+0484:  BSF    F8B.0
+....................          }
+0486:  INCF   27,F
+0488:  BTFSC  FD8.2
+048A:  INCF   28,F
+048C:  BRA    0420
+....................       }
+048E:  BRA    03DC
+....................    }
+....................    output_b(0);
+0490:  CLRF   F93
+0492:  CLRF   F8A
+0494:  RETURN 0
+.................... }
+.................... 
+.................... 
+.................... // Funcion para Secuencia con delays (No envia el resultado de las comparaciones hasta que se suelte el boton)
+.................... 
+.................... int SEC_R(int16 MS, int16 *i)
+*
+013A:  CLRF   31
+013C:  CLRF   33
+013E:  CLRF   32
+.................... {
+....................    int r = 0;
+....................    int16 time = 0;
+.................... 
+....................    if(input(S1) && !input(S2) && !input(S3) && !input(S4)) // S1
+0140:  BSF    F95.4
+0142:  BTFSS  F83.4
+0144:  BRA    018E
+0146:  BSF    F95.5
+0148:  BTFSC  F83.5
+014A:  BRA    018E
+014C:  BSF    F95.6
+014E:  BTFSC  F83.6
+0150:  BRA    018E
+0152:  BSF    F95.7
+0154:  BTFSC  F83.7
+0156:  BRA    018E
+....................    {
+....................       while(input(S1) && (time < MS)) // Atrapamos el codigo mientras se presione el boton y no exceda los ms maximos
+0158:  BSF    F95.4
+015A:  BTFSS  F83.4
+015C:  BRA    017A
+015E:  MOVF   33,W
+0160:  SUBWF  2E,W
+0162:  BNC   017A
+0164:  BNZ   016C
+0166:  MOVF   2D,W
+0168:  SUBWF  32,W
+016A:  BC    017A
+....................       {
+....................          delay_ms(1);
+016C:  MOVLW  01
+016E:  MOVWF  34
+0170:  RCALL  0004
+....................          time++;
+0172:  INCF   32,F
+0174:  BTFSC  FD8.2
+0176:  INCF   33,F
+0178:  BRA    0158
+....................       }
+....................       
+....................       if(time < MS) // No se excedieron los ms maximos
+017A:  MOVF   33,W
+017C:  SUBWF  2E,W
+017E:  BNC   018C
+0180:  BNZ   0188
+0182:  MOVF   2D,W
+0184:  SUBWF  32,W
+0186:  BC    018C
+....................          r = 1;
+0188:  MOVLW  01
+018A:  MOVWF  31
+....................    }
+018C:  BRA    0276
+....................    else if(!input(S1) && input(S2) && !input(S3) && !input(S4)) // S2
+018E:  BSF    F95.4
+0190:  BTFSC  F83.4
+0192:  BRA    01DC
+0194:  BSF    F95.5
+0196:  BTFSS  F83.5
+0198:  BRA    01DC
+019A:  BSF    F95.6
+019C:  BTFSC  F83.6
+019E:  BRA    01DC
+01A0:  BSF    F95.7
+01A2:  BTFSC  F83.7
+01A4:  BRA    01DC
+....................    {
+....................       while(input(S2) && (time < MS)) // Atrapamos el codigo mientras se presione el boton y no exceda los ms maximos
+01A6:  BSF    F95.5
+01A8:  BTFSS  F83.5
+01AA:  BRA    01C8
+01AC:  MOVF   33,W
+01AE:  SUBWF  2E,W
+01B0:  BNC   01C8
+01B2:  BNZ   01BA
+01B4:  MOVF   2D,W
+01B6:  SUBWF  32,W
+01B8:  BC    01C8
+....................       {
+....................          time++;
+01BA:  INCF   32,F
+01BC:  BTFSC  FD8.2
+01BE:  INCF   33,F
+....................          delay_ms(1);
+01C0:  MOVLW  01
+01C2:  MOVWF  34
+01C4:  RCALL  0004
+01C6:  BRA    01A6
+....................       }
+....................       
+....................       if(time < MS)
+01C8:  MOVF   33,W
+01CA:  SUBWF  2E,W
+01CC:  BNC   01DA
+01CE:  BNZ   01D6
+01D0:  MOVF   2D,W
+01D2:  SUBWF  32,W
+01D4:  BC    01DA
+....................          r = 2;
+01D6:  MOVLW  02
+01D8:  MOVWF  31
+....................    }
+01DA:  BRA    0276
+....................    else if(!input(S1) && !input(S2) && input(S3) && !input(S4)) // S3
+01DC:  BSF    F95.4
+01DE:  BTFSC  F83.4
+01E0:  BRA    022A
+01E2:  BSF    F95.5
+01E4:  BTFSC  F83.5
+01E6:  BRA    022A
+01E8:  BSF    F95.6
+01EA:  BTFSS  F83.6
+01EC:  BRA    022A
+01EE:  BSF    F95.7
+01F0:  BTFSC  F83.7
+01F2:  BRA    022A
+....................    {
+....................       while(input(S3) && (time < MS)) // Atrapamos el codigo mientras se presione el boton y no exceda los ms maximos
+01F4:  BSF    F95.6
+01F6:  BTFSS  F83.6
+01F8:  BRA    0216
+01FA:  MOVF   33,W
+01FC:  SUBWF  2E,W
+01FE:  BNC   0216
+0200:  BNZ   0208
+0202:  MOVF   2D,W
+0204:  SUBWF  32,W
+0206:  BC    0216
+....................       {
+....................          time++;
+0208:  INCF   32,F
+020A:  BTFSC  FD8.2
+020C:  INCF   33,F
+....................          delay_ms(1);
+020E:  MOVLW  01
+0210:  MOVWF  34
+0212:  RCALL  0004
+0214:  BRA    01F4
+....................       }
+....................       
+....................       if(time < MS)
+0216:  MOVF   33,W
+0218:  SUBWF  2E,W
+021A:  BNC   0228
+021C:  BNZ   0224
+021E:  MOVF   2D,W
+0220:  SUBWF  32,W
+0222:  BC    0228
+....................          r = 3;
+0224:  MOVLW  03
+0226:  MOVWF  31
+....................    }
+0228:  BRA    0276
+....................    else if(!input(S1) && !input(S2) && !input(S3) && input(S4)) // S4
+022A:  BSF    F95.4
+022C:  BTFSC  F83.4
+022E:  BRA    0276
+0230:  BSF    F95.5
+0232:  BTFSC  F83.5
+0234:  BRA    0276
+0236:  BSF    F95.6
+0238:  BTFSC  F83.6
+023A:  BRA    0276
+023C:  BSF    F95.7
+023E:  BTFSS  F83.7
+0240:  BRA    0276
+....................    {
+....................       while(input(S4) && (time < MS)) // Atrapamos el codigo mientras se presione el boton y no exceda los ms maximos
+0242:  BSF    F95.7
+0244:  BTFSS  F83.7
+0246:  BRA    0264
+0248:  MOVF   33,W
+024A:  SUBWF  2E,W
+024C:  BNC   0264
+024E:  BNZ   0256
+0250:  MOVF   2D,W
+0252:  SUBWF  32,W
+0254:  BC    0264
+....................       {
+....................          time++;
+0256:  INCF   32,F
+0258:  BTFSC  FD8.2
+025A:  INCF   33,F
+....................          delay_ms(1);
+025C:  MOVLW  01
+025E:  MOVWF  34
+0260:  RCALL  0004
+0262:  BRA    0242
+....................       }
+....................       
+....................       if(time < MS)
+0264:  MOVF   33,W
+0266:  SUBWF  2E,W
+0268:  BNC   0276
+026A:  BNZ   0272
+026C:  MOVF   2D,W
+026E:  SUBWF  32,W
+0270:  BC    0276
+....................          r = 4;
+0272:  MOVLW  04
+0274:  MOVWF  31
+....................    }
+....................    
+....................    *i += time;
+0276:  MOVFF  2F,FE9
+027A:  MOVFF  30,FEA
+027E:  MOVF   32,W
+0280:  ADDWF  FEF,W
+0282:  MOVWF  01
+0284:  MOVF   33,W
+0286:  ADDWFC FEC,W
+0288:  MOVF   FED,F
+028A:  MOVFF  01,FEF
+028E:  MOVWF  FEC
+....................    
+....................    return r;
+0290:  MOVFF  31,01
+0294:  RETURN 0
+.................... }
+.................... 
+.................... 
+.................... // Funcion para Secuencia sin delays (No se genera cola)
+.................... 
+.................... int SEC_I()
+*
+0030:  CLRF   23
+0032:  MOVLW  01
+0034:  MOVWF  24
+.................... {
+....................    int r = 0, B = 1;
+....................    
+....................    if(input(S1)) // S1
+0036:  BSF    F95.4
+0038:  BTFSS  F83.4
+003A:  BRA    0074
+....................    {
+....................       while(input(S1))
+003C:  BSF    F95.4
+003E:  BTFSS  F83.4
+0040:  BRA    006A
+....................       {
+....................          if(input(S2) || input(S3) || input(S4))
+0042:  BSF    F95.5
+0044:  BTFSC  F83.5
+0046:  BRA    0054
+0048:  BSF    F95.6
+004A:  BTFSC  F83.6
+004C:  BRA    0054
+004E:  BSF    F95.7
+0050:  BTFSS  F83.7
+0052:  BRA    0068
+....................          {
+....................             while(input(S2) || input(S3) || input(S4));
+0054:  BSF    F95.5
+0056:  BTFSC  F83.5
+0058:  BRA    0054
+005A:  BSF    F95.6
+005C:  BTFSC  F83.6
+005E:  BRA    0054
+0060:  BSF    F95.7
+0062:  BTFSC  F83.7
+0064:  BRA    0054
+....................             B = 0;
+0066:  CLRF   24
+....................          }
+0068:  BRA    003C
+....................       }
+....................       
+....................       if(B)
+006A:  MOVF   24,F
+006C:  BZ    0072
+....................          r = 1;
+006E:  MOVLW  01
+0070:  MOVWF  23
+....................    }
+0072:  BRA    012C
+....................    else if(input(S2)) // S2
+0074:  BSF    F95.5
+0076:  BTFSS  F83.5
+0078:  BRA    00B2
+....................    {
+....................       while(input(S2))
+007A:  BSF    F95.5
+007C:  BTFSS  F83.5
+007E:  BRA    00A8
+....................       {
+....................          if(input(S1) || input(S3) || input(S4))
+0080:  BSF    F95.4
+0082:  BTFSC  F83.4
+0084:  BRA    0092
+0086:  BSF    F95.6
+0088:  BTFSC  F83.6
+008A:  BRA    0092
+008C:  BSF    F95.7
+008E:  BTFSS  F83.7
+0090:  BRA    00A6
+....................          {
+....................             while(input(S1) || input(S3) || input(S4));
+0092:  BSF    F95.4
+0094:  BTFSC  F83.4
+0096:  BRA    0092
+0098:  BSF    F95.6
+009A:  BTFSC  F83.6
+009C:  BRA    0092
+009E:  BSF    F95.7
+00A0:  BTFSC  F83.7
+00A2:  BRA    0092
+....................             B = 0;
+00A4:  CLRF   24
+....................          }
+00A6:  BRA    007A
+....................       }
+....................       
+....................       if(B)
+00A8:  MOVF   24,F
+00AA:  BZ    00B0
+....................          r = 2;
+00AC:  MOVLW  02
+00AE:  MOVWF  23
+....................    }
+00B0:  BRA    012C
+....................    else if(input(S3)) // S3
+00B2:  BSF    F95.6
+00B4:  BTFSS  F83.6
+00B6:  BRA    00F0
+....................    {
+....................       while(input(S3))
+00B8:  BSF    F95.6
+00BA:  BTFSS  F83.6
+00BC:  BRA    00E6
+....................       {
+....................          if(input(S1) || input(S2) || input(S4))
+00BE:  BSF    F95.4
+00C0:  BTFSC  F83.4
+00C2:  BRA    00D0
+00C4:  BSF    F95.5
+00C6:  BTFSC  F83.5
+00C8:  BRA    00D0
+00CA:  BSF    F95.7
+00CC:  BTFSS  F83.7
+00CE:  BRA    00E4
+....................          {
+....................             while(input(S1) || input(S2) || input(S4));
+00D0:  BSF    F95.4
+00D2:  BTFSC  F83.4
+00D4:  BRA    00D0
+00D6:  BSF    F95.5
+00D8:  BTFSC  F83.5
+00DA:  BRA    00D0
+00DC:  BSF    F95.7
+00DE:  BTFSC  F83.7
+00E0:  BRA    00D0
+....................             B = 0;
+00E2:  CLRF   24
+....................          }
+00E4:  BRA    00B8
+....................       }
+....................       
+....................       if(B)
+00E6:  MOVF   24,F
+00E8:  BZ    00EE
+....................          r = 3;
+00EA:  MOVLW  03
+00EC:  MOVWF  23
+....................    }
+00EE:  BRA    012C
+....................    else if(input(S4)) // S4
+00F0:  BSF    F95.7
+00F2:  BTFSS  F83.7
+00F4:  BRA    012C
+....................    {
+....................       while(input(S4))
+00F6:  BSF    F95.7
+00F8:  BTFSS  F83.7
+00FA:  BRA    0124
+....................       {
+....................          if(input(S1) || input(S2) || input(S3))
+00FC:  BSF    F95.4
+00FE:  BTFSC  F83.4
+0100:  BRA    010E
+0102:  BSF    F95.5
+0104:  BTFSC  F83.5
+0106:  BRA    010E
+0108:  BSF    F95.6
+010A:  BTFSS  F83.6
+010C:  BRA    0122
+....................          {
+....................             while(input(S1) || input(S2) || input(S3));
+010E:  BSF    F95.4
+0110:  BTFSC  F83.4
+0112:  BRA    010E
+0114:  BSF    F95.5
+0116:  BTFSC  F83.5
+0118:  BRA    010E
+011A:  BSF    F95.6
+011C:  BTFSC  F83.6
+011E:  BRA    010E
+....................             B = 0;
+0120:  CLRF   24
+....................          }
+0122:  BRA    00F6
+....................       }
+....................       
+....................       if(B)
+0124:  MOVF   24,F
+0126:  BZ    012C
+....................          r = 4;
+0128:  MOVLW  04
+012A:  MOVWF  23
+....................    }
+....................    
+....................    delay_ms(200);
+012C:  MOVLW  C8
+012E:  MOVWF  34
+0130:  RCALL  0004
+....................    return r;
+0132:  MOVFF  23,01
+0136:  GOTO   0540 (RETURN)
+.................... }
+
+Configuration Fuses:
+   Word  1: C020   PLL1 CPUDIV1 USBDIV XT FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 0700   CCP2C1 PBADEN LPT1OSC NOMCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

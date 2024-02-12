@@ -1,0 +1,56 @@
+[PROJECT]
+Target=2ra Clase.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.112
+Compiler=PCH
+[Target Data]
+FileList=2ra Clase.c
+[2ra Clase.c]
+Type=4
+[mru-list]
+1=2ra Clase.c
+
+[defines]
+buildcount=56
+
+[ProjectLog]
+Days=2
+D1=23-01-2024
+D1_L=16
+D1_L1=[33379]Stopped Editing.
+D1_L2=[33382]Started Editing.
+D1_L3=[33690]Stopped Editing.
+D1_L4=[34107]Started Editing.
+D1_L5=[34537]Stopped Editing.
+D1_L6=[34973]Started Editing.
+D1_L7=[35548]Stopped Editing.
+D1_L8=[37188]Started Editing.
+D1_L9=[37850]Stopped Editing.
+D1_L10=[38117]Started Editing.
+D1_L11=[39960]Stopped Editing.
+D1_L12=[40046]Started Editing.
+D1_L13=[40493]Stopped Editing.
+D1_L14=[41269]Started Editing.
+D1_L15=[42029]Stopped Editing.
+TotalEdit=55
+TotalDebug=0
+D1_E=55
+D1_D=0
+D1_L16=[42029]Project Closed.
+D2=25-01-2024
+D2_L=2
+D2_L1=[81705]Project Opened.
+D2_L2=[81741]Project Closed.
+
+[Opened Files]
+1=2ra Clase.c
+t1=1
+2=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h
+t2=113
+Count=2
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=2ra Clase (main)

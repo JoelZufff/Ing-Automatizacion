@@ -1,0 +1,211 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-00D vec_c
+00E-013 duty
+014     MODO
+015-018 dist_act
+019-01A dist_prox
+01B-01C cont
+01D     Acoplamiento.direccion
+01D-020 Display.numero
+01D-020 atan2.y
+01D     MAIN.@SCRATCH1
+01E     MAIN.@SCRATCH2
+01E     Acoplamiento.@SCRATCH1
+01F     MAIN.@SCRATCH3
+01F     Acoplamiento.@SCRATCH2
+020     MAIN.@SCRATCH4
+021-024 atan2.x
+021     Display.punto
+021     MAIN.@SCRATCH5
+022     Display.n1
+022     MAIN.@SCRATCH6
+023     Display.n2
+023-026 pow.x
+023     MAIN.@SCRATCH7
+024     Display.n3
+024     MAIN.@SCRATCH8
+025     Display.n4
+025-028 atan2.z
+025     MAIN.@SCRATCH9
+026     @delay_ms1.P1
+026-027 Descomponer.n1
+026     MAIN.@SCRATCH10
+026     Display.@SCRATCH1
+027-02A pow.y
+027     MAIN.@SCRATCH11
+028-029 Descomponer.n2
+028     MAIN.@SCRATCH12
+029.0   atan2.sign
+02A-02B Descomponer.n3
+02A     atan2.quad
+02B-02E fmod.x
+02B     pow.@SCRATCH1
+02C-02D Descomponer.n4
+02C     pow.@SCRATCH2
+02D     pow.@SCRATCH3
+02E-031 Descomponer.numero
+02E     pow.@SCRATCH4
+02F-032 log.x
+02F-032 exp.x
+02F-032 fmod.y
+032-033 Descomponer.entera
+033-036 exp.y
+033-036 fmod.i
+033-036 log.y
+034-037 Descomponer.aux
+037-03A exp.res
+037-03A log.res
+037     fmod.@SCRATCH1
+038-03B Descomponer.decimal
+038     fmod.@SCRATCH2
+039     fmod.@SCRATCH3
+03A     fmod.@SCRATCH4
+03B-03E floor.x
+03B-03E log.r
+03B-03E ceil.x
+03B-03E exp.r
+03C     Descomponer.@SCRATCH1
+03D     Descomponer.@SCRATCH2
+03E     Descomponer.@SCRATCH3
+03F-040 @MUL1616.P1
+03F-042 CEIL_FLOOR.x
+03F-042 log.y2
+03F     exp.n
+03F     Descomponer.@SCRATCH4
+040-041 @DIV1616.P1
+040.0   exp.s
+040     Descomponer.@SCRATCH5
+041-042 @MUL1616.P1
+041     exp.@SCRATCH1
+042-043 @DIV1616.P1
+042     exp.@SCRATCH2
+043     log.n
+043     CEIL_FLOOR.n
+043     exp.@SCRATCH3
+043     @MUL1616.@SCRATCH1
+044-047 CEIL_FLOOR.y
+044     exp.@SCRATCH4
+044     log.@SCRATCH1
+044     @DIV1616.@SCRATCH1
+045-046 @SITOF.P1
+045     log.@SCRATCH2
+046     log.@SCRATCH3
+047     log.@SCRATCH4
+048-04B CEIL_FLOOR.res
+048-04B @DIVFF.P1
+04C-04D CEIL_FLOOR.l
+04C-04F @DIVFF.P1
+04E.0   CEIL_FLOOR.s
+04F-052 @MULFF.P1
+04F-052 @SFTOI.P2
+04F-052 @FLT.P3
+04F     CEIL_FLOOR.@SCRATCH1
+050     CEIL_FLOOR.@SCRATCH2
+050     @DIVFF.@SCRATCH1
+051     CEIL_FLOOR.@SCRATCH3
+051     @DIVFF.@SCRATCH2
+052     CEIL_FLOOR.@SCRATCH4
+052     @DIVFF.@SCRATCH3
+053-056 @FLT.P1
+053-054 @ITOF.P2
+053-056 @ADDFF.P3
+053-056 @MULFF.P4
+053     @DIVFF.@SCRATCH4
+054     @DIVFF.@SCRATCH5
+055     @DIVFF.@SCRATCH6
+057-05A @ADDFF.P1
+057     @FLT.@SCRATCH1
+057     @MULFF.@SCRATCH1
+058     @FLT.@SCRATCH2
+058     @MULFF.@SCRATCH2
+059     @MULFF.@SCRATCH3
+05B     @ADDFF.@SCRATCH1
+05C     @ADDFF.@SCRATCH2
+05D     @ADDFF.@SCRATCH3
+05E     @ADDFF.@SCRATCH4
+05F     @ADDFF.@SCRATCH5
+060     @ADDFF.@SCRATCH6
+061     @ADDFF.@SCRATCH7
+062     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @SFTOI
+00004C  @ITOF
+000082  @FLT
+0000F8  @DIVFF
+000252  @MULFF
+000344  @ADDFF
+0005AE  CEIL_FLOOR
+0008C6  ceil
+0008E0  floor
+0008F8  fmod
+000A52  @SITOF
+000A9A  log
+000DEA  exp
+0011B8  pow
+001484  @DIV1616
+0014C6  @MUL1616
+0014E4  Descomponer
+001ADE  @delay_ms1
+001B06  Display
+001CD4  Acoplamiento
+001D7C  @cinit1
+001D7C  MAIN
+001D94  @cinit2
+
+Project Directory:
+    C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 7\
+
+Project Files:
+    Practica 7.c                                            [11-oct.-23 09:29  CRC=AB4EBD7A]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [05-may.-20 13:57  CRC=02232397]
+
+Source signature=03ADB47E
+Program memory checksum=0000
+Hex file CRC=1B58
+
+Units:
+    C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 7\Practica 7 (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   Practica 7.xsym
+    Errors:      Practica 7.err
+    Ext Symbols: Practica 7.esym
+    INHX32:      Practica 7.hex
+    Symbols:     Practica 7.sym
+    List:        Practica 7.lst
+    Debug/COFF:  Practica 7.cof
+    Project:     Practica 7.ccspjt
+    Call Tree:   Practica 7.tre
+    Statistics:  Practica 7.STA

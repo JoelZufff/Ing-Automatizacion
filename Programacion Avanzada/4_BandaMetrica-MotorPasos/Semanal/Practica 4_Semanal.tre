@@ -1,0 +1,28 @@
+ÀÄPractica 4_Semanal
+   ÀÄmain  0/400  Ram=7
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄSEC_I  0/266  Ram=2
+      ³  ÀÄ@delay_ms1  0/44  Ram=1
+      ÃÄ@delay_ms1  0/44  Ram=1
+      ÃÄSEC_R  0/348  Ram=11
+      ³  ÃÄ@delay_ms1  0/44  Ram=1
+      ³  ÃÄ@delay_ms1  0/44  Ram=1
+      ³  ÃÄ@delay_ms1  0/44  Ram=1
+      ³  ÀÄ@delay_ms1  0/44  Ram=1
+      ÃÄROTAR  0/512  Ram=12
+      ³  ÃÄ@delay_ms1  0/44  Ram=1
+      ³  ÃÄSEC_R  0/348  Ram=11
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms1  0/44  Ram=1
+      ³  ÃÄSEC_R  0/348  Ram=11
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms1  0/44  Ram=1
+      ³  ÀÄSEC_R  0/348  Ram=11
+      ³     ÀÄ*
+      ÃÄROTAR  0/512  Ram=12
+      ³  ÀÄ*
+      ÃÄROTAR  0/512  Ram=12
+      ³  ÀÄ*
+      ÀÄROTAR  0/512  Ram=12
+         ÀÄ*

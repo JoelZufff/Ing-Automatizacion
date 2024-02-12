@@ -1,0 +1,120 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-00D vec_c
+00E-00F delay
+010-013 main.data
+014     main.i
+015-018 display.numero
+019     display.punto
+01A     display.n1
+01B     display.n2
+01C     display.n3
+01D-01E descomponer.n1
+01D     display.@SCRATCH1
+01E     display.@SCRATCH2
+01F-020 descomponer.n2
+01F     display.@SCRATCH3
+020     @delay_us1.P1
+020     display.@SCRATCH4
+021-022 descomponer.n3
+023-026 descomponer.numero
+027-028 descomponer.entera
+029-02C descomponer.aux
+02D-030 descomponer.decimal
+031-034 @FLT.P1
+031-034 @MULFF.P2
+031-034 @ADDFF.P3
+031-032 @ITOF.P4
+031     descomponer.@SCRATCH1
+032     descomponer.@SCRATCH2
+033-036 @SFTOI.P1
+033-034 @DIV1616.P2
+033     descomponer.@SCRATCH3
+034     descomponer.@SCRATCH4
+035-036 @DIV1616.P1
+035-038 @MULFF.P2
+035-038 @ADDFF.P3
+035-038 @FLT.P4
+037     @DIV1616.@SCRATCH1
+039     @MULFF.@SCRATCH1
+039     @ADDFF.@SCRATCH1
+039     @FLT.@SCRATCH1
+03A     @MULFF.@SCRATCH2
+03A     @ADDFF.@SCRATCH2
+03A     @FLT.@SCRATCH2
+03B     @MULFF.@SCRATCH3
+03B     @ADDFF.@SCRATCH3
+03C     @ADDFF.@SCRATCH4
+03D     @ADDFF.@SCRATCH5
+03E     @ADDFF.@SCRATCH6
+03F     @ADDFF.@SCRATCH7
+040     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @ITOF
+000048  @MULFF
+00013A  @ADDFF
+0003A4  @SFTOI
+0003DC  @FLT
+000452  @DIV1616
+000494  descomponer
+00077C  @delay_us1
+0007A0  display
+0009DA  main
+0009DA  @cinit1
+0009EA  @cinit2
+
+Project Directory:
+    C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 5\En clase\
+
+Project Files:
+    Practica 5.c                                            [23-sep.-23 17:05  CRC=39A3DFC7]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+
+Source signature=E1D53F73
+Program memory checksum=0000
+Hex file CRC=96C5
+
+Units:
+    C:\Users\diego\Desktop\Programacion Avanzada\Practicas\Practica 5\En clase\Practica 5 (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   Practica 5.xsym
+    Errors:      Practica 5.err
+    Ext Symbols: Practica 5.esym
+    INHX32:      Practica 5.hex
+    Symbols:     Practica 5.sym
+    List:        Practica 5.lst
+    Debug/COFF:  Practica 5.cof
+    Project:     Practica 5.ccspjt
+    Call Tree:   Practica 5.tre
+    Statistics:  Practica 5.STA

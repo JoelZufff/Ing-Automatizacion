@@ -1,0 +1,13 @@
+ÀÄPractica 2_Semanal
+   ÀÄmain  0/234  Ram=4
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄdisplays  0/70  Ram=3
+      ³  ÃÄ@delay_ms1  0/42  Ram=1
+      ³  ÀÄ@delay_ms1  0/42  Ram=1
+      ÃÄdisplays  0/70  Ram=3
+      ³  ÀÄ*
+      ÃÄdisplays  0/70  Ram=3
+      ³  ÀÄ*
+      ÀÄdisplays  0/70  Ram=3
+         ÀÄ*

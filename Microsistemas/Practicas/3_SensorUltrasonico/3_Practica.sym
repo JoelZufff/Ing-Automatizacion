@@ -1,0 +1,142 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     @INTERRUPT_AREA
+018     @INTERRUPT_AREA
+019-022 catodo
+023-026 distance
+027-02A display_print.number
+02B-02C display_print.integer
+02D     display_print.n1
+02E     display_print.n2
+02F     display_print.n3
+030-031 @DIV1616.P1
+030-033 @FLT.P2
+030     @delay_ms1.P3
+030-033 @SFTOI.P4
+030-033 @MULFF.P5
+030     display_print.@SCRATCH1
+032-033 @DIV1616.P1
+034-037 @MULFF.P1
+034-037 @FLT.P2
+034     @DIV1616.@SCRATCH1
+038     @FLT.@SCRATCH1
+038     @MULFF.@SCRATCH1
+039     @FLT.@SCRATCH2
+039     @MULFF.@SCRATCH2
+03A     @MULFF.@SCRATCH3
+03B     get_distance.@SCRATCH1
+03C     get_distance.@SCRATCH2
+03D-03E @PRINTF_LU_9600_31766_31767.P1
+03D     @PSTRINGCN_9600_31766_31767.P2
+03E     @PSTRINGCN_9600_31766_31767.@SCRATCH1
+03F     @PSTRINGCN_9600_31766_31767.@SCRATCH2
+03F     @PRINTF_LU_9600_31766_31767.@SCRATCH1
+040     @PRINTF_LU_9600_31766_31767.@SCRATCH2
+041     @PRINTF_LU_9600_31766_31767.@SCRATCH3
+042     @PRINTF_LU_9600_31766_31767.@SCRATCH4
+043     @PRINTF_LU_9600_31766_31767.@SCRATCH5
+044     @PRINTF_LU_9600_31766_31767.@SCRATCH6
+045     @PRINTF_LU_9600_31766_31767.@SCRATCH7
+F81.0   ECHO
+F83     PSP_DATA
+F8A.1   TRIGGER
+F8A.2   D1
+F8A.3   D2
+F8A.4   D3
+F8C     DISPLAY
+F93     TRISB
+F95     TRISD
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FD5     T0CON
+FD5.7   TMR0ON
+FD6     TMR0L
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF1.2   TMR0IP
+FF2     INTCON
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+FF7     TMR0H
+
+ROM Allocation:
+0000AE  @PSTRINGCN_9600_31766_31767
+0000D0  @PRINTF_LU_9600_31766_31767
+00017E  get_distance
+0001E6  @const755.call
+0001F6  @FLT
+00026C  @MULFF
+00035E  @SFTOI
+000396  @DIV1616
+0003D8  @delay_ms1
+0003FE  display_print
+000672  MAIN
+000672  @cinit1
+0006A0  @cinit2
+
+Project Directory:
+    C:\Users\diego\Desktop\Microsistemas\Practicas\3_SensorUltrasonico\
+
+Project Files:
+    3_Practica.c                                            [11-feb.-24 23:38  CRC=9470192D]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+
+Source signature=3CA178D9
+Program memory checksum=0000
+Hex file CRC=78B7
+
+Units:
+    C:\Users\diego\Desktop\Microsistemas\Practicas\3_SensorUltrasonico\3_Practica (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   3_Practica.xsym
+    Errors:      3_Practica.err
+    Ext Symbols: 3_Practica.esym
+    INHX32:      3_Practica.hex
+    Symbols:     3_Practica.sym
+    List:        3_Practica.lst
+    Debug/COFF:  3_Practica.cof
+    Project:     3_Practica.ccspjt
+    Call Tree:   3_Practica.tre
+    Statistics:  3_Practica.STA

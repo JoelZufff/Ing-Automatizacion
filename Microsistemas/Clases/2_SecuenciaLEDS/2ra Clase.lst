@@ -1,0 +1,238 @@
+CCS PCH C Compiler, Version 5.112, 29001               25-ene.-24 22:41
+
+               Filename:   C:\Users\diego\Desktop\Automatizacion\Microsistemas\2\2ra Clase.lst
+
+               ROM used:   274 bytes (1%)
+                           Largest free fragment is 32494
+               RAM used:   6 (0%) at main() level
+                           7 (0%) worst case
+               Stack used: 0 locations
+               Stack size: 31
+
+*
+0000:  GOTO   0030
+.................... // Preprocesadores de Microcontrolador //
+.................... #include    <18f4550.h>                                        // Libreria del Microcontrolador
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+*
+00F0:  ADDWF  FE8,W
+00F2:  CLRF   FF7
+00F4:  RLCF   FF7,F
+00F6:  ADDLW  0B
+00F8:  MOVWF  FF6
+00FA:  MOVLW  01
+00FC:  ADDWFC FF7,F
+00FE:  TBLRD*-
+0100:  MOVF   FF5,W
+0102:  MOVWF  FFA
+0104:  TBLRD*
+0106:  MOVF   FF5,W
+0108:  MOVWF  FF9
+010A:  DATA 60,00
+010C:  DATA 72,00
+010E:  DATA 82,00
+0110:  DATA 96,00
+.................... 
+.................... #list
+.................... 
+.................... #fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP         // Fusibles (Configuraciones del microcontrolador)
+.................... #use        delay(clock = 8M)                                  // Configuracion de frecuencia y delay
+*
+0004:  CLRF   FEA
+0006:  MOVLW  07
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BTFSC  FD8.2
+000E:  GOTO   002C
+0012:  MOVLW  02
+0014:  MOVWF  01
+0016:  CLRF   00
+0018:  DECFSZ 00,F
+001A:  BRA    0018
+001C:  DECFSZ 01,F
+001E:  BRA    0016
+0020:  MOVLW  97
+0022:  MOVWF  00
+0024:  DECFSZ 00,F
+0026:  BRA    0024
+0028:  DECFSZ FEF,F
+002A:  BRA    0012
+002C:  GOTO   00EC (RETURN)
+.................... 
+.................... // Establecemos direccion de registros
+.................... #BYTE       TRISB = 0xF93           // Configurar Pines
+.................... #BYTE       LATB  = 0xF8A           // Output
+.................... 
+.................... #BYTE       TRISD = 0xF95
+.................... #BYTE       PORTD = 0xF83
+.................... 
+.................... void main()
+0030:  CLRF   FF8
+0032:  BCF    FD0.7
+0034:  MOVLW  70
+0036:  MOVWF  FD3
+0038:  MOVF   FD3,W
+003A:  MOVF   FC1,W
+003C:  ANDLW  C0
+003E:  IORLW  0F
+0040:  MOVWF  FC1
+0042:  MOVLW  07
+0044:  MOVWF  FB4
+0046:  CLRF   05
+0048:  CLRF   06
+.................... {
+....................     int secuencia = 0, leds = 0;
+....................     
+....................     TRISB = 0;                  // 0 Salida | 1 Entrada
+004A:  CLRF   F93
+....................     TRISD = 0b00001111;
+004C:  MOVLW  0F
+004E:  MOVWF  F95
+....................    
+....................     while (true)
+....................     {   
+....................         LATB = 0;
+0050:  CLRF   F8A
+.................... 
+....................         // Establecemos nuevo valor de leds
+....................         switch (secuencia)
+0052:  MOVLW  01
+0054:  SUBWF  05,W
+0056:  ADDLW  FC
+0058:  BC    00A8
+005A:  ADDLW  04
+005C:  GOTO   00F0
+....................         {
+....................             case 1:
+....................                 leds != 0b11111111 ? (leds++) : (leds = 0b00000001);
+0060:  INCFSZ 06,W
+0062:  BRA    0066
+0064:  BRA    006C
+0066:  MOVF   06,W
+0068:  INCF   06,F
+006A:  BRA    0070
+006C:  MOVLW  01
+006E:  MOVWF  06
+....................             break;
+0070:  BRA    00A8
+....................             case 2:
+....................                 leds >= 0b00000001 ? (leds--) : (leds = 0b11111111);
+0072:  MOVF   06,W
+0074:  SUBLW  00
+0076:  BC    007E
+0078:  MOVF   06,W
+007A:  DECF   06,F
+007C:  BRA    0080
+007E:  SETF   06
+....................             break;
+0080:  BRA    00A8
+....................             case 3:
+....................                 leds != 0b10000000 ? (leds <<= 1) : (leds = 0b00000001);
+0082:  MOVF   06,W
+0084:  SUBLW  80
+0086:  BZ    0090
+0088:  BCF    FD8.0
+008A:  RLCF   06,F
+008C:  MOVF   06,W
+008E:  BRA    0094
+0090:  MOVLW  01
+0092:  MOVWF  06
+....................             break;
+0094:  BRA    00A8
+....................             case 4:
+....................                 leds != 0b00000001 ? (leds >>= 1) : (leds = 0b10000000);
+0096:  DECFSZ 06,W
+0098:  BRA    009C
+009A:  BRA    00A4
+009C:  BCF    FD8.0
+009E:  RRCF   06,F
+00A0:  MOVF   06,W
+00A2:  BRA    00A8
+00A4:  MOVLW  80
+00A6:  MOVWF  06
+....................             break;
+....................         }
+....................         
+....................         // Reproducimos secuencia
+....................         switch (PORTD)
+00A8:  MOVF   F83,W
+00AA:  XORLW  01
+00AC:  BZ    00BC
+00AE:  XORLW  03
+00B0:  BZ    00C4
+00B2:  XORLW  06
+00B4:  BZ    00CC
+00B6:  XORLW  0C
+00B8:  BZ    00D6
+00BA:  BRA    00DE
+....................         {
+....................             case 1:
+....................                 secuencia = 1;
+00BC:  MOVLW  01
+00BE:  MOVWF  05
+....................                 leds = 0b00000001;
+00C0:  MOVWF  06
+....................             break;
+00C2:  BRA    00DE
+....................             case 2:
+....................                 secuencia = 2;
+00C4:  MOVLW  02
+00C6:  MOVWF  05
+....................                 leds = 0b11111111;
+00C8:  SETF   06
+....................             break;
+00CA:  BRA    00DE
+....................             case 4:
+....................                 secuencia = 3;
+00CC:  MOVLW  03
+00CE:  MOVWF  05
+....................                 leds = 0b00000001;
+00D0:  MOVLW  01
+00D2:  MOVWF  06
+....................             break;
+00D4:  BRA    00DE
+....................             case 8:
+....................                 secuencia = 4;
+00D6:  MOVLW  04
+00D8:  MOVWF  05
+....................                 leds = 0b10000000;
+00DA:  MOVLW  80
+00DC:  MOVWF  06
+....................             break;
+....................         }
+....................         while(PORTD);
+00DE:  MOVF   F83,F
+00E0:  BNZ   00DE
+.................... 
+....................         // Ejecutamos secuencia
+....................         LATB = leds;
+00E2:  MOVFF  06,F8A
+....................         delay_ms(200);
+00E6:  MOVLW  C8
+00E8:  MOVWF  07
+00EA:  BRA    0004
+00EC:  BRA    0050
+....................     }
+.................... }
+.................... 
+00EE:  SLEEP 
+.................... 
+
+Configuration Fuses:
+   Word  1: C920   PLL1 CPUDIV1 USBDIV INTRC FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

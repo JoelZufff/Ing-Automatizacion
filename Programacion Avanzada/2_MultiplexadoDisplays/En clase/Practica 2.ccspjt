@@ -1,0 +1,55 @@
+[PROJECT]
+Target=Practica 2.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.112
+Compiler=PCH
+[Target Data]
+FileList=Practica 2.c
+[Practica 2.c]
+Type=4
+[mru-list]
+1=Practica 2.c
+
+[defines]
+buildcount=36
+
+[Opened Files]
+1=Practica 2.c
+t1=18
+Count=1
+
+[ProjectLog]
+Days=3
+D1=19-08-2023
+D1_L=12
+D1_L1=[45191]Stopped Editing.
+TotalEdit=71
+TotalDebug=0
+D1_E=71
+D1_D=0
+D1_L2=[45191]Project Closed.
+D1_L3=[69745]Project Opened.
+D1_L4=[69762]Project Closed.
+D1_L5=[69815]Project Opened.
+D1_L6=[69821]Started Editing.
+D1_L7=[69832]Stopped Editing.
+D1_L8=[69832]Project Closed.
+D1_L9=[69884]Project Opened.
+D1_L10=[69903]Started Editing.
+D1_L11=[70007]Stopped Editing.
+D1_L12=[70007]Project Closed.
+D2=23-08-2023
+D2_L=3
+D2_L1=[76863]Project Opened.
+D2_L2=[77318]Started Editing.
+D2_L3=[78686]Project Closed.
+D3=01-09-2023
+D3_L=2
+D3_L1=[44106]Project Opened.
+D3_L2=[44140]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=Practica 2 (main)

@@ -1,0 +1,93 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-03B frames
+03C     main.i
+03D     main.j
+03E-03F main.time
+040-041 @DIVS1616.P1
+040     main.@SCRATCH1
+041     main.@SCRATCH2
+042-043 walk_animation.time
+042-043 @DIVS1616.P1
+044     walk_animation.i
+044     @DIVS1616.@SCRATCH1
+045     walk_animation.j
+045     @DIVS1616.@SCRATCH2
+046     walk_animation.k
+047     walk_animation.l
+048     @delay_ms1.P1
+048-049 @DIV1616.P2
+048     walk_animation.@SCRATCH1
+049     walk_animation.@SCRATCH2
+04A-04B @DIV1616.P1
+04C     @DIV1616.@SCRATCH1
+F80.0   PORTA0
+F83     PSP_DATA
+F8A     ROWS_LATB
+F8C     COLS_LATD
+F92     TRISA
+F93     TRISB
+F95     TRISD
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002E  @DIVS1616
+0000A2  @DIV1616
+0000E6  walk_animation
+000176  main
+000176  @cinit1
+00018C  @cinit2
+
+Project Directory:
+    C:\Users\diego\Desktop\Automatizacion\Microsistemas\Practicas\1\
+
+Project Files:
+    1_Practica.c                                            [30-ene.-24 09:06  CRC=D86A24A9]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+
+Source signature=809B8455
+Program memory checksum=0000
+Hex file CRC=2E65
+
+Units:
+    C:\Users\diego\Desktop\Automatizacion\Microsistemas\Practicas\1\1_Practica (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   1_Practica.xsym
+    Errors:      1_Practica.err
+    Ext Symbols: 1_Practica.esym
+    INHX32:      1_Practica.hex
+    Symbols:     1_Practica.sym
+    List:        1_Practica.lst
+    Debug/COFF:  1_Practica.cof
+    Project:     1_Practica.ccspjt
+    Call Tree:   1_Practica.tre
+    Statistics:  1_Practica.STA

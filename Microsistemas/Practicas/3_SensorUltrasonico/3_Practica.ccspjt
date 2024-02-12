@@ -1,0 +1,89 @@
+[PROJECT]
+Target=3_Practica.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.112
+Compiler=PCH
+[Target Data]
+FileList=3_Practica.c
+[3_Practica.c]
+Type=4
+[mru-list]
+1=3_Practica.c
+
+[defines]
+buildcount=117
+
+[Opened Files]
+1=3_Practica.c
+t1=33
+Count=1
+
+[ProjectLog]
+Days=4
+D1=08-02-2024
+D1_L=2
+D1_L1=[84449]Started Editing.
+D1_L2=[84768]Stopped Editing.
+TotalEdit=23
+TotalDebug=0
+D2=09-02-2024
+D2_E=2
+D2_D=0
+D2_L=9
+D2_L1=[2583]Project Closed.
+D2_L2=[4656]Project Opened.
+D2_L3=[4663]Started Editing.
+D2_L4=[4964]Stopped Editing.
+D2_L5=[5062]Project Closed.
+D2_L6=[5375]Project Opened.
+D2_L7=[5382]Project Closed.
+D2_L8=[5405]Project Opened.
+D2_L9=[5411]Project Closed.
+D3=10-02-2024
+D3_L=22
+D3_L1=[33958]Project Opened.
+D3_L2=[34011]Started Editing.
+D3_L3=[34103]Stopped Editing.
+D3_E=20
+D3_D=0
+D3_L4=[34103]Project Closed.
+D3_L5=[34760]Project Opened.
+D3_L6=[34930]Started Editing.
+D3_L7=[35406]Stopped Editing.
+D3_L8=[35959]Started Editing.
+D3_L9=[36411]Stopped Editing.
+D3_L10=[36962]Started Editing.
+D3_L11=[37043]Stopped Editing.
+D3_L12=[37043]Project Closed.
+D3_L13=[62497]Project Opened.
+D3_L14=[80308]Started Editing.
+D3_L15=[80610]Stopped Editing.
+D3_L16=[81442]Started Editing.
+D3_L17=[82163]Stopped Editing.
+D3_L18=[83587]Started Editing.
+D3_L19=[83890]Stopped Editing.
+D3_L20=[84184]Started Editing.
+D3_L21=[84660]Stopped Editing.
+D3_L22=[85955]Project Closed.
+D4=11-02-2024
+D4_L=12
+D4_L1=[78199]Project Opened.
+D4_L2=[78750]Project Closed.
+D4_L3=[80063]Project Opened.
+D4_L4=[82003]Started Editing.
+D4_L5=[82304]Stopped Editing.
+D4_L6=[83222]Started Editing.
+D4_L7=[83522]Stopped Editing.
+D4_L8=[85088]Started Editing.
+D4_L9=[85113]Stopped Editing.
+D4_E=1
+D4_D=0
+D4_L10=[85113]Project Closed.
+D4_L11=[85123]Project Opened.
+D4_L12=[85264]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=3_Practica (main)

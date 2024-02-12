@@ -1,0 +1,5 @@
+Compiling C:\Users\diego\Desktop\Automatizacion\Microsistemas\Clases\3\3ra Clase on 30-ene.-24 at 11:32
+>>> Warning 216 "C:\Users\diego\Desktop\Automatizacion\Microsistemas\Clases\3\3ra Clase.c" Line 79(1,2): Interrupts disabled during call to prevent re-entrancy:  (@delay_ms1)
+      Memory usage:   ROM=2%      RAM=1% - 2%
+      0 Errors,  1 Warnings.
+Build Successful.

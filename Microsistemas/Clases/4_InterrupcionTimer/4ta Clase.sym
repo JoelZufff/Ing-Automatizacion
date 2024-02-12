@@ -1,0 +1,91 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     @INTERRUPT_AREA
+018     @INTERRUPT_AREA
+F81     PORTB
+F83     PSP_DATA
+F8A     LATB
+F93     TRISB
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FD5     T0CON
+FD6     TMR0L
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF1.2   TMR0IP
+FF2     INTCON
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0000AE  TIMER0_isr
+0000BC  MAIN
+0000BC  @cinit1
+0000CE  @cinit2
+
+Project Directory:
+    C:\Users\diego\Desktop\Microsistemas\Clases\4\
+
+Project Files:
+    4ta Clase.c                                             [06-feb.-24 10:52  CRC=6C15DE9D]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+
+Source signature=14473E49
+Program memory checksum=0000
+Hex file CRC=D7B3
+
+Units:
+    C:\Users\diego\Desktop\Microsistemas\Clases\4\4ta Clase (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   4ta Clase.xsym
+    Errors:      4ta Clase.err
+    Ext Symbols: 4ta Clase.esym
+    INHX32:      4ta Clase.hex
+    Symbols:     4ta Clase.sym
+    List:        4ta Clase.lst
+    Debug/COFF:  4ta Clase.cof
+    Project:     4ta Clase.ccspjt
+    Call Tree:   4ta Clase.tre
+    Statistics:  4ta Clase.STA

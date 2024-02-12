@@ -1,0 +1,88 @@
+#include <18f4550.h>   // Libreria del Microcontrolador
+//#device adc = 10 // Resolucion del ADC en bits
+#fuses INTRC, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1 // Fusibles (Configuraciones del microcontrolador)
+#use delay(clock = 8M)
+// rs232(rcp = (Pin receptor), xmit = (pin transmisor), baud = (Velocidad de transferencia), bits = 8, parity = n)
+#use rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n)
+#include <stdlib.h>
+
+#define BOTON PIN_D1
+#define LED PIN_D3 // Informa si hay una ubicacion nueva para imprimir
+#define BufferMAX 50
+
+char Buffer[BufferMAX];
+int flag = 0;
+float Latitud = 0.0, Longitud = 0.0;
+
+// Solo hay conflicto si se utiliza en transmisor en la interrupcion del receptor (Se desincroniza).
+// Se puede transmitir datos pero fuera de la interrupcion de recepcion
+
+// Interrupcion para recibir datos de GPS
+#int_rda
+void ReceptGPS()
+{
+   int i;
+   char signal = getch();
+   char BufferLat[10], BufferLon[11];
+   
+   if(signal == '$')
+   {
+      for(i = 0; i < BufferMAX; i++)
+      {
+         Buffer[i] = getch();
+      }
+      
+      if(Buffer[2] == 'R' && Buffer[3] == 'M' && Buffer[4] == 'C' && i >= 16)      // Buffer tiene una lectura de ubicacion
+      {
+         if(Buffer[16] == 'A')            // La lectura es valida
+         {
+            output_high(LED);
+            
+            // Actualizar variables de ubicacion
+            
+            for(i = 0; i < 11; i++)
+            {
+               BufferLon[i] = Buffer[31 + i];
+               
+               if(i < 10)
+                  BufferLat[i] = Buffer[18 + i];
+            }
+            
+            Latitud = atof(strtof(10,BufferLat));
+            
+            flag = 1; // La ubicacion fue actualizada
+         }
+         else {}                          // La lectura no es valida
+      }
+   }
+      
+}
+
+void main()
+{  
+   enable_interrupts(GLOBAL);       enable_interrupts(int_rda);
+   
+   printf("Bienvenido, presione el boton para obtener la ubicacion\r\n\r\n");
+   
+   while(true)
+   {
+      // Bandera para actualizar ubicacion
+      
+      if(input(BOTON)) // Quiero saber ubicacion
+      {
+         while(input(BOTON));
+         
+         if(flag) // Si hay una ubicacion para imprimir
+         {
+            // Imprime la ubicacion
+            printf("Se recibio la ubicacion\r\n");
+            
+            output_low(LED);
+            flag = 0; // Se espera una actualizacion de ubicacion
+         }
+         else
+            //printf("%s",Buffer);
+            printf("No hay ubicacion disponible\r\n");
+      }      
+   }
+}

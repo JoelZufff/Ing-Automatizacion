@@ -1,0 +1,90 @@
+CCS PCH C Compiler, Version 5.112, 29001               19-ene.-24 13:19
+
+               Filename:   C:\Users\diego\Desktop\Automatizacion\Microsistemas\1\1ra Clase.lst
+
+               ROM used:   40 bytes (0%)
+                           Largest free fragment is 32728
+               RAM used:   4 (0%) at main() level
+                           4 (0%) worst case
+               Stack used: 0 locations
+               Stack size: 31
+
+*
+0000:  GOTO   0004
+.................... // Preprocesadores de Microcontrolador //
+.................... #include    <18f4550.h>                                        // Libreria del Microcontrolador
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+.................... 
+.................... #list
+.................... 
+.................... #fuses      INTRC, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1      // Fusibles (Configuraciones del microcontrolador)
+.................... #use        delay(clock = 8M)                                  // Configuracion de delay
+.................... 
+.................... // Establecemos direccion de registros
+.................... #BYTE       TRISB = 0xF93
+.................... #BYTE       PORTB = 0xF81
+.................... #BYTE       LATB  = 0xF8A
+.................... 
+.................... // Un microcontrolador de 8 bits, realiza una operacion de 8 bits en un ciclo de reloj
+.................... 
+.................... // Menor consumo de compuertas logicas -> menor latencia
+.................... // 1 / (8 Mhz) = 125 ns cada ciclo de trabajo
+.................... 
+.................... void main()
+0004:  CLRF   FF8
+0006:  BCF    FD0.7
+0008:  MOVLW  70
+000A:  MOVWF  FD3
+000C:  MOVF   FD3,W
+000E:  MOVF   FC1,W
+0010:  ANDLW  C0
+0012:  IORLW  0F
+0014:  MOVWF  FC1
+0016:  MOVLW  07
+0018:  MOVWF  FB4
+.................... {
+....................     // EJEMPLO CON REGISTROS
+....................     TRISB = 0;                  // Establecemos pines del puerto B como salida
+001A:  CLRF   F93
+....................    
+....................     while (true)                // 2 us | 16 ciclos de reloj
+....................     {
+....................         LATB = 0b00000001;      // output_high | 0.5 us | 4 Ciclos de reloj
+001C:  MOVLW  01
+001E:  MOVWF  F8A
+....................         LATB = 0;               // output_low  | 0.5 us | 4 Ciclos de reloj
+0020:  CLRF   F8A
+0022:  GOTO   001C
+....................     }
+....................     
+....................     /* EJEMPLO CON FUNCIONES DE PIC C
+....................     while(true)                  // 1.5 us | 12 Ciclos de reloj
+....................     {
+....................         output_high(PIN_B0);     // 1 us | 8 Ciclos de reloj
+....................         output_low(PIN_B0);      // 1 us | 8 Ciclos de reloj
+....................     }*/
+.................... 
+....................     // Con registros la instruccion ocupa la mitad de ciclos de reloj
+.................... }
+.................... 
+0026:  SLEEP 
+.................... 
+
+Configuration Fuses:
+   Word  1: C920   PLL1 CPUDIV1 USBDIV INTRC FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

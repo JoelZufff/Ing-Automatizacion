@@ -1,0 +1,10 @@
+ÀÄ1_Practica
+   ÀÄmain  0/326  Ram=6
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄ@delay_ms1  0/42  Ram=1
+      ÃÄ@DIVS1616  0/116  Ram=6
+      ÃÄwalk_animation  0/144  Ram=8
+      ³  ÃÄ@DIV1616  0/68  Ram=5
+      ³  ÀÄ@delay_ms1  0/42  Ram=1
+      ÀÄ@DIVS1616  0/116  Ram=6

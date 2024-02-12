@@ -1,0 +1,422 @@
+Circuitos integrados programables limitados (GAL, EEPROM, Micros, DSP, DSC)
+Circuitos integrados de unico proposito (NE555, LM371, TL084)
+
+Algebra booleana
+a * b = AND
+a + b = OR
+
+Investigar postulados del algebra de bool
+
+Menor consumo de compuertas logicas -> menor latencia
+
+Arquitecturas de microcontroladores
+Bonenewman
+Hardvard
+
+Todos los pines tienen estos 3 registros:
+
+TRIS: Establecemos el pin como entrada o salida
+PORT: Input
+LAT:  Output
+
+-----------------------------------------------------------------------------------------------------------------------
+
+WDT: Reinicia el microcontrolador durante la ejecucion cada cierto tiempo, reseteado asi la memoria RAM
+
+Registros para el control del multiplexador del oscilador
+FOSC (4 bits)
+OSCCON
+
+Microcontroladores discretos: Ocupa un oscilador para saber en que lapsos de tiempo trabajar
+-----------------------------------------------------------------------------------------------------------------------
+
+Interrupciones: Tienen jerarquias e interrumpen la secuencia de ejecucion, si se detecta una señal.
+
+Externa: Una señal externa (Boton, sensor, etc)
+Interna: Mediante un timer o recurso interno
+
+La prioridad de las interrupciones se habilita con el bit IPEN (7mo bit en el registro RCON)
+
+Registro INTCON, INTCON2 e INTCON3: 8 bits para configuracion de interrupciones
+
+Banderas: Podemos activar manualmente una interrupcion, mediante una bandera.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ADC
+
+El ADC siempre convierte los datos en 10 bits, y ocupa 2 ciclos maquina para la conversion. 
+La conversion del ADC funciona en paralelo, cada ciertos ciclos de reloj
+
+REGISTROS UTILIZADOS
+Los bits que no aparecen son 0
+
+Registro ADRESH: Parte alta del resultado del ADC
+
+Registro ADRESL: Parte baja del resultado del ADC
+
+Registo ADCON0:
+BIT 0 --- ADON: A/D On bit
+Activamos el ADC
+
+BIT 1 --- GO/DONE: A/D Conversion Status bit
+Bandera para saber el estatus de la conversion (1 conversion en progreso, 0 inactivo)
+
+BIT 5-2 --- CHS3:CHS0: Analog Channel Select bits
+Seleccion del canal ADC a leer
+
+
+Registro ADCON1:
+BIT 0-3 --- PCFG3:PCFG0: A/D Port Configuration Control bits
+Seleccion de puertos analogicos a utilizar
+
+BIT 4 --- VCFG0: Voltage Reference Configuration bit (VREF+ source)
+Activacion del voltaje de referencia superior
+
+BIT 5 --- VCFG1: Voltage Reference Configuration bit (VREF- source)
+Activacion del voltaje de referencia inferior
+
+
+Registro ADCON2:
+BIT 0-2 --- ADCS2:ADCS0: A/D Conversion Clock Select bits
+En base a la frecuencia de reloj, cada cuantos ciclos se realiza una conversion (2, 4, 8, 32, 64)
+Al ADC le toma minimo 2 ciclos de reloj hacer una conversion de 10 bits (Porque el microcontrolador es de 8 bits)
+
+BIT 3-5 --- ACQT2:ACQT0: A/D Acquisition Time Select bits
+Tiempo en el que recoge los datos convertidos por el ADC, por default es 0
+
+BIT 7 --- ADFM: A/D Result Format Select bit
+0 Justificado a la izquierda   |    1 Justificado a la derecha
+Sirve para darle mas importancia a los bit mas significativos o los bit menos significativos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
