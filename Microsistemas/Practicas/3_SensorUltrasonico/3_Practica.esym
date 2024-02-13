@@ -1,9 +1,9 @@
-D G "__PCH__" 0 147 ""5.112""
-D G "__DEVICE__" 0 147 "4550"
-D G "__DATE__" 0 147 ""11-Feb-24""
-D G "__TIME__" 0 147 ""23:38:23""
-D G "_UNICODE" 0 147 ""?""
-D G "__EVAL" 0 147 ""?"" "--------------- Preprocesadores de microcontrolador -------------- //"
+D G "__PCH__" 0 0 ""5.112""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""12-Feb-24""
+D G "__TIME__" 0 0 ""21:42:32""
+D G "_UNICODE" 0 0 ""?""
+D G "__EVAL" 0 0 ""?"" "--------------- Preprocesadores de microcontrolador -------------- //"
 c L "set_tris_a" 1 1 6 "FUNCTION"
 F N "set_tris_a" 1 45 ""
 V L "value" 1 45 "int8" `55 
@@ -517,9 +517,9 @@ F N "read_adc" 1 515 ""
 f G "read_adc" 1 515 "int16()" `231 
 F N "read_adc" 1 516 ""
 V L "mode" 1 516 "int8" `232 
-f G "read_adc" 1 516 "int16(int8 mode,int8 pins)" `231 
+f G "read_adc" 1 516 "int16(int8 mode)" `231 
 F N "adc_done" 1 517 ""
-F B "adc_done" 1 517 "int8(int8 mode,int8 pins)" `231  "Constants used for SETUP_ADC() are:"
+F B "adc_done" 1 517 "int8(int8 mode)" `231  "Constants used for SETUP_ADC() are:"
 D G "ADC_OFF" 1 519 "0" "ADC Off"
 D G "ADC_CLOCK_DIV_2" 1 520 "0x100"
 D G "ADC_CLOCK_DIV_4" 1 521 "0x04"
@@ -982,9 +982,9 @@ F B "i2c_transfer_in" 1 704 "int8(int8 stream,int8 address,*int8 rData,int8 rCou
 F N "spi_xfer" 1 707 ""
 F B "spi_xfer" 1 707 "int8()" `532 
 F N "spi_xfer" 1 708 ""
-f G "spi_xfer" 1 708 "int16(int8 data)" `533 
+f G "spi_xfer" 1 708 "int16()" `533 
 F N "spi_xfer" 1 709 ""
-f G "spi_xfer" 1 709 "int32(int8 data)" `533 
+f G "spi_xfer" 1 709 "int32()" `533 
 F N "spi_xfer" 1 710 ""
 V L "data" 1 710 "int8" `534 
 F B "spi_xfer" 1 710 "int8(int8 data)" `533 
@@ -1064,18 +1064,18 @@ F B "spi_prewrite" 1 729 "void(int8 ,int32 data)" `586
 F N "spi_xfer_in" 1 730 ""
 F B "spi_xfer_in" 1 730 "int8()" `589 
 F N "spi_xfer_in" 1 731 ""
-f G "spi_xfer_in" 1 731 "int16(int8 bits)" `590 
+f G "spi_xfer_in" 1 731 "int16()" `590 
 F N "spi_xfer_in" 1 732 ""
-f G "spi_xfer_in" 1 732 "int32(int8 bits)" `590 
+f G "spi_xfer_in" 1 732 "int32()" `590 
 F N "spi_xfer_in" 1 733 ""
 V L "bits" 1 733 "int8" `591 
 F B "spi_xfer_in" 1 733 "int8(int8 bits)" `590 
 F N "spi_xfer_in" 1 734 ""
 V L "bits" 1 734 "int8" `593 
-f G "spi_xfer_in" 1 734 "int16(int8 bits,int8 bits)" `592 
+f G "spi_xfer_in" 1 734 "int16(int8 bits)" `592 
 F N "spi_xfer_in" 1 735 ""
 V L "bits" 1 735 "int8" `593 
-f G "spi_xfer_in" 1 735 "int32(int8 bits,int8 bits)" `592 
+f G "spi_xfer_in" 1 735 "int32(int8 bits)" `592 
 F N "spi_xfer_in" 1 736 ""
 V L "stream" 1 736 "int8" `593 
 V L "bits" 1 736 "int8" `594 
@@ -1083,11 +1083,11 @@ F B "spi_xfer_in" 1 736 "int8(int8 stream,int8 bits)" `592
 F N "spi_xfer_in" 1 737 ""
 V L "stream" 1 737 "int8" `593 
 V L "bits" 1 737 "int8" `597 
-f G "spi_xfer_in" 1 737 "int16(int8 stream,int8 bits,int16 count)" `595 
+f G "spi_xfer_in" 1 737 "int16(int8 stream,int8 bits)" `595 
 F N "spi_xfer_in" 1 738 ""
 V L "stream" 1 738 "int8" `593 
 V L "bits" 1 738 "int8" `597 
-f G "spi_xfer_in" 1 738 "int32(int8 stream,int8 bits,int16 count)" `595 
+f G "spi_xfer_in" 1 738 "int32(int8 stream,int8 bits)" `595 
 F N "spi_transfer" 1 739 ""
 V L "wData" 1 739 "*int8" `596 
 V L "rData" 1 739 "*int8" `597 
@@ -1156,9 +1156,9 @@ F B "rtos_stats" 1 759 "void(int8 task,*int8 stat)" `638  "#use timer() Prototyp
 F N "get_ticks" 1 762 ""
 F B "get_ticks" 1 762 "int8()" `641 
 F N "get_ticks" 1 763 ""
-f G "get_ticks" 1 763 "int16(int8 stream)" `642 
+f G "get_ticks" 1 763 "int16()" `642 
 F N "get_ticks" 1 764 ""
-f G "get_ticks" 1 764 "int32(int8 stream)" `642 
+f G "get_ticks" 1 764 "int32()" `642 
 F N "get_ticks" 1 765 ""
 V L "stream" 1 765 "int8" `643 
 F B "get_ticks" 1 765 "int8(int8 stream)" `642 
@@ -1325,35 +1325,37 @@ D G "INT_EEPROM" 1 871 "0x00A010"
 D G "INT_OSCF" 1 872 "0x00A080"
 D G "INT_SPP" 1 873 "0x009D80"
 D G "INT_USB" 1 874 "0x00A020"
-C L "jump_to_isr" 0 6 2 "FUNCTION"
 C L "jump_to_isr" 0 6 1 "FUNCTION"
-F N "display_print" 0 28 ""
-V L "??65535" 0 28 "float" `751 
-f G "display_print" 0 28 "void(float )" `750 
-V G "catodo" 0 30 "int8[10]" `752 
-V G "distance" 0 31 "float" `753 
+V G "TMR0" 0 18 "*int16" `741 
+C L "jump_to_isr" 0 6 1 "FUNCTION"
+F N "display_print" 0 26 ""
+V L "??65535" 0 26 "float" `747 
+f G "display_print" 0 26 "void(float )" `746 
+V G "catodo" 0 28 "int8[10]" `748 
+V G "distance" 0 29 "float" `749 
 C L "display_print" 0 6 1 "FUNCTION"
-F N "get_distance" 0 35 ""
-F G "get_distance" 0 36 "void()" `754  "Enviamos seÃ±al de inicio"
-C L "get_distance" 0 6 1 "FUNCTION"
-C L "get_distance" 0 6 1 "FUNCTION"
-C L "get_distance" 0 6 1 "FUNCTION"
-C L "get_distance" 0 6 1 "FUNCTION"
-C L "get_distance" 0 6 1 "FUNCTION"
-C L "get_distance" 0 6 1 "FUNCTION"
+F N "echo_receive" 0 33 ""
+F G "echo_receive" 0 34 "void()" `750  "Recibimos señal echo"
+C L "echo_receive" 0 6 1 "FUNCTION"
+C L "echo_receive" 0 6 1 "FUNCTION"
+C L "echo_receive" 0 6 1 "FUNCTION"
+V L "aux" 0 40 "int16" `751 
+C L "echo_receive" 0 6 1 "FUNCTION"
 C L "MAIN" 0 6 1 "FUNCTION"
-F N "MAIN" 0 59 ""
-F G "MAIN" 0 60 "void(int16 )" `760  "--------------------- Configuracion de puertos I/O --------------------- //"
+F N "MAIN" 0 49 ""
+F G "MAIN" 0 50 "void()" `757  "--------------------- Configuracion de puertos I/O --------------------- //"
+C L "MAIN" 0 6 1 "FUNCTION"
 C L "MAIN" 0 6 1 "FUNCTION"
 C L "MAIN" 0 6 2 "FUNCTION"
-C L "MAIN" 0 6 2 "FUNCTION"
-F N "display_print" 0 79 ""
-V L "number" 0 79 "float" `751  "Tarda 15 ms"
-F G "display_print" 0 80 "void(float number)" `750 
-V L "integer" 0 83 "int16" `766 
-V L "n1" 0 84 "int8" `767 
-V L "n2" 0 84 "int8" `768 
-V L "n3" 0 84 "int8" `769  "--------------------- Descomponemos en 3 numeros --------------------- //"
+C L "MAIN" 0 6 1 "FUNCTION"
+V L "i" 0 71 "int8" `760 
+F N "display_print" 0 76 ""
+V L "number" 0 76 "float" `747  "Tarda 15 ms"
+F G "display_print" 0 77 "void(float number)" `746 
+V L "integer" 0 80 "int16" `764 
+V L "n1" 0 81 "int8" `765 
+V L "n2" 0 81 "int8" `766 
+V L "n3" 0 81 "int8" `767  "--------------------- Descomponemos en 3 numeros --------------------- //"
 C L "display_print" 0 6 1 "FUNCTION"
 C L "display_print" 0 6 2 "FUNCTION"
 C L "display_print" 0 6 1 "FUNCTION"
@@ -1501,10 +1503,3 @@ F B "spi_data_is_in2" 0 0
 F B "brownout_enable" 1 0
 F B "delay_ms" 1 0
 F B "delay_us" 1 0
-F B "putchar" 1 2
-F B "puts" 1 2
-F B "getch" 0 1
-F B "gets" 1 3
-F B "kbhit" 0 1
-F B "set_uart_speed" 1 3
-F B "setup_uart" 1 3

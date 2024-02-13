@@ -24,41 +24,37 @@
 016     @INTERRUPT_AREA
 017     @INTERRUPT_AREA
 018     @INTERRUPT_AREA
-019-022 catodo
-023-026 distance
-027-02A display_print.number
-02B-02C display_print.integer
-02D     display_print.n1
-02E     display_print.n2
-02F     display_print.n3
-030-031 @DIV1616.P1
-030-033 @FLT.P2
-030     @delay_ms1.P3
-030-033 @SFTOI.P4
-030-033 @MULFF.P5
-030     display_print.@SCRATCH1
-032-033 @DIV1616.P1
-034-037 @MULFF.P1
-034-037 @FLT.P2
-034     @DIV1616.@SCRATCH1
-038     @FLT.@SCRATCH1
-038     @MULFF.@SCRATCH1
-039     @FLT.@SCRATCH2
-039     @MULFF.@SCRATCH2
-03A     @MULFF.@SCRATCH3
-03B     get_distance.@SCRATCH1
-03C     get_distance.@SCRATCH2
-03D-03E @PRINTF_LU_9600_31766_31767.P1
-03D     @PSTRINGCN_9600_31766_31767.P2
-03E     @PSTRINGCN_9600_31766_31767.@SCRATCH1
-03F     @PSTRINGCN_9600_31766_31767.@SCRATCH2
-03F     @PRINTF_LU_9600_31766_31767.@SCRATCH1
-040     @PRINTF_LU_9600_31766_31767.@SCRATCH2
-041     @PRINTF_LU_9600_31766_31767.@SCRATCH3
-042     @PRINTF_LU_9600_31766_31767.@SCRATCH4
-043     @PRINTF_LU_9600_31766_31767.@SCRATCH5
-044     @PRINTF_LU_9600_31766_31767.@SCRATCH6
-045     @PRINTF_LU_9600_31766_31767.@SCRATCH7
+019     @INTERRUPT_AREA
+01A-01B TMR0
+01C-025 catodo
+026-029 distance
+02A     MAIN.i
+02B-02E display_print.number
+02B     MAIN.@SCRATCH1
+02C     MAIN.@SCRATCH2
+02F-030 display_print.integer
+031     display_print.n1
+032     display_print.n2
+033     display_print.n3
+034-037 @SFTOI.P1
+034-035 @DIV1616.P2
+034     @delay_ms1.P3
+034-037 @FLT.P4
+034     display_print.@SCRATCH1
+036-037 @DIV1616.P1
+038-03B @FLT.P1
+038     @DIV1616.@SCRATCH1
+03C     @FLT.@SCRATCH1
+03D     @FLT.@SCRATCH2
+03F-040 echo_receive.aux
+041-044 @MULFF.P1
+041-042 @ITOF.P2
+041     echo_receive.@SCRATCH1
+042     echo_receive.@SCRATCH2
+045-048 @MULFF.P1
+049     @MULFF.@SCRATCH1
+04A     @MULFF.@SCRATCH2
+04B     @MULFF.@SCRATCH3
 F81.0   ECHO
 F83     PSP_DATA
 F8A.1   TRIGGER
@@ -78,47 +74,44 @@ FBE     CCP_1
 FBF     CCP_1_HIGH
 FD5     T0CON
 FD5.7   TMR0ON
-FD6     TMR0L
-FE1-FE2 @READ_PACKED_MEMORY.P1
-FE1-FE2 @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PACKED_MEMORY.P1
-FE9-FEA @WRITE_PROGRAM_MEMORY.P2
-FE9-FEA @READ_PROGRAM_MEMORY.P3
-FE9-FEA @READ_PACKED_MEMORY.P4
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
 FF1.2   TMR0IP
 FF2     INTCON
-FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
-FF6-FF8 @READ_PROGRAM_MEMORY.P2
-FF7     TMR0H
+FF2.2   TMR0IF
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
 
 ROM Allocation:
-0000AE  @PSTRINGCN_9600_31766_31767
-0000D0  @PRINTF_LU_9600_31766_31767
-00017E  get_distance
-0001E6  @const755.call
-0001F6  @FLT
-00026C  @MULFF
-00035E  @SFTOI
-000396  @DIV1616
-0003D8  @delay_ms1
-0003FE  display_print
-000672  MAIN
-000672  @cinit1
-0006A0  @cinit2
+0000AE  @ITOF
+0000E6  @MULFF
+0001D8  echo_receive
+000250  @FLT
+0002C6  @SFTOI
+0002FE  @DIV1616
+000340  @delay_ms1
+000366  display_print
+0005F2  MAIN
+0005F2  @cinit1
+00061A  @cinit2
 
 Project Directory:
-    C:\Users\diego\Desktop\Microsistemas\Practicas\3_SensorUltrasonico\
+    C:\Users\diego\Desktop\C embebido\Microsistemas\Practicas\3_SensorUltrasonico\
 
 Project Files:
-    3_Practica.c                                            [11-feb.-24 23:38  CRC=9470192D]
-    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
+    3_Practica.c                                            [12-feb.-24 21:41  CRC=CC368862]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18f4550.h [21-oct.-22 11:08  CRC=5418AFD6]
 
-Source signature=3CA178D9
+Source signature=7467E80E
 Program memory checksum=0000
-Hex file CRC=78B7
+Hex file CRC=D414
 
 Units:
-    C:\Users\diego\Desktop\Microsistemas\Practicas\3_SensorUltrasonico\3_Practica (main)
+    C:\Users\diego\Desktop\C embebido\Microsistemas\Practicas\3_SensorUltrasonico\3_Practica (main)
 
 Compiler Settings:
     Processor:      PIC18F4550

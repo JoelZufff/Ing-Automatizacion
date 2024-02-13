@@ -2,8 +2,6 @@
 #include    <18f4550.h>                                                 // Libreria del Microcontrolador
 #fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR       // Fusibles (Configuraciones del microcontrolador)
 #use        delay(clock = 8M)                                           // Configuracion de frecuencia y delay
-#use        rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n) 
-// rs232(rcp = (Pin receptor), xmit = (pin transmisor), baud = (Velocidad de transferencia), bits = 8, parity = n)
 
 // --------------------- Direccion de registros --------------------- //  
 #BYTE       TRISB       = 0xF93
@@ -17,11 +15,11 @@
 #BYTE       DISPLAY     = 0xF8C
 
 #BYTE       T0CON       = 0xFD5
-#BYTE       TMR0H       = 0xFF7
-#BYTE       TMR0L       = 0xFD6
+long        *TMR0       = 0xFD6;
 #BIT        TMR0ON      = 0xFD5.7
 
 #BYTE       INTCON      = 0xFF2
+#BIT        TMR0IF      = 0xFF2.2
 #BIT        TMR0IP      = 0xFF1.2
 
 // ---------------------------- Funciones --------------------------- //
@@ -31,28 +29,20 @@ int     catodo[10] = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D,0x07,0x7F,0x67 };
 float   distance = 0.0;
 
 // ------------------------- Interrupciones ------------------------ //
-#int_timer0
-void get_distance()
+#int_ext
+void echo_receive()
 {
-    // Enviamos seÃ±al de inicio
-    TRIGGER = 1;
-    delay_us(10);
-    TRIGGER = 0;
-
-    // Reinicio y desactivacion TIMER 0
-    TMR0ON = 0;
-    TMR0L = TMR0H = 0;
-
-    while(!ECHO);    // Final de señal Echo
-    TMR0ON  = 1;    // Desactivo TIMER0
-    while(ECHO);    // Final de señal Echo
+    // Recibimos señal echo
+    TMR0ON  = 1;    // Activo TIMER0
+    while(ECHO);    // Mientras haya señal echo
     TMR0ON  = 0;    // Desactivo TIMER0
 
-    printf("Timer 0 = %lu\r\n", get_timer0());
+    long aux = *TMR0;
+
+    distance = 0.01715 * (*TMR0);
+    // 0.0000005 (Tiempo de ciclo maquina) * TMR0 (Cuenta de ciclos maquina) * 34300 (Velocidad del sonido en cm/s)
     
-    // Reinicio y activacion TIMER 0
-    TMR0L = TMR0H = 0;
-    TMR0ON  = 1;
+    *TMR0 = 0;
 }
 
 // ------------------------ Codigo Principal ----------------------- //
@@ -63,17 +53,24 @@ void main()
     TRISD       = 0b00000000;
 
     // -------------------- Configuracion de Interrupciones ------------------- //
-    INTCON      = 0b11100000;
-    TMR0IP      = 1;
-    // Interrupcion INT0, interrupcion timer0 y activamos flag de interrupcion timer 0
+    INTCON      = 0b11010000;
 
     // ----------------------- Configuracion de TIMER 0 ----------------------- //
-    T0CON       = 0b10000000;
+    T0CON       = 0b00000000;
+    *TMR0       = 0;
     // Inicializamos timer 0 a 16 bit
 
     // ---------------------------- Ciclo Infinito ---------------------------- //
     while(TRUE)
-        display_print(distance);
+    {
+        // Enviamos senal de inicio
+        TRIGGER = 1;
+        delay_us(10);
+        TRIGGER = 0;
+        
+        for(int i = 0; i < 20; i++)
+            display_print(distance);
+    }
 }
 
 void display_print(float number) // Tarda 15 ms

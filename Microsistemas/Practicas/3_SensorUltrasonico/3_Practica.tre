@@ -1,8 +1,8 @@
 ÀÄ3_Practica
-   ÃÄMAIN  0/124  Ram=0
+   ÃÄMAIN  0/154  Ram=3
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
-   ³  ÀÄdisplay_print  0/628  Ram=10
+   ³  ÀÄdisplay_print  0/652  Ram=10
    ³     ÃÄ@FLT  0/118  Ram=10
    ³     ÃÄ@FLT  0/118  Ram=10
    ³     ÃÄ@MULFF  0/242  Ram=11
@@ -23,6 +23,6 @@
    ³     ÃÄ@FLT  0/118  Ram=10
    ³     ÃÄ@delay_ms1  0/38  Ram=1
    ³     ÀÄ@delay_ms1  0/38  Ram=1
-   ÀÄget_distance  0/104  Ram=2
-      ÃÄ@PSTRINGCN_9600_31766_31767  0/34  Ram=3
-      ÀÄ@PRINTF_LU_9600_31766_31767  0/174  Ram=9
+   ÀÄecho_receive  0/120  Ram=4
+      ÃÄ@ITOF  0/56  Ram=2
+      ÀÄ@MULFF  0/242  Ram=11
