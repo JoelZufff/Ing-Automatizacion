@@ -11,20 +11,20 @@ Type=4
 1=3_Practica.c
 
 [defines]
-buildcount=189
+buildcount=191
 
 [Opened Files]
 1=3_Practica.c
-t1=1
+t1=49
 Count=1
 
 [ProjectLog]
-Days=5
+Days=7
 D1=08-02-2024
 D1_L=2
 D1_L1=[84449]Started Editing.
 D1_L2=[84768]Stopped Editing.
-TotalEdit=37
+TotalEdit=44
 TotalDebug=0
 D2=09-02-2024
 D2_E=2
@@ -82,7 +82,7 @@ D4_L10=[85113]Project Closed.
 D4_L11=[85123]Project Opened.
 D4_L12=[85264]Project Closed.
 D5=12-02-2024
-D5_L=17
+D5_L=18
 D5_L1=[44302]Project Opened.
 D5_L2=[44530]Started Editing.
 D5_L3=[44834]Stopped Editing.
@@ -102,6 +102,19 @@ D5_L14=[57607]Project Closed.
 D5_L15=[58566]Project Opened.
 D5_L16=[60087]Project Closed.
 D5_L17=[78147]Project Opened.
+D5_L18=[78222]Project Closed.
+D6=13-02-2024
+D6_L=4
+D6_L1=[54839]Project Opened.
+D6_L2=[54850]Started Editing.
+D6_L3=[55225]Stopped Editing.
+D6_E=7
+D6_D=0
+D6_L4=[55225]Project Closed.
+D7=16-02-2024
+D7_L=2
+D7_L1=[54466]Project Opened.
+D7_L2=[54478]Project Closed.
 
 [fileformats]
 forcecoff=0

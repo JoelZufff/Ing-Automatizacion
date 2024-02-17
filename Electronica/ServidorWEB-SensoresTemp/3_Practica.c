@@ -19,13 +19,14 @@ long        *TMR0       = 0xFD6;
 #BIT        TMR0ON      = 0xFD5.7
 
 #BYTE       INTCON      = 0xFF2
+#BIT        TMR0IF      = 0xFF2.2
 #BIT        TMR0IP      = 0xFF1.2
 
 // ---------------------------- Funciones --------------------------- //
 void display_print(float);
 
-int     catodo[10]  = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D,0x07,0x7F,0x67 };
-float   distance    = 0.0;
+int     catodo[10] = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D,0x07,0x7F,0x67 };
+float   distance = 0.0;
 
 // ------------------------- Interrupciones ------------------------ //
 #int_ext
@@ -39,7 +40,7 @@ void echo_receive()
     long aux = *TMR0;
 
     distance = 0.01715 * (*TMR0);
-    // 0.0000005 (Tiempo de ciclo maquina) * 34300 (Velocidad del sonido en cm/s) * TMR0 (Cuenta de ciclos maquina)
+    // 0.0000005 (Tiempo de ciclo maquina) * TMR0 (Cuenta de ciclos maquina) * 34300 (Velocidad del sonido en cm/s)
     
     *TMR0 = 0;
 }
@@ -74,7 +75,7 @@ void main()
 
 void display_print(float number) // Tarda 15 ms
 { 
-    if(number >= 1000)   return;
+    if(number > 1000)   return;
     
     int16 integer;
     int n1, n2, n3;
