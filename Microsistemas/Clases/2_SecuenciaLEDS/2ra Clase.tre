@@ -1,6 +1,0 @@
-ÀÄ2ra Clase
-   ÀÄmain  0/192  Ram=2
-      ÃÄ@cinit1  (Inline)  Ram=0
-      ÃÄ@cinit2  (Inline)  Ram=0
-      ÃÄ@goto16704  0/34  Ram=0
-      ÀÄ@delay_ms1  0/44  Ram=1

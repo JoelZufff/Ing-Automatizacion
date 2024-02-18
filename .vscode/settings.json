@@ -1,7 +1,4 @@
 {
+    "C_Cpp.default.includePath": ["C:\\Program Files (x86)\\PICC\\Devices", "C:\\Program Files (x86)\\PICC\\Drivers"],
     "C_Cpp.errorSquiggles": "disabled",
-    "files.associations": 
-    {
-        "18f4550.h": "c"
-    }
 }
