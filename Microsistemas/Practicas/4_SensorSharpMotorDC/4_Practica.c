@@ -17,11 +17,12 @@ const int16     *ADRES      = 0xFC3;
 #BIT            PWM2        = 0xF89.5
 
 #BYTE           TRISB       = 0xF93
-#BYTE           LATB        = 0xF8A
+#BYTE           DISPLAY     = 0xF8A
 #BIT            BUTTON      = 0xF81.4
+#BIT            LED         = 0xF8A.5
 
 #BYTE           TRISD       = 0xF95
-#BYTE           DISPLAY     = 0xF8C
+#BYTE           DIGIT       = 0xF8C
 
 #BYTE           INTCON      = 0xFF2
 
@@ -38,11 +39,12 @@ const int min_distance = 10, max_distance = 40;
 // ----------------------------- Macros ----------------------------- //
 #define set_sharpsensor()           (ADCON0 &= 0b11000011, VCFG0 = VCFG1 = 1)           // Selecciono canal y activo vref
 #define set_potenciometer()         (ADCON0 |= 0b00000100, VCFG0 = VCFG1 = 0)           // Selecciono canal y desactivo vref
+#define get_adc()                   (DONE = 1, delay_us(10), *ADRES)                 // Solicito actualizacion y la registro
 
 // ---------------------------- Funciones --------------------------- //
-long get_adc() { DONE = 1; delay_cycles(8); long data = *ADRES; return data; }      // Solicito actualizacion y la registro
 void display_print(int actual, int next);
 //void display_print(float number);
+//long get_adc() { DONE = 1; delay_cycles(8); return *ADRES; }
 
 
 // -------------------------- Interrupciones ------------------------ //
@@ -52,7 +54,7 @@ void PWM(void)
     PWM1 ^= 1, PWM2 ^= 1;           // Aplicamos toggle a pines PWM
     TMR0L   = 140;                  // Es el valor para la frecuencia requerida
 
-    PWM1 ? (TMR0L += DutyCicle) : (TMR0L -= DutyCicle);   // Si se requiere un duty_cicle
+    TMR0L += PWM1 ? (DutyCicle) : (-DutyCicle);   // Si se requiere un duty_cicle
     
     // Agregamos o quitamos cuentas del timer a la parte positiva o negativa sin modificar el valor total de cuentas entre las 2
     // Por lo que conservamos la frecuencia
@@ -85,20 +87,20 @@ void main()
     {
         // DETECCION DE BOTON DE ACOPLAMIENTO
         if(BUTTON)
-            coupling_bool = 1;
+            coupling_bool = LED = 1;
 
         // DETECCION DE DISTANCIA REAL Y DISTANCIA PROXIMA
         set_sharpsensor();
-        actual_distance = get_adc() / 10.23;                // FALTA CALIBRAR LA DISTANCIA DEL SENSOR
+        actual_distance = get_adc() / 1023.0 * (max_distance - min_distance) + min_distance;      // FALTA CALIBRAR LA DISTANCIA DEL SENSOR
         
         set_potenciometer();
         next_distance = get_adc() / 1023.0 * (max_distance - min_distance) + min_distance;
         
         // PROCESO DE ACOPLAMIENTO
         if(actual_distance == next_distance)    // Si estan a la misma distancia, desactivamos acoplamiento y motor
-            coupling_bool = DutyCicle = 0;
+            coupling_bool = LED = DutyCicle = 0;
         else if(coupling_bool)                  // Configuramos PWM con direccion y velocidad en funcion de la distancia
-            DutyCicle = ((signed int16) actual_distance - next_distance) * 115 / max_distance; 
+            DutyCicle = ((signed int16) actual_distance - next_distance) * 115 / (max_distance - min_distance); 
 
         // IMPRESION DE DISTANCIAS EN DISPLAYS
         display_print(actual_distance, next_distance);
@@ -109,16 +111,15 @@ void main()
 void display_print(int actual, int next)
 {
     int numbers[4];
-    
-    numbers[0] = actual / 10    , numbers[1] = actual % 10;
-    numbers[2] = next / 10      , numbers[3] = next % 10;
+    numbers[0] = actual / 10,   numbers[1] = actual % 10;
+    numbers[2] = next / 10,     numbers[3] = next % 10;
 
     for(int i = 0; i < 4; i++, delay_ms(5))
     {
-        LATB |= ~(0b0001 << i);     // Desactivamos displays que no corresponden
-        LATB &= ~(0b0001 << i);     // Activamos display que corresponde
-        
-        DISPLAY = catodo[numbers[i]];
+        DISPLAY |= ~(0b00000001 << i) & 0b00001111;     // Desactivamos displays que no corresponden 
+        DISPLAY &= ~(0b00000001 << i);                  // Activamos display que corresponde
+
+        DIGIT = catodo[numbers[i]];
     }
 }
 //*/
@@ -142,13 +143,13 @@ void display_print(float number) // Tarda 15 ms
     // Imprimir numeros en digitos del display con multiplexado
     for(int i = 0; i < 4; i++, integer /= 10, delay_ms(5))
     {
-        LATB |= ~(0b1000 >> i);     // Desactivamos displays que no corresponden 
-        LATB &= ~(0b1000 >> i);     // Activamos display que corresponde
+        DISPLAY |= ~(0b00000001 << i) & 0b00001111;     // Desactivamos displays que no corresponden 
+        DISPLAY &= ~(0b00000001 << i);                  // Activamos display que corresponde
 
         if(i == point && point > 0)
-            DISPLAY = catodo[integer % 10] | 0b10000000;
+            DIGIT = catodo[integer % 10] | 0b10000000;
         else
-            DISPLAY = catodo[integer % 10];
+            DIGIT = catodo[integer % 10];
     }
 }
 //*/
