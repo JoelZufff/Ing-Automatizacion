@@ -1,0 +1,4 @@
+﻿  Sistema_de_Gestion.cpp
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_de_Gestion\Sistema_de_Gestion.cpp(241,1): warning C4326: el tipo de valor devuelto de 'main' debe ser 'int' en lugar de 'void'
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_de_Gestion\Sistema_de_Gestion.cpp(606,18): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Sistema_de_Gestion.vcxproj -> C:\Users\diego\source\repos\Programacion_Avanzada\x64\Debug\Sistema_de_Gestion.exe

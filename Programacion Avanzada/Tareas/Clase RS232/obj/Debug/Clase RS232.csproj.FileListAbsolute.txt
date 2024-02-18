@@ -1,0 +1,11 @@
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase RS232.csproj.AssemblyReference.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase RS232.csproj.SuggestedBindingRedirects.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase_RS232.Properties.Resources.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase RS232.csproj.GenerateResource.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase RS232.csproj.CoreCompileInputs.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\bin\Debug\Clase RS232.exe.config
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\bin\Debug\Clase RS232.exe
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\bin\Debug\Clase RS232.pdb
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase RS232.exe
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase RS232.pdb
+C:\Users\diego\source\repos\Programacion_Avanzada\Clase RS232\obj\Debug\Clase_RS232.RS232.resources

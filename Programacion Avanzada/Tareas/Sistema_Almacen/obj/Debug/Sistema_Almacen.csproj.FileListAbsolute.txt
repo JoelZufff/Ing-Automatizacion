@@ -1,0 +1,69 @@
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\bin\Debug\Sistema_Almacen.exe.config
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\bin\Debug\Sistema_Almacen.exe
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\bin\Debug\Sistema_Almacen.pdb
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\bin\Debug\aa\Sistema_Almacen.resources.dll
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.AssemblyReference.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.SuggestedBindingRedirects.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Properties.Resources.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.aa.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.GenerateResource.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.CoreCompileInputs.cache
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\aa\Sistema_Almacen.resources.dll
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.exe
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.pdb
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\bin\Debug\aa-ER\Sistema_Almacen.resources.dll
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\bin\Debug\aa-ET\Sistema_Almacen.resources.dll
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.aa-ER.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.aa-ET.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\aa-ER\Sistema_Almacen.resources.dll
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\aa-ET\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\bin\Debug\Sistema_Almacen.exe.config
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\bin\Debug\Sistema_Almacen.exe
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\bin\Debug\Sistema_Almacen.pdb
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\bin\Debug\aa-ER\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\bin\Debug\aa-ET\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\bin\Debug\aa\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.AssemblyReference.cache
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.resources
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.Properties.Resources.resources
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.aa-ER.resources
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.aa-ET.resources
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.Principal.aa.resources
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.GenerateResource.cache
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.csproj.CoreCompileInputs.cache
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\aa-ER\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\aa-ET\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\aa\Sistema_Almacen.resources.dll
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.exe
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.pdb
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.Registro.resources
+C:\Users\danie\Downloads\Sistema_Almacen[1]\Sistema_Almacen\obj\Debug\Sistema_Almacen.RegTicket.resources
+C:\Users\diego\Desktop\Version Dani\bin\Debug\Sistema_Almacen.exe.config
+C:\Users\diego\Desktop\Version Dani\bin\Debug\Sistema_Almacen.exe
+C:\Users\diego\Desktop\Version Dani\bin\Debug\Sistema_Almacen.pdb
+C:\Users\diego\Desktop\Version Dani\bin\Debug\aa-ER\Sistema_Almacen.resources.dll
+C:\Users\diego\Desktop\Version Dani\bin\Debug\aa-ET\Sistema_Almacen.resources.dll
+C:\Users\diego\Desktop\Version Dani\bin\Debug\aa\Sistema_Almacen.resources.dll
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.csproj.SuggestedBindingRedirects.cache
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Registro.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.RegTicket.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Principal.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Properties.Resources.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Principal.aa-ER.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Principal.aa-ET.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Principal.aa.resources
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.csproj.GenerateResource.cache
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Version Dani\obj\Debug\aa-ER\Sistema_Almacen.resources.dll
+C:\Users\diego\Desktop\Version Dani\obj\Debug\aa-ET\Sistema_Almacen.resources.dll
+C:\Users\diego\Desktop\Version Dani\obj\Debug\aa\Sistema_Almacen.resources.dll
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.exe
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.pdb
+C:\Users\diego\Desktop\Version Dani\obj\Debug\Sistema_Almacen.Admin.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Admin.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.RegTicket.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.AdminLogin.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.RegistroCliente.resources
+C:\Users\diego\source\repos\Programacion_Avanzada\Sistema_Almacen\obj\Debug\Sistema_Almacen.Ticket.resources

@@ -1,0 +1,27 @@
+#
+1
+Osciloscopio
+10
+0
+10
+
+#
+2
+Multimetro
+10
+0
+10
+
+#
+3
+Fuente de Voltaje
+10
+0
+10
+
+#
+4
+Resistencias
+100
+0
+100
