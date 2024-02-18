@@ -45,7 +45,7 @@ void main()
    set_pwm1_duty(duty[1]);
    
    while(true)
-   {   
+   {
       cont++;
       
       if(input(BOT1)) // Si se presiona el boton 1 (PREDETERMINADO)
