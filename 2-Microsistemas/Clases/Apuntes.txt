@@ -89,11 +89,14 @@ BIT 7 --- ADFM: A/D Result Format Select bit
 0 Justificado a la izquierda   |    1 Justificado a la derecha
 Sirve para darle mas importancia a los bit mas significativos o los bit menos significativos
 
+-----------------------------------------------------------------------------------------------------------------------
+CCP (Capture Compare PWM)
+Captura
+El PWM es de 10 bits (2 B-S en CCP1CON BIT4-5, 8 B+S EN CCPR1L), por lo que podemos modificar el 100%
+del duty cicle con una resolucion de 10 bits o 1023
 
-
-
-
-
+Desventaja, solo podemos tener 2 PWM con diferente duty cicle pero con la misma frecuencia, si ocupamos
+mas de 2 modulos o a diferente frecuencia hay que hacerlo con timers
 
 
 

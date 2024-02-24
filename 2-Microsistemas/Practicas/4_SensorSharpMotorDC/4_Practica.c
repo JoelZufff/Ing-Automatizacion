@@ -1,10 +1,11 @@
 // --------------- Preprocesadores de microcontrolador -------------- //
 #include    <18f4550.h>                                                 // Libreria del Microcontrolador
-#fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP               // Fusibles (Configuraciones del microcontrolador)
+#fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR       // Fusibles (Configuraciones del microcontrolador)
 #use        delay(clock = 8M)                                           // Configuracion de frecuencia y delay
 
 // --------------------- Direccion de registros --------------------- //  
 const int16     *ADRES      = 0xFC3;
+//#define         ADRES       (int16*) 0xFC3
 #BYTE           ADCON0      = 0xFC2
 #BIT            DONE        = 0xFC2.1
 #BYTE           ADCON1      = 0xFC1
@@ -29,22 +30,27 @@ const int16     *ADRES      = 0xFC3;
 #BYTE           T0CON       = 0xFD5
 #BYTE           TMR0L       = 0xFD6
 
+// ---------------------- Variable Constantes ----------------------- //
+const int       catodo[10]      = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67 };
+signed int      DutyCicle       = 0;       // Rango -115 : 115
 
-// ----------------------- Variable Globales ------------------------ //
-const int   catodo[10]      = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D,0x07,0x7F,0x67 };
-signed int  DutyCicle       = 0;       // Rango -115 : 115
-
-const int min_distance = 10, max_distance = 40;
+const int       min_distance = 10, max_distance = 40;
+const long      bits_value[max_distance - min_distance] = 
+        {   
+            1023, 989, 955, 921, 887, 853, 819, 785, 751, 717,
+            683, 649, 615, 581, 547, 513, 479, 445, 411, 377,
+            343, 309, 275, 241, 207, 173, 139, 105, 71, 37 
+        };
 
 // ----------------------------- Macros ----------------------------- //
 #define set_sharpsensor()           (ADCON0 &= 0b11000011, VCFG0 = VCFG1 = 1)           // Selecciono canal y activo vref
 #define set_potenciometer()         (ADCON0 |= 0b00000100, VCFG0 = VCFG1 = 0)           // Selecciono canal y desactivo vref
-#define get_adc()                   (DONE = 1, delay_us(10), *ADRES)                 // Solicito actualizacion y la registro
+#define get_adc()                   (DONE = 1, delay_us(10), *ADRES)                    // Solicito actualizacion y la registro
 
 // ---------------------------- Funciones --------------------------- //
-void display_print(int actual, int next);
-//void display_print(float number);
-//long get_adc() { DONE = 1; delay_cycles(8); return *ADRES; }
+void    display_print( int actual, int next );
+int     distance_interpolation( long actual_bits );
+//void    display_print(float number);
 
 // -------------------------- Interrupciones ------------------------ //
 #int_TIMER0
@@ -55,8 +61,7 @@ void PWM(void)
 
     TMR0L += PWM1 ? (DutyCicle) : (-DutyCicle);   // Si se requiere un duty_cicle
     
-    // Agregamos o quitamos cuentas del timer a la parte positiva o negativa sin modificar el valor total de cuentas entre las 2
-    // Por lo que conservamos la frecuencia
+    // Agregamos o quitamos cuentas del timer a la parte positiva o negativa sin modificar el valor total de cuentas entre las 2 por lo que conservamos la frecuencia
 }
 
 // ------------------------ Codigo Principal ----------------------- //
@@ -66,8 +71,9 @@ void main()
     TRISA       = 0b00001111;
     TRISB       = 0b00010000;
     TRISD       = 0b00000000;
-    PWM2        = 1;            // Para hacerlo complementario
 
+    PWM2        = 1;            // Para hacerlo complementario
+    
     // Configuracion de TIMER 0
     T0CON       = 0b11000010;
 
@@ -79,35 +85,53 @@ void main()
     ADCON1      = 0b00001101;
     ADCON2      = 0b10000000;
 
-    int         actual_distance = 0, next_distance   = 0;
-    int1        coupling_bool = 0;
+    int         actual_distance, next_distance, target_distance = 10;
+    
 
-    while (TRUE) 
-    {
-        // DETECCION DE BOTON DE ACOPLAMIENTO
-        if(BUTTON)
-            coupling_bool = LED = 1;
+    while (TRUE)
+    {   
+        /*/
+        set_sharpsensor();
+        long average = 0;
 
+        for(int i = 0; i < 100; i++, delay_ms(20))     // Obtiene 10 valores del ADC
+            average += get_adc();
+        
+        for(int i = 0; i < 50; i++)     // Obtiene 10 valores del ADC
+            display_print(average / 100);    // Imprimimos el promedio
+        //*/
+
+        //*/
         // DETECCION DE DISTANCIA REAL Y DISTANCIA PROXIMA
         set_sharpsensor();
-        actual_distance = get_adc() / 1023.0 * (max_distance - min_distance) + min_distance;      // FALTA CALIBRAR LA DISTANCIA DEL SENSOR
+        actual_distance =   distance_interpolation(get_adc());
         
         set_potenciometer();
-        next_distance = get_adc() / 1023.0 * (max_distance - min_distance) + min_distance;
+        next_distance =     get_adc() * (max_distance - min_distance) / 1023 + min_distance;
         
         // PROCESO DE ACOPLAMIENTO
-        if(actual_distance == next_distance)    // Si estan a la misma distancia, desactivamos acoplamiento y motor
-            coupling_bool = LED = DutyCicle = 0;
-        else if(coupling_bool)                  // Configuramos PWM con direccion y velocidad en funcion de la distancia
-            DutyCicle = ((signed int16) actual_distance - next_distance) * 115 / (max_distance - min_distance); 
+        if(BUTTON)
+            target_distance = next_distance;    // Establecer distancia objetivo
+
+        // Modulara el duty cicle en funcion de la diferencial de distancia
+        DutyCicle = ((signed int16) actual_distance - target_distance) * 81 / (max_distance - min_distance) + (actual_distance == target_distance ? 0 : (actual_distance < target_distance ? -34 : 34));
 
         // IMPRESION DE DISTANCIAS EN DISPLAYS
         display_print(actual_distance, next_distance);
+        //*/
     }
 }
 
+int distance_interpolation( long actual_bits )
+{
+    for(int cm = 0; cm < (max_distance - min_distance); cm++) 
+        if(actual_bits >= bits_value[cm])
+            return cm + min_distance;
+    // Puede ser ineficiente tener un for de 0 a todas las distancias
+}
+
 //*/
-void display_print(int actual, int next)
+void display_print( int actual, int next )
 {
     int numbers[4];
     numbers[0] = actual / 10,   numbers[1] = actual % 10;
@@ -142,8 +166,8 @@ void display_print(float number) // Tarda 15 ms
     // Imprimir numeros en digitos del display con multiplexado
     for(int i = 0; i < 4; i++, integer /= 10, delay_ms(5))
     {
-        DISPLAY |= ~(0b00000001 << i) & 0b00001111;     // Desactivamos displays que no corresponden 
-        DISPLAY &= ~(0b00000001 << i);                  // Activamos display que corresponde
+        DISPLAY |= ~(0b00001000 >> i) & 0b00001111;     // Desactivamos displays que no corresponden 
+        DISPLAY &= ~(0b00001000 >> i);                  // Activamos display que corresponde
 
         if(i == point && point > 0)
             DIGIT = catodo[integer % 10] | 0b10000000;
