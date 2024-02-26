@@ -1,6 +1,6 @@
 // --------------- Preprocesadores de microcontrolador -------------- //
 #include    <18f4550.h>                                                 // Libreria del Microcontrolador
-#fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR       // Fusibles (Configuraciones del microcontrolador)
+#fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP               // Fusibles (Configuraciones del microcontrolador)
 #use        delay(clock = 8M)                                           // Configuracion de frecuencia y delay
 
 // --------------------- Direccion de registros --------------------- //  
@@ -34,13 +34,13 @@ const int16     *ADRES      = 0xFC3;
 const int       catodo[10]      = { 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67 };
 signed int      DutyCicle       = 0;       // Rango -115 : 115
 
-const int       min_distance = 10, max_distance = 40;
-const long      bits_value[max_distance - min_distance] = 
-        {   
-            1023, 989, 955, 921, 887, 853, 819, 785, 751, 717,
-            683, 649, 615, 581, 547, 513, 479, 445, 411, 377,
-            343, 309, 275, 241, 207, 173, 139, 105, 71, 37 
-        };
+const int       min_distance = 10, max_distance = 32;
+const long      bits_value[max_distance - min_distance + 1] = 
+                {   
+                    1020, 892, 762, 687, 605, 548, 488, 421, 406, 358,
+                    315, 280, 250, 218, 196, 168, 141, 117, 102, 83,
+                    73, 48, 42
+                };
 
 // ----------------------------- Macros ----------------------------- //
 #define set_sharpsensor()           (ADCON0 &= 0b11000011, VCFG0 = VCFG1 = 1)           // Selecciono canal y activo vref
@@ -72,8 +72,9 @@ void main()
     TRISB       = 0b00010000;
     TRISD       = 0b00000000;
 
+    LED         = 0;
     PWM2        = 1;            // Para hacerlo complementario
-    
+
     // Configuracion de TIMER 0
     T0CON       = 0b11000010;
 
@@ -85,49 +86,54 @@ void main()
     ADCON1      = 0b00001101;
     ADCON2      = 0b10000000;
 
-    int         actual_distance, next_distance, target_distance = 10;
-    
+    int         next_distance, actual_distance, target_distance = 10, data_index = 0;
 
     while (TRUE)
     {   
-        /*/
-        set_sharpsensor();
-        long average = 0;
-
-        for(int i = 0; i < 100; i++, delay_ms(20))     // Obtiene 10 valores del ADC
-            average += get_adc();
+        //*/    DETECCION DE DISTANCIA REAL Y DISTANCIA PROXIMA
+        set_potenciometer();
+        next_distance =     get_adc() * (max_distance - min_distance - 7) / 1023 + min_distance;
         
-        for(int i = 0; i < 50; i++)     // Obtiene 10 valores del ADC
-            display_print(average / 100);    // Imprimimos el promedio
-        //*/
-
-        //*/
-        // DETECCION DE DISTANCIA REAL Y DISTANCIA PROXIMA
         set_sharpsensor();
         actual_distance =   distance_interpolation(get_adc());
-        
-        set_potenciometer();
-        next_distance =     get_adc() * (max_distance - min_distance) / 1023 + min_distance;
-        
+
         // PROCESO DE ACOPLAMIENTO
         if(BUTTON)
+        {
+            while (BUTTON);
             target_distance = next_distance;    // Establecer distancia objetivo
+        }      
 
         // Modulara el duty cicle en funcion de la diferencial de distancia
-        DutyCicle = ((signed int16) actual_distance - target_distance) * 81 / (max_distance - min_distance) + (actual_distance == target_distance ? 0 : (actual_distance < target_distance ? -34 : 34));
+        if(actual_distance != target_distance)
+        {
+            DutyCicle   = ((signed int16) actual_distance - target_distance) * 40 / (max_distance - min_distance) + (actual_distance < target_distance ? -75 : 75);
+            LED         = 1;
+        }
+        else    
+            DutyCicle = LED = 0;
 
         // IMPRESION DE DISTANCIAS EN DISPLAYS
         display_print(actual_distance, next_distance);
+        //*/
+
+        /*/     Para obtener bits de calibracion
+        long average = 0;
+        
+        for(int i = 0; i < 64; i++, delay_ms(31))     // Obtiene 10 valores del ADC
+            average += get_adc();
+        
+        for(int i = 0; i < 50; i++)     // Obtiene 10 valores del ADC
+            display_print(average / 64);    // Imprimimos el promedio
         //*/
     }
 }
 
 int distance_interpolation( long actual_bits )
 {
-    for(int cm = 0; cm < (max_distance - min_distance); cm++) 
+    for(int cm = 0; cm < (max_distance - min_distance + 1); cm++) 
         if(actual_bits >= bits_value[cm])
             return cm + min_distance;
-    // Puede ser ineficiente tener un for de 0 a todas las distancias
 }
 
 //*/
