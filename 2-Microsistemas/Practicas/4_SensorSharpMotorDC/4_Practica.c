@@ -86,7 +86,7 @@ void main()
     ADCON1      = 0b00001101;
     ADCON2      = 0b10000000;
 
-    int         next_distance, actual_distance, target_distance = 10, data_index = 0;
+    int         next_distance, actual_distance, target_distance = 10;
 
     while (TRUE)
     {   
@@ -131,6 +131,7 @@ void main()
 
 int distance_interpolation( long actual_bits )
 {
+    // Se podria mejorar mucho la interpolacion
     for(int cm = 0; cm < (max_distance - min_distance + 1); cm++) 
         if(actual_bits >= bits_value[cm])
             return cm + min_distance;

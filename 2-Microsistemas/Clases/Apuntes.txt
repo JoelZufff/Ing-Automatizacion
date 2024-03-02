@@ -98,7 +98,52 @@ del duty cicle con una resolucion de 10 bits o 1023
 Desventaja, solo podemos tener 2 PWM con diferente duty cicle pero con la misma frecuencia, si ocupamos
 mas de 2 modulos o a diferente frecuencia hay que hacerlo con timers
 
+-----------------------------------------------------------------------------------------------------------------------
+EPWM (ENHANCED PULS WITH MODULATED)
 
+Utiliza los timers 1,2 y 3, pero si usamos PWM solo podremos usar el timer 2. Podemos generar hasta 4 PWM, 2 identicos 
+y sus complementarios o todos iguales.
+
+BIT 7-6 --- P1M1:P1M0:
+    Si CCP1M3:CCP1M2 = 00, 01, 10:                        // Si CCP1M esta configurado para captura y compara no importa
+        xx = P1A assigned as Capture/Compare input/output; P1B, P1C, P1D assigned as port pins
+    Si CCP1M3:CCP1M2 = 11:                                // Si CCP1M esta configurado como PWM                                
+    
+    // Establecemos que PWM complementarios se habilitan todos dependen del mismo duty cicle y la misma frecuencia
+
+        00 = Single output: P1A modulated; P1B, P1C, P1D assigned as port pins                              // 1 PWM
+        01 = Full-bridge output forward: P1D modulated; P1A active; P1B, P1C inactive                       // 4 PWM
+        10 = Half-bridge output: P1A, P1B modulated with dead-band control; P1C, P1D assigned as port pins  // 2 PWM
+        11 = Full-bridge output reverse: P1B modulated; P1C active; P1A, P1D inactive                       // 4 PWM
+
+BIT 5-4 --- DC1B1:DC1B0: PWM Duty Cycle Bit 1 and Bit 0
+    Capture mode: Unused
+    Compare mode: Unused
+    PWM mode: These bits are the two LSbs of the 10-bit PWM duty cycle. The eight MSbs of the duty cycle are found in CCPR1L.
+
+BIT 3-0 --- CCP1M3:CCP1M0: Enhanced CCP Mode Select bits
+    0000 = Capture/Compare/PWM off (resets ECCP module)
+    0001 = Reserved
+    // MODO CAPTURA
+    0010 = Compare mode, toggle output on match
+    0011 = Capture mode
+    0100 = Capture mode, every falling edge
+    0101 = Capture mode, every rising edge
+    0110 = Capture mode, every 4th rising edge
+    0111 = Capture mode, every 16th rising edge
+    // MODO COMPARA
+    1000 = Compare mode, initialize CCP1 pin low, set output on compare match (set CCP1IF)
+    1001 = Compare mode, initialize CCP1 pin high, clear output on compare match (set CCP1IF)
+    1010 = Compare mode, generate software interrupt only, CCP1 pin reverts to I/O state
+    1011 = Compare mode, trigger special event (CCP1 resets TMR1 or TMR3, sets CCP1IF bit)
+    // MODO PWM                                                         // Establecemos como se muebe el PWM
+    1100 = PWM mode: P1A, P1C active-high; P1B, P1D active-high
+    1101 = PWM mode: P1A, P1C active-high; P1B, P1D active-low
+    1110 = PWM mode: P1A, P1C active-low; P1B, P1D active-high
+    1111 = PWM mode: P1A, P1C active-low; P1B, P1D active-low
+
+The module’s output mode and polarity are configured by setting the P1M1:P1M0, and CCP1M3:CCP1M0 bits of the CCP1CON
+register.
 
 
 
