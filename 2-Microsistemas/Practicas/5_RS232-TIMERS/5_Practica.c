@@ -1,13 +1,14 @@
 // --------------- Preprocesadores de microcontrolador -------------- //
 #include    <18f4550.h>                                                 // Libreria del Microcontrolador
-#fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP               // Fusibles (Configuraciones del microcontrolador)
+#fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR       // Fusibles (Configuraciones del microcontrolador)
 #use        delay(clock = 8M)                                           // Configuracion de frecuencia y delay
-//#use        rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n)
 
 // --------------------- Direccion de registros --------------------- //
 #BYTE       TRISD       = 0xF95
 #BYTE       TRISB       = 0xF93
 #BYTE       LEDS        = 0xF8C     // LATD
+#BIT        SENDWORD    = 0xF81.2   // PORTB
+#BIT        TXPIN       = 0xF8A.1   // LATB
 
 #BYTE       INTCON      = 0xFF2
 #BIT        INT0IE      = 0xFF2.4   // INT0 External Interrupt Enable bit
@@ -20,11 +21,12 @@
 
 // ----------------------- Variable Globales ------------------------ //
 int     bit_index = 0b00000001, byte_value = 0b00000000;
-short   high_bool = FALSE;
+int1    high_bool = FALSE, send_bool = FALSE, bit_value = 0;
+//int1    bits[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
 // -------------------------- Interrupciones ------------------------ //
 #INT_EXT
-void SerialCommunication()
+void bit_detect()
 {
     // SI DETECTAMOS VALOR DE UN BIT
     if(TMR2ON)
@@ -47,12 +49,20 @@ void SerialCommunication()
 }
 
 #INT_TIMER2
-void bit_detect()        // Recorrimiento de bit actual 
+void bit_clock()        // Recorrimiento de bit actual 
 { 
+    if(send_bool)                   // Si estamos mandando informacion
+    {
+        TXPIN = bit_value;
+        send_bool = FALSE;
+        return;
+    }
+    
     if(bit_index == 0)
     {
         TMR2ON = INTEDG0 = 0;       // Desactivamos timer 2 | Activamos interrupcion externa para flanco de bajada
-        //printf("'%c' %u\r\n",byte_value, byte_value);
+        LEDS = byte_value;
+        bit_index = 1;
         return;
     }
 
@@ -62,12 +72,44 @@ void bit_detect()        // Recorrimiento de bit actual
     bit_index <<= 1;    // Recorremos posicion del bit recibido
 }
 
+// ---------------------------- Funciones -------------------------- //
+void putchafa(char C)
+{
+    if(TMR2ON)          // Si esta recibiendo datos no mandamos nada (Se podria resolver usando otro timer)
+        return;
+
+    // Separamos valor de cada bit
+    int bits[8];
+    for( int i = 0; i < 8; i++ )
+        bits[i] = (C>>i) & 0b00000001;
+
+    // Bit de start y encendemos timer con frecuencia 9600 baudios
+    bit_value = 0;
+    send_bool = TMR2ON = 1;
+    while(send_bool);
+
+    // 8 bits de caracter
+    for( int i = 0 ; i < 8; i++ )
+    {
+        // Enviamos bit en el periodo correspondiente
+        bit_value = bits[i];
+        send_bool = TRUE;
+        while(send_bool);
+    }
+
+    // Bit de stop
+    bit_value = send_bool = 1;
+    while(send_bool);
+    TMR2ON  = 0;            // Desactivamos timer 2
+}
+
 // ------------------------ Codigo Principal ----------------------- //
 void main()
 {
     // CONFIGURACION DE PUERTOS IO
     TRISD   = 0x00;
-    TRISB   = 0b00000001;
+    TRISB   = 0b00000101;
+    TXPIN   = 1;
 
     // CONFIGURACION DE INTERRUPCIONES
     INTCON  = 0b11010000;
@@ -78,7 +120,14 @@ void main()
     PR2     = 12;       // Para timer 2 a 9600 Hz
 
     while (TRUE)
-        LEDS = byte_value;
+    {
+        if(SENDWORD)
+        {
+            while(SENDWORD);
+            putchafa(byte_value);
+            //printf(putchafa, "Caracter recibido --> %c\r\n", byte_value);
+        }
+    }
 }
 
 /*
