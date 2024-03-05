@@ -28,9 +28,7 @@ void ReceptGPS()
    if(signal == '$')
    {
       for(i = 0; i < BufferMAX; i++)
-      {
          Buffer[i] = getch();
-      }
       
       if(Buffer[2] == 'R' && Buffer[3] == 'M' && Buffer[4] == 'C' && i >= 43)      // Buffer tiene una lectura de ubicacion
       {

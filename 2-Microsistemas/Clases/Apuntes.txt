@@ -145,10 +145,9 @@ BIT 3-0 --- CCP1M3:CCP1M0: Enhanced CCP Mode Select bits
 The module’s output mode and polarity are configured by setting the P1M1:P1M0, and CCP1M3:CCP1M0 bits of the CCP1CON
 register.
 
-
-
-
-
+-----------------------------------------------------------------------------------------------------------------------
+RS232:
+Las funciones de salida de la libreria (printf, putc), lo mandan al ultimo preprocesador RS232 declarado
 
 
 
