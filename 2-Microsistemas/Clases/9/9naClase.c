@@ -3,22 +3,40 @@
 #fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR    // Fusibles (Configuraciones del microcontrolador)
 #use        delay(clock = 8M)                                        // Configuracion de frecuencia y delay
 
-#define     LCD_DATA_PORT getenv("SFR:PORTD")
-#include    <lcd.c>
+#include <glcd.c>    // Ampire 128x64
 
 // --------------------- Direccion de registros --------------------- //
-#byte       TRISD    = 0xF96
+
+// ----------------------- Variable Globales ------------------------ //
+const int1 PRUEBA[10][10] = 
+{
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,0,0,1,1,1,1,
+   1,1,1,1,0,0,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+   1,1,1,1,1,1,1,1,1,1,
+};
 
 // ------------------------ Codigo Principal ----------------------- //
 void main()
 {
-   TRISD = 0;
+   glcd_init(ON);
+   glcd_fillScreen(OFF);
    
-   lcd_init();
-   printf(lcd_putc, "SIUUUUU");
-
    while (TRUE)
    {
+      for (int j = 0; j < 64; j++)
+         for (int i = 0; i < 64; i++, delay_ms(100))
+            glcd_pixel( i , j , ON);
       
+
+      /*for(long y = 0; y < 10; y++)
+         for(int x = 0; x < 10; x++, delay_ms(100))
+            glcd_pixel( x, y, PRUEBA[x][y] );*/
    }
 }
