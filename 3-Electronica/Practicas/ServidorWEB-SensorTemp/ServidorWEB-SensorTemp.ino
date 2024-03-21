@@ -4,16 +4,17 @@
 /*Definimos primero el Token que nos brinda la plataforma Ubidots para hacer la conexión*/
 const char *UBIDOTS_TOKEN = "BBUS-tmHquEwFfXpDlUPYtG7X6STs3ph5wQ";
 /*Definimos SSID y PASSWORD de nuestra red WiFi*/
-const char *WIFI_SSID = "SensorTemperatura";     
-const char *WIFI_PASS = "sensorsensor";     
+const char *WIFI_SSID = "ALEXA";     
+const char *WIFI_PASS = "1152227193_ZF";     
 /*Definimos el nombre de nuestro dispositivo, el cual aparecerá en la plataforma Ubidots*/
 const char *DEVICE_LABEL = "ESP32";
 /*Definimos las variables que se medirán y que serán publicadas en la plataforma Ubidots*/
-const char *VARIABLE_LABEL_1 = "temp";
-/*Definimos la frecuencia de publicación de 5 segundos*/
-const int PUBLISH_FREQUENCY = 5000;
+const char *VARIABLE_LABEL_1 = "diode_temp";
+const char *VARIABLE_LABEL_2 = "lm35_temp";
+/*Definimos la frecuencia de publicación de 60 segundos*/
+const unsigned int PUBLISH_FREQUENCY = 60000;
 
-const int sensorPIN = 32;
+const int diode_sensorPIN = 32, lm35_sensorPIN = 33;
  
 /*Definimos unas variables extra, que incluye la librería*/
 unsigned long timer; 
@@ -42,19 +43,23 @@ void loop()
   if (!ubidots.connected())
     ubidots.reconnect();
     
-  /*En esta condicional, iniciamos la medición de Temperatura y Humedad del sensor, y la información será enviada a la Plataforma*/
+  /*En esta condicional, iniciamos la medición de Temperatura, y la información será enviada a la Plataforma*/
   if (abs(millis() - timer) > PUBLISH_FREQUENCY) 
   {
+    analogSetWidth(10);
+    
     /*Hacemos la medición de Temperatura y Humedad del sensor, y lo definimos en variables Float */
-    float t = analogRead(sensorPIN) * 33.0 / 4095.0;
+    float diode_temp = analogRead(diode_sensorPIN) * 66.0 / 4095.0, lm35_temp = analogRead(lm35_sensorPIN) * 550.0 / 1023.0;
     
     /*Definimos que el valor de Temperatura será enviado por la variable 1, a la plataforma Ubidots*/
-    ubidots.add(VARIABLE_LABEL_1, t);
+    ubidots.add(VARIABLE_LABEL_1, diode_temp);
+    ubidots.add(VARIABLE_LABEL_2, lm35_temp);
     /*Hacemos la publicación de los datos en el dispositivo definido*/
     ubidots.publish(DEVICE_LABEL);
     /*Para mostrar los datos, los imprimimos en el terminal Serial*/
     Serial.println("Enviando los datos a Ubidots: ");
-    Serial.println("Temperatura: " + String(t));
+    Serial.println("Sensor Diodo: " + String(diode_temp) + "°C");
+    Serial.println("Sensor LM35: " + String(lm35_temp) + "°C " + String(analogRead(lm35_sensorPIN)));
     Serial.println("-----------------------------------------");
     timer = millis();
   }

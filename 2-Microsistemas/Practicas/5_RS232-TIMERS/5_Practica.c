@@ -89,7 +89,7 @@ void putchafa(char C)
     for( int i = 1; i < 9; i++ )
         bits[i] = (C>>(i-1)) & 0b00000001;
 
-    // Activamos modo transmisor y encendemos timer con frecuencia 9600 baudios
+    // Activamos modo transmisor y encendemos timer con frecuencia 2400 baudios
     send_bool = TMR2ON = 1;
     while(send_bool);
 
