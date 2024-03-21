@@ -149,7 +149,20 @@ register.
 RS232:
 Las funciones de salida de la libreria (printf, putc), lo mandan al ultimo preprocesador RS232 declarado
 
+-----------------------------------------------------------------------------------------------------------------------
+Protocolos Sincronos
 
+Para comunicar mas de 2 microcontroladores entre si, evitando una interferencia o perdidad de datos. Este esta constituido
+por un maestro y esclavos
+
+Maestro: Es el moderador que establece la velocidad de comunicacion y determina quien le envia informacion 
+
+Podemos moderar la transferencia de informacion de varias formas:
+
+Con un pin indicador: Cada esclavo tiene un CS/SS (Chip selector), por lo que al activarlo le indicamos que habra
+una transferencia de datos con el. (Desventaja el uso de mas pines a mas esclavos)
+
+Con un identificador: Cada esclavo tiene un identificador, 
 
 
 

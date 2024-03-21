@@ -1,3 +1,5 @@
+// MICROCONTROLADOR PARA RECEPCION E INTERPRETACION DE INSTRUCCIONES
+
 // --------------- Preprocesadores de microcontrolador -------------- //
 #include    <18f4550.h>                                              // Libreria del Microcontrolador
 #fuses      INTRC, CPUDIV1, PLL1, NOWDT, NOPROTECT, NOLVP, NOMCLR    // Fusibles (Configuraciones del microcontrolador)
@@ -8,6 +10,8 @@
 // --------------------- Direccion de registros --------------------- //
 #BYTE       INTCON         = 0xFF2
 #BIT        RCIE           = 0xF9D.5      // PIE1
+
+#BYTE       TRISA          = 0xF92
 
 #BYTE       TRISB          = 0xF93
 #BIT        START_PAUSE    = 0xF81.0   // PORTB
@@ -49,7 +53,8 @@ void receive()
 void main()
 {
    // Configuracion de registros de pines I/O
-   TRISB    = 0b00000111;   
+   TRISB    = 0b00000111;
+   TRISA    = 0b00000000;
 
    // Configuracion de registros de interrupciones
    INTCON   = 0b11000000;
@@ -58,12 +63,26 @@ void main()
    // Ciclo Infinito
    while (TRUE)
    {
+      // Posible calculo de posiciones de pajaros y columnas
+      // Los botones los manejamos en interrupciones
+      
       if(START_PAUSE)
       {
-         putchar('C');
-         while(START_PAUSE);
+         while (START_PAUSE);
+         putc('C');
+      }
+      
+      // Convertir estos en interrupciones de la misma prioridad, para que se ejecuten uno detras de otro si se presionan al mismo tiempo
+      if(PLAYER1)
+      {
+         while (PLAYER1);
+         putc('1');
       }
 
-      // Poner que active una bandera de envio de instruccion que se desactiva cuando la instruccion ya se ejecuto, en este caso el pajaro salto
+      if(PLAYER2)
+      {
+         while (PLAYER2);
+         putc('2');
+      }
    }
 }
