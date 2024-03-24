@@ -5,6 +5,8 @@
         "stdio.h": "c",
         "string.h": "c",
         "stdatomic.h": "c",
-        "vcruntime_c11_stdatomic.h": "c"
+        "vcruntime_c11_stdatomic.h": "c",
+        "xutility": "c",
+        "xstring": "c"
     }
 }
