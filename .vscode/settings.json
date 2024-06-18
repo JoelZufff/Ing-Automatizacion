@@ -2,11 +2,20 @@
     "files.associations": {
         "18f4550.h": "c",
         "stdlib.h": "c",
-        "stdio.h": "c",
+        "corecrt.h": "c",
+        "corecrt_search.h": "c",
+        "18f26k22.h": "c",
+        "stdlibm.h": "c",
+        "cmath": "c",
+        "math.h": "c",
+        "corecrt_math.h": "c",
+        "vcruntime.h": "c",
         "string.h": "c",
-        "stdatomic.h": "c",
-        "vcruntime_c11_stdatomic.h": "c",
-        "xutility": "c",
-        "xstring": "c"
+        "corecrt_wstring.h": "c",
+        "cstdio": "c",
+        "corecrt_wstdlib.h": "c",
+        "system_error": "c",
+        "pic18f4550_registers.h": "c",
+        "cstddef": "c"
     }
 }

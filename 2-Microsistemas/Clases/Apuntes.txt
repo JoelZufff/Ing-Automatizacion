@@ -45,7 +45,7 @@ Banderas: Podemos activar manualmente una interrupcion, mediante una bandera.
 
 ADC
 
-El ADC siempre convierte los datos en 10 bits, y ocupa 2 ciclos maquina para la conversion. 
+El ADC siempre convierte los datos en 10 bits, y ocupa 2 ciclos de reloj para la conversion. 
 La conversion del ADC funciona en paralelo, cada ciertos ciclos de reloj
 
 REGISTROS UTILIZADOS
@@ -99,7 +99,7 @@ Desventaja, solo podemos tener 2 PWM con diferente duty cicle pero con la misma 
 mas de 2 modulos o a diferente frecuencia hay que hacerlo con timers
 
 -----------------------------------------------------------------------------------------------------------------------
-EPWM (ENHANCED PULS WITH MODULATED)
+EPWM (ENHANCED PULSE WIDTH MODULATED)
 
 Utiliza los timers 1,2 y 3, pero si usamos PWM solo podremos usar el timer 2. Podemos generar hasta 4 PWM, 2 identicos 
 y sus complementarios o todos iguales.
@@ -164,8 +164,22 @@ una transferencia de datos con el. (Desventaja el uso de mas pines a mas esclavo
 
 Con un identificador: Cada esclavo tiene un identificador, 
 
+-----------------------------------------------------------------------------------------------------------------------
+Protocolos de comunicacion Serial
 
+UART (Universal Asincronous receiver transmiter)
+    * RS232: 
+    * RS485:
 
+USART (Universal )
+    * SPI
+        - SDO: Output
+        - SDI: Input
+        - CLK: Frecuencia de reloj maestro
+        - !SS: Slave selector
+    * I2C: 
+        - SCK: Frecuencia de reloj maestro
+        - SDI: Tx, Rx
 
 
 

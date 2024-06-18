@@ -17,7 +17,7 @@ int16       *ADRES      = 0xFC3
 void main()
 {
    // Funcion read_adc()
-   ADC   = *ADRES;
    DONE  = 1;
    delay_us(10);
+   int16 ADC = *ADRES;
 }
