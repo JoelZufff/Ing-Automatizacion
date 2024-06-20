@@ -28,6 +28,9 @@
 #byte   INTCON2     = 0xFF1
 #byte   INTCON3     = 0xFF0
 
+#byte   IPR1        = 0xF9F
+#byte   IPR2        = 0xFA2
+
 // ---------------------------- A D C ------------------------------- //
 #word   ADRES       = 0xFC3
 #byte   ADCON0      = 0xFC2

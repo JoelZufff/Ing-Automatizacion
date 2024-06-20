@@ -5,71 +5,79 @@
 #device     PASS_STRINGS = IN_RAM
 #use        rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n) 
 #use        I2C (MASTER, SCL = PIN_D6, SDA = PIN_D7, FORCE_SW, FAST, stream = SSD1306_STREAM)
+#device     HIGH_INTS = TRUE
 
 #include <PIC18F4550_registers.h>
 #include "libraries/SSD1306OLED.c"
+#include <string.h>
 #include <stdlib.h>
 
 // --------------------- Direccion de registros --------------------- //
-#BIT     PWM1_PORT   = 0xF83.0   // PORTD
-#BIT     PWM1_LAT    = 0xF8C.0   // LATD
-
 #BIT     TMR0IE      = 0xFF2.5   // INTCON
 #BIT     TMR2IE      = 0xF9D.1   // PIE1
 #BIT     CCP1IE      = 0xF9D.2   // PIE1
 #BIT     CCP2IE      = 0xFA0.0   // PIE2
+#BIT     RCIE        = 0xF9D.5   // PIE1
 
 #BIT     CCP1EDGE    = 0xFBD.0   // CCP1CON
 #BIT     CCP2EDGE    = 0xFBA.0   // CCP2CON
 
 #BIT     TMR0ON      = 0xFD5.0   // T0CON
-#BIT     TMR1ON      = 0xFCD.0   // T1CON
-#BIT     TMR2ON      = 0xFCA.2   // T2CON
+//#BIT     TMR2ON      = 0xFCA.2   // T2CON
 
-#BIT     GO_DONE     = 0xFC2.1   // ADCON0
+#BIT     PWM1_PORT   = 0xF81.0   // PORTB
+#BIT     PWM1_LAT    = 0xF8A.0   // LATB
+#BIT     DIR_PIN_O   = 0xF8A.1   // LATB
+#BIT     DIR_PIN_I   = 0xF81.1   // LATB
+
+//#BIT     GO_DONE     = 0xFC2.1   // ADCON0
 
 // -------------------------- M A C R O S --------------------------- //
 #define  PR2_MIN     1         // 4.8 KHz
 #define  PR2_MAX     255       // 38 Hz
 
 // Motores a paso
-#define  Step_PIN          PIN_B0
-#define  Direction_PIN     PIN_B1
+#define  STEP_PIN       PIN_B0
+#define  DIR_PIN        PIN_B1
 
 // Limit Switch
 #define  Limit_Switch_1    PIN_D0
 #define  Limit_Switch_2    PIN_D1
 
-#define  get_adc()   (GO_DONE = TRUE, delay_us(10), ADRES)
+#define  steps_to_mm(steps)   (0.0324 * (steps) + 0.2022)
+#define  mm_to_steps(mm)      (((mm) - 0.2022) / 0.0324)
+//#define  get_adc()   (GO_DONE = TRUE, delay_us(10), ADRES)
 
 // -------------------------- Estructuras --------------------------- //
 typedef struct
 {
-   long  trigger_PIN;
-   int32 echo_time;     // Tiempo detectado por echo en ciclos de trabajo
-   float distance;      // Distancia en cm
-   short echo_updated;  // TRUE: El tiempo esta actualizado, FALSE: El tiempo NO esta actualizado
+   long  trigger_PIN;         // Posicion del PIN de trigger
+   long  echo_time;           // Tiempo detectado por echo en ciclos de trabajo
+   float distance;            // Distancia en mm
 } Ultrasonic_Sensor_t;
 
 // ----------------------- Variables Globales ----------------------- //
 // Instrucciones de aplicacion
 char     target_str[10];
-short    start = FALSE, stop = FALSE;
+short    target_updated = FALSE, movement_ON = FALSE, calibration_ON = FALSE;
 
-// Sensores ultrasonicos
-Ultrasonic_Sensor_t UltSensor[2] = { { PIN_A4, 0, 0, FALSE }, { PIN_A5, 0, 0, FALSE } };
-float    temp = 30.0, actual_distance = 0.0, target_distance = 0.0;
+// Medicion de distancia
+Ultrasonic_Sensor_t UltSensor[2] = { { PIN_A4, 0, 0 }, { PIN_A5, 0, 0 } };
 
 // Contador de pasos de motor a pasos
-signed int32    steps    = 0;
-short    Stepper_dist_ON = FALSE;
+signed int32   actual_steps = 0;       // Posicion actual en pasos
+signed int32   target_steps = 0;       // Distancia objetivo en pasos 
 
-// Para control PID
-const float Kp = 4, Ki = 0.1, Kd = 0.1;
-short       PID_movement = TRUE;
+signed int32   stepper_steps = 0;      // Distancia recorida por motores a paso
+
+short          stepper_valid = FALSE, US_valid = TRUE;
+
+// Variables para el control PID
+const float Kp = 0.07, Kd = 0.001, Ki = 0.005, dt = 0.1048576;       // La QUE MAS JALA
+float et;
 
 // -------------------------- Interrupciones ------------------------ //
-#INT_RDA
+#INT_RDA HIGH
 void Bluetooth_App()
 {
    char data = getc();
@@ -79,12 +87,19 @@ void Bluetooth_App()
       case '+':   // Recibimos start y distancia
       {
          gets(target_str);
-         start = TRUE;
+
+         // Activamos modo de calibracion de pasos
+         US_valid = calibration_ON = TRUE;
+         stepper_valid = FALSE;
+         target_steps = 0;       // Distancia objetivo
+
+         target_updated = TRUE;
+         movement_ON = TRUE;
          break;
       }
       case '-':   // Recibimos stop
       {
-         stop = TRUE;
+         movement_ON = FALSE;
          break;
       }
       default:
@@ -92,11 +107,33 @@ void Bluetooth_App()
    }
 }
 
+#INT_TIMER2 HIGH        // Señal PWM de motores a paso
+void PWM()              // Ejecucion de PWM
+{
+   output_toggle(STEP_PIN);
+   if(PWM1_PORT)     // Ver si agregar start position aqui
+   {
+      if(DIR_PIN_I)   // TRUE: ATRAS | FALSE: ADELANTE
+         stepper_steps++;
+      else
+         stepper_steps--;
+      
+      // De nada me sirve calcular el error aqui si nos basamos en los sensores, solo consumire ciclos maquina a lo wey
+      if(stepper_valid)
+      {
+         et = (float) target_steps - actual_steps;
+
+         if(et == 0)          // Con los pasos si puede haber error 0
+            TMR2IE = FALSE;
+      }
+   }
+}
+
 #INT_CCP1
-void ECHO_signal_1()    // Recibir y medir tiempo de señal echo de sensores ultrasonicos
+void ECHO_signal_1()    // Recepcion de señal ECHO (Sensor 1)
 {
    static long init_time = 0;
-   
+
    if(CCP1EDGE)    // Detecto flanco de subida
    {
       init_time   = *CCPR1;
@@ -108,13 +145,16 @@ void ECHO_signal_1()    // Recibir y medir tiempo de señal echo de sensores ult
          UltSensor[0].echo_time = (65535 - init_time) + (*CCPR1);
       else
          UltSensor[0].echo_time = (*CCPR1) - init_time;
-      
-      CCP1EDGE = UltSensor[0].echo_updated = TRUE;   // Esperamos el siguiente flanco de subida
+
+      CCP1EDGE = TRUE;       // Esperamos el siguiente flanco de subida
+
+      delay_ms(5);
+      output_high(UltSensor[1].trigger_PIN), delay_us(10), output_low(UltSensor[1].trigger_PIN);
    }
 }
 
 #INT_CCP2
-void ECHO_signal_2()
+void ECHO_signal_2()    // Recepcion de señal ECHO (Sensor 2)
 {
    static long init_time = 0;
 
@@ -129,22 +169,95 @@ void ECHO_signal_2()
          UltSensor[1].echo_time = (65535 - init_time) + (*CCPR2);
       else
          UltSensor[1].echo_time = (*CCPR2) - init_time;
-
-      CCP2EDGE = UltSensor[1].echo_updated = TRUE;   // Esperamos el siguiente flanco de subida
+      
+      CCP2EDGE = TRUE;           // Esperamos el siguiente flanco de subida
    }
 }
 
-#INT_TIMER2    // Señal PWM de motores a paso
-void PWM()
-{
-   output_toggle(Step_PIN);
-   if(PWM1_PORT)
+#INT_TIMER0
+void PID_Control()
+{  
+   // DISTANCIA DE SENSORES ULTRASONICOS
+   UltSensor[0].distance         = (0.0343 * UltSensor[0].echo_time) + 0.8589;   // Distancia en mm
+   UltSensor[1].distance         = (0.0336 * UltSensor[1].echo_time) - 2.8107;   // Distancia en mm
+
+   float US_distance       = (UltSensor[0].distance + UltSensor[1].distance) / 2;   // Sacamos el promedio
+
+   if(stepper_valid && US_valid)
    {
-      if(input(Direction_PIN))
-         steps++;
-      else
-         steps--;
+      actual_steps = stepper_steps;
+      
+      if(((steps_to_mm(stepper_steps) < US_distance-3) || (steps_to_mm(stepper_steps) > US_distance+3)))  // Si la diferencia de distancia es mayor a +-5mm
+      {
+         actual_steps = mm_to_steps(US_distance);
+         stepper_valid = FALSE;
+      }
    }
+   else if(stepper_valid && !US_valid)    // Si los pasos son validos
+   {
+      actual_steps = stepper_steps;
+
+      if(steps_to_mm(stepper_steps) >= 50)     // Si es mayor a 50
+         US_valid = TRUE;
+   }
+   else if(!stepper_valid && US_valid)
+   {
+      actual_steps = mm_to_steps(US_distance);
+
+      if(US_distance < 40)     // Si es menor a 50
+      {
+         stepper_steps = mm_to_steps(US_distance + 10);
+         stepper_valid = TRUE;
+         US_valid = FALSE;
+      }
+      else if(((steps_to_mm(stepper_steps) >= US_distance-3) && (steps_to_mm(stepper_steps) <= US_distance+3)))  // Si la diferencia de distancia es mayor a +-5mm
+      {
+         actual_steps = stepper_steps;
+         stepper_valid = TRUE;
+         US_valid = FALSE;
+      }
+   }
+      
+   // CONTROL PID
+   et = (float) target_steps - actual_steps;    // Posicion deseada - Posicion actual
+
+   static float last_et = 0;
+   static float I = 0;
+   
+   float P = Kp * et;                        // Parte PROPORCIONAL
+   float D = Kd * ((et - last_et) / dt);     // Parte DIFERENCIAL
+   I += Ki * (et*dt);                        // Parte INTEGRAL
+
+   if(I > 150)
+      I = 150;
+   else if(I < -150)
+      I = -150;
+
+   last_et = et;     // Guardamos el error pasado
+
+   long output = abs(P + I + D);       // La salida del sistema es la sumatoria
+   
+   // Establecer limites de saturacion de salida
+   if(output > 255)
+      output = 255;
+
+   // Enviamos salida a PR2 y a sentido de giro dependiendo el signo del error
+   output = PR2_MAX - output + PR2_MIN;
+
+   if(calibration_ON && (output >= 10))
+      output = 10;
+
+   DIR_PIN_O = !(et < 0);     // TRUE: ATRAS | FALSE: ADELANTE 
+   PR2 = output;
+
+   // Condiciones para ver si hay movimiento
+   if((et == 0) || (!movement_ON))        // Si el movimiento esta desactivado
+      TMR2IE = FALSE;
+   else if((et != 0) && (movement_ON))    // Si el error es diferente de 0 y el movimiento esta activado
+      TMR2IE = TRUE;
+   
+   // Enviamos señal trigger de primer sensor para muestreo de datos
+   output_high(UltSensor[0].trigger_PIN), delay_us(10), output_low(UltSensor[0].trigger_PIN);
 }
 
 // ---------------------------- Funciones --------------------------- //
@@ -155,176 +268,33 @@ void log_init()
    TRISB    = 0b00000000;
    TRISC    = 0b10000110;
    TRISD    = 0b00000011;
-   
-   // Registros para obtener temperatura de LM35
-   ADCON0   = 0b00000011;
-   ADCON1   = 0b00001110;
-   ADCON2   = 0b10000000;
 
    // Registros para PWM de motores a paso
+   TMR2IE   = FALSE;
    INTCON   |= 0b11000000;
-   TMR2IE   = TRUE;
-   T2CON    = 0b01111010;     // Preescaler 16
-   PR2      = PR2_MIN;
-   TMR2ON   = TRUE;
+   T2CON    = 0b01111110;     // Preescaler 16
+   PR2      = PR2_MAX;
 
-   // Registros para ejecucion de sistema de control PID
-   *TMR0    = 0;
-   T0CON    = 0b00010100;  //  Cuenta maximo 40 ms
+   RCIE = TRUE;
 
-   // Registros para muestreo de distancia de sensores ultrasonicos
+   // Registros para muestreo de distancia
+   CCP1IE = CCP2IE = TRUE;
    *TMR3    = 0;
    T3CON    = 0b11001001;              // Configuramos timer 3 para ambos CCP
    CCP1CON = CCP2CON = 0b00000101;     // En modo captura flanco de subida
-   CCP1IE = CCP2IE = TRUE;
+
+   TMR0IE   = TRUE;                    // Activamos interrupcion de timer 0
+   *TMR0    = 0;
+   T0CON    = 0b10000010;              // Timer 0 (10 Hz)
 
    // Inicializamos OLED
    SSD1306_Begin(SSD1306_SWITCHCAPVCC, SSD1306_I2C_ADDRESS);
-}
-
-void Control_PID()
-{
-   TMR0ON = FALSE;
-   float dt = *TMR0 / 156250.0;
-   
-   static float et_ant = 0, integral = 0;    // Las variables que se resetean
-
-   // Control PID con datos actualizados
-   float et = target_distance - actual_distance;      // ERROR CUANDO TARGET DISTANCE NO HA SIDO DEFINIDO
-   
-   // Parte Proporcional
-   float P = Kp * et;
-
-   // Parte Integral
-   integral += et * dt;   // Error * dt
-   float I = Ki * integral;
-
-   // Parte Differencial
-   float D = (et - et_ant) / dt;    // (ErrorAct - ErrorAnt) / dt 
-   float output = (Kp * P) + (Ki * I) + (Kd * D);
-
-   if(PID_movement)
-   {
-      if(output > PR2_MAX)
-         output = PR2_MAX;
-      else if(output < -PR2_MAX)
-         output = -PR2_MAX;
-      else if(output < PR2_MIN)
-         output = PR2_MIN;
-      else if(output > -PR2_MIN)
-         output = -PR2_MIN;
-
-      SSD1306_ClearDisplay();
-      char string[21];
-      sprintf(string, "dt=%f| et=%f\0", dt, et);
-      SSD1306_DrawText(0, 0, string, 1);
-      sprintf(string, "O=%f\0", output);
-      SSD1306_DrawText(0, 40, string, 2);
-      SSD1306_Display();
-      delay_ms(2000);
-
-      if(output > 0)    // Hay que avanzar
-      {
-         output = PR2_MAX - output;
-         
-         output_bit(Direction_PIN, FALSE);
-         PR2 = abs(output);
-         TMR2ON = TRUE;
-      }
-      else if(output < 0)     // Hay que retroceder
-      {
-         output = output + PR2_MAX;
-
-         output_bit(Direction_PIN, TRUE);
-         PR2 = abs(output);
-         TMR2ON = TRUE;
-      }
-      else
-         TMR2ON = FALSE;      // Si la salida es 0, ya no hay movimiento
-   }
-   
-   *TMR0 = 0;
-   TMR0ON = TRUE;    // Arranco timer 0 para dt de siguiente ciclo
-}
-
-void UltraSonic_Trigger()
-{
-   float dist[2] = { 0, 0 }, sound_speed = 33100 + (60 * temp);     // Velocidad del sonido en cm
-   
-   const int prom = 20;
-   for(int i = 0; i < prom; i++)
-   {
-      // Enviamos señal trigger a sensores ultrasonicos
-      output_high(UltSensor[0].trigger_PIN), output_high(UltSensor[1].trigger_PIN);
-      delay_us(10);
-      output_low(UltSensor[0].trigger_PIN), output_low(UltSensor[1].trigger_PIN);
-
-      //while(!UltSensor[0].echo_updated || !UltSensor[1].echo_updated);
-      for(int time = 0; (!UltSensor[0].echo_updated || !UltSensor[1].echo_updated); time++, delay_ms(1))
-      {
-         if(time > 25)
-            break;
-      }
-      UltSensor[0].echo_updated = UltSensor[1].echo_updated = FALSE;
-
-      dist[0] += (float) (UltSensor[0].echo_time * sound_speed / 10000000);
-      dist[1] += (float) (UltSensor[1].echo_time * sound_speed / 10000000);
-   }
-
-   // Sacamos distancia promedio de mediciones
-   UltSensor[0].distance = dist[0] / prom;
-   UltSensor[1].distance = dist[1] / prom;
-}
-
-void Actual_Position()
-{  
-   UltraSonic_Trigger();      // Envio y confirmacion de señal trigger
-
-   float Ultrasonic_dist = (UltSensor[0].distance + UltSensor[1].distance) / 2.0;
-   float Stepper_dist = steps * 0.0033379;
-
-   if(!Stepper_dist_ON)    // Si aun no llegamos a punto 0
-   {
-      actual_distance = Ultrasonic_dist;
-      return;
-   }
-
-   // Si estamos a menos de 4 cm nos quedamos con la distancia de los pasos
-   if(Stepper_dist < 4)
-   {
-      actual_distance = Stepper_dist;
-      return;
-   }
-
-   // Si varia mucho la distancia, nos fiamos del ultrasonico
-   if((Stepper_dist < (Ultrasonic_dist + 2)) && (Stepper_dist > (Ultrasonic_dist - 2)))   // Si varian mucho las distancias
-   {
-      actual_distance = Ultrasonic_dist;
-      return;
-   }
-
-   actual_distance = Stepper_dist;
 }
 
 // ------------------------ Codigo Principal ------------------------ //
 void main()
 {
    log_init();
-
-   output_bit(Direction_PIN, FALSE);
-   PR2 = 5;
-   TMR2ON = TRUE;    // Activamos movimiento de motor
-   while(!input(Limit_Switch_1) || !input(Limit_Switch_2));
-   TMR2ON = FALSE;   // Desactivamos moviemiento de motor
-
-   steps = 0;
-   Stepper_dist_ON = TRUE;
-   target_distance = 15;
-
-   // Realizar primer acople con objeto
-   // Confirmamos que el objeto esta enfrente con sensores ultrasonicos, en caso de que no, o este fuera de rango, avisar en pantalla
-   // Esperamos boton de start para acoplarnos al objeto
-   // 
 
    SSD1306_ClearDisplay();
    SSD1306_DrawText(21, 21, "SCADA\0", 3);
@@ -333,50 +303,77 @@ void main()
 
    while (TRUE)
    {  
-      Actual_Position();      // Obtenemos posicion actual de objeto
-      Control_PID();          // Ejecutamos control PID
-
-      // Mostrar distancia actual y temperatura en pantalla OLED
-      char distance_str[9], distance2_str[9], temp_str[9];
-      sprintf(temp_str, "%2.2f C\0", temp);
-      //sprintf(distance_str, "%3.1f cm\0", UltSensor[0].distance);
-      //sprintf(distance2_str, "%3.1f cm\0", UltSensor[1].distance);
-      sprintf(distance_str, "%3.1f cm\0", actual_distance);
-
+      // Impresion de distancia actual
       SSD1306_ClearDisplay();
-      SSD1306_DrawText(5, 5, temp_str, 1);
-      SSD1306_DrawText( 16, 24, distance_str, 2);
-      //SSD1306_DrawText( 16, 24, distance_str, 2);
-      //SSD1306_DrawText( 16, 42, distance2_str, 2);
+      char string[20];
+      sprintf(string, "%.1f cm\0", steps_to_mm(actual_steps) / 10.0); 
+      SSD1306_DrawText((128 - (17 * strlen(string))) / 2, 23, string, 3);
+      if(stepper_valid)
+         sprintf(string, "Sensor: Pasos\0");
+      else
+         sprintf(string, "Sensor: Ultrasonico\0");
+      SSD1306_DrawText((128 - (6 * strlen(string))) / 2, 55, string, 1);
       SSD1306_Display();
 
-      if(start)   // Recibimos distancia y movimiento de control PID
+      delay_ms(10);
+      
+      if(input(Limit_Switch_1) || input(Limit_Switch_2) && movement_ON)
       {
-         target_distance = atof(target_str);
+         while(!input(Limit_Switch_1) || !input(Limit_Switch_2));   // Hasta que no se presionen los 2         
+         TMR0IE = TMR2IE = calibration_ON = FALSE;      // Desactivamos PID | Desactivamos el movimiento
          
-         PR2 = (PR2_MAX - PR2_MIN) / 2 + PR2_MIN;
-         TMR2ON = TRUE;    // Activamos movimiento de motor
-         while(!input(Limit_Switch_1) || !input(Limit_Switch_2));
-         TMR2ON = FALSE;   // Desactivamos moviemiento de motor
-         
-         PID_movement = TRUE;
-         start = FALSE;
+         if(target_updated)      // Si el objetivo esta actualizado
+         {
+            stepper_valid = TRUE;
+            US_valid = FALSE;
+            stepper_steps = 0;
+
+            target_steps = mm_to_steps(atof(target_str) * 10);   // Distancia objetivo
+         }
+
+         TMR0IE = TRUE;      // Desactivamos PID | Desactivamos el movimiento
+
+         while(input(Limit_Switch_1) || input(Limit_Switch_2));   // Hasta que no se presionen desactiven los 2 limit
       }
 
-      if(stop)       // Se solicito detenerse
-         TMR2ON = PID_movement = FALSE;      // Desactivamos control PID y movimiento del motor
+      /*/   Calibracion de sensores
+      // DISTANCIA DE PASOS DE MOTOR A PASOS
+      if(input(Limit_Switch_1))
+      {
+         DIR_PIN_O = FALSE;
+         TMR2IE = TRUE;
+         while(input(Limit_Switch_1));
+      }
+
+      if(input(Limit_Switch_2))
+      {
+         TMR2IE = FALSE;
+         while(input(Limit_Switch_2));
+      }
       
-         
-      /*/
-      for(int i = PR2_MIN; i < PR2_MAX; i++, delay_ms(delay))
-         PR2 = i;
-      
-      for(int i = PR2_MAX; i >= PR2_MIN; i--, delay_ms(delay))
-         PR2 = i;
+      DIR_PIN_O = TMR2IE = TRUE;
+      delay_ms(10);
+
+      SSD1306_ClearDisplay();
+      char string[20];
+      sprintf(string, "%.1f cm\0", actual_distance / 10.0); 
+      SSD1306_DrawText((128 - (17 * strlen(string))) / 2, 23, string, 3);
+      SSD1306_Display();
       //*/
    }
 }
 
-// Nuestro rango de distancias va desde 5 -> 50 cm
+// Nuestro rango de distancias va desde 0 -> 50 cm
 
-// Crear un timer que calcule la salida del sistema y solicite lectura para siguiente salida de sistema
+// Tamaño 1: 6 x 8   | 21 caracteres por fila
+// Tamaño 2: 12 x 16 | 10 caracteres por fila
+// Tamaño 3: 17 x 21 | 7 caracteres por fila
+// Tamaño 3: 24 x 32 | 5 caracteres por fila
+
+
+/* CORRECCIONES
+* ARREGLAR BOTON DE STOP (DETENER TODOS LOS PROCESOS DE MOVIMIENTO)
+   * Poner los limit_switch en interrupcion externa
+* ARREGLAR CAMBIO DE POSICION DE OBJETO
+* 
+*/
