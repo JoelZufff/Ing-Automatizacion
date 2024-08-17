@@ -1,0 +1,11 @@
+[Version]
+Version=15.0
+[Designs]
+practica1=.\Practica1\Practica1.adf
+[Browser]
+sort=order
+mode=none
+[Order]
+order=1
+[Expand]
+practica1=1
