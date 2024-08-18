@@ -1,0 +1,1 @@
+-w -d C:/Users/diego/Desktop/Code/Practica1/compile -s C:/Users/diego/Desktop/Code/library.cfg -j C:/Users/diego/Desktop/Code/Practica1/projlib.cfg -work practica1 -O3 -e 100 -work practica1 -2002 C:/Users/diego/Desktop/Code/Practica1/src/pr1_TB.vhd 

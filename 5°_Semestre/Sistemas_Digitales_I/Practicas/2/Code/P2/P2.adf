@@ -1,0 +1,32 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=P2
+[Library]
+P2=.\P2\P2.lib
+[$LibMap$]
+P2=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+[Files]
+/P2.vhd=-1
+/P2_benchy.vhd=-1
+/graph.asdb=-1
+/graph.awc=-1
+[Files.Data]
+.\src\P2.vhd=VHDL Source Code
+.\src\P2_benchy.vhd=VHDL Source Code
+.\src\graph.asdb=Accelerated Waveform File
+.\src\graph.awc=Accelerated Waveform Configuration
+[HierarchyViewer]
+HierarchyInformation=e1|tb|0
+ShowHide=ShowTopLevel
+Selected=
