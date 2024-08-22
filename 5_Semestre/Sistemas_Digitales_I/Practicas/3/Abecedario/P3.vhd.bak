@@ -1,0 +1,42 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity P3 is
+    port 
+	 (
+        input_code : in std_logic_vector(4 downto 0); -- Entrada de 5 bits para codificar la letra
+        display : out std_logic_vector(7 downto 0)   -- Salida para el display de 7 segmentos
+    );
+end P3;
+
+architecture ABC of P3 is
+begin
+    process(input_code) -- Process = switch
+    begin
+        case input_code is
+            when "00000" => display <= "10001000"; -- A
+            when "00001" => display <= "10000011"; -- B 
+            when "00010" => display <= "11000110"; -- C 
+            when "00011" => display <= "10100001"; -- D 
+            when "00100" => display <= "10000110"; -- E 
+            when "00101" => display <= "10001110"; -- F 
+            when "00110" => display <= "10000010"; -- G 
+            when "00111" => display <= "10001001"; -- H 
+            when "01000" => display <= "11001111"; -- I 
+            when "01001" => display <= "11110001"; -- J 
+            when "01010" => display <= "11000111"; -- L 
+            when "01011" => display <= "10110000"; -- M 
+            when "01100" => display <= "11001000"; -- N 
+            when "01101" => display <= "11000000"; -- O 
+            when "01110" => display <= "10001100"; -- P 
+            when "01111" => display <= "10011000"; -- Q 
+            when "10000" => display <= "11001110"; -- R 
+            when "10001" => display <= "10010010"; -- S 
+            when "10010" => display <= "10000111"; -- T 
+            when "10011" => display <= "11000001"; -- U 
+            when "10100" => display <= "10000110"; -- W  
+            when "10101" => display <= "10100100"; -- Z 
+            when others  => display <= "11111111"; -- Default case
+        end case;
+    end process;
+end ABC;
