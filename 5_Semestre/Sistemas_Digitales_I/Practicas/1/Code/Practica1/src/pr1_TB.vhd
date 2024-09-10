@@ -21,8 +21,8 @@ component P1
 end component;
 
 -- We simulate de input and output values
-signal A,B,C,D:std_logic;  -- Inputs
-signal S1,S2,S3,S4,S5:std_logic; -- Outputs
+signal A,B,C,D:std_logic;  			-- Inputs
+signal S1,S2,S3,S4,S5:std_logic; 	-- Outputs
 
 begin
 	inicio: P1 port map (A=>A,B=>B,C=>C,D=>D,S1=>S1,S2=>S2,S3=>S3,S4=>S4,S5=>S5);

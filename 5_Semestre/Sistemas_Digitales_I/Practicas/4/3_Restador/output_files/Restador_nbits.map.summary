@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Sep 10 12:24:47 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : Restador_nbits
+Top-level Entity Name : Restador_nbits
+Family : Cyclone IV E
+Total logic elements : 41
+    Total combinational functions : 41
+    Dedicated logic registers : 16
+Total registers : 16
+Total pins : 20
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

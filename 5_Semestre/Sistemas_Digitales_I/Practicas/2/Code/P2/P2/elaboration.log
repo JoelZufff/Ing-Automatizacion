@@ -1,4 +1,4 @@
-Active-HDL 15.0.261.9132 2024-08-17 09:22:55
+Active-HDL 15.0.261.9132 2024-08-23 10:41:00
 
 Elaboration top modules:
 Architecture                  TB(E1)
@@ -26,3 +26,9 @@ ieee                    | Standard IEEE packages library
 p2                      | None
 std                     | Standard VHDL library
 -------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+e1 e1 tb
+
+
+The performance of simulation is reduced. Version Student Edition

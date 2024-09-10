@@ -1,0 +1,44 @@
+timestamp=1724517248816
+
+[~A]
+ModifyID=10
+Version=74
+
+[~MFT]
+0=7|0P3_palabras.mgf|3087|0
+1=1|1P3_palabras.mgf|705|0
+3=1|3P3_palabras.mgf|413|0
+
+[e1]
+A/tb=A/TB 21|../src/P3_TB.vhd|7|1*705
+BinW64/tb=3*413
+I=0*1809
+I/tb=I/TB 0*3087
+M=11|2|vf5|1724517248777|../src/P3_TB.vhd|0*1594*0x052650de5aaa645728709aa722874c13e3bd6952|0*1737*0x23b75c12e3e89f2ef000564498faa8c2
+M/tb=M/TB 21|2|vf5|1724517248780|../src/P3_TB.vhd|0*2003*0x9d21f823e32b6bf051d8eb61ba9a80910dbab86f|0*3009*0x20116f55b147878295aeff36dce7fc50
+R=../src/P3_TB.vhd|4
+Version=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|fb62f88ba08c5b33cf53a986fa8aa159350f9fb947a50f1eab7b336f09c45846
+Version/tb=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|8db8692708dc0985d408d2497dbc95fa350f9fb947a50f1eab7b336f09c45846
+
+[p3]
+A/parch2=A/PArch2 21|../src/P3.vhd|15|1*0
+BinW64/parch2=3*0
+I=0*836
+I/parch2=I/PArch2 0*1284
+M=11|2|vf5|1724517246579|../src/P3.vhd|0*521*0x9ed52dc1d300603a60e665bb8830a10ecf45ac90|0*767*0x23b75c12e3e89f2ef000564498faa8c2
+M/parch2=M/PArch2 21|2|vf5|1724517246581|../src/P3.vhd|0*1030*0xb342ba1086115f93bc134505fc5f557654323100|0*1205*0x20116f55b147878295aeff36dce7fc50
+R=../src/P3.vhd|4
+Version=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|c2f28ffa35457e430819491f447511bbea7b005c8359dece6ffc31e163a8c3ba
+Version/parch2=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|2ecab243e12d1881d405b7247c56038085ddc16ec8daf340434701ec5b9992bf
+
+[p3_tb]
+A/tb=A/TB *21|../src/Palabras_TB.vhd|8|
+
+[palabras]
+A/multiplexado=A/Multiplexado *21|../src/Palabras.vhd|17|
+
+[~U]
+e1=E1 11|0*1485|
+p3=P3 11|0*348|
+p3_tb=P3_TB 11|0*0|
+palabras=Palabras 11|0*116|

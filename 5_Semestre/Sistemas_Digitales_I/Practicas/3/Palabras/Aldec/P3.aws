@@ -1,0 +1,13 @@
+[Version]
+Version=15.0
+[Designs]
+p3_palabras=.\P3_palabras\P3_palabras.adf
+[Browser]
+sort=order
+mode=asc
+[Order]
+order=1
+[Expand]
+p3_palabras=1
+[Settings]
+Active=p3_palabras

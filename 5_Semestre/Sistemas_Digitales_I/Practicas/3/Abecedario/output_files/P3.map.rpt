@@ -1,5 +1,5 @@
 Analysis & Synthesis report for P3
-Tue Aug 20 21:21:42 2024
+Sat Aug 24 09:18:54 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,13 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -37,20 +43,20 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Aug 20 21:21:42 2024              ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 24 09:18:54 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; P3                                             ;
 ; Top-level Entity Name              ; P3                                             ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; N/A until Partition Merge                      ;
-;     Total combinational functions  ; N/A until Partition Merge                      ;
-;     Dedicated logic registers      ; N/A until Partition Merge                      ;
-; Total registers                    ; N/A until Partition Merge                      ;
-; Total pins                         ; N/A until Partition Merge                      ;
-; Total virtual pins                 ; N/A until Partition Merge                      ;
-; Total memory bits                  ; N/A until Partition Merge                      ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
-; Total PLLs                         ; N/A until Partition Merge                      ;
+; Total logic elements               ; 17                                             ;
+;     Total combinational functions  ; 17                                             ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 17                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -156,26 +162,130 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                               ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------+---------+
+; P3.vhd                           ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 17               ;
+;                                             ;                  ;
+; Total combinational functions               ; 17               ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 12               ;
+;     -- 3 input functions                    ; 4                ;
+;     -- <=2 input functions                  ; 1                ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 17               ;
+;     -- arithmetic mode                      ; 0                ;
+;                                             ;                  ;
+; Total registers                             ; 0                ;
+;     -- Dedicated logic registers            ; 0                ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 17               ;
+;                                             ;                  ;
+; Embedded Multiplier 9-bit elements          ; 0                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; buttons[3]~input ;
+; Maximum fan-out                             ; 12               ;
+; Total fan-out                               ; 87               ;
+; Average fan-out                             ; 1.71             ;
++---------------------------------------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |P3                        ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |P3                 ; P3          ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 17                          ;
+; cycloneiii_lcell_comb ; 19                          ;
+;     normal            ; 19                          ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 12                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Tue Aug 20 21:21:35 2024
+    Info: Processing started: Sat Aug 24 09:18:46 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off P3 -c P3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file p3.vhd
     Info (12022): Found design unit 1: P3-ABC File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd Line: 13
     Info (12023): Found entity 1: P3 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd Line: 4
-Error (10396): VHDL syntax error at Palabras.vhd(11): name used in construct must match previously specified name "Palabras" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/Palabras.vhd Line: 11
-Error (10523): Ignored construct Palabras at Palabras.vhd(4) due to previous errors File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/Palabras.vhd Line: 4
-Info (12021): Found 0 design units, including 0 entities, in source file palabras.vhd
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 4790 megabytes
-    Error: Processing ended: Tue Aug 20 21:21:42 2024
-    Error: Elapsed time: 00:00:07
-    Error: Total CPU time (on all processors): 00:00:06
+Warning (12019): Can't analyze file -- file Palabras.vhd is missing
+Info (12127): Elaborating entity "P3" for the top level hierarchy
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "common[0]" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd Line: 9
+    Warning (13410): Pin "common[1]" is stuck at VCC File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd Line: 9
+    Warning (13410): Pin "common[2]" is stuck at VCC File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd Line: 9
+    Warning (13410): Pin "common[3]" is stuck at VCC File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/P3.vhd Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 34 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 17 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4821 megabytes
+    Info: Processing ended: Sat Aug 24 09:18:54 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:07
 
 

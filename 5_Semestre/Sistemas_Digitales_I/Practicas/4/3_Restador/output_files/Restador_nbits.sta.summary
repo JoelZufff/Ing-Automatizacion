@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'comun_index[0]'
+Slack : -3.591
+TNS   : -14.617
+
+Type  : Slow 1200mV 85C Model Setup 'clock'
+Slack : -2.722
+TNS   : -35.600
+
+Type  : Slow 1200mV 85C Model Hold 'comun_index[0]'
+Slack : -0.126
+TNS   : -0.126
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.597
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -26.792
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'comun_index[0]'
+Slack : 0.262
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'comun_index[0]'
+Slack : -3.440
+TNS   : -13.111
+
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -2.466
+TNS   : -31.716
+
+Type  : Slow 1200mV 0C Model Hold 'comun_index[0]'
+Slack : -0.189
+TNS   : -0.189
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.539
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -26.792
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'comun_index[0]'
+Slack : 0.204
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'comun_index[0]'
+Slack : -1.096
+TNS   : -3.904
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : -0.574
+TNS   : -5.421
+
+Type  : Fast 1200mV 0C Model Hold 'comun_index[0]'
+Slack : 0.076
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -20.095
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'comun_index[0]'
+Slack : 0.392
+TNS   : 0.000
+
+------------------------------------------------------------

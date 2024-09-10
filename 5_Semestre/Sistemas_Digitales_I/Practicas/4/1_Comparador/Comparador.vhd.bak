@@ -1,0 +1,82 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Comparador is
+	port(
+	A: in std_logic_vector(1 downto 0);
+	B: in std_logic_vector(1 downto 0);
+	o_segmentos1: out 	std_logic_vector(7 downto 0);   	-- Salida para el display de 7 segmentos 
+	o_segmentos2: out 	std_logic_vector(7 downto 0);   	-- Salida para el display de 7 segmentos
+	o_segmentos3: out 	std_logic_vector(7 downto 0);   	-- Salida para el display de 7 segmentos
+	o_segmentos4: out 	std_logic_vector(7 downto 0);   	-- Salida para el display de 7 segmentos
+	o_comunes: out 	std_logic_vector(3 downto 0)   	    -- Salida para comun de cada display
+	);
+end Comparador;
+
+architecture Multiplexado of Comparador is					   
+
+    -- banco de letras
+    constant A_Letter   : std_logic_vector(7 downto 0) := "10001000";
+    constant B_Letter   : std_logic_vector(7 downto 0) := "10000011";
+    constant C_Letter   : std_logic_vector(7 downto 0) := "11000110";
+    constant D_Letter   : std_logic_vector(7 downto 0) := "10100001";
+    constant E_Letter   : std_logic_vector(7 downto 0) := "10000110";
+    constant F_Letter   : std_logic_vector(7 downto 0) := "10001110";
+    constant G_Letter   : std_logic_vector(7 downto 0) := "10000010";
+    constant H_Letter   : std_logic_vector(7 downto 0) := "10001001";
+    constant I_Letter   : std_logic_vector(7 downto 0) := "11001111";
+    constant J_Letter   : std_logic_vector(7 downto 0) := "11100001";
+    constant K_Letter   : std_logic_vector(7 downto 0) := "10000101";
+    constant L_Letter   : std_logic_vector(7 downto 0) := "11000111"; 
+    constant M_Letter   : std_logic_vector(7 downto 0) := "10110000"; 
+    constant N_Letter   : std_logic_vector(7 downto 0) := "11001000";
+    constant N2_Letter  : std_logic_vector(7 downto 0) := "10101010";
+    constant O_Letter   : std_logic_vector(7 downto 0) := "11000000";
+    constant P_Letter   : std_logic_vector(7 downto 0) := "10001100"; 
+    constant Q_Letter   : std_logic_vector(7 downto 0) := "10011000"; 
+    constant R_Letter   : std_logic_vector(7 downto 0) := "11001110"; 
+    constant S_Letter   : std_logic_vector(7 downto 0) := "10010010"; 
+    constant T_Letter   : std_logic_vector(7 downto 0) := "10000111"; 
+    constant U_Letter   : std_logic_vector(7 downto 0) := "11000001"; 
+    constant W_Letter   : std_logic_vector(7 downto 0) := "10000110";  
+    constant Z_Letter   : std_logic_vector(7 downto 0) := "10100100";
+	 --Operaciones de señales
+	 signal	G0: std_logic;
+	 signal	E0: std_logic;
+	 signal	L0: std_logic;
+	 signal G1:  std_logic;
+	 signal E1:  std_logic;
+	 signal L1:  std_logic;
+begin
+	process (A,B)
+	begin
+	-- medio comparador
+		G0<= ((A(0) AND (NOT B(0))));
+		E0<= (NOT(A(0) xor B(0)));
+		L0<= ((NOT A(0))AND B(0)); 
+		--Comparador completo
+		G1<= G0 or (A(1) AND (NOT B(1)));
+		E1<= E0 and ((NOT(A(1) XOR B(1))));
+		L1<= L0 or ((NOT A(1))AND B(1));
+		---resultado
+		 if G1 = "1" then
+            o_segmentos1 <= S_Letter;
+            o_segmentos2 <= U_Letter;
+            o_segmentos3 <= P_Letter;
+            o_segmentos4 <= E_Letter;
+        elsif E1 = "1110" then
+            o_segmentos1 <= I_Letter;
+            o_segmentos2 <= G_Letter;
+            o_segmentos3 <= U_Letter;
+            o_segmentos4 <= A_Letter;
+        elsif L1 = "1101" then
+            o_segmentos1 <= I_Letter;
+            o_segmentos2 <= N_Letter;
+            o_segmentos3 <= F_Letter;
+            o_segmentos4 <= E_Letter;
+        end if;
+		  
+		end process;
+		
+	end Multiplexado;

@@ -1,5 +1,5 @@
 Assembler report for P3
-Tue Aug 20 16:32:00 2024
+Sat Aug 24 09:19:01 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Code/output_files/P3.sof
+  5. Assembler Device Options: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/output_files/P3.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Aug 20 16:32:00 2024 ;
+; Assembler Status      ; Successful - Sat Aug 24 09:19:01 2024 ;
 ; Revision Name         ; P3                                    ;
 ; Top-level Entity Name ; P3                                    ;
 ; Family                ; Cyclone IV E                          ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                         ;
-+-------------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                         ;
-+-------------------------------------------------------------------------------------------------------------------+
-; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Code/output_files/P3.sof ;
-+-------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                               ;
++-------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                               ;
++-------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/output_files/P3.sof ;
++-------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Code/output_files/P3.sof ;
-+----------------+----------------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                                    ;
-+----------------+----------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00096971                                                                                                                 ;
-; Checksum       ; 0x00096971                                                                                                                 ;
-+----------------+----------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/output_files/P3.sof ;
++----------------+----------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                          ;
++----------------+----------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00096971                                                                                                                       ;
+; Checksum       ; 0x00096971                                                                                                                       ;
++----------------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Tue Aug 20 16:31:59 2024
+    Info: Processing started: Sat Aug 24 09:19:00 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off P3 -c P3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4688 megabytes
-    Info: Processing ended: Tue Aug 20 16:32:00 2024
+    Info: Processing ended: Sat Aug 24 09:19:01 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

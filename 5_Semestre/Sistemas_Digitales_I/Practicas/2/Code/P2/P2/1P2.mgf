@@ -25,7 +25,7 @@ I 000047 55 829           1723904987694 PArch2
 	(_use(ieee(std_logic_1164))(std(standard)))
 	(_model . PArch2 3 -1)
 )
-V 000047 55 829           1723905008900 PArch2
+I 000047 55 829           1723905008900 PArch2
 (_unit VHDL(p2 0 4(parch2 0 16))
 	(_version vf5)
 	(_time 1723905008901 2024.08.17 08:30:08)
@@ -52,7 +52,7 @@ V 000047 55 829           1723905008900 PArch2
 	(_use(ieee(std_logic_1164))(std(standard)))
 	(_model . PArch2 3 -1)
 )
-V 000043 55 1151          1723905012918 TB
+I 000043 55 1151          1723905012918 TB
 (_unit VHDL(e1 0 4(tb 0 7))
 	(_version vf5)
 	(_time 1723905012919 2024.08.17 08:30:12)
@@ -61,6 +61,82 @@ V 000043 55 1151          1723905012918 TB
 	(_code 3b3e3b3b686c6a2838382e646b3d3e383a3d3e383a)
 	(_ent
 		(_time 1723905012916)
+	)
+	(_comp
+		(P2
+			(_object
+				(_port(_int A -1 0 11(_ent (_in))))
+				(_port(_int B -1 0 12(_ent (_in))))
+				(_port(_int C -1 0 13(_ent (_in))))
+				(_port(_int S1 -1 0 14(_ent (_out))))
+				(_port(_int S2 -1 0 15(_ent (_out))))
+				(_port(_int S3 -1 0 16(_ent (_out))))
+			)
+		)
+	)
+	(_inst inicio 0 24(_comp P2)
+		(_port
+			((A)(A))
+			((B)(B))
+			((C)(C))
+			((S1)(S1))
+			((S2)(S2))
+			((S3)(S3))
+		)
+		(_use(_ent . P2)
+		)
+	)
+	(_object
+		(_sig(_int A -1 0 20(_arch(_uni))))
+		(_sig(_int B -1 0 20(_arch(_uni))))
+		(_sig(_int C -1 0 20(_arch(_uni))))
+		(_sig(_int S1 -1 0 21(_arch(_uni))))
+		(_sig(_int S2 -1 0 21(_arch(_uni))))
+		(_sig(_int S3 -1 0 21(_arch(_uni))))
+		(_prcs
+			(Parasimu(_arch 0 0 25(_prcs(_wait_for)(_trgt(0)(1)(2)))))
+		)
+		(_type(_ext ieee.std_logic_1164.STD_LOGIC(0 STD_LOGIC)))
+	)
+	(_use(ieee(std_logic_1164))(std(standard)))
+	(_model . TB 1 -1)
+)
+V 000047 55 829           1724431244446 PArch2
+(_unit VHDL(p2 0 4(parch2 0 18))
+	(_version vf5)
+	(_time 1724431244447 2024.08.23 10:40:44)
+	(_source(\../src/P2.vhd\))
+	(_parameters tan)
+	(_code 5e0b085809080a4d5d5a4e010d595e5d5c595e5d5c)
+	(_ent
+		(_time 1723904987687)
+	)
+	(_object
+		(_port(_int A -1 0 6(_ent(_in))))
+		(_port(_int B -1 0 7(_ent(_in))))
+		(_port(_int C -1 0 8(_ent(_in))))
+		(_port(_int S1 -1 0 9(_ent(_out))))
+		(_port(_int S2 -1 0 10(_ent(_out))))
+		(_port(_int S3 -1 0 11(_ent(_out))))
+		(_prcs
+			(line__20(_arch 0 0 20(_assignment(_trgt(3))(_sens(0)(1)(2)))))
+			(line__21(_arch 1 0 21(_assignment(_trgt(4))(_sens(0)(2)))))
+			(line__22(_arch 2 0 22(_assignment(_trgt(5))(_sens(0)(1)(2)))))
+		)
+		(_type(_ext ieee.std_logic_1164.STD_LOGIC(0 STD_LOGIC)))
+	)
+	(_use(ieee(std_logic_1164))(std(standard)))
+	(_model . PArch2 3 -1)
+)
+V 000043 55 1151          1724431244498 TB
+(_unit VHDL(e1 0 4(tb 0 7))
+	(_version vf5)
+	(_time 1724431244499 2024.08.23 10:40:44)
+	(_source(\../src/P2_benchy.vhd\))
+	(_parameters tan)
+	(_code 8dd9de86d8dadc9e8e8e98d2dd8b888e8c8b888e8c)
+	(_ent
+		(_time 1723905012915)
 	)
 	(_comp
 		(P2

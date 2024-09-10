@@ -1,0 +1,55 @@
+library	IEEE;
+use	IEEE.std_logic_1164.all;
+
+entity Sumador_nbits is
+	generic ( 
+		n: integer := 2		-- Sumador de 2 bits 
+	);
+	port 
+	(
+		-- Entrada y salida de bits
+		A, B		: in std_logic_vector(n-1 downto 0);		-- Entradas de bits para operaciones
+		
+		-- Displays de 7 seg 
+		display		: out 	std_logic_vector(7 downto 0);   	-- Salida para el display de 7 segmentos
+		common 		: out 	std_logic_vector(3 downto 0)   		-- Salida para el display de 7 segmentos
+	);
+end Sumador_nbits;	 
+
+Architecture Sumador_nbits of Sumador_nbits is	 
+	
+	signal S:  std_logic_vector(n-1 downto 0);		-- Resultado	
+	signal C:  std_logic_vector(n-1 downto 0);		-- Acarreos	
+	
+begin
+
+	-- Hacer sumador completo de 1 bit
+	S(0) <= (A(0) xor B(0));	
+	C(0) <= (A(0) xor B(0)) or (A(0) and B(0));
+	S(1) <= (C(0) xor A(1) xor B(1));	
+	C(1) <= (C(0) and (A(1) xor B(1))) or (A(1) and B(1));	
+
+	common <= "1110";
+	with S select
+	display <="11000000"when"000",--0
+	"11111001"when"001",--1
+	"10100100"when"010",--2
+	"10110000"when"011",--3
+	"10011001"when"100",--4
+	"10010010"when"101",--5
+	"10000010"when"110",--6
+	"00000000"when others;
+	
+end Sumador_nbits;
+
+
+-- Lo hacemos en un process como funcion secuencial, no se hace paralelamente con diferentes modulos
+process (A,B, Ci, Carry)   
+begin
+	carry(0) <= Ci;
+	for i in 0 to n-1 loop
+		S(i)<= A(i) xor B(i) xor carry(i);
+		carry(i+1)<= (A(i) and B(i)) or (A(i) and Carry(i)) or ( carry(i) and B(i) );
+	end loop;
+	Co <= carry(n);
+end process;

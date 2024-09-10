@@ -1,0 +1,141 @@
+# Library Manager: Library "p3_palabras" contents cleared.
+acom -reorder -O3 -e 100 -work P3_palabras -2002  $dsn/src/P3.vhd
+# Compile Entity "P3"
+# Compile Architecture "PArch2" of Entity "P3"
+# Top-level unit(s) detected:
+# Entity => P3
+# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+acom -O3 -e 100 -work p3_palabras -2002  $dsn/src/P3_TB.vhd
+# Compile Entity "E1"
+# Compile Architecture "TB" of Entity "E1"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+asim -O5 +access +r +m+p3 p3 parch2
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5396 kB (elbread=427 elab2=4830 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\src\wave.asdb
+#  10:34 a. m., sábado, 24 de agosto de 2024
+#  Simulation has been initialized
+# VSIM: 5 object(s) traced.
+# Waveform file 'untitled.awc' connected to 'C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb'.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+p3 p3 parch2
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5396 kB (elbread=427 elab2=4830 kernel=138 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\src\wave.asdb
+#  10:34 a. m., sábado, 24 de agosto de 2024
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb'.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# Warning: WAVEFORM: Object matching /E1/T not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /E1/H not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /E1/F not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /E1/S not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /E1/S1 not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+asim -O5 +access +r +m+e1 e1 tb
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5402 kB (elbread=427 elab2=4836 kernel=139 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\src\wave.asdb
+#  10:34 a. m., sábado, 24 de agosto de 2024
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb'.
+# Warning: WAVEFORM: Object matching /P3/T not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /P3/H not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /P3/F not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /P3/S not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+# Warning: WAVEFORM: Object matching /P3/S1 not found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+endsim
+# VSIM: Simulation has finished.
+asim -O5 +access +r +m+e1 e1 tb
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# VSIM: Stack memory: 32MB
+# VSIM: Retval memory: 32MB
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
+# SLP: Finished : 0.0 [s]
+# ELAB2: Elaboration final pass complete - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5402 kB (elbread=427 elab2=4836 kernel=139 sdf=0)
+# KERNEL: ASDB file was created in location C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\src\wave.asdb
+#  10:34 a. m., sábado, 24 de agosto de 2024
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Palabras/Aldec/P3/P3_palabras/src/wave.asdb'.
+# VSIM: 5 object(s) traced.
+run
+# KERNEL: Simulation has finished. There are no more test vectors to simulate.

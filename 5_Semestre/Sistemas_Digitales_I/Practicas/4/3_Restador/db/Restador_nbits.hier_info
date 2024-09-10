@@ -1,0 +1,67 @@
+|Restador_nbits
+A[0] => Restador_1bit:Res0.A
+A[1] => Restador_1bit:Res1.A
+B[0] => Restador_1bit:Res0.B
+B[1] => Restador_1bit:Res1.B
+neg_LED <= Restador_1bit:Res1.Co
+LEDS[0] <= LEDS[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+LEDS[1] <= LEDS[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+clock => comun_index[0].CLK
+clock => comun_index[1].CLK
+clock => comun_index[2].CLK
+clock => count[0].CLK
+clock => count[1].CLK
+clock => count[2].CLK
+clock => count[3].CLK
+clock => count[4].CLK
+clock => count[5].CLK
+clock => count[6].CLK
+clock => count[7].CLK
+clock => count[8].CLK
+clock => count[9].CLK
+clock => count[10].CLK
+clock => count[11].CLK
+clock => count[12].CLK
+clock => count[13].CLK
+display[0] <= display[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= display[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= display[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= display[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= display[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= display[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= display[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+display[7] <= display[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+common[0] <= common[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+common[1] <= common[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+common[2] <= <VCC>
+common[3] <= <VCC>
+
+
+|Restador_nbits|Restador_1bit:Res0
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Restador_nbits|Restador_1bit:Res1
+A => S.IN0
+A => Co.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+B => Co.IN0
+Ci => S.IN1
+Ci => Co.IN1
+Ci => Co.IN1
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,55 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=P3_TB
+[Settings]
+LANGUAGE=VHDL
+FLOW_TYPE=Schematic
+FAMILY=
+SYNTH_TOOL=<none>
+IMPL_TOOL=<none>
+REFRESH_FLOW=1
+[Library]
+P3_TB=.\P3_TB\P3_TB.LIB
+[$LibMap$]
+P3_TB=.
+[folders]
+name0=ALINT-PRO Workspaces
+directory0=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension0=alintws
+name1=Coverage Databases
+directory1=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension1=acdb
+name2=Dll Libraries
+directory2=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension2=dll
+name3=Event Lists
+directory3=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension3=lst
+name4=HTML Files
+directory4=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension4=htm;html
+name5=Log Files
+directory5=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension5=log;htm;xml;txt
+name6=Matlab/Simulink Files
+directory6=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\
+extension6=m;mdl;slx
+name7=Memory Files
+directory7=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension7=mem;mif;hex
+name8=PDF Files
+directory8=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension8=pdf
+name9=Profiler Databases
+directory9=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension9=tbp
+name10=Script Files
+directory10=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension10=do;tcl;pl
+name11=Waveform Files
+directory11=C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Practicas\3\Palabras\Aldec\P3\P3_palabras\P3_TB\
+extension11=asdb;awc;asdbc;asdbe

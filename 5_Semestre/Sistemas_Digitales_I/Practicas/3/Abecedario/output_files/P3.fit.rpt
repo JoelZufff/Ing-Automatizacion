@@ -1,5 +1,5 @@
 Fitter report for P3
-Tue Aug 20 16:31:58 2024
+Sat Aug 24 09:18:59 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Tue Aug 20 16:31:58 2024          ;
+; Fitter Status                      ; Successful - Sat Aug 24 09:18:59 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; P3                                             ;
 ; Top-level Entity Name              ; P3                                             ;
@@ -197,7 +197,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Code/output_files/P3.pin.
+The pin-out file can be found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/output_files/P3.pin.
 
 
 +--------------------------------------------------------------------+
@@ -896,18 +896,18 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
-Info (144001): Generated suppressed messages file C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Code/output_files/P3.fit.smsg
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (144001): Generated suppressed messages file C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/output_files/P3.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5610 megabytes
-    Info: Processing ended: Tue Aug 20 16:31:59 2024
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 5611 megabytes
+    Info: Processing ended: Sat Aug 24 09:18:59 2024
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:01
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Code/output_files/P3.fit.smsg.
+The suppressed messages can be found in C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Practicas/3/Abecedario/output_files/P3.fit.smsg.
 
 
