@@ -1,0 +1,9 @@
+|Candado_JK
+i_LD => Q.IN1
+i_LD => Qc.IN1
+i_J => Qc.IN0
+i_K => Q.IN0
+o_Q << o_Q.DB_MAX_OUTPUT_PORT_TYPE
+o_Qc << o_Qc.DB_MAX_OUTPUT_PORT_TYPE
+
+
