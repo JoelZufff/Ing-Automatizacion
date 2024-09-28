@@ -1,0 +1,6 @@
+
+State Machine - |Expendedora|estado_fut
+Name estado_fut.S2 estado_fut.S1 estado_fut.S0 
+estado_fut.S0 0 0 0 
+estado_fut.S1 0 1 1 
+estado_fut.S2 1 0 1 

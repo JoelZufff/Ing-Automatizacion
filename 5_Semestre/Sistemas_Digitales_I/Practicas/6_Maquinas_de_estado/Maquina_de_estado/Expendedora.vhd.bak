@@ -1,0 +1,86 @@
+library	IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all; -- Agregamos esta librería para las conversiones
+
+entity Expendedora is 	
+	port(
+	A:in std_logic_vector(1 downto 0);--Monedas
+	--clock:in std_logic;--el reloj es de 50Mhz 
+	--reset:in std_logic
+	display: out std_logic_vector(7 downto 0);--Mostrar numero de monedas
+	common: out std_logic_vector(3 downto 0);-- Salida para el display de 7 segmentos
+	LED: out std_logic_vector(1 downto 0)--cambio y producto
+	);
+	
+end Expendedora;
+------------------------------------------------------------------------------
+Architecture expende of Expendedora is
+type Estados is (S0,S1,S2);--variable que enlista valores que puede ser una variable
+signal estado_presen,estado_fut: Estados;--controlar estados
+signal Moneda:integer range 0 to 5;--del 0 al 4
+signal salida: std_logic_vector(1 downto 0);
+
+begin
+------------------------------------------------------------------------------
+monedas:process(A)
+begin
+	if rising_edge(A(0))then
+	Moneda <= Moneda+1;
+	elsif rising_edge(A(1))then
+	Moneda <= Moneda+2;
+	else Moneda <= Moneda;
+	end if
+end process;
+------------------------------------------------------------------------------
+process (estado_presen,Moneda) begin
+
+	case estado_presen is
+	--Caso inicial
+	when S0 => salida <= "11";--apagar leds
+		if Moneda = 1 then
+			estado_fut <= S1;--Estado una moneda
+			
+		elsif Moneda = 2 then
+			estado_fut <= S2;--Estado dos moneda
+			
+		else
+			estado_fut <=S0;
+		end if;
+		
+		--Caso una moneda
+	when S1 => salida <= "11";--apagar leds son anodo
+		if Moneda = 2 then--se introdujo otra moneda de $1
+			estado_fut <= S2;--Estado dos moneda
+			
+		elsif Moneda = 3 then--Se introdujo otra moneda de $2
+			salida <= "01";--Entrega producto pero no cambio
+			Moneda <= 0;--se resetea moneda
+			estado_fut <= S0;--regresa al estado inicial
+			
+		else
+			estado_fut <=S1;
+		end if;
+		
+		--Caso de dos monedas
+	when S2 => salida <= "11";--apagar leds son anodo
+		if Moneda = 4 then--se introdujo otra moneda de $2
+			salida <= "00";--Entrega producto y cambio
+			Moneda <= 0;--se resetea moneda
+			estado_fut <= S0;--regresa al estado inicial			
+			
+		elsif Moneda = 3 then--Se introdujo otra moneda de $2
+			salida <= "01";--Entrega producto pero no cambio
+			Moneda <= 0;--se resetea moneda
+			estado_fut <= S0;--regresa al estado inicial
+			
+		else
+			estado_fut <=S2;
+		end if;
+		
+	end case;
+	
+end process;
+LED <= salida;
+
+
+end Expendedora;
