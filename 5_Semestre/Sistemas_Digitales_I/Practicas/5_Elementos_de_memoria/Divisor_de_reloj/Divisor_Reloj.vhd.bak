@@ -1,0 +1,36 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Divisor_Reloj is
+	port(
+	clock:in std_logic;--el reloj es de 50Mhz
+	reset:in std_logic;
+	Led:in std_logic --Para visualizar la división del reloj
+	);
+end Divisor_Reloj;
+
+architecture divisor of Divisor_Reloj is
+
+signal salida: std_logic;
+signal count: integer range 0 to 499; --frecuencia deseada es 100kHz dado por (50x10^{6})/(100x10^{3}) =500
+begin
+---------------------------------------------------------
+	divisor_frecuencia : process (clock,reset) begin
+	
+		if reset='0'then --si se presiona reset
+		salida<='0';--comillas solo para dato logico
+		count<=0;
+		elsif rising_edge(clock)then--comando que dice si esta en alto  
+			if count = 499 then 
+			count<=0;
+			salida<= not salida;
+			else
+			count<=count + 1;
+			end if;
+		end if;
+	end process;
+---------------------------------------------------------
+Led<=salida;
+
+end divisor;

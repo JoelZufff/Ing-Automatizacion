@@ -1,0 +1,8 @@
+i<>.\src\Time_Divider.vhd
+i<>.\src\Timer_divider_Fllip_flop_D.vhd
+i<>.\src\FF_D.vhd
+i<>.\src\FF_SR.vhd
+i<>.\src\FF_JK.vhd
+i<>.\src\FF_T.vhd
+i<>.\src\Debounce .vhd
+i<>.\src\Tanque_agua.vhd

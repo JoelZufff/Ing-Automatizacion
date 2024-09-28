@@ -1,0 +1,9 @@
+|Candado_SR_sinc
+i_R => Q.IN0
+i_S => Qc.IN0
+i_LD => Q.IN1
+i_LD => Qc.IN1
+o_Q << o_Q.DB_MAX_OUTPUT_PORT_TYPE
+o_Qc << Qc.DB_MAX_OUTPUT_PORT_TYPE
+
+

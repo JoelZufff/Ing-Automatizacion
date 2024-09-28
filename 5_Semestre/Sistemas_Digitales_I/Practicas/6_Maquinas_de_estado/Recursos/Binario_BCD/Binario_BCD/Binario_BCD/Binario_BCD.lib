@@ -1,0 +1,36 @@
+timestamp=1726934690391
+
+[~A]
+ModifyID=3
+Version=74
+
+[~MFT]
+0=10|0Binario_BCD.mgf|3782|983
+1=4|1Binario_BCD.mgf|3294|2385
+3=4|3Binario_BCD.mgf|1337|896
+
+[bin_bcd_4b]
+A/convertidor=A/Convertidor 21|../src/Bin_BCD_4b.vhd|12|1*3294
+BinW64/convertidor=3*1337
+I=0*2088
+I/convertidor=I/Convertidor 0*3782
+M=11|2|vf5|1726934659727|../src/Bin_BCD_4b.vhd|0*1738*0x520dece53d339b3591c6fed30392d5d1fea9cf3e|0*2003*0x23b75c12e3e89f2ef000564498faa8c2
+M/convertidor=M/Convertidor 21|2|vf5|1726934690386|../src/Bin_BCD_4b.vhd|0*3273*0x31e5331207d8e7e2cbe7d29b298e809070861a3c|0*3682*0x20116f55b147878295aeff36dce7fc50
+R=../src/Bin_BCD_4b.vhd|3
+Version=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|5f03f7a77122025c611ae1cce7107020d3762deffca9db99241c34439f9ecd21ca68243519b4ecddac56bc86a2a4c1da
+Version/convertidor=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|015499ef07154d5dbaae7c6421e722a891b1f288b2d70e9dc5abf1bd5b521f4d3682c180dce85c773f35d5e7167eef8d
+
+[codificador_bcd]
+A/codificador=A/Codificador 21|../src/Codificador.vhd|11|1*2385
+BinW64/codificador=3*896
+I=0*556
+I/codificador=I/Codificador 0*3054
+M=11|2|vf5|1726934621787|../src/Codificador.vhd|0*203*0xb8a6c7e33384d2379245d76ca060ba03cc0a482d|0*465*0x23b75c12e3e89f2ef000564498faa8c2
+M/codificador=M/Codificador 21|2|vf5|1726934690381|../src/Codificador.vhd|0*763*0x5dd38e52ce8dbfe955626c7e3594b021194a31a2|0*1214*0x20116f55b147878295aeff36dce7fc50
+R=../src/Codificador.vhd|4
+Version=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|e0b054396a69ff0c9ce7a4212739004ab55c6c0f14c6abc0a0c883f954d663f47e6e37ce522f1694ba9bc17eca83a074
+Version/codificador=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|871482cf2c2fee580055d8cbd9a22f2a3f5f6680f5744ef1ac1b7e50af2357c3ba3b738ad5dec1ceff891b64d2131491
+
+[~U]
+bin_bcd_4b=Bin_BCD_4b 11|0*1539|
+codificador_bcd=Codificador_BCD 11|0*0|

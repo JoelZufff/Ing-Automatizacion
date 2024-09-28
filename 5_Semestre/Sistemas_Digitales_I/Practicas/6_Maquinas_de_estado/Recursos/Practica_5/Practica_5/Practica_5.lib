@@ -1,0 +1,214 @@
+timestamp=1725067200786
+
+[~A]
+ModifyID=43
+Version=74
+
+[~MFT]
+0=16|0Practica_5.mgf|63545|34655
+1=2|1Practica_5.mgf|133743|115496
+3=2|3Practica_5.mgf|63151|54179
+
+[button_debounce]
+A/arch=21|../src/Debounce .vhd|19|1*113935
+BinW64/arch=3*54522
+I=0*50896
+I/arch=0*52540
+M=11|2|vef|1709345142803|../src/Debounce .vhd|0*50419*0x8f29b0a1f92093547f5133f45dfb0f0416e5f355|0*50807*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|2|vef|1709345142808|../src/Debounce .vhd|0*51145*0xffc72037b12131a94f368e771e6646c0321d77b6|0*52443*0x20116f55b147878295aeff36dce7fc50
+R=../src/Debounce .vhd|5
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|683bffba3e08aa3ffa3dd22925d0022abfe772b3362ce2b50dbbf9a44cf5fe321acc14a5f94c12a5aae12292fe0f4f34
+Version/arch=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03acc73a0d7155d139337149e3e47435e74
+
+[buttondebounce]
+I=0*23526
+M=11|2|vef|1709343196011|../src/Debounce .vhd|0*23151*0x1ccd93de07fdf3242ca655e2e1a6b2c45e382df3|0*23438*0x23b75c12e3e89f2ef000564498faa8c2
+R=../src/Debounce .vhd|5
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|ed196708572c07028d36f5fd8795cafdd58e8a7d6d6c9eccfd4bc617dedd3005acf74b9106db1bb3592a0a64c322e5d8
+
+[clock_enable_debouncing_button]
+A/behavioral=A/Behavioral 21|../src/Debounce .vhd|11|1*109134
+BinW64/behavioral=3*52551
+I=0*38175
+I/behavioral=I/Behavioral 0*49030
+M=11|2|vef|1709344839729|../src/Debounce .vhd|0*37745*0x4b472cdfecf34d6d4f571f7eb70489bdbe3d85f5|0*38071*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709344921948|../src/Debounce .vhd|0*38480*0x6b9029813461a51a0dd294d8e53a940b65bd0605|0*39010*0x20116f55b147878295aeff36dce7fc50
+R=../src/Debounce .vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|91a09cabe3e0e0e162bf5e94c97c0d3f8983f7086c98a1f91dadf7cce3a6541358992f65b8cd8e4f93261a1ce79b9650d7a2b01879f427c22164f47f69219ccd
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff46e3185cb09224cb8249689d8c0dfcdf6
+
+[clockdivider]
+A/behavioral=A/Behavioral 21|../src/Time_Divider.vhd|16|1*133743
+BinW64/behavioral=3*63151
+I=0*62717
+I/behavioral=I/Behavioral 0*63545
+M=11|2|vf5|1725067200777|../src/Time_Divider.vhd|0*62304*0xcaa44523df1936c7460d9631a7ed205a65d30b08|0*62628*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vf5|1725067200779|../src/Time_Divider.vhd|0*62961*0x4083e9347033f5e75b6fed4529d203a8e18ef4e8|0*63442*0x20116f55b147878295aeff36dce7fc50
+R=../src/Time_Divider.vhd|5
+Version=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|74186129c815afba9e3512ea3583af369491e4c02066ef453eb5e6cdd52644df009570af72794c577d5a22983341a0ee
+Version/behavioral=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff4286c43483daeb2379bdddd868654a538
+
+[clockdivider4_flip_flop_d]
+A/behavioral=A/Behavioral 21|../src/Timer_divider_4_Fllip_flop_D.vhd|11|1*125708
+BinW64/behavioral=3*58475
+I=0*7926
+I/behavioral=I/Behavioral 0*57493
+M=11|2|vef|1709336526729|../src/Timer_divider_4_Fllip_flop_D.vhd|0*7516*0x8c1e4b5eda1bea841450d2ce216f4bd2a718c9c2|0*7808*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709354225773|../src/Timer_divider_4_Fllip_flop_D.vhd|0*10013*0x6e9055f50cfb386d76ae0ec0847e076db65360d2|0*10547*0x20116f55b147878295aeff36dce7fc50
+R=../src/Timer_divider_4_Fllip_flop_D.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|97a199fd24fafc9c04beefcf6ddab48e8eaf35568808ba96c98ec63134f467b926527262ddaa47cb266f3a3c4d9b973a5607173b20de123ed129b54f901fe1e5
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff4c7c35b4fed09696779638ff83a0d4a70
+
+[clockdivider_flip_flop_d]
+A/behavioral=A/Behavioral 21|../src/Timer_divider_2_Fllip_flop_D.vhd|11|1*124757
+BinW64/behavioral=3*58080
+I=0*5862
+I/behavioral=I/Behavioral 0*57264
+M=11|2|vef|1709336402365|../src/Timer_divider_Fllip_flop_D.vhd|0*5460*0x7ce879b143b19c4eb5b97a74beceaa3a2d1f53de|0*5747*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709354225751|../src/Timer_divider_Fllip_flop_D.vhd|0*6080*0xdf36cf035eef3c2f5fda7f2cfef0c7e67ff011de|0*6461*0x20116f55b147878295aeff36dce7fc50
+R=../src/Timer_divider_Fllip_flop_D.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|6e0e2e4441063624f408a3d9e85252bf407190e4d7312660f8c22193ee7784ddead1d2186e67675b1d66a5a11c709673
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff4c5f82a517b2fa124220609d806a1168b
+
+[control_llenado]
+A/fms=A/FMS 21|../src/Tanque_agua.vhd|14|1*131744
+BinW64/fms=3*61951
+I=0*55997
+I/fms=I/FMS 0*60080
+M=11|2|vef|1709352962124|../src/Tanque_agua.vhd|0*55611*0x111da43f3588b06cb2dd8162e74b55860bd41991|0*55906*0x23b75c12e3e89f2ef000564498faa8c2
+M/fms=M/FMS 21|2|vef|1709354225972|../src/Tanque_agua.vhd|0*59492*0x652e940cd12efb659650df466e3affdfdb6810e7|0*59982*0x20116f55b147878295aeff36dce7fc50
+R=../src/Tanque_agua.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|722176cd03d59dc792f105b38ae24f9d8c808efe60d7accdf085b6d9e2167544b2ecc21769f8865cb3f3a1fec85a222d
+Version/fms=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|78cbf781460118d343c23b95c0aaf0f15ddfbe5c2c03a1845e83cb3b1c4143db
+
+[debounce]
+A/behavioral=+21|../src/Debounce .vhd|13|1*115484
+A/logic=21|../src/Debounce .vhd|15|1*130390
+BinW64/logic=3*61122
+I=0*54275
+I/logic=0*59284
+M=11|2|vef|1709345387560|../src/Debounce .vhd|0*53864*0xed51bc80bb6bb818ccc8bccec445dc1d23eab0b3|0*54193*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709345189833|../src/Debounce .vhd|0*52794*0x8347925b4abec8284ab384c3a58c6697e83a2839|0*53532*0x20116f55b147878295aeff36dce7fc50
+M/logic=21|2|vef|1709354225942|../src/Debounce .vhd|0*58561*0x5806ebfa4cb6e4fd27971a14fc7cb9fbb634a39e|0*59193*0x20116f55b147878295aeff36dce7fc50
+R=../src/Debounce .vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|2383c81ec9e742b193aba2367b4ffbb2b4470a4173a9ccfce999ce8608f2fc7b95468dc89a98f212c035424983dbd6fb
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff4c0e23d0a74d84ab1227e5e73076ad8a3
+Version/logic=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|ea5deb5b97812af2bc5570f9358d6dfd23afc8160d9ac249b89b9a34b1a84d62
+
+[debounce_tb]
+A/behavior=21|../src/Test_bench.vhd|8|1*85492
+BinW64/behavior=3*40984
+I=0*25973
+I/behavior=0*37224
+M=11|2|vef|1709343941743|../src/Test_bench.vhd|0*25685*0x330ae84b2207221c068d8a9e92cfca5661a6d986|0*25887*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavior=21|2|vef|1709344741322|../src/Test_bench.vhd|0*26218*0xb790dac67ffedc706bd9ede0779ef96355b51099|0*27050*0x20116f55b147878295aeff36dce7fc50
+R=../src/Test_bench.vhd|5
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|c34486a3e36b3a5ff339c85617a758304fa0e5f268b37044ded0f7931b64a656646487872d771533f9af1bf6d2d4dd0c
+Version/behavior=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|f9bccf16e2dce5a640f0ad5e8eaa0283e08d679eaf1bc9de9439630905b37e5f212e9e2e78691ca06c084bb06a988865
+
+[debouncing_button_vhdl]
+A/behavioral=A/Behavioral 21|../src/Debounce .vhd|61|1*111123
+BinW64/behavioral=3*53513
+I=0*41497
+I/behavioral=I/Behavioral 0*49572
+M=11|2|vef|1709344839754|../src/Debounce .vhd|0*41107*0x7e676a0a9065dd6e22bdc3a4f34bc51dddf4168c|0*41401*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709344921960|../src/Debounce .vhd|0*41713*0x8df80d28be4ab545fb5c9da9030f19c255b559d6|0*42534*0x20116f55b147878295aeff36dce7fc50
+R=../src/Debounce .vhd|54
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|2be63d72ab1e290b4240b00856542b3ab2409f59688edd70d2840dbbd29be41f7f1c060c08dadce6ab64d6389aaacd43
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff46f7685fd60baf085eaced302bd43838e
+
+[dff_debouncing_button]
+A/behavioral=A/Behavioral 21|../src/Debounce .vhd|38|1*110313
+BinW64/behavioral=3*53051
+I=0*40070
+I/behavioral=I/Behavioral 0*49346
+M=11|2|vef|1709344839743|../src/Debounce .vhd|0*39671*0x0a37fb3bcd740a44458eb819b5b5eff28539d2b6|0*39975*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709344921954|../src/Debounce .vhd|0*40285*0x28f05358fddd0597ed378f31afd19084bb32ac77|0*40557*0x20116f55b147878295aeff36dce7fc50
+R=../src/Debounce .vhd|30
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|828f4fa3670bca0d225e1dfd81072aa48ab753cb210590f7f2beb56ae4fb6524e519faa36cd6fe3a10e47f11eb26960e
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff4399846e21e112a55740277c5022afdfd
+
+[divisorfrecuencia]
+A/behavioral=A/Behavioral 21|../src/Timer_divider_2_Fllip_flop_D.vhd|12|1*132653
+BinW64/behavioral=3*62662
+I=0*60952
+I/behavioral=I/Behavioral 0*61780
+M=11|2|vf5|1725065425494|../src/Timer_divider_2_Fllip_flop_D.vhd|0*60497*0xb3c0a68561fae1bffcb3282c1cd706d107117079|0*60842*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vf5|1725065425496|../src/Timer_divider_2_Fllip_flop_D.vhd|0*61243*0x6ecc4a102a54b752bafc8364525674f740f82896|0*61656*0x20116f55b147878295aeff36dce7fc50
+R=../src/Timer_divider_2_Fllip_flop_D.vhd|6
+Version=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|f2677e6e5c90df4375a23741cd924717ab2626799b99004c818b7022f713fdf1ccd66bd8d5adafdada4482ad3e6caf0d
+Version/behavioral=15.0.261.9132 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff4fb0b3ec4c100ad8ff7bf841c604d314e
+
+[ff_d]
+A/behavioral=A/Behavioral 21|../src/FF_D.vhd|13|1*126771
+BinW64/behavioral=3*58935
+I=0*11396
+I/behavioral=I/Behavioral 0*57723
+M=11|2|vef|1709342052220|../src/FF_D.vhd|0*11087*0x584b8e4179fdff1ca1ee755b0be4b286a5e2640a|0*11323*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709354225807|../src/FF_D.vhd|0*11594*0x1b34b396b82cbd22be29b1f2899e42c69207e861|0*11824*0x20116f55b147878295aeff36dce7fc50
+R=../src/FF_D.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|33e157abed3bd27cd6376c63c6370f52a19baa0b8b12ac3e723c66b0cea97380
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff449211f9ca7c636627d6e6e20e3e46973
+
+[ff_jk]
+A/behavioral=A/Behavioral 21|../src/FF_JK.vhd|14|1*128515
+BinW64/behavioral=3*60126
+I=0*17684
+I/behavioral=I/Behavioral 0*58142
+M=11|2|vef|1709342373373|../src/FF_JK.vhd|0*17350*0xe273142b6b1448d7ef04511b0a9ede6d079851ae|0*17609*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709354225876|../src/FF_JK.vhd|0*17883*0xaac4c1bd9d1eab2a3c908cfd28bb00baf6b148fe|0*18268*0x20116f55b147878295aeff36dce7fc50
+R=../src/FF_JK.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|b8d0ed0c8cfb32ab13b94a491ac21587ebd4bd770485bd63baa0090a4ef50741
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff453cf74b6d6e10b7db86929d7372a661f
+
+[ff_sr]
+A/behavioral=A/Behavioral 21|../src/FF_SR.vhd|14|1*127546
+BinW64/behavioral=3*59470
+I=0*14487
+I/behavioral=I/Behavioral 0*57932
+M=11|2|vef|1709342070833|../src/FF_SR.vhd|0*14153*0x7f1874cfe2791e172fea41d037ddbbfb60cd69da|0*14412*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709354225844|../src/FF_SR.vhd|0*16536*0x31027c0416506f13735ba9e56c33fdc0fd41a5a8|0*16868*0x20116f55b147878295aeff36dce7fc50
+R=../src/FF_SR.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|b46edd3113b26bb4af212cb19f1d6764c346bd1a5f79fdc39bbe5d85dda187a4
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff42e4d1d47147948785d82476cba16c68e
+
+[ff_t]
+A/behavioral=A/Behavioral 21|../src/FF_T.vhd|13|1*129474
+BinW64/behavioral=3*60664
+I=0*19054
+I/behavioral=I/Behavioral 0*58352
+M=11|2|vef|1709342451092|../src/FF_T.vhd|0*18745*0x9578a06b5ae017a7c325ccd366490dd8e1ea02e6|0*18981*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavioral=M/Behavioral 21|2|vef|1709354225913|../src/FF_T.vhd|0*19252*0x8bea3bb82a05152894d91632d661fb29c5e752ea|0*19550*0x20116f55b147878295aeff36dce7fc50
+R=../src/FF_T.vhd|4
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|d33d7de338b452fe61c8de8ad7338c483dda030c021ba11b60d8ce600b748353
+Version/behavioral=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|35f8e56ee514308d50318f7abb190927faf8176ad6902a7357df79bb1a85bff40f934ec573861794eea0b87ba2e1c8b4
+
+[tb_debouncing_button_vhdl]
+A/behavior=21|../src/Test_bench.vhd|9|1*112666
+BinW64/behavior=3*53764
+I=0*45840
+I/behavior=0*49886
+M=11|2|vef|1709344854312|../src/Test_bench.vhd|0*45522*0xe62693682c9023a3ac78db168b030f1a15c675bd|0*45740*0x23b75c12e3e89f2ef000564498faa8c2
+M/behavior=21|2|vef|1709344921970|../src/Test_bench.vhd|0*46059*0x3bda18c5a3f3686bffef7ac7afddb228fba2210f|0*47087*0x20116f55b147878295aeff36dce7fc50
+R=../src/Test_bench.vhd|6
+Version=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|75ecbaff87318df7b35b24cf97b851221a3fec1adf6f4b756f05eaaf5091f7ce5abe8b6730b3b94d6c0305643115374825dbe6ea3a4c31721f1819677a952cad
+Version/behavior=13.0.376.8320 (Windows64)|00000003789cd3f5370600015b00b0|f9bccf16e2dce5a640f0ad5e8eaa0283e08d679eaf1bc9de9439630905b37e5f57bd4731bb0a7543aefff7ba1ddcb4bb
+
+[~U]
+button_debounce=Button_Debounce 11|0*50163|
+buttondebounce=ButtonDebounce 11|0*22954|
+clock_enable_debouncing_button=11|0*37515|
+clockdivider=ClockDivider 11|0*62082|
+clockdivider4_flip_flop_d=ClockDivider4_Flip_Flop_D 11|0*7305|
+clockdivider_flip_flop_d=ClockDivider_Flip_Flop_D 11|0*5251|
+control_llenado=Control_llenado 11|0*55408|
+debounce=11|0*53628|
+debounce_tb=Debounce_tb 11|0*25557|
+debouncing_button_vhdl=Debouncing_Button_VHDL 11|0*40892|
+dff_debouncing_button=DFF_Debouncing_Button 11|0*39444|
+divisorfrecuencia=DivisorFrecuencia 11|0*60293|
+ff_d=FF_D 11|0*10909|
+ff_jk=FF_JK 11|0*17167|
+ff_sr=FF_SR 11|0*13970|
+ff_t=FF_T 11|0*18567|
+tb_debouncing_button_vhdl=tb_debouncing_button_VHDL 11|0*45368|

@@ -1,0 +1,42 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity Candado_SR_asin is
+    port 
+    (
+        -- Entradas y salidas de candado SR con compuertas NOR
+        i_R_nor     : in std_logic;
+        i_S_nor     : in std_logic;
+        o_Q_nor     : out std_logic;
+        o_Qc_nor    : out std_logic;
+        -- Entradas y salidas de candado SR con compuertas NAND
+        i_R_nand     : in std_logic;
+        i_S_nand     : in std_logic;
+        o_Q_nand     : out std_logic;
+        o_Qc_nand    : out std_logic
+    );
+end Candado_SR_asin;
+
+architecture Candado of Candado_SR_asin is
+    signal Q_nor      : std_logic;
+    signal Qc_nor     : std_logic;
+    
+    signal Q_nand     : std_logic;
+    signal Qc_nand    : std_logic;
+begin
+    
+    -- Candado SR con compuertas NOR
+    Q_nor     <= i_R_nor nor Qc_nor;
+    Qc_nor    <= i_S_nor nor Q_nor;
+    
+    o_Q_nor     <= Q_nor;
+    o_Qc_nor    <= Qc_nor;
+    
+    -- Candado SR con compuertas NAND
+    Q_nand     <= i_R_nand nand Qc_nand;
+      Qc_nand    <= i_S_nand nand Q_nand;
+    
+    o_Q_nand     <= Q_nand;
+    o_Qc_nand    <= Qc_nand;
+
+end Candado;

@@ -1,0 +1,1304 @@
+Timing Analyzer report for Divisor_Reloj
+Wed Sep 18 11:11:49 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'i_CLK'
+ 13. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div5|Q'
+ 14. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div3|Q'
+ 15. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div4|Q'
+ 16. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div2|Q'
+ 17. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div6|Q'
+ 18. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div1|Q'
+ 19. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div7|Q'
+ 20. Slow 1200mV 85C Model Setup: 'Flipflop_D:Div8|Q'
+ 21. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div1|Q'
+ 22. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div8|Q'
+ 23. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div3|Q'
+ 24. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div6|Q'
+ 25. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div2|Q'
+ 26. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div4|Q'
+ 27. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div5|Q'
+ 28. Slow 1200mV 85C Model Hold: 'Flipflop_D:Div7|Q'
+ 29. Slow 1200mV 85C Model Hold: 'i_CLK'
+ 30. Slow 1200mV 85C Model Metastability Summary
+ 31. Slow 1200mV 0C Model Fmax Summary
+ 32. Slow 1200mV 0C Model Setup Summary
+ 33. Slow 1200mV 0C Model Hold Summary
+ 34. Slow 1200mV 0C Model Recovery Summary
+ 35. Slow 1200mV 0C Model Removal Summary
+ 36. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 37. Slow 1200mV 0C Model Setup: 'i_CLK'
+ 38. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div5|Q'
+ 39. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div4|Q'
+ 40. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div6|Q'
+ 41. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div2|Q'
+ 42. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div3|Q'
+ 43. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div1|Q'
+ 44. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div7|Q'
+ 45. Slow 1200mV 0C Model Setup: 'Flipflop_D:Div8|Q'
+ 46. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div1|Q'
+ 47. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div3|Q'
+ 48. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div8|Q'
+ 49. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div5|Q'
+ 50. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div6|Q'
+ 51. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div2|Q'
+ 52. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div4|Q'
+ 53. Slow 1200mV 0C Model Hold: 'Flipflop_D:Div7|Q'
+ 54. Slow 1200mV 0C Model Hold: 'i_CLK'
+ 55. Slow 1200mV 0C Model Metastability Summary
+ 56. Fast 1200mV 0C Model Setup Summary
+ 57. Fast 1200mV 0C Model Hold Summary
+ 58. Fast 1200mV 0C Model Recovery Summary
+ 59. Fast 1200mV 0C Model Removal Summary
+ 60. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 61. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div3|Q'
+ 62. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div5|Q'
+ 63. Fast 1200mV 0C Model Setup: 'i_CLK'
+ 64. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div1|Q'
+ 65. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div4|Q'
+ 66. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div6|Q'
+ 67. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div2|Q'
+ 68. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div7|Q'
+ 69. Fast 1200mV 0C Model Setup: 'Flipflop_D:Div8|Q'
+ 70. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div8|Q'
+ 71. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div1|Q'
+ 72. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div3|Q'
+ 73. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div2|Q'
+ 74. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div6|Q'
+ 75. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div4|Q'
+ 76. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div5|Q'
+ 77. Fast 1200mV 0C Model Hold: 'Flipflop_D:Div7|Q'
+ 78. Fast 1200mV 0C Model Hold: 'i_CLK'
+ 79. Fast 1200mV 0C Model Metastability Summary
+ 80. Multicorner Timing Analysis Summary
+ 81. Board Trace Model Assignments
+ 82. Input Transition Times
+ 83. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 84. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 85. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 86. Setup Transfers
+ 87. Hold Transfers
+ 88. Report TCCS
+ 89. Report RSKM
+ 90. Unconstrained Paths Summary
+ 91. Clock Status Summary
+ 92. Unconstrained Output Ports
+ 93. Unconstrained Output Ports
+ 94. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                        ;
++-----------------------+--------------------------------------------------------+
+; Quartus Prime Version ; Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
+; Revision Name         ; Divisor_Reloj                                          ;
+; Device Family         ; Cyclone IV E                                           ;
+; Device Name           ; EP4CE6E22C8                                            ;
+; Timing Models         ; Final                                                  ;
+; Delay Model           ; Combined                                               ;
+; Rise/Fall Delays      ; Enabled                                                ;
++-----------------------+--------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.3%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                               ;
++-------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------+
+; Clock Name        ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets               ;
++-------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------+
+; Flipflop_D:Div1|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div1|Q } ;
+; Flipflop_D:Div2|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div2|Q } ;
+; Flipflop_D:Div3|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div3|Q } ;
+; Flipflop_D:Div4|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div4|Q } ;
+; Flipflop_D:Div5|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div5|Q } ;
+; Flipflop_D:Div6|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div6|Q } ;
+; Flipflop_D:Div7|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div7|Q } ;
+; Flipflop_D:Div8|Q ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Flipflop_D:Div8|Q } ;
+; i_CLK             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { i_CLK }             ;
++-------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                 ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name        ; Note                                           ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; 1128.67 MHz ; 402.09 MHz      ; Flipflop_D:Div8|Q ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+-------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++--------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary        ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; i_CLK             ; -0.791 ; -0.791        ;
+; Flipflop_D:Div5|Q ; -0.695 ; -0.695        ;
+; Flipflop_D:Div3|Q ; -0.672 ; -0.672        ;
+; Flipflop_D:Div4|Q ; -0.660 ; -0.660        ;
+; Flipflop_D:Div2|Q ; -0.649 ; -0.649        ;
+; Flipflop_D:Div6|Q ; -0.649 ; -0.649        ;
+; Flipflop_D:Div1|Q ; -0.605 ; -0.605        ;
+; Flipflop_D:Div7|Q ; -0.565 ; -0.565        ;
+; Flipflop_D:Div8|Q ; 0.114  ; 0.000         ;
++-------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary        ;
++-------------------+-------+---------------+
+; Clock             ; Slack ; End Point TNS ;
++-------------------+-------+---------------+
+; Flipflop_D:Div1|Q ; 0.469 ; 0.000         ;
+; Flipflop_D:Div8|Q ; 0.497 ; 0.000         ;
+; Flipflop_D:Div3|Q ; 0.503 ; 0.000         ;
+; Flipflop_D:Div6|Q ; 0.551 ; 0.000         ;
+; Flipflop_D:Div2|Q ; 0.563 ; 0.000         ;
+; Flipflop_D:Div4|Q ; 0.584 ; 0.000         ;
+; Flipflop_D:Div5|Q ; 0.584 ; 0.000         ;
+; Flipflop_D:Div7|Q ; 0.636 ; 0.000         ;
+; i_CLK             ; 0.781 ; 0.000         ;
++-------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------------------+--------+----------------------+
+; Clock             ; Slack  ; End Point TNS        ;
++-------------------+--------+----------------------+
+; i_CLK             ; -3.000 ; -4.487               ;
+; Flipflop_D:Div1|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div2|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div3|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div4|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div5|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div6|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div7|Q ; -1.487 ; -1.487               ;
+; Flipflop_D:Div8|Q ; -1.487 ; -1.487               ;
++-------------------+--------+----------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'i_CLK'                                                                                      ;
++--------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; -0.791 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 0.500        ; 2.037      ; 3.590      ;
+; -0.251 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 1.000        ; 2.037      ; 3.550      ;
++--------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div5|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.695 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 0.500        ; 1.502      ; 2.979      ;
+; -0.191 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 1.000        ; 1.502      ; 2.975      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div3|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.672 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 0.500        ; 2.104      ; 3.558      ;
+; -0.158 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 1.000        ; 2.104      ; 3.544      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div4|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.660 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 0.500        ; 0.972      ; 2.414      ;
+; -0.141 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 1.000        ; 0.972      ; 2.395      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div2|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.649 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 0.500        ; 0.975      ; 2.406      ;
+; -0.125 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 1.000        ; 0.975      ; 2.382      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div6|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.649 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 0.500        ; 0.972      ; 2.403      ;
+; -0.107 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 1.000        ; 0.972      ; 2.361      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div1|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.605 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 0.500        ; 1.626      ; 3.013      ;
+; -0.081 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 1.000        ; 1.626      ; 2.989      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div7|Q'                                                                                ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.565 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 0.500        ; 1.147      ; 2.494      ;
+; -0.018 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 1.000        ; 1.147      ; 2.447      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'Flipflop_D:Div8|Q'                                                                               ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.114 ; Flipflop_D:Div9|Q ; Flipflop_D:Div9|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 1.000        ; -0.049     ; 0.858      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div1|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.469 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 0.000        ; 1.717      ; 2.659      ;
+; 1.028 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; -0.500       ; 1.717      ; 2.718      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div8|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.497 ; Flipflop_D:Div9|Q ; Flipflop_D:Div9|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 0.000        ; 0.049      ; 0.758      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div3|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.503 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 0.000        ; 2.215      ; 3.191      ;
+; 1.055 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; -0.500       ; 2.215      ; 3.243      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div6|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.551 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 0.000        ; 1.036      ; 2.060      ;
+; 1.110 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; -0.500       ; 1.036      ; 2.119      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div2|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.563 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 0.000        ; 1.039      ; 2.075      ;
+; 1.120 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; -0.500       ; 1.039      ; 2.132      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div4|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.584 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 0.000        ; 1.036      ; 2.093      ;
+; 1.120 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; -0.500       ; 1.036      ; 2.129      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div5|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.584 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 0.000        ; 1.588      ; 2.645      ;
+; 1.123 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; -0.500       ; 1.588      ; 2.684      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'Flipflop_D:Div7|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.636 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 0.000        ; 1.218      ; 2.327      ;
+; 1.193 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; -0.500       ; 1.218      ; 2.384      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'i_CLK'                                                                                      ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; 0.781 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 0.000        ; 2.113      ; 3.387      ;
+; 1.331 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; -0.500       ; 2.113      ; 3.437      ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++----------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                  ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name        ; Note                                           ;
++-------------+-----------------+-------------------+------------------------------------------------+
+; 1262.63 MHz ; 402.09 MHz      ; Flipflop_D:Div8|Q ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+-------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary         ;
++-------------------+--------+---------------+
+; Clock             ; Slack  ; End Point TNS ;
++-------------------+--------+---------------+
+; i_CLK             ; -0.720 ; -0.720        ;
+; Flipflop_D:Div5|Q ; -0.582 ; -0.582        ;
+; Flipflop_D:Div4|Q ; -0.566 ; -0.566        ;
+; Flipflop_D:Div6|Q ; -0.554 ; -0.554        ;
+; Flipflop_D:Div2|Q ; -0.551 ; -0.551        ;
+; Flipflop_D:Div3|Q ; -0.534 ; -0.534        ;
+; Flipflop_D:Div1|Q ; -0.496 ; -0.496        ;
+; Flipflop_D:Div7|Q ; -0.484 ; -0.484        ;
+; Flipflop_D:Div8|Q ; 0.208  ; 0.000         ;
++-------------------+--------+---------------+
+
+
++-------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary         ;
++-------------------+-------+---------------+
+; Clock             ; Slack ; End Point TNS ;
++-------------------+-------+---------------+
+; Flipflop_D:Div1|Q ; 0.389 ; 0.000         ;
+; Flipflop_D:Div3|Q ; 0.414 ; 0.000         ;
+; Flipflop_D:Div8|Q ; 0.445 ; 0.000         ;
+; Flipflop_D:Div5|Q ; 0.512 ; 0.000         ;
+; Flipflop_D:Div6|Q ; 0.512 ; 0.000         ;
+; Flipflop_D:Div2|Q ; 0.515 ; 0.000         ;
+; Flipflop_D:Div4|Q ; 0.537 ; 0.000         ;
+; Flipflop_D:Div7|Q ; 0.566 ; 0.000         ;
+; i_CLK             ; 0.724 ; 0.000         ;
++-------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------------------+--------+---------------------+
+; Clock             ; Slack  ; End Point TNS       ;
++-------------------+--------+---------------------+
+; i_CLK             ; -3.000 ; -4.487              ;
+; Flipflop_D:Div1|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div2|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div3|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div4|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div5|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div6|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div7|Q ; -1.487 ; -1.487              ;
+; Flipflop_D:Div8|Q ; -1.487 ; -1.487              ;
++-------------------+--------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'i_CLK'                                                                                       ;
++--------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; -0.720 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 0.500        ; 1.894      ; 3.356      ;
+; -0.157 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 1.000        ; 1.894      ; 3.293      ;
++--------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div5|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.582 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 0.500        ; 1.419      ; 2.763      ;
+; -0.064 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 1.000        ; 1.419      ; 2.745      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div4|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.566 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 0.500        ; 0.897      ; 2.225      ;
+; -0.042 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 1.000        ; 0.897      ; 2.201      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div6|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.554 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 0.500        ; 0.897      ; 2.213      ;
+; -0.016 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 1.000        ; 0.897      ; 2.175      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div2|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.551 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 0.500        ; 0.903      ; 2.216      ;
+; -0.024 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 1.000        ; 0.903      ; 2.189      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div3|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.534 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 0.500        ; 1.994      ; 3.290      ;
+; -0.011 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 1.000        ; 1.994      ; 3.267      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div1|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.496 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 0.500        ; 1.539      ; 2.797      ;
+; 0.054  ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 1.000        ; 1.539      ; 2.747      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div7|Q'                                                                                 ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack  ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; -0.484 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 0.500        ; 1.081      ; 2.327      ;
+; 0.085  ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 1.000        ; 1.081      ; 2.258      ;
++--------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'Flipflop_D:Div8|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.208 ; Flipflop_D:Div9|Q ; Flipflop_D:Div9|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 1.000        ; -0.044     ; 0.770      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div1|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.389 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 0.000        ; 1.624      ; 2.448      ;
+; 0.962 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; -0.500       ; 1.624      ; 2.521      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div3|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.414 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 0.000        ; 2.097      ; 2.946      ;
+; 0.963 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; -0.500       ; 2.097      ; 2.995      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div8|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.445 ; Flipflop_D:Div9|Q ; Flipflop_D:Div9|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 0.000        ; 0.044      ; 0.684      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div5|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.512 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 0.000        ; 1.498      ; 2.445      ;
+; 1.052 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; -0.500       ; 1.498      ; 2.485      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div6|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.512 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 0.000        ; 0.955      ; 1.902      ;
+; 1.059 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; -0.500       ; 0.955      ; 1.949      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div2|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.515 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 0.000        ; 0.961      ; 1.911      ;
+; 1.065 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; -0.500       ; 0.961      ; 1.961      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div4|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.537 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 0.000        ; 0.955      ; 1.927      ;
+; 1.070 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; -0.500       ; 0.955      ; 1.960      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'Flipflop_D:Div7|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.566 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 0.000        ; 1.147      ; 2.148      ;
+; 1.141 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; -0.500       ; 1.147      ; 2.223      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'i_CLK'                                                                                       ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; 0.724 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 0.000        ; 1.962      ; 3.141      ;
+; 1.294 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; -0.500       ; 1.962      ; 3.211      ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++-------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary        ;
++-------------------+-------+---------------+
+; Clock             ; Slack ; End Point TNS ;
++-------------------+-------+---------------+
+; Flipflop_D:Div3|Q ; 0.006 ; 0.000         ;
+; Flipflop_D:Div5|Q ; 0.006 ; 0.000         ;
+; i_CLK             ; 0.013 ; 0.000         ;
+; Flipflop_D:Div1|Q ; 0.022 ; 0.000         ;
+; Flipflop_D:Div4|Q ; 0.023 ; 0.000         ;
+; Flipflop_D:Div6|Q ; 0.028 ; 0.000         ;
+; Flipflop_D:Div2|Q ; 0.033 ; 0.000         ;
+; Flipflop_D:Div7|Q ; 0.079 ; 0.000         ;
+; Flipflop_D:Div8|Q ; 0.626 ; 0.000         ;
++-------------------+-------+---------------+
+
+
++-------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary         ;
++-------------------+-------+---------------+
+; Clock             ; Slack ; End Point TNS ;
++-------------------+-------+---------------+
+; Flipflop_D:Div8|Q ; 0.208 ; 0.000         ;
+; Flipflop_D:Div1|Q ; 0.213 ; 0.000         ;
+; Flipflop_D:Div3|Q ; 0.214 ; 0.000         ;
+; Flipflop_D:Div2|Q ; 0.226 ; 0.000         ;
+; Flipflop_D:Div6|Q ; 0.226 ; 0.000         ;
+; Flipflop_D:Div4|Q ; 0.236 ; 0.000         ;
+; Flipflop_D:Div5|Q ; 0.245 ; 0.000         ;
+; Flipflop_D:Div7|Q ; 0.269 ; 0.000         ;
+; i_CLK             ; 0.269 ; 0.000         ;
++-------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------------------+--------+---------------------+
+; Clock             ; Slack  ; End Point TNS       ;
++-------------------+--------+---------------------+
+; i_CLK             ; -3.000 ; -4.035              ;
+; Flipflop_D:Div1|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div2|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div3|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div4|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div5|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div6|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div7|Q ; -1.000 ; -1.000              ;
+; Flipflop_D:Div8|Q ; -1.000 ; -1.000              ;
++-------------------+--------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div3|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.006 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 0.500        ; 0.873      ; 1.479      ;
+; 0.504 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 1.000        ; 0.873      ; 1.481      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div5|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.006 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 0.500        ; 0.623      ; 1.229      ;
+; 0.499 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 1.000        ; 0.623      ; 1.236      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'i_CLK'                                                                                      ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; 0.013 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 0.500        ; 0.907      ; 1.486      ;
+; 0.511 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 1.000        ; 0.907      ; 1.488      ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div1|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.022 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 0.500        ; 0.658      ; 1.248      ;
+; 0.524 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 1.000        ; 0.658      ; 1.246      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div4|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.023 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 0.500        ; 0.415      ; 1.004      ;
+; 0.526 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 1.000        ; 0.415      ; 1.001      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div6|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.028 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 0.500        ; 0.414      ; 0.998      ;
+; 0.538 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 1.000        ; 0.414      ; 0.988      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div2|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.033 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 0.500        ; 0.416      ; 0.995      ;
+; 0.534 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 1.000        ; 0.416      ; 0.994      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div7|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.079 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 0.500        ; 0.475      ; 1.008      ;
+; 0.575 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 1.000        ; 0.475      ; 1.012      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'Flipflop_D:Div8|Q'                                                                                ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.626 ; Flipflop_D:Div9|Q ; Flipflop_D:Div9|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 1.000        ; -0.022     ; 0.359      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div8|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.208 ; Flipflop_D:Div9|Q ; Flipflop_D:Div9|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 0.000        ; 0.022      ; 0.314      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div1|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.213 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 0.000        ; 0.696      ; 1.098      ;
+; 0.737 ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; -0.500       ; 0.696      ; 1.122      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div3|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.214 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 0.000        ; 0.920      ; 1.323      ;
+; 0.735 ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; -0.500       ; 0.920      ; 1.344      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div2|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.226 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 0.000        ; 0.444      ; 0.859      ;
+; 0.745 ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; -0.500       ; 0.444      ; 0.878      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div6|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.226 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 0.000        ; 0.442      ; 0.857      ;
+; 0.742 ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; -0.500       ; 0.442      ; 0.873      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div4|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.236 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 0.000        ; 0.443      ; 0.868      ;
+; 0.747 ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; -0.500       ; 0.443      ; 0.879      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div5|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.245 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 0.000        ; 0.659      ; 1.093      ;
+; 0.755 ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; -0.500       ; 0.659      ; 1.103      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'Flipflop_D:Div7|Q'                                                                                 ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock       ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+; 0.269 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 0.000        ; 0.505      ; 0.963      ;
+; 0.773 ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; -0.500       ; 0.505      ; 0.967      ;
++-------+-------------------+-------------------+-------------------+-------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'i_CLK'                                                                                       ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node           ; Launch Clock      ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+; 0.269 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; 0.000        ; 0.942      ; 1.420      ;
+; 0.774 ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; i_CLK       ; -0.500       ; 0.942      ; 1.425      ;
++-------+-------------------+-------------------+-------------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+The design MTBF is not calculated because there are no specified synchronizers in the design.
+Number of Synchronizer Chains Found: 1
+Shortest Synchronizer Chain: 2 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+Worst Case Available Settling Time: 0.705 ns
+
+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++--------------------+--------+-------+----------+---------+---------------------+
+; Clock              ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++--------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack   ; -0.791 ; 0.208 ; N/A      ; N/A     ; -3.000              ;
+;  Flipflop_D:Div1|Q ; -0.605 ; 0.213 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div2|Q ; -0.649 ; 0.226 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div3|Q ; -0.672 ; 0.214 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div4|Q ; -0.660 ; 0.236 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div5|Q ; -0.695 ; 0.245 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div6|Q ; -0.649 ; 0.226 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div7|Q ; -0.565 ; 0.269 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div8|Q ; 0.114  ; 0.208 ; N/A      ; N/A     ; -1.487              ;
+;  i_CLK             ; -0.791 ; 0.269 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS    ; -5.286 ; 0.0   ; 0.0      ; 0.0     ; -16.383             ;
+;  Flipflop_D:Div1|Q ; -0.605 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div2|Q ; -0.649 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div3|Q ; -0.672 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div4|Q ; -0.660 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div5|Q ; -0.695 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div6|Q ; -0.649 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div7|Q ; -0.565 ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  Flipflop_D:Div8|Q ; 0.000  ; 0.000 ; N/A      ; N/A     ; -1.487              ;
+;  i_CLK             ; -0.791 ; 0.000 ; N/A      ; N/A     ; -4.487              ;
++--------------------+--------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; o_Q           ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; i_CLK                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; o_Q           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.07e-09 V                   ; 2.36 V              ; -0.00737 V          ; 0.209 V                              ; 0.012 V                              ; 5.22e-10 s                  ; 5.33e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.07e-09 V                  ; 2.36 V             ; -0.00737 V         ; 0.209 V                             ; 0.012 V                             ; 5.22e-10 s                 ; 5.33e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.57e-09 V                   ; 2.37 V              ; -0.00683 V          ; 0.171 V                              ; 0.018 V                              ; 4.97e-10 s                  ; 6.66e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.57e-09 V                  ; 2.37 V             ; -0.00683 V         ; 0.171 V                             ; 0.018 V                             ; 4.97e-10 s                 ; 6.66e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; o_Q           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.93e-07 V                   ; 2.34 V              ; -0.00869 V          ; 0.14 V                               ; 0.046 V                              ; 6.89e-10 s                  ; 6.56e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.93e-07 V                  ; 2.34 V             ; -0.00869 V         ; 0.14 V                              ; 0.046 V                             ; 6.89e-10 s                 ; 6.56e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.54e-07 V                   ; 2.34 V              ; -0.00774 V          ; 0.109 V                              ; 0.026 V                              ; 6.58e-10 s                  ; 8.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.54e-07 V                  ; 2.34 V             ; -0.00774 V         ; 0.109 V                             ; 0.026 V                             ; 6.58e-10 s                 ; 8.24e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; o_Q           ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Setup Transfers                                                                   ;
++-------------------+-------------------+----------+----------+----------+----------+
+; From Clock        ; To Clock          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------+-------------------+----------+----------+----------+----------+
+; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 1        ; 0        ; 0        ; 0        ;
+; Flipflop_D:Div1|Q ; i_CLK             ; 1        ; 1        ; 0        ; 0        ;
++-------------------+-------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------+
+; Hold Transfers                                                                    ;
++-------------------+-------------------+----------+----------+----------+----------+
+; From Clock        ; To Clock          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------+-------------------+----------+----------+----------+----------+
+; Flipflop_D:Div2|Q ; Flipflop_D:Div1|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div3|Q ; Flipflop_D:Div2|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div4|Q ; Flipflop_D:Div3|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div5|Q ; Flipflop_D:Div4|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div6|Q ; Flipflop_D:Div5|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div7|Q ; Flipflop_D:Div6|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div8|Q ; Flipflop_D:Div7|Q ; 1        ; 1        ; 0        ; 0        ;
+; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; 1        ; 0        ; 0        ; 0        ;
+; Flipflop_D:Div1|Q ; i_CLK             ; 1        ; 1        ; 0        ; 0        ;
++-------------------+-------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------+
+; Clock Status Summary                                       ;
++-------------------+-------------------+------+-------------+
+; Target            ; Clock             ; Type ; Status      ;
++-------------------+-------------------+------+-------------+
+; Flipflop_D:Div1|Q ; Flipflop_D:Div1|Q ; Base ; Constrained ;
+; Flipflop_D:Div2|Q ; Flipflop_D:Div2|Q ; Base ; Constrained ;
+; Flipflop_D:Div3|Q ; Flipflop_D:Div3|Q ; Base ; Constrained ;
+; Flipflop_D:Div4|Q ; Flipflop_D:Div4|Q ; Base ; Constrained ;
+; Flipflop_D:Div5|Q ; Flipflop_D:Div5|Q ; Base ; Constrained ;
+; Flipflop_D:Div6|Q ; Flipflop_D:Div6|Q ; Base ; Constrained ;
+; Flipflop_D:Div7|Q ; Flipflop_D:Div7|Q ; Base ; Constrained ;
+; Flipflop_D:Div8|Q ; Flipflop_D:Div8|Q ; Base ; Constrained ;
+; i_CLK             ; i_CLK             ; Base ; Constrained ;
++-------------------+-------------------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; o_Q         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; o_Q         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Wed Sep 18 11:11:48 2024
+Info: Command: quartus_sta Divisor_Reloj -c Divisor_Reloj
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Divisor_Reloj.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div8|Q Flipflop_D:Div8|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div7|Q Flipflop_D:Div7|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div6|Q Flipflop_D:Div6|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div5|Q Flipflop_D:Div5|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div4|Q Flipflop_D:Div4|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div3|Q Flipflop_D:Div3|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div2|Q Flipflop_D:Div2|Q
+    Info (332105): create_clock -period 1.000 -name Flipflop_D:Div1|Q Flipflop_D:Div1|Q
+    Info (332105): create_clock -period 1.000 -name i_CLK i_CLK
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.791
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.791              -0.791 i_CLK 
+    Info (332119):    -0.695              -0.695 Flipflop_D:Div5|Q 
+    Info (332119):    -0.672              -0.672 Flipflop_D:Div3|Q 
+    Info (332119):    -0.660              -0.660 Flipflop_D:Div4|Q 
+    Info (332119):    -0.649              -0.649 Flipflop_D:Div2|Q 
+    Info (332119):    -0.649              -0.649 Flipflop_D:Div6|Q 
+    Info (332119):    -0.605              -0.605 Flipflop_D:Div1|Q 
+    Info (332119):    -0.565              -0.565 Flipflop_D:Div7|Q 
+    Info (332119):     0.114               0.000 Flipflop_D:Div8|Q 
+Info (332146): Worst-case hold slack is 0.469
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.469               0.000 Flipflop_D:Div1|Q 
+    Info (332119):     0.497               0.000 Flipflop_D:Div8|Q 
+    Info (332119):     0.503               0.000 Flipflop_D:Div3|Q 
+    Info (332119):     0.551               0.000 Flipflop_D:Div6|Q 
+    Info (332119):     0.563               0.000 Flipflop_D:Div2|Q 
+    Info (332119):     0.584               0.000 Flipflop_D:Div4|Q 
+    Info (332119):     0.584               0.000 Flipflop_D:Div5|Q 
+    Info (332119):     0.636               0.000 Flipflop_D:Div7|Q 
+    Info (332119):     0.781               0.000 i_CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000              -4.487 i_CLK 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div1|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div2|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div3|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div4|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div5|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div6|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div7|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div8|Q 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.720
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.720              -0.720 i_CLK 
+    Info (332119):    -0.582              -0.582 Flipflop_D:Div5|Q 
+    Info (332119):    -0.566              -0.566 Flipflop_D:Div4|Q 
+    Info (332119):    -0.554              -0.554 Flipflop_D:Div6|Q 
+    Info (332119):    -0.551              -0.551 Flipflop_D:Div2|Q 
+    Info (332119):    -0.534              -0.534 Flipflop_D:Div3|Q 
+    Info (332119):    -0.496              -0.496 Flipflop_D:Div1|Q 
+    Info (332119):    -0.484              -0.484 Flipflop_D:Div7|Q 
+    Info (332119):     0.208               0.000 Flipflop_D:Div8|Q 
+Info (332146): Worst-case hold slack is 0.389
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.389               0.000 Flipflop_D:Div1|Q 
+    Info (332119):     0.414               0.000 Flipflop_D:Div3|Q 
+    Info (332119):     0.445               0.000 Flipflop_D:Div8|Q 
+    Info (332119):     0.512               0.000 Flipflop_D:Div5|Q 
+    Info (332119):     0.512               0.000 Flipflop_D:Div6|Q 
+    Info (332119):     0.515               0.000 Flipflop_D:Div2|Q 
+    Info (332119):     0.537               0.000 Flipflop_D:Div4|Q 
+    Info (332119):     0.566               0.000 Flipflop_D:Div7|Q 
+    Info (332119):     0.724               0.000 i_CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000              -4.487 i_CLK 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div1|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div2|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div3|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div4|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div5|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div6|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div7|Q 
+    Info (332119):    -1.487              -1.487 Flipflop_D:Div8|Q 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332146): Worst-case setup slack is 0.006
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.006               0.000 Flipflop_D:Div3|Q 
+    Info (332119):     0.006               0.000 Flipflop_D:Div5|Q 
+    Info (332119):     0.013               0.000 i_CLK 
+    Info (332119):     0.022               0.000 Flipflop_D:Div1|Q 
+    Info (332119):     0.023               0.000 Flipflop_D:Div4|Q 
+    Info (332119):     0.028               0.000 Flipflop_D:Div6|Q 
+    Info (332119):     0.033               0.000 Flipflop_D:Div2|Q 
+    Info (332119):     0.079               0.000 Flipflop_D:Div7|Q 
+    Info (332119):     0.626               0.000 Flipflop_D:Div8|Q 
+Info (332146): Worst-case hold slack is 0.208
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.208               0.000 Flipflop_D:Div8|Q 
+    Info (332119):     0.213               0.000 Flipflop_D:Div1|Q 
+    Info (332119):     0.214               0.000 Flipflop_D:Div3|Q 
+    Info (332119):     0.226               0.000 Flipflop_D:Div2|Q 
+    Info (332119):     0.226               0.000 Flipflop_D:Div6|Q 
+    Info (332119):     0.236               0.000 Flipflop_D:Div4|Q 
+    Info (332119):     0.245               0.000 Flipflop_D:Div5|Q 
+    Info (332119):     0.269               0.000 Flipflop_D:Div7|Q 
+    Info (332119):     0.269               0.000 i_CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000              -4.035 i_CLK 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div1|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div2|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div3|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div4|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div5|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div6|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div7|Q 
+    Info (332119):    -1.000              -1.000 Flipflop_D:Div8|Q 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
+    Info (332114): Number of Synchronizer Chains Found: 1
+    Info (332114): Shortest Synchronizer Chain: 2 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
+    Info (332114): Worst Case Available Settling Time: 0.705 ns
+    Info (332114): 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4776 megabytes
+    Info: Processing ended: Wed Sep 18 11:11:49 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

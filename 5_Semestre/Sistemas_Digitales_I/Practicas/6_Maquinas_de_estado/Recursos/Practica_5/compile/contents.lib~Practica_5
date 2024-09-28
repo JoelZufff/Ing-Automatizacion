@@ -1,0 +1,33 @@
+41
+~E 1 "../src/Debounce .vhd" 5 Button_Debounce
+~A 1 "../src/Debounce .vhd" 19 arch
+~E 1 "../src/Debounce .vhd" 5 ButtonDebounce
+~E 1 "../src/Debounce .vhd" 4 clock_enable_debouncing_button
+~A 1 "../src/Debounce .vhd" 11 Behavioral
+~E 1 "../src/Time_Divider.vhd" 5 ClockDivider
+~A 1 "../src/Time_Divider.vhd" 16 Behavioral
+~E 1 "../src/Timer_divider_4_Fllip_flop_D.vhd" 4 ClockDivider4_Flip_Flop_D
+~A 1 "../src/Timer_divider_4_Fllip_flop_D.vhd" 11 Behavioral
+~E 1 "../src/Timer_divider_Fllip_flop_D.vhd" 4 ClockDivider_Flip_Flop_D
+~A 1 "../src/Timer_divider_2_Fllip_flop_D.vhd" 11 Behavioral
+~E 1 "../src/Tanque_agua.vhd" 4 Control_llenado
+~A 1 "../src/Tanque_agua.vhd" 14 FMS
+~E 1 "../src/Debounce .vhd" 4 debounce
+~A 1 "../src/Debounce .vhd" 13 behavioral
+~A 1 "../src/Debounce .vhd" 15 logic
+~E 1 "../src/Test_bench.vhd" 5 Debounce_tb
+~A 1 "../src/Test_bench.vhd" 8 behavior
+~E 1 "../src/Debounce .vhd" 54 Debouncing_Button_VHDL
+~A 1 "../src/Debounce .vhd" 61 Behavioral
+~E 1 "../src/Debounce .vhd" 30 DFF_Debouncing_Button
+~A 1 "../src/Debounce .vhd" 38 Behavioral
+~E 1 "../src/FF_D.vhd" 4 FF_D
+~A 1 "../src/FF_D.vhd" 13 Behavioral
+~E 1 "../src/FF_JK.vhd" 4 FF_JK
+~A 1 "../src/FF_JK.vhd" 14 Behavioral
+~E 1 "../src/FF_SR.vhd" 4 FF_SR
+~A 1 "../src/FF_SR.vhd" 14 Behavioral
+~E 1 "../src/FF_T.vhd" 4 FF_T
+~A 1 "../src/FF_T.vhd" 13 Behavioral
+~E 1 "../src/Test_bench.vhd" 6 tb_debouncing_button_VHDL
+~A 1 "../src/Test_bench.vhd" 9 behavior

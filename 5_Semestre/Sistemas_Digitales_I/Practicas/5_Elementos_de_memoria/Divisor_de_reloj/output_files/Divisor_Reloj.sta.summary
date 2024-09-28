@@ -1,0 +1,329 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'i_CLK'
+Slack : -0.791
+TNS   : -0.791
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div5|Q'
+Slack : -0.695
+TNS   : -0.695
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div3|Q'
+Slack : -0.672
+TNS   : -0.672
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div4|Q'
+Slack : -0.660
+TNS   : -0.660
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div2|Q'
+Slack : -0.649
+TNS   : -0.649
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div6|Q'
+Slack : -0.649
+TNS   : -0.649
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div1|Q'
+Slack : -0.605
+TNS   : -0.605
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div7|Q'
+Slack : -0.565
+TNS   : -0.565
+
+Type  : Slow 1200mV 85C Model Setup 'Flipflop_D:Div8|Q'
+Slack : 0.114
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div1|Q'
+Slack : 0.469
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div8|Q'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div3|Q'
+Slack : 0.503
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div6|Q'
+Slack : 0.551
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div2|Q'
+Slack : 0.563
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div4|Q'
+Slack : 0.584
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div5|Q'
+Slack : 0.584
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Flipflop_D:Div7|Q'
+Slack : 0.636
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'i_CLK'
+Slack : 0.781
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_CLK'
+Slack : -3.000
+TNS   : -4.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div1|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div2|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div3|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div4|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div5|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div6|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div7|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Flipflop_D:Div8|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Setup 'i_CLK'
+Slack : -0.720
+TNS   : -0.720
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div5|Q'
+Slack : -0.582
+TNS   : -0.582
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div4|Q'
+Slack : -0.566
+TNS   : -0.566
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div6|Q'
+Slack : -0.554
+TNS   : -0.554
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div2|Q'
+Slack : -0.551
+TNS   : -0.551
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div3|Q'
+Slack : -0.534
+TNS   : -0.534
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div1|Q'
+Slack : -0.496
+TNS   : -0.496
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div7|Q'
+Slack : -0.484
+TNS   : -0.484
+
+Type  : Slow 1200mV 0C Model Setup 'Flipflop_D:Div8|Q'
+Slack : 0.208
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div1|Q'
+Slack : 0.389
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div3|Q'
+Slack : 0.414
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div8|Q'
+Slack : 0.445
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div5|Q'
+Slack : 0.512
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div6|Q'
+Slack : 0.512
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div2|Q'
+Slack : 0.515
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div4|Q'
+Slack : 0.537
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Flipflop_D:Div7|Q'
+Slack : 0.566
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'i_CLK'
+Slack : 0.724
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_CLK'
+Slack : -3.000
+TNS   : -4.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div1|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div2|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div3|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div4|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div5|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div6|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div7|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div8|Q'
+Slack : -1.487
+TNS   : -1.487
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div3|Q'
+Slack : 0.006
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div5|Q'
+Slack : 0.006
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'i_CLK'
+Slack : 0.013
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div1|Q'
+Slack : 0.022
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div4|Q'
+Slack : 0.023
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div6|Q'
+Slack : 0.028
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div2|Q'
+Slack : 0.033
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div7|Q'
+Slack : 0.079
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Flipflop_D:Div8|Q'
+Slack : 0.626
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div8|Q'
+Slack : 0.208
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div1|Q'
+Slack : 0.213
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div3|Q'
+Slack : 0.214
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div2|Q'
+Slack : 0.226
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div6|Q'
+Slack : 0.226
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div4|Q'
+Slack : 0.236
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div5|Q'
+Slack : 0.245
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Flipflop_D:Div7|Q'
+Slack : 0.269
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'i_CLK'
+Slack : 0.269
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_CLK'
+Slack : -3.000
+TNS   : -4.035
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div1|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div2|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div3|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div4|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div5|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div6|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div7|Q'
+Slack : -1.000
+TNS   : -1.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Flipflop_D:Div8|Q'
+Slack : -1.000
+TNS   : -1.000
+
+------------------------------------------------------------

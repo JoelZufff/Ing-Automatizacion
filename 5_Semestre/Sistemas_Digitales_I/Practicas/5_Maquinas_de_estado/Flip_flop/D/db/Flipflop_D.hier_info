@@ -1,9 +1,0 @@
-|Flipflop_D
-i_LD => Qc.CLK
-i_LD => Q.CLK
-i_D => Q.DATAIN
-i_D => Qc.DATAIN
-o_Q << Q.DB_MAX_OUTPUT_PORT_TYPE
-o_Qc << Qc.DB_MAX_OUTPUT_PORT_TYPE
-
-

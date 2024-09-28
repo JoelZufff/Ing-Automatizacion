@@ -1,4 +1,0 @@
-C:\Users\diego\Desktop\Practicas de Laboratorio\3° Semestre\Metodos Numericos\Algoritmos PARTE 2\ConsoleApplication1\x64\Debug\Algoritmos Metodos Numericos.exe
-C:\Users\diego\Desktop\Practicas de Laboratorio\3° Semestre\Metodos Numericos\Algoritmos PARTE 2\Gauss Simple\x64\Debug\Algoritmos Metodos Numericos.exe
-C:\Users\diego\Desktop\Practicas de Laboratorio\3° Semestre\Metodos Numericos\Algoritmos PARTE 2\Algoritmos\x64\Debug\Algoritmos Metodos Numericos.exe
-C:\Users\diego\Desktop\Practicas de Laboratorio\3° Semestre\Metodos Numericos\Algoritmos\Gauss Jordan\x64\Debug\GaussJordan.exe

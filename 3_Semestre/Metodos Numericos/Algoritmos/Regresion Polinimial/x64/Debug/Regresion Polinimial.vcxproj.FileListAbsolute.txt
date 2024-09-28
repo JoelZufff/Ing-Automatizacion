@@ -1,2 +1,0 @@
-C:\Users\diego\Desktop\Practicas de Laboratorio\3° Semestre\Metodos Numericos\Algoritmos PARTE 3\Regresion Polinimial\x64\Debug\Regresion Polinomial.exe
-C:\Users\diego\Desktop\Practicas de Laboratorio\3° Semestre\Metodos Numericos\Algoritmos\Regresion Polinimial\x64\Debug\Regresion Polinomial.exe

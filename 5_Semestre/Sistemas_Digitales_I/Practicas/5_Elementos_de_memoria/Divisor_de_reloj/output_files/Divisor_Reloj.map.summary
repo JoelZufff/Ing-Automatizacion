@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Sep 18 11:11:41 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : Divisor_Reloj
+Top-level Entity Name : Divisor_Reloj
+Family : Cyclone IV E
+Total logic elements : 9
+    Total combinational functions : 9
+    Dedicated logic registers : 9
+Total registers : 9
+Total pins : 2
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

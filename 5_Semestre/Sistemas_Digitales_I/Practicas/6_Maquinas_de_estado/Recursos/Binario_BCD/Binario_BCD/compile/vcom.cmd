@@ -1,0 +1,1 @@
+-w -d c:/My_Designs/Binario_BCD/Binario_BCD/compile -s c:/My_Designs/Binario_BCD/library.cfg -j c:/My_Designs/Binario_BCD/Binario_BCD/projlib.cfg -work Binario_BCD -O3 -e 100 -work Binario_BCD -2002 c:/My_Designs/Binario_BCD/Binario_BCD/src/Codificador.vhd c:/My_Designs/Binario_BCD/Binario_BCD/src/Bin_BCD_4b.vhd 
