@@ -1,1 +1,0 @@
--w -d C:/My_Designs/Practica_5/compile -s C:/My_Designs/Practica_5/library.cfg -j C:/My_Designs/Practica_5/projlib.cfg -work Practica_5 -O3 -e 100 -work Practica_5 -2002 C:/My_Designs/Practica_5/src/Time_Divider.vhd 
