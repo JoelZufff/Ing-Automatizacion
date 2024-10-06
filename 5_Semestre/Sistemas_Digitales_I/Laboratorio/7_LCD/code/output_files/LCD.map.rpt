@@ -1,0 +1,446 @@
+Analysis & Synthesis report for LCD
+Sat Oct  5 22:13:58 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |LCD|Estado_pre
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Oct  5 22:13:58 2024          ;
+; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                      ; LCD                                            ;
+; Top-level Entity Name              ; LCD                                            ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 81                                             ;
+;     Total combinational functions  ; 69                                             ;
+;     Dedicated logic registers      ; 38                                             ;
+; Total registers                    ; 38                                             ;
+; Total pins                         ; 17                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; LCD                ; LCD                ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+---------+
+; LCD.vhd                          ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 81        ;
+;                                             ;           ;
+; Total combinational functions               ; 69        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 28        ;
+;     -- 3 input functions                    ; 13        ;
+;     -- <=2 input functions                  ; 28        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 47        ;
+;     -- arithmetic mode                      ; 22        ;
+;                                             ;           ;
+; Total registers                             ; 38        ;
+;     -- Dedicated logic registers            ; 38        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 17        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 38        ;
+; Total fan-out                               ; 324       ;
+; Average fan-out                             ; 2.30      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |LCD                       ; 69 (69)             ; 38 (38)                   ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |LCD                ; LCD         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LCD|Estado_pre                                                                                                                                                                                                                                                                                                                                                                                                                 ;
++-----------------+-----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; Name            ; Estado_pre.IDLE ; Estado_pre.E23 ; Estado_pre.E22 ; Estado_pre.E21 ; Estado_pre.E20 ; Estado_pre.E19 ; Estado_pre.E18 ; Estado_pre.E17 ; Estado_pre.E16 ; Estado_pre.E15 ; Estado_pre.E14 ; Estado_pre.E13 ; Estado_pre.E12 ; Estado_pre.E11 ; Estado_pre.E10 ; Estado_pre.E9 ; Estado_pre.E8 ; Estado_pre.E7 ; Estado_pre.E6 ; Estado_pre.E5 ; Estado_pre.E4 ; Estado_pre.E3 ; Estado_pre.E2 ; Estado_pre.E1 ; Estado_pre.E0 ;
++-----------------+-----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+; Estado_pre.E0   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ;
+; Estado_pre.E1   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ;
+; Estado_pre.E2   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ;
+; Estado_pre.E3   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ;
+; Estado_pre.E4   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E5   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E6   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E7   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E8   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E9   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E10  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E11  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E12  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E13  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E14  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E15  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E16  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E17  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E18  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E19  ; 0               ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E20  ; 0               ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E21  ; 0               ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E22  ; 0               ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.E23  ; 0               ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
+; Estado_pre.IDLE ; 1               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ;
++-----------------+-----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; RS$latch                                           ; WideOr8             ; yes                    ;
+; E$latch                                            ; Estado_pre.IDLE     ; yes                    ;
+; Datos[0]$latch                                     ; WideOr8             ; yes                    ;
+; Datos[1]$latch                                     ; WideOr8             ; yes                    ;
+; Datos[2]$latch                                     ; WideOr8             ; yes                    ;
+; Datos[3]$latch                                     ; WideOr8             ; yes                    ;
+; Datos[4]$latch                                     ; WideOr8             ; yes                    ;
+; Datos[5]$latch                                     ; WideOr8             ; yes                    ;
+; Datos[6]$latch                                     ; WideOr8             ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; Estado_pre.E15                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E16                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E17                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E18                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E19                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E20                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E21                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E22                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E23                         ; Merged with Estado_pre.E14             ;
+; Estado_pre.E14                         ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 10 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 38    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 15    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 38                          ;
+;     ENA               ; 15                          ;
+;     plain             ; 23                          ;
+; cycloneiii_lcell_comb ; 72                          ;
+;     arith             ; 22                          ;
+;         2 data inputs ; 22                          ;
+;     normal            ; 50                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 28                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.20                        ;
+; Average LUT depth     ; 2.96                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Sat Oct  5 22:13:51 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD -c LCD
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file lcd.vhd
+    Info (12022): Found design unit 1: LCD-logica File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 18
+    Info (12023): Found entity 1: LCD File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 5
+Info (12127): Elaborating entity "LCD" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at LCD.vhd(98): signal "nombres_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 98
+Warning (10492): VHDL Process Statement warning at LCD.vhd(109): signal "nombres_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 109
+Warning (10492): VHDL Process Statement warning at LCD.vhd(120): signal "nombres_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 120
+Warning (10492): VHDL Process Statement warning at LCD.vhd(131): signal "nombres_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 131
+Warning (10492): VHDL Process Statement warning at LCD.vhd(141): signal "ST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 141
+Warning (10631): VHDL Process Statement warning at LCD.vhd(60): inferring latch(es) for signal or variable "Datos", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (10631): VHDL Process Statement warning at LCD.vhd(60): inferring latch(es) for signal or variable "E", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (10631): VHDL Process Statement warning at LCD.vhd(60): inferring latch(es) for signal or variable "RS", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (10631): VHDL Process Statement warning at LCD.vhd(60): inferring latch(es) for signal or variable "Estado_fut", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.IDLE" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E23" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E22" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E21" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E20" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E19" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E18" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E17" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E16" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E15" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E14" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E13" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E12" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E11" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E10" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E9" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E8" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E7" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E6" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E5" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E4" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E3" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E2" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E1" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Estado_fut.E0" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "RS" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "E" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[0]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[1]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[2]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[3]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[4]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[5]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[6]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (10041): Inferred latch for "Datos[7]" at LCD.vhd(60) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E6_543" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E8_527" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E10_511" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E12_495" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E1_583" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E3_567" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E5_551" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E7_535" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E9_519" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E11_503" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E13_487" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.IDLE_439" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E2_575" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E4_559" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E0_591" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E6_543" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E8_527" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E10_511" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E12_495" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E1_583" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E3_567" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E5_551" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E7_535" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E9_519" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E11_503" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E13_487" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.IDLE_439" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E2_575" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E4_559" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (14026): LATCH primitive "Estado_fut.E0_591" is permanently enabled File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "Datos[6]$latch" merged with LATCH primitive "RS$latch" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "RW" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 9
+    Warning (13410): Pin "Datos[7]" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/7_LCD/code/LCD.vhd Line: 60
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 98 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 81 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 4829 megabytes
+    Info: Processing ended: Sat Oct  5 22:13:58 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:09
+
+

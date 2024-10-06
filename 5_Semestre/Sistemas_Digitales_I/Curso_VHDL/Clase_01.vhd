@@ -17,7 +17,6 @@ begin
     
     variable3_o <= variable1_i and variable2_i;
     
-    
     -- Un "Process" se ejecuta de forma secuencial, como un microcontrolador. No hay que abusar mucho de ellos para no perder la ventaja de los FPGA, de ejecutar procesos paralelamente.
     process is
     begin

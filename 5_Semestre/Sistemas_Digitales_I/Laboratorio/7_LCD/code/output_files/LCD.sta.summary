@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -3.653
+TNS   : -100.424
+
+Type  : Slow 1200mV 85C Model Setup 'Estado_pre.IDLE'
+Slack : -1.955
+TNS   : -11.247
+
+Type  : Slow 1200mV 85C Model Hold 'Estado_pre.IDLE'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.743
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -59.506
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Estado_pre.IDLE'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -3.402
+TNS   : -91.079
+
+Type  : Slow 1200mV 0C Model Setup 'Estado_pre.IDLE'
+Slack : -1.618
+TNS   : -9.837
+
+Type  : Slow 1200mV 0C Model Hold 'Estado_pre.IDLE'
+Slack : 0.247
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.692
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -59.506
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Estado_pre.IDLE'
+Slack : -0.064
+TNS   : -0.100
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.016
+TNS   : -22.841
+
+Type  : Fast 1200mV 0C Model Setup 'Estado_pre.IDLE'
+Slack : -0.397
+TNS   : -1.046
+
+Type  : Fast 1200mV 0C Model Hold 'Estado_pre.IDLE'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.288
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -43.135
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Estado_pre.IDLE'
+Slack : 0.323
+TNS   : 0.000
+
+------------------------------------------------------------
