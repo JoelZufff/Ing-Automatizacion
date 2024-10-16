@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Oct  7 13:38:00 2024
+Fitter Status : Successful - Sat Oct 12 09:40:27 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : UART_TX
 Top-level Entity Name : UART_TX
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 41 / 6,272 ( < 1 % )
-    Total combinational functions : 39 / 6,272 ( < 1 % )
+Total logic elements : 42 / 6,272 ( < 1 % )
+    Total combinational functions : 40 / 6,272 ( < 1 % )
     Dedicated logic registers : 25 / 6,272 ( < 1 % )
 Total registers : 25
 Total pins : 7 / 92 ( 8 % )

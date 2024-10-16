@@ -1,0 +1,23 @@
+#include <18f4550.h>   // Libreria del Microcontrolador
+#device adc = 8
+#fuses INTRC, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1 // Fusibles (Configuraciones del microcontrolador)
+#use delay(clock = 8M)
+
+void main()
+{  
+   setup_adc(adc_clock_div_2); // Sincronizamos las frecuencias
+   setup_adc_ports(AN0_TO_AN1); // Hay un sensor en AN0 y AN1.
+   set_tris_a(0b00000011); // 1 entrada 0 salida
+   set_adc_channel(0);
+   delay_us(20);
+   
+   setup_timer_2(T2_DIV_BY_1, 199, 1); // Primer parametro modificamos el preescalador
+   setup_ccp1(CCP_PWM);
+   setup_ccp2(CCP_PWM);
+   
+   while(true)
+   {
+      set_pwm1_duty(100);// Establecemos el CCPx (Ciclos de trabajo)
+      set_pwm2_duty(100);// Establecemos el CCPx (Ciclos de trabajo)
+   }
+}

@@ -156,9 +156,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 84        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 85        :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 86        :        :                   :         : 5         :                
 o_EOT                        : 87        : output : 2.5 V             :         : 5         : Y              
-i_char_select[0]             : 88        : input  : 2.5 V             :         : 5         : Y              
+i_char_select[2]             : 88        : input  : 2.5 V             :         : 5         : Y              
 i_char_select[1]             : 89        : input  : 2.5 V             :         : 5         : Y              
-i_char_select[2]             : 90        : input  : 2.5 V             :         : 6         : Y              
+i_char_select[0]             : 90        : input  : 2.5 V             :         : 6         : Y              
 i_ST                         : 91        : input  : 2.5 V             :         : 6         : Y              
 CONF_DONE                    : 92        :        :                   :         : 6         :                
 VCCIO6                       : 93        : power  :                   : 2.5V    : 6         :                

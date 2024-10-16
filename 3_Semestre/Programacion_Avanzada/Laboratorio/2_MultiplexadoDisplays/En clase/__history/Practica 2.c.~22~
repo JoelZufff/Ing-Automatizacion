@@ -1,0 +1,76 @@
+#include <18f4550.h>   // Libreria del Microcontrolador
+#fuses INTRC, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1, NOMCLR // Fusibles (Configuraciones del microcontrolador)
+#use delay(clock = 8M)  // 4M es 4 millones. Establecemos la velocidad va a operar el micro
+
+#define Display1 pin_a1
+#define Display2 pin_a2
+
+void displays(int d, int u);
+
+int vec_c[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D,0x07,0x7F,0x67};
+
+void main()
+{
+   int i=0,j=0;
+   
+   while(true)
+   {
+      for(j=0;j<10;j++)
+         for(i=0;j<10;j++)
+         {
+            displays(j,i);
+            delay_ms(500);
+         }
+      
+      /*if(input(pin_a0))
+      {
+         while(input(pin_a0))
+         {
+            displays(j,i);
+         }
+         
+         if(i<9)
+            i++;
+         else
+         {
+            if(j<9)
+               j++;
+            else
+               j=0;
+               
+            i=0;
+         }
+      }
+      else
+         displays(j,i); //Contador manual con decenas*/ //Contador con decenas
+      
+      /*if(input(pin_a0))
+      {
+         while(input(pin_a0));
+         if(i < 9)
+            i++;
+         else
+            i= 0;
+      }
+      else
+         output_d(vec_c[i]);*/ // Aumentar 1 display con boton
+      
+      /*for(i=0;i<10;i++)
+      {
+         output_d(vec_c[i]);
+         delay_ms(500);
+      }*/ // Contar del 0 al 9
+   }
+}
+
+void displays(int d, int u)
+{
+   output_high(Display2);
+   output_low(Display1);
+   output_d(vec_c[d]);
+   delay_ms(10);
+   output_high(Display1);
+   output_low(Display2);
+   output_d(vec_c[u]);
+   delay_ms(10);
+}

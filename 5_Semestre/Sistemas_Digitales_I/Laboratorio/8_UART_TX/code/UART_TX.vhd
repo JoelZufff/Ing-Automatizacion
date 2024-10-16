@@ -26,11 +26,12 @@ end UART_TX;
 architecture Transmition of UART_TX is 
 
     -- Señales para transicion de estados
-    type Estados is (S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, IDLE);
+    type Estados is (S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, IDLE);
     signal act_state, next_state: Estados := IDLE; -- Ponemos en estado inicial la maquina
+    --signal UART_clk : STD_LOGIC;
 
     -- Señal para division de reloj
-    signal count: integer range 0 to (5208 * 2 - 1);
+    signal count: integer range 0 to (5208);
 
     -- 7 palabras a enviar
     type array_7_t is array (0 to 6) of std_logic_vector(7 downto 0); -- Tipo para los números de display de 7 segmentos
@@ -45,7 +46,9 @@ architecture Transmition of UART_TX is
         "01101111"   -- o
     );
 
-    signal char_index : integer range 0 to 7 := 0;
+    signal char_index   : integer range 0 to 7 := 0;
+    signal prev_i_ST    : STD_LOGIC := '0';
+    signal flag         : STD_LOGIC := '0';
     
 begin
 ------------------------------------------------------------------------------
@@ -54,7 +57,8 @@ begin
     process (i_FPGA_clk)
     begin
         if rising_edge(i_FPGA_clk) then
-            if count = (5208 * 2 - 1) then   -- 9600 Baudios
+            if count = (5208) then   -- 9600 Baudios
+                --UART_clk = not UART_clk;
                 act_state <= next_state;    -- Cambio de estado
                 count <= 0;
             else
@@ -76,7 +80,7 @@ begin
                 char_index  <= to_integer(unsigned(i_char_select));     -- Seleccionamos letra en funcion de switches
 
                 -- Actualizamos estado futuro en funcion de las entradas
-                if(i_ST = '1') then             -- Detectamos boton de inicio de transmision
+                if i_ST = '1' then             -- Detectamos boton de inicio de transmision
                     next_state <= S0;
                 else
                     next_state <= IDLE;
@@ -153,15 +157,23 @@ begin
                 
                 -- Actualizamos estado futuro en funcion de las entradas
                 next_state <= S9;
-
             when S9 =>      -- BIT DE PARIDAD
                 -- Enviamos señales de salida de estado actual
                 o_M     <= (chars(char_index)(0) xor chars(char_index)(1)) xor (chars(char_index)(2) xor chars(char_index)(3) xor (chars(char_index)(4) xor chars(char_index)(5) xor (chars(char_index)(6) xor chars(char_index)(7))));
                 o_EOT   <= not '0';
                 
-                -- Actualizamos estado futuro en funcion de las entradas
-                next_state <= IDLE;
+                next_state <= S10;
+            when S10 =>     -- BIT DE STOP
+                -- Enviamos señales de salida de estado actual
+                o_M     <= '1';
+                o_EOT   <= not '0';
             
+                -- Actualizamos estado futuro en funcion de las entradas
+                if i_ST = '1' then             -- Detectamos boton de inicio de transmision
+                    next_state <= S10;
+                else
+                    next_state <= IDLE;
+                end if;
             when others => null;
         end case;
     end process;

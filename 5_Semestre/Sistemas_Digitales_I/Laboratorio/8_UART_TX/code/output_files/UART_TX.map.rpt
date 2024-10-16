@@ -1,5 +1,5 @@
 Analysis & Synthesis report for UART_TX
-Mon Oct  7 13:37:53 2024
+Sat Oct 12 09:40:24 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -45,13 +45,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Oct  7 13:37:53 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sat Oct 12 09:40:24 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; UART_TX                                        ;
 ; Top-level Entity Name              ; UART_TX                                        ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 47                                             ;
-;     Total combinational functions  ; 39                                             ;
+; Total logic elements               ; 48                                             ;
+;     Total combinational functions  ; 40                                             ;
 ;     Dedicated logic registers      ; 25                                             ;
 ; Total registers                    ; 25                                             ;
 ; Total pins                         ; 7                                              ;
@@ -179,17 +179,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 47               ;
+; Estimated Total logic elements              ; 48               ;
 ;                                             ;                  ;
-; Total combinational functions               ; 39               ;
+; Total combinational functions               ; 40               ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 15               ;
-;     -- 3 input functions                    ; 7                ;
-;     -- <=2 input functions                  ; 17               ;
+;     -- 4 input functions                    ; 13               ;
+;     -- 3 input functions                    ; 5                ;
+;     -- <=2 input functions                  ; 22               ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 26               ;
-;     -- arithmetic mode                      ; 13               ;
+;     -- normal mode                          ; 28               ;
+;     -- arithmetic mode                      ; 12               ;
 ;                                             ;                  ;
 ; Total registers                             ; 25               ;
 ;     -- Dedicated logic registers            ; 25               ;
@@ -201,8 +201,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                  ;
 ; Maximum fan-out node                        ; i_FPGA_clk~input ;
 ; Maximum fan-out                             ; 25               ;
-; Total fan-out                               ; 183              ;
-; Average fan-out                             ; 2.35             ;
+; Total fan-out                               ; 180              ;
+; Average fan-out                             ; 2.28             ;
 +---------------------------------------------+------------------+
 
 
@@ -211,29 +211,30 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |UART_TX                   ; 39 (39)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |UART_TX            ; UART_TX     ; work         ;
+; |UART_TX                   ; 40 (40)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |UART_TX            ; UART_TX     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |UART_TX|act_state                                                                                                                                                    ;
-+----------------+----------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
-; Name           ; act_state.IDLE ; act_state.S9 ; act_state.S8 ; act_state.S7 ; act_state.S6 ; act_state.S5 ; act_state.S4 ; act_state.S3 ; act_state.S2 ; act_state.S1 ; act_state.S0 ;
-+----------------+----------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
-; act_state.S0   ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
-; act_state.S1   ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 1            ;
-; act_state.S2   ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 1            ;
-; act_state.S3   ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 1            ;
-; act_state.S4   ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 1            ;
-; act_state.S5   ; 0              ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; act_state.S6   ; 0              ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; act_state.S7   ; 0              ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; act_state.S8   ; 0              ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; act_state.S9   ; 0              ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; act_state.IDLE ; 1              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-+----------------+----------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |UART_TX|act_state                                                                                                                                                                    ;
++----------------+----------------+---------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; Name           ; act_state.IDLE ; act_state.S10 ; act_state.S9 ; act_state.S8 ; act_state.S7 ; act_state.S6 ; act_state.S5 ; act_state.S4 ; act_state.S3 ; act_state.S2 ; act_state.S1 ; act_state.S0 ;
++----------------+----------------+---------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; act_state.S0   ; 0              ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
+; act_state.S1   ; 0              ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 1            ;
+; act_state.S2   ; 0              ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 1            ;
+; act_state.S3   ; 0              ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 1            ;
+; act_state.S4   ; 0              ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.S5   ; 0              ; 0             ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.S6   ; 0              ; 0             ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.S7   ; 0              ; 0             ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.S8   ; 0              ; 0             ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.S9   ; 0              ; 0             ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.S10  ; 0              ; 1             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; act_state.IDLE ; 1              ; 0             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
++----------------+----------------+---------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -259,7 +260,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Clock Enable       ; 12    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -271,19 +272,19 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; boundary_port         ; 7                           ;
 ; cycloneiii_ff         ; 25                          ;
-;     ENA               ; 11                          ;
-;     plain             ; 14                          ;
-; cycloneiii_lcell_comb ; 40                          ;
-;     arith             ; 13                          ;
-;         2 data inputs ; 13                          ;
-;     normal            ; 27                          ;
+;     ENA               ; 12                          ;
+;     plain             ; 13                          ;
+; cycloneiii_lcell_comb ; 41                          ;
+;     arith             ; 12                          ;
+;         2 data inputs ; 12                          ;
+;     normal            ; 29                          ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 15                          ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 13                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.52                        ;
+; Average LUT depth     ; 2.59                        ;
 +-----------------------+-----------------------------+
 
 
@@ -302,7 +303,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Oct  7 13:37:36 2024
+    Info: Processing started: Sat Oct 12 09:40:17 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART_TX -c UART_TX
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -310,32 +311,33 @@ Info (12021): Found 2 design units, including 1 entities, in source file uart_tx
     Info (12022): Found design unit 1: UART_TX-Transmition File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 26
     Info (12023): Found entity 1: UART_TX File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 12
 Info (12127): Elaborating entity "UART_TX" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(76): signal "i_char_select" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 76
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(79): signal "i_ST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 79
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(95): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 95
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(103): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 103
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(111): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 111
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(119): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 119
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(127): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 127
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(135): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 135
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(143): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 143
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(151): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at UART_TX.vhd(159): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 159
-Warning (10631): VHDL Process Statement warning at UART_TX.vhd(69): inferring latch(es) for signal or variable "char_index", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 69
-Info (10041): Inferred latch for "char_index[0]" at UART_TX.vhd(69) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 69
-Info (10041): Inferred latch for "char_index[1]" at UART_TX.vhd(69) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 69
-Info (10041): Inferred latch for "char_index[2]" at UART_TX.vhd(69) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(80): signal "i_char_select" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(83): signal "i_ST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(99): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 99
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(107): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 107
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(115): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 115
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(123): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 123
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(131): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 131
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(139): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 139
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(147): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 147
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(155): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(162): signal "char_index" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at UART_TX.vhd(172): signal "i_ST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 172
+Warning (10631): VHDL Process Statement warning at UART_TX.vhd(73): inferring latch(es) for signal or variable "char_index", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 73
+Info (10041): Inferred latch for "char_index[0]" at UART_TX.vhd(73) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 73
+Info (10041): Inferred latch for "char_index[1]" at UART_TX.vhd(73) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 73
+Info (10041): Inferred latch for "char_index[2]" at UART_TX.vhd(73) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/8_UART_TX/code/UART_TX.vhd Line: 73
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 54 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 55 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 47 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Mon Oct  7 13:37:53 2024
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:11
+    Info (21061): Implemented 48 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4830 megabytes
+    Info: Processing ended: Sat Oct 12 09:40:24 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:08
 
 

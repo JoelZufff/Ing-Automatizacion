@@ -1,0 +1,73 @@
+#include <18f4550.h>   // Libreria del Microcontrolador
+#fuses INTRC, NOWDT, NOPROTECT, NOLVP, CPUDIV1, PLL1, NOMCLR // Fusibles (Configuraciones del microcontrolador)
+#use delay(clock = 8M)  // 4M es 4 millones. Establecemos la velocidad va a operar el micro
+
+#define Display1 pin_a3
+#define Display2 pin_a4
+#define Inicio pin_a0
+#define Pausa pin_a1
+#define Reinicio pin_a2
+
+void displays(int d, int u);
+
+int vec_c[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D,0x07,0x7F,0x67};
+
+void main()
+{
+   int i=0,j=0, time = 0, B = 0;
+   
+   while(true)
+   {
+      if(input(Inicio))
+      {
+         while(input(Inicio)); // Se detiene el codigo cuando detecte a Inicio
+         
+         loop:
+         B = 0;
+         for(j=0;j<10;j++) // Decenas
+            for(i=0;i<10;i++) // Unidades
+            {
+               for(time = 0; (time < 50) || B; time++ ) // Se imprime las decenas y unidades correspondientes 50 veces (1 seg). Si esta la pausa se queda ahi
+               {
+                  displays(j,i);
+               
+                  if(input(Pausa) && !B) // B es 0 (No se ha pausado)
+                  {
+                     while(input(Pausa))
+                        displays(j,i);
+                     
+                     B = 1;
+                  }
+                  else if(input(Pausa) && B) // B es 1 (Ya se pauso anteriormente) 
+                  {
+                     while(input(Pausa))
+                        displays(j,i);
+                     
+                     B = 0;
+                  }
+               
+                  if(input(Reinicio))
+                  {
+                     while(input(Reinicio))
+                        displays(j,i);
+                        
+                     goto loop;
+                  }
+               }
+            }
+      }
+   }
+}
+
+void displays(int d, int u) // Imprime las unidades y decentas en 20 ms
+{
+   output_high(Display2);
+   output_low(Display1); // Prendemos D1
+   output_d(vec_c[d]); // Mandamos decenas a D1
+   delay_ms(10);
+   output_high(Display1);
+   output_low(Display2); // Prendemos D2
+   output_d(vec_c[u]); // Mandamos unidades a D2
+   delay_ms(10);
+   
+}

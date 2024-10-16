@@ -12,14 +12,14 @@ i_FPGA_clk => count[9].CLK
 i_FPGA_clk => count[10].CLK
 i_FPGA_clk => count[11].CLK
 i_FPGA_clk => count[12].CLK
-i_FPGA_clk => count[13].CLK
-i_FPGA_clk => act_state~11.DATAIN
+i_FPGA_clk => act_state~12.DATAIN
 i_char_select[0] => char_index[0].DATAIN
 i_char_select[1] => char_index[1].DATAIN
 i_char_select[2] => char_index[2].DATAIN
 i_ST => next_state.S0.DATAB
-i_ST => Selector1.IN2
-o_EOT << o_EOT.DB_MAX_OUTPUT_PORT_TYPE
-o_M << Selector0.DB_MAX_OUTPUT_PORT_TYPE
+i_ST => Selector1.IN3
+i_ST => Selector2.IN1
+o_EOT <= o_EOT.DB_MAX_OUTPUT_PORT_TYPE
+o_M <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 
 
