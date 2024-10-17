@@ -21,21 +21,20 @@ CLK => count[18].CLK
 CLK => count[19].CLK
 CLK => count[20].CLK
 CLK => count[21].CLK
-CLK => count[22].CLK
 CLK => Estado_pre~26.DATAIN
-RS << RS$latch.DB_MAX_OUTPUT_PORT_TYPE
-E << E$latch.DB_MAX_OUTPUT_PORT_TYPE
-RW << <GND>
-Datos[0] << Datos[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[1] << Datos[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[2] << Datos[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[3] << Datos[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[4] << Datos[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[5] << Datos[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[6] << Datos[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
-Datos[7] << <GND>
-LEDS[0] << Botones[0].DB_MAX_OUTPUT_PORT_TYPE
-LEDS[1] << Botones[1].DB_MAX_OUTPUT_PORT_TYPE
+RS <= RS$latch.DB_MAX_OUTPUT_PORT_TYPE
+E <= E$latch.DB_MAX_OUTPUT_PORT_TYPE
+RW <= <GND>
+Datos[0] <= Datos[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[1] <= Datos[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[2] <= Datos[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[3] <= Datos[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[4] <= Datos[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[5] <= Datos[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[6] <= Datos[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+Datos[7] <= <GND>
+LEDS[0] <= Botones[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDS[1] <= Botones[1].DB_MAX_OUTPUT_PORT_TYPE
 Botones[0] => Mux0.IN5
 Botones[0] => Mux1.IN5
 Botones[0] => Mux2.IN5
@@ -57,6 +56,6 @@ Botones[1] => Selector36.IN10
 Botones[1] => Selector38.IN8
 Botones[1] => LEDS[1].DATAIN
 ST => Selector28.IN2
-ST => Selector9.IN3
+ST => Selector7.IN3
 
 

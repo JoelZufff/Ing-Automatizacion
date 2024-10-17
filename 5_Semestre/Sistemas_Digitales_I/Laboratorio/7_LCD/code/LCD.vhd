@@ -22,7 +22,7 @@ architecture logica of LCD is
     signal Estado_pre, Estado_fut: Estados := E0;       --Ponemos en estado inicial la maquina
 
     -- Señal para division de reloj
-    signal count: integer range 0 to (2500000 * 2 - 1);
+    signal count: integer range 0 to 2500000;
     
     -- Señal para transicion de palabra en funcion de botones presionados
     type array_4_t is array(0 to 3) of std_logic_vector(7 downto 0);
@@ -48,7 +48,7 @@ begin
     process (CLK)
     begin
         if rising_edge(CLK) then
-            if count = (2500000 * 2 - 1) then
+            if count = 2500000 then
                 Estado_pre <= Estado_fut;
                 count <= 0;
             else

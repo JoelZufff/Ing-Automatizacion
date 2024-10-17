@@ -1,0 +1,104 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity LCD is
+	port
+	(
+		i_FPGA_CLK          : in STD_LOGIC;
+		o_RS, o_E, o_RW     : out STD_LOGIC;
+		i_LCD_DATA          : out std_logic_vector(7 downto 0);     -- 8 Bits ASCII
+
+        i_ST                : in STD_LOGIC;     -- Señal de start
+        i_DATA              : in STD_LOGIC_VECTOR(8 downto 0)
+	); 
+end LCD;
+------------------------------------------------------------------------------
+architecture char_print of LCD is 
+
+    -- Señales para transicion de estados
+    type States is (IDLE, S0, S1, S2, S3, S4, S6, S7);
+    signal act_state, next_state: Estados := IDLE;
+
+    -- Señal para division de reloj
+    signal count: integer range 0 to 2500000 := 0;
+    
+begin
+
+    o_RW <= '0';
+
+    ------------------------------------------------------------------------------
+            -- DIVISION DE RELOJ PARA RETARDO ENTRE TRANSICIONES DE SM --
+    ------------------------------------------------------------------------------
+    process (i_FPGA_CLK)
+    begin
+        if rising_edge(i_FPGA_CLK) then
+            if count = 2500000 then
+                act_state <= next_state;
+                count <= 0;
+            else
+                count <= count + 1;
+            end if;
+        end if;
+    end process;
+
+    ------------------------------------------------------------------------------
+                -- MAQUINA DE ESTADO PARA IMPRESION DE CARACTER --
+    ------------------------------------------------------------------------------
+    process (act_state)
+    begin
+        case act_state is
+            when IDLE =>        -- Estado inactivo cuando esperando boton de start
+                if i_ST = '1' then
+                    next_state <= S0;
+                else
+                    next_state <= IDLE;
+                end if;
+            -- Configuración del LCD
+            when S0 =>
+                i_LCD_DATA <= X"38"; -- Set(dato, matriz)
+                o_E <= '1'; -- Sube señal
+                o_RS <= '0'; -- Configuración del o_RS
+                next_state <= S1;
+
+            when S1 =>
+                o_E <= '0'; -- Baja la señal
+                next_state <= S2;
+
+            -- Limpiado del LCD
+            when S2 =>
+                i_LCD_DATA <= X"01"; -- Clear LCD
+                o_E <= '1';
+                o_RS <= '0';
+                next_state <= S3;
+
+            when S3 =>
+                o_E <= '0'; -- Baja la señal
+                next_state <= S4;
+
+            -- Activar Display y Cursor
+            when S4 =>
+                i_LCD_DATA <= X"0D"; -- Activar LCD y cursor
+                o_E <= '1';
+                o_RS <= '0';
+                next_state <= S5;
+                
+            when S5 =>
+                o_E <= '0'; -- Baja la señal
+                next_state <= S6;
+            
+            when S6 =>
+                i_LCD_DATA <= i_DATA;
+                o_E <= '1';
+                o_RS <= '1';
+                next_state <= S7;
+            
+            when S7 =>
+                o_E <= '0'; -- Baja la señal
+                next_state <= IDLE;
+            
+            when others => null;
+        end case;
+    end process;
+
+end char_print;

@@ -3,75 +3,75 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLK'
-Slack : -3.653
-TNS   : -100.424
+Slack : -3.505
+TNS   : -92.527
 
 Type  : Slow 1200mV 85C Model Setup 'Estado_pre.IDLE'
-Slack : -1.955
-TNS   : -11.247
+Slack : -2.951
+TNS   : -15.264
 
 Type  : Slow 1200mV 85C Model Hold 'Estado_pre.IDLE'
-Slack : 0.394
+Slack : 0.450
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLK'
-Slack : 0.743
+Slack : 0.495
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -59.506
+TNS   : -58.019
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Estado_pre.IDLE'
-Slack : 0.172
+Slack : 0.234
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'CLK'
-Slack : -3.402
-TNS   : -91.079
+Slack : -3.187
+TNS   : -82.825
 
 Type  : Slow 1200mV 0C Model Setup 'Estado_pre.IDLE'
-Slack : -1.618
-TNS   : -9.837
+Slack : -2.783
+TNS   : -13.944
 
 Type  : Slow 1200mV 0C Model Hold 'Estado_pre.IDLE'
-Slack : 0.247
+Slack : 0.322
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLK'
-Slack : 0.692
+Slack : 0.450
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -59.506
+TNS   : -58.019
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Estado_pre.IDLE'
-Slack : -0.064
-TNS   : -0.100
-
-Type  : Fast 1200mV 0C Model Setup 'CLK'
-Slack : -1.016
-TNS   : -22.841
-
-Type  : Fast 1200mV 0C Model Setup 'Estado_pre.IDLE'
-Slack : -0.397
-TNS   : -1.046
-
-Type  : Fast 1200mV 0C Model Hold 'Estado_pre.IDLE'
-Slack : 0.184
+Slack : 0.005
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -0.980
+TNS   : -18.126
+
+Type  : Fast 1200mV 0C Model Setup 'Estado_pre.IDLE'
+Slack : -0.793
+TNS   : -2.536
+
 Type  : Fast 1200mV 0C Model Hold 'CLK'
-Slack : 0.288
+Slack : 0.140
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Estado_pre.IDLE'
+Slack : 0.173
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
 Slack : -3.000
-TNS   : -43.135
+TNS   : -41.936
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Estado_pre.IDLE'
-Slack : 0.323
+Slack : 0.298
 TNS   : 0.000
 
 ------------------------------------------------------------
