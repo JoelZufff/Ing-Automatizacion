@@ -1,21 +1,76 @@
 |Practica_9
-i_FPGA_CLK => LCD:Printing.i_FPGA_CLK
-i_RST => LCD:Printing.i_RST
-i_ST => LCD:Printing.i_ST
-o_RS << LCD:Printing.o_RS
-o_E << LCD:Printing.o_E
-o_RW << LCD:Printing.o_RW
-o_LCD_DATA[0] << LCD:Printing.o_LCD_DATA[0]
-o_LCD_DATA[1] << LCD:Printing.o_LCD_DATA[1]
-o_LCD_DATA[2] << LCD:Printing.o_LCD_DATA[2]
-o_LCD_DATA[3] << LCD:Printing.o_LCD_DATA[3]
-o_LCD_DATA[4] << LCD:Printing.o_LCD_DATA[4]
-o_LCD_DATA[5] << LCD:Printing.o_LCD_DATA[5]
-o_LCD_DATA[6] << LCD:Printing.o_LCD_DATA[6]
-o_LCD_DATA[7] << LCD:Printing.o_LCD_DATA[7]
+i_FPGA_CLK => UART_RX:data_receive.i_FPGA_CLK
+i_FPGA_CLK => LCD:data_printing.i_FPGA_CLK
+i_RST => UART_RX:data_receive.i_RST
+i_RST => LCD:data_printing.i_RST
+i_ST => LCD:data_printing.i_ST
+o_RS <= LCD:data_printing.o_RS
+o_E <= LCD:data_printing.o_E
+o_RW <= LCD:data_printing.o_RW
+o_LCD_DATA[0] <= LCD:data_printing.o_LCD_DATA[0]
+o_LCD_DATA[1] <= LCD:data_printing.o_LCD_DATA[1]
+o_LCD_DATA[2] <= LCD:data_printing.o_LCD_DATA[2]
+o_LCD_DATA[3] <= LCD:data_printing.o_LCD_DATA[3]
+o_LCD_DATA[4] <= LCD:data_printing.o_LCD_DATA[4]
+o_LCD_DATA[5] <= LCD:data_printing.o_LCD_DATA[5]
+o_LCD_DATA[6] <= LCD:data_printing.o_LCD_DATA[6]
+o_LCD_DATA[7] <= LCD:data_printing.o_LCD_DATA[7]
+i_RX => UART_RX:data_receive.i_RX
+o_DVD <= UART_RX:data_receive.o_DVD
 
 
-|Practica_9|LCD:Printing
+|Practica_9|UART_RX:data_receive
+i_FPGA_CLK => data_out_buf[0].CLK
+i_FPGA_CLK => data_out_buf[1].CLK
+i_FPGA_CLK => data_out_buf[2].CLK
+i_FPGA_CLK => data_out_buf[3].CLK
+i_FPGA_CLK => data_out_buf[4].CLK
+i_FPGA_CLK => data_out_buf[5].CLK
+i_FPGA_CLK => data_out_buf[6].CLK
+i_FPGA_CLK => data_out_buf[7].CLK
+i_FPGA_CLK => o_DATA[0]~reg0.CLK
+i_FPGA_CLK => o_DATA[1]~reg0.CLK
+i_FPGA_CLK => o_DATA[2]~reg0.CLK
+i_FPGA_CLK => o_DATA[3]~reg0.CLK
+i_FPGA_CLK => o_DATA[4]~reg0.CLK
+i_FPGA_CLK => o_DATA[5]~reg0.CLK
+i_FPGA_CLK => o_DATA[6]~reg0.CLK
+i_FPGA_CLK => o_DATA[7]~reg0.CLK
+i_FPGA_CLK => o_RDY~reg0.CLK
+i_FPGA_CLK => cnt[0].CLK
+i_FPGA_CLK => cnt[1].CLK
+i_FPGA_CLK => cnt[2].CLK
+i_FPGA_CLK => cnt[3].CLK
+i_FPGA_CLK => cnt[4].CLK
+i_FPGA_CLK => cnt[5].CLK
+i_FPGA_CLK => cnt[6].CLK
+i_FPGA_CLK => cnt[7].CLK
+i_FPGA_CLK => cnt[8].CLK
+i_FPGA_CLK => cnt[9].CLK
+i_FPGA_CLK => cnt[10].CLK
+i_FPGA_CLK => cnt[11].CLK
+i_FPGA_CLK => cnt[12].CLK
+i_FPGA_CLK => num_bits[0].CLK
+i_FPGA_CLK => num_bits[1].CLK
+i_FPGA_CLK => num_bits[2].CLK
+i_FPGA_CLK => num_bits[3].CLK
+i_FPGA_CLK => busy.CLK
+i_FPGA_CLK => rx_data.CLK
+i_RST => ~NO_FANOUT~
+i_RX => rx_data.DATAIN
+o_DVD <= comb.DB_MAX_OUTPUT_PORT_TYPE
+o_RDY <= o_RDY~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[0] <= o_DATA[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[4] <= o_DATA[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[5] <= o_DATA[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[6] <= o_DATA[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[7] <= o_DATA[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Practica_9|LCD:data_printing
 i_FPGA_CLK => count[0].CLK
 i_FPGA_CLK => count[1].CLK
 i_FPGA_CLK => count[2].CLK

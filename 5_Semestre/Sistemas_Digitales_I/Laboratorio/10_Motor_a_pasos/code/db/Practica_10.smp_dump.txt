@@ -1,0 +1,13 @@
+
+State Machine - |Practica_10|LCD:c_LCD|act_state
+Name act_state.PUTCH3 act_state.PUTCH2 act_state.PUTCH1 act_state.PUTCH0 act_state.IDLE act_state.CONFIG4 act_state.CONFIG3 act_state.CONFIG2 act_state.CONFIG1 act_state.CONFIG0 
+act_state.CONFIG0 0 0 0 0 0 0 0 0 0 0 
+act_state.CONFIG1 0 0 0 0 0 0 0 0 1 1 
+act_state.CONFIG2 0 0 0 0 0 0 0 1 0 1 
+act_state.CONFIG3 0 0 0 0 0 0 1 0 0 1 
+act_state.CONFIG4 0 0 0 0 0 1 0 0 0 1 
+act_state.IDLE 0 0 0 0 1 0 0 0 0 1 
+act_state.PUTCH0 0 0 0 1 0 0 0 0 0 1 
+act_state.PUTCH1 0 0 1 0 0 0 0 0 0 1 
+act_state.PUTCH2 0 1 0 0 0 0 0 0 0 1 
+act_state.PUTCH3 1 0 0 0 0 0 0 0 0 1 

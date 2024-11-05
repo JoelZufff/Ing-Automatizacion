@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'i_FPGA_clk'
+Slack : -4.442
+TNS   : -122.333
+
+Type  : Slow 1200mV 85C Model Setup 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : -4.001
+TNS   : -133.345
+
+Type  : Slow 1200mV 85C Model Hold 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'i_FPGA_clk'
+Slack : 0.716
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_FPGA_clk'
+Slack : -3.000
+TNS   : -52.071
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : -1.487
+TNS   : -77.324
+
+Type  : Slow 1200mV 0C Model Setup 'i_FPGA_clk'
+Slack : -4.128
+TNS   : -112.344
+
+Type  : Slow 1200mV 0C Model Setup 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : -3.707
+TNS   : -122.840
+
+Type  : Slow 1200mV 0C Model Hold 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'i_FPGA_clk'
+Slack : 0.665
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_FPGA_clk'
+Slack : -3.000
+TNS   : -52.071
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : -1.487
+TNS   : -77.324
+
+Type  : Fast 1200mV 0C Model Setup 'i_FPGA_clk'
+Slack : -1.332
+TNS   : -31.003
+
+Type  : Fast 1200mV 0C Model Setup 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : -1.210
+TNS   : -35.157
+
+Type  : Fast 1200mV 0C Model Hold 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'i_FPGA_clk'
+Slack : 0.284
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_FPGA_clk'
+Slack : -3.000
+TNS   : -38.181
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD:c_LCD|CLK_DIV:c_LCD_clk|clk'
+Slack : -1.000
+TNS   : -52.000
+
+------------------------------------------------------------

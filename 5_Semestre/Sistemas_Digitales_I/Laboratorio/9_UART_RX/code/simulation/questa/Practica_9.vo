@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition"
 
-// DATE "10/17/2024 00:40:57"
+// DATE "10/19/2024 09:30:42"
 
 // 
 // Device: Altera EP4CE6E22C8 Package TQFP144
@@ -36,7 +36,9 @@ module Practica_9 (
 	o_RS,
 	o_E,
 	o_RW,
-	o_LCD_DATA);
+	o_LCD_DATA,
+	i_RX,
+	o_DVD);
 input 	i_FPGA_CLK;
 input 	i_RST;
 input 	i_ST;
@@ -44,6 +46,8 @@ output 	o_RS;
 output 	o_E;
 output 	o_RW;
 output 	[7:0] o_LCD_DATA;
+input 	i_RX;
+output 	o_DVD;
 
 // Design Ports Information
 // o_RS	=>  Location: PIN_141,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -57,9 +61,11 @@ output 	[7:0] o_LCD_DATA;
 // o_LCD_DATA[5]	=>  Location: PIN_10,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // o_LCD_DATA[6]	=>  Location: PIN_7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // o_LCD_DATA[7]	=>  Location: PIN_11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// o_DVD	=>  Location: PIN_44,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // i_ST	=>  Location: PIN_91,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // i_RST	=>  Location: PIN_25,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // i_FPGA_CLK	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// i_RX	=>  Location: PIN_115,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -84,93 +90,172 @@ wire \o_LCD_DATA[4]~output_o ;
 wire \o_LCD_DATA[5]~output_o ;
 wire \o_LCD_DATA[6]~output_o ;
 wire \o_LCD_DATA[7]~output_o ;
+wire \o_DVD~output_o ;
 wire \i_FPGA_CLK~input_o ;
 wire \i_FPGA_CLK~inputclkctrl_outclk ;
-wire \Printing|act_state.S8~feeder_combout ;
-wire \Printing|Add0~0_combout ;
-wire \Printing|count~8_combout ;
-wire \Printing|Add0~1 ;
-wire \Printing|Add0~2_combout ;
-wire \Printing|Add0~3 ;
-wire \Printing|Add0~4_combout ;
-wire \Printing|Add0~5 ;
-wire \Printing|Add0~6_combout ;
-wire \Printing|Add0~7 ;
-wire \Printing|Add0~8_combout ;
-wire \Printing|Add0~9 ;
-wire \Printing|Add0~10_combout ;
-wire \Printing|count~7_combout ;
-wire \Printing|Equal0~5_combout ;
-wire \Printing|Add0~11 ;
-wire \Printing|Add0~12_combout ;
-wire \Printing|Add0~13 ;
-wire \Printing|Add0~14_combout ;
-wire \Printing|count~6_combout ;
-wire \Printing|Add0~15 ;
-wire \Printing|Add0~16_combout ;
-wire \Printing|count~5_combout ;
-wire \Printing|Add0~17 ;
-wire \Printing|Add0~18_combout ;
-wire \Printing|Add0~19 ;
-wire \Printing|Add0~20_combout ;
-wire \Printing|count~4_combout ;
-wire \Printing|Add0~21 ;
-wire \Printing|Add0~22_combout ;
-wire \Printing|Add0~23 ;
-wire \Printing|Add0~24_combout ;
-wire \Printing|Add0~25 ;
-wire \Printing|Add0~26_combout ;
-wire \Printing|count~3_combout ;
-wire \Printing|Add0~27 ;
-wire \Printing|Add0~28_combout ;
-wire \Printing|Add0~29 ;
-wire \Printing|Add0~30_combout ;
-wire \Printing|Add0~31 ;
-wire \Printing|Add0~32_combout ;
-wire \Printing|Add0~33 ;
-wire \Printing|Add0~34_combout ;
-wire \Printing|count~2_combout ;
-wire \Printing|Equal0~1_combout ;
-wire \Printing|Add0~35 ;
-wire \Printing|Add0~36_combout ;
-wire \Printing|count~1_combout ;
-wire \Printing|Add0~37 ;
-wire \Printing|Add0~38_combout ;
-wire \Printing|Add0~39 ;
-wire \Printing|Add0~40_combout ;
-wire \Printing|Add0~41 ;
-wire \Printing|Add0~42_combout ;
-wire \Printing|count~0_combout ;
-wire \Printing|Equal0~0_combout ;
-wire \Printing|Equal0~2_combout ;
-wire \Printing|Equal0~3_combout ;
-wire \Printing|Equal0~4_combout ;
-wire \Printing|Equal0~6_combout ;
-wire \Printing|act_state.S8~q ;
 wire \i_RST~input_o ;
-wire \Printing|Selector5~0_combout ;
-wire \Printing|act_state.S0~q ;
-wire \Printing|act_state.S1~0_combout ;
-wire \Printing|act_state.S1~q ;
-wire \Printing|act_state.S2~feeder_combout ;
-wire \Printing|act_state.S2~q ;
-wire \Printing|act_state.S3~feeder_combout ;
-wire \Printing|act_state.S3~q ;
-wire \Printing|act_state.S4~feeder_combout ;
-wire \Printing|act_state.S4~q ;
-wire \Printing|act_state.S5~q ;
 wire \i_ST~input_o ;
-wire \Printing|Selector6~0_combout ;
-wire \Printing|Selector6~1_combout ;
-wire \Printing|act_state.IDLE~q ;
-wire \Printing|Selector7~0_combout ;
-wire \Printing|act_state.S6~q ;
-wire \Printing|next_state.S7~0_combout ;
-wire \Printing|act_state.S7~q ;
-wire \Printing|WideOr4~combout ;
-wire \Printing|WideOr4~0_combout ;
-wire \Printing|o_LCD_DATA~0_combout ;
-wire [21:0] \Printing|count ;
+wire \data_printing|act_state.S8~feeder_combout ;
+wire \data_printing|Add0~0_combout ;
+wire \data_printing|count~8_combout ;
+wire \data_printing|Add0~1 ;
+wire \data_printing|Add0~2_combout ;
+wire \data_printing|Add0~3 ;
+wire \data_printing|Add0~4_combout ;
+wire \data_printing|Add0~5 ;
+wire \data_printing|Add0~6_combout ;
+wire \data_printing|Add0~7 ;
+wire \data_printing|Add0~8_combout ;
+wire \data_printing|Add0~9 ;
+wire \data_printing|Add0~10_combout ;
+wire \data_printing|count~7_combout ;
+wire \data_printing|Equal0~5_combout ;
+wire \data_printing|Add0~11 ;
+wire \data_printing|Add0~12_combout ;
+wire \data_printing|Add0~13 ;
+wire \data_printing|Add0~14_combout ;
+wire \data_printing|count~6_combout ;
+wire \data_printing|Add0~15 ;
+wire \data_printing|Add0~16_combout ;
+wire \data_printing|count~5_combout ;
+wire \data_printing|Add0~17 ;
+wire \data_printing|Add0~18_combout ;
+wire \data_printing|Add0~19 ;
+wire \data_printing|Add0~20_combout ;
+wire \data_printing|count~4_combout ;
+wire \data_printing|Add0~21 ;
+wire \data_printing|Add0~22_combout ;
+wire \data_printing|Add0~23 ;
+wire \data_printing|Add0~24_combout ;
+wire \data_printing|Add0~25 ;
+wire \data_printing|Add0~26_combout ;
+wire \data_printing|count~3_combout ;
+wire \data_printing|Equal0~2_combout ;
+wire \data_printing|Equal0~3_combout ;
+wire \data_printing|Add0~27 ;
+wire \data_printing|Add0~28_combout ;
+wire \data_printing|Add0~29 ;
+wire \data_printing|Add0~30_combout ;
+wire \data_printing|Add0~31 ;
+wire \data_printing|Add0~32_combout ;
+wire \data_printing|Add0~33 ;
+wire \data_printing|Add0~34_combout ;
+wire \data_printing|count~2_combout ;
+wire \data_printing|Add0~35 ;
+wire \data_printing|Add0~36_combout ;
+wire \data_printing|count~1_combout ;
+wire \data_printing|Add0~37 ;
+wire \data_printing|Add0~38_combout ;
+wire \data_printing|Add0~39 ;
+wire \data_printing|Add0~40_combout ;
+wire \data_printing|Add0~41 ;
+wire \data_printing|Add0~42_combout ;
+wire \data_printing|count~0_combout ;
+wire \data_printing|Equal0~0_combout ;
+wire \data_printing|Equal0~1_combout ;
+wire \data_printing|Equal0~4_combout ;
+wire \data_printing|Equal0~6_combout ;
+wire \data_printing|act_state.S8~q ;
+wire \data_printing|Selector5~0_combout ;
+wire \data_printing|act_state.S0~q ;
+wire \data_printing|act_state.S1~0_combout ;
+wire \data_printing|act_state.S1~q ;
+wire \data_printing|act_state.S2~q ;
+wire \data_printing|act_state.S3~feeder_combout ;
+wire \data_printing|act_state.S3~q ;
+wire \data_printing|act_state.S4~feeder_combout ;
+wire \data_printing|act_state.S4~q ;
+wire \data_printing|act_state.S5~q ;
+wire \data_printing|Selector6~0_combout ;
+wire \data_printing|Selector6~1_combout ;
+wire \data_printing|act_state.IDLE~q ;
+wire \data_printing|Selector7~0_combout ;
+wire \data_printing|act_state.S6~q ;
+wire \data_printing|next_state.S7~0_combout ;
+wire \data_printing|act_state.S7~q ;
+wire \data_printing|WideOr4~0_combout ;
+wire \i_RX~input_o ;
+wire \data_receive|rx_data~q ;
+wire \data_receive|cnt[0]~13_combout ;
+wire \data_receive|cnt[10]~15_combout ;
+wire \data_receive|cnt[0]~14 ;
+wire \data_receive|cnt[1]~16_combout ;
+wire \data_receive|cnt[1]~17 ;
+wire \data_receive|cnt[2]~18_combout ;
+wire \data_receive|cnt[2]~19 ;
+wire \data_receive|cnt[3]~20_combout ;
+wire \data_receive|busy~_wirecell_combout ;
+wire \data_receive|cnt[3]~21 ;
+wire \data_receive|cnt[4]~22_combout ;
+wire \data_receive|cnt[4]~23 ;
+wire \data_receive|cnt[5]~24_combout ;
+wire \data_receive|cnt[5]~25 ;
+wire \data_receive|cnt[6]~26_combout ;
+wire \data_receive|cnt[6]~27 ;
+wire \data_receive|cnt[7]~28_combout ;
+wire \~GND~combout ;
+wire \data_receive|cnt[7]~29 ;
+wire \data_receive|cnt[8]~30_combout ;
+wire \data_receive|cnt[8]~feeder_combout ;
+wire \data_receive|cnt[8]~31 ;
+wire \data_receive|cnt[9]~32_combout ;
+wire \data_receive|cnt[9]~feeder_combout ;
+wire \data_receive|cnt[9]~33 ;
+wire \data_receive|cnt[10]~34_combout ;
+wire \data_receive|cnt[10]~feeder_combout ;
+wire \data_receive|cnt[10]~35 ;
+wire \data_receive|cnt[11]~36_combout ;
+wire \data_receive|cnt[11]~feeder_combout ;
+wire \data_receive|cnt[11]~37 ;
+wire \data_receive|cnt[12]~38_combout ;
+wire \data_receive|Equal0~0_combout ;
+wire \data_receive|Equal0~2_combout ;
+wire \data_receive|Equal0~1_combout ;
+wire \data_receive|Equal0~3_combout ;
+wire \data_receive|num_bits~0_combout ;
+wire \data_receive|num_bits[1]~1_combout ;
+wire \data_receive|Add1~0_combout ;
+wire \data_receive|num_bits[2]~2_combout ;
+wire \data_receive|Add1~1_combout ;
+wire \data_receive|num_bits[3]~4_combout ;
+wire \data_receive|Equal2~0_combout ;
+wire \data_receive|Equal1~0_combout ;
+wire \data_receive|busy~0_combout ;
+wire \data_receive|busy~feeder_combout ;
+wire \data_receive|rx_data~_wirecell_combout ;
+wire \data_receive|busy~q ;
+wire \data_receive|num_bits[0]~3_combout ;
+wire \data_receive|Decoder0~0_combout ;
+wire \data_receive|Decoder0~1_combout ;
+wire \data_receive|data_out_buf[0]~0_combout ;
+wire \data_receive|o_DATA[0]~0_combout ;
+wire \data_printing|Selector4~0_combout ;
+wire \data_receive|Decoder0~2_combout ;
+wire \data_receive|data_out_buf[1]~1_combout ;
+wire \data_printing|o_LCD_DATA[1]~0_combout ;
+wire \data_receive|Decoder0~3_combout ;
+wire \data_receive|data_out_buf[2]~2_combout ;
+wire \data_printing|Selector3~0_combout ;
+wire \data_receive|Decoder0~4_combout ;
+wire \data_receive|data_out_buf[3]~3_combout ;
+wire \data_printing|Selector2~0_combout ;
+wire \data_receive|Decoder0~5_combout ;
+wire \data_receive|data_out_buf[4]~4_combout ;
+wire \data_printing|Selector1~0_combout ;
+wire \data_receive|Decoder0~6_combout ;
+wire \data_receive|data_out_buf[5]~5_combout ;
+wire \data_printing|Selector0~0_combout ;
+wire \data_receive|Decoder0~7_combout ;
+wire \data_receive|data_out_buf[6]~6_combout ;
+wire \data_printing|o_LCD_DATA[6]~1_combout ;
+wire \data_receive|Decoder0~8_combout ;
+wire \data_receive|data_out_buf[7]~7_combout ;
+wire \data_printing|o_LCD_DATA[7]~2_combout ;
+wire [12:0] \data_receive|cnt ;
+wire [7:0] \data_receive|o_DATA ;
+wire [21:0] \data_printing|count ;
+wire [7:0] \data_receive|data_out_buf ;
+wire [3:0] \data_receive|num_bits ;
 
 
 hard_block auto_generated_inst(
@@ -180,7 +265,7 @@ hard_block auto_generated_inst(
 
 // Location: IOOBUF_X5_Y24_N9
 cycloneive_io_obuf \o_RS~output (
-	.i(\Printing|act_state.S7~q ),
+	.i(\data_printing|act_state.S7~q ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -193,7 +278,7 @@ defparam \o_RS~output .open_drain_output = "false";
 
 // Location: IOOBUF_X1_Y24_N2
 cycloneive_io_obuf \o_E~output (
-	.i(\Printing|WideOr4~combout ),
+	.i(\data_printing|WideOr4~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -219,7 +304,7 @@ defparam \o_RW~output .open_drain_output = "false";
 
 // Location: IOOBUF_X3_Y24_N23
 cycloneive_io_obuf \o_LCD_DATA[0]~output (
-	.i(!\Printing|WideOr4~0_combout ),
+	.i(\data_printing|Selector4~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -232,7 +317,7 @@ defparam \o_LCD_DATA[0]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y23_N2
 cycloneive_io_obuf \o_LCD_DATA[1]~output (
-	.i(gnd),
+	.i(\data_printing|o_LCD_DATA[1]~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -245,7 +330,7 @@ defparam \o_LCD_DATA[1]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X1_Y24_N9
 cycloneive_io_obuf \o_LCD_DATA[2]~output (
-	.i(\Printing|act_state.S4~q ),
+	.i(\data_printing|Selector3~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -258,7 +343,7 @@ defparam \o_LCD_DATA[2]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y23_N16
 cycloneive_io_obuf \o_LCD_DATA[3]~output (
-	.i(\Printing|o_LCD_DATA~0_combout ),
+	.i(\data_printing|Selector2~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -271,7 +356,7 @@ defparam \o_LCD_DATA[3]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y23_N9
 cycloneive_io_obuf \o_LCD_DATA[4]~output (
-	.i(!\Printing|act_state.S0~q ),
+	.i(\data_printing|Selector1~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -284,7 +369,7 @@ defparam \o_LCD_DATA[4]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y18_N16
 cycloneive_io_obuf \o_LCD_DATA[5]~output (
-	.i(!\Printing|act_state.S0~q ),
+	.i(\data_printing|Selector0~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -297,7 +382,7 @@ defparam \o_LCD_DATA[5]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y21_N9
 cycloneive_io_obuf \o_LCD_DATA[6]~output (
-	.i(\Printing|act_state.S7~q ),
+	.i(\data_printing|o_LCD_DATA[6]~1_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -310,7 +395,7 @@ defparam \o_LCD_DATA[6]~output .open_drain_output = "false";
 
 // Location: IOOBUF_X0_Y18_N23
 cycloneive_io_obuf \o_LCD_DATA[7]~output (
-	.i(gnd),
+	.i(\data_printing|o_LCD_DATA[7]~2_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -319,6 +404,19 @@ cycloneive_io_obuf \o_LCD_DATA[7]~output (
 // synopsys translate_off
 defparam \o_LCD_DATA[7]~output .bus_hold = "false";
 defparam \o_LCD_DATA[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X5_Y0_N16
+cycloneive_io_obuf \o_DVD~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\o_DVD~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \o_DVD~output .bus_hold = "false";
+defparam \o_DVD~output .open_drain_output = "false";
 // synopsys translate_on
 
 // Location: IOIBUF_X0_Y11_N8
@@ -344,1127 +442,6 @@ defparam \i_FPGA_CLK~inputclkctrl .clock_type = "global clock";
 defparam \i_FPGA_CLK~inputclkctrl .ena_register_mode = "none";
 // synopsys translate_on
 
-// Location: LCCOMB_X7_Y7_N14
-cycloneive_lcell_comb \Printing|act_state.S8~feeder (
-// Equation(s):
-// \Printing|act_state.S8~feeder_combout  = \Printing|act_state.S7~q 
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\Printing|act_state.S7~q ),
-	.cin(gnd),
-	.combout(\Printing|act_state.S8~feeder_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|act_state.S8~feeder .lut_mask = 16'hFF00;
-defparam \Printing|act_state.S8~feeder .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N10
-cycloneive_lcell_comb \Printing|Add0~0 (
-// Equation(s):
-// \Printing|Add0~0_combout  = \Printing|count [0] $ (VCC)
-// \Printing|Add0~1  = CARRY(\Printing|count [0])
-
-	.dataa(gnd),
-	.datab(\Printing|count [0]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(gnd),
-	.combout(\Printing|Add0~0_combout ),
-	.cout(\Printing|Add0~1 ));
-// synopsys translate_off
-defparam \Printing|Add0~0 .lut_mask = 16'h33CC;
-defparam \Printing|Add0~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N8
-cycloneive_lcell_comb \Printing|count~8 (
-// Equation(s):
-// \Printing|count~8_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~0_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Printing|Equal0~6_combout ),
-	.datad(\Printing|Add0~0_combout ),
-	.cin(gnd),
-	.combout(\Printing|count~8_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~8 .lut_mask = 16'h0F00;
-defparam \Printing|count~8 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N9
-dffeas \Printing|count[0] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~8_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [0]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[0] .is_wysiwyg = "true";
-defparam \Printing|count[0] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N12
-cycloneive_lcell_comb \Printing|Add0~2 (
-// Equation(s):
-// \Printing|Add0~2_combout  = (\Printing|count [1] & (!\Printing|Add0~1 )) # (!\Printing|count [1] & ((\Printing|Add0~1 ) # (GND)))
-// \Printing|Add0~3  = CARRY((!\Printing|Add0~1 ) # (!\Printing|count [1]))
-
-	.dataa(\Printing|count [1]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~1 ),
-	.combout(\Printing|Add0~2_combout ),
-	.cout(\Printing|Add0~3 ));
-// synopsys translate_off
-defparam \Printing|Add0~2 .lut_mask = 16'h5A5F;
-defparam \Printing|Add0~2 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N13
-dffeas \Printing|count[1] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~2_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [1]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[1] .is_wysiwyg = "true";
-defparam \Printing|count[1] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N14
-cycloneive_lcell_comb \Printing|Add0~4 (
-// Equation(s):
-// \Printing|Add0~4_combout  = (\Printing|count [2] & (\Printing|Add0~3  $ (GND))) # (!\Printing|count [2] & (!\Printing|Add0~3  & VCC))
-// \Printing|Add0~5  = CARRY((\Printing|count [2] & !\Printing|Add0~3 ))
-
-	.dataa(gnd),
-	.datab(\Printing|count [2]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~3 ),
-	.combout(\Printing|Add0~4_combout ),
-	.cout(\Printing|Add0~5 ));
-// synopsys translate_off
-defparam \Printing|Add0~4 .lut_mask = 16'hC30C;
-defparam \Printing|Add0~4 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N15
-dffeas \Printing|count[2] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~4_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [2]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[2] .is_wysiwyg = "true";
-defparam \Printing|count[2] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N16
-cycloneive_lcell_comb \Printing|Add0~6 (
-// Equation(s):
-// \Printing|Add0~6_combout  = (\Printing|count [3] & (!\Printing|Add0~5 )) # (!\Printing|count [3] & ((\Printing|Add0~5 ) # (GND)))
-// \Printing|Add0~7  = CARRY((!\Printing|Add0~5 ) # (!\Printing|count [3]))
-
-	.dataa(gnd),
-	.datab(\Printing|count [3]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~5 ),
-	.combout(\Printing|Add0~6_combout ),
-	.cout(\Printing|Add0~7 ));
-// synopsys translate_off
-defparam \Printing|Add0~6 .lut_mask = 16'h3C3F;
-defparam \Printing|Add0~6 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N17
-dffeas \Printing|count[3] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~6_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [3]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[3] .is_wysiwyg = "true";
-defparam \Printing|count[3] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N18
-cycloneive_lcell_comb \Printing|Add0~8 (
-// Equation(s):
-// \Printing|Add0~8_combout  = (\Printing|count [4] & (\Printing|Add0~7  $ (GND))) # (!\Printing|count [4] & (!\Printing|Add0~7  & VCC))
-// \Printing|Add0~9  = CARRY((\Printing|count [4] & !\Printing|Add0~7 ))
-
-	.dataa(gnd),
-	.datab(\Printing|count [4]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~7 ),
-	.combout(\Printing|Add0~8_combout ),
-	.cout(\Printing|Add0~9 ));
-// synopsys translate_off
-defparam \Printing|Add0~8 .lut_mask = 16'hC30C;
-defparam \Printing|Add0~8 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N19
-dffeas \Printing|count[4] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~8_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [4]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[4] .is_wysiwyg = "true";
-defparam \Printing|count[4] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N20
-cycloneive_lcell_comb \Printing|Add0~10 (
-// Equation(s):
-// \Printing|Add0~10_combout  = (\Printing|count [5] & (!\Printing|Add0~9 )) # (!\Printing|count [5] & ((\Printing|Add0~9 ) # (GND)))
-// \Printing|Add0~11  = CARRY((!\Printing|Add0~9 ) # (!\Printing|count [5]))
-
-	.dataa(gnd),
-	.datab(\Printing|count [5]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~9 ),
-	.combout(\Printing|Add0~10_combout ),
-	.cout(\Printing|Add0~11 ));
-// synopsys translate_off
-defparam \Printing|Add0~10 .lut_mask = 16'h3C3F;
-defparam \Printing|Add0~10 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N4
-cycloneive_lcell_comb \Printing|count~7 (
-// Equation(s):
-// \Printing|count~7_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~10_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Printing|Equal0~6_combout ),
-	.datad(\Printing|Add0~10_combout ),
-	.cin(gnd),
-	.combout(\Printing|count~7_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~7 .lut_mask = 16'h0F00;
-defparam \Printing|count~7 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N5
-dffeas \Printing|count[5] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~7_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [5]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[5] .is_wysiwyg = "true";
-defparam \Printing|count[5] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N2
-cycloneive_lcell_comb \Printing|Equal0~5 (
-// Equation(s):
-// \Printing|Equal0~5_combout  = (!\Printing|count [2] & (!\Printing|count [4] & (\Printing|count [5] & !\Printing|count [3])))
-
-	.dataa(\Printing|count [2]),
-	.datab(\Printing|count [4]),
-	.datac(\Printing|count [5]),
-	.datad(\Printing|count [3]),
-	.cin(gnd),
-	.combout(\Printing|Equal0~5_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~5 .lut_mask = 16'h0010;
-defparam \Printing|Equal0~5 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N22
-cycloneive_lcell_comb \Printing|Add0~12 (
-// Equation(s):
-// \Printing|Add0~12_combout  = (\Printing|count [6] & (\Printing|Add0~11  $ (GND))) # (!\Printing|count [6] & (!\Printing|Add0~11  & VCC))
-// \Printing|Add0~13  = CARRY((\Printing|count [6] & !\Printing|Add0~11 ))
-
-	.dataa(\Printing|count [6]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~11 ),
-	.combout(\Printing|Add0~12_combout ),
-	.cout(\Printing|Add0~13 ));
-// synopsys translate_off
-defparam \Printing|Add0~12 .lut_mask = 16'hA50A;
-defparam \Printing|Add0~12 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N23
-dffeas \Printing|count[6] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~12_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [6]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[6] .is_wysiwyg = "true";
-defparam \Printing|count[6] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N24
-cycloneive_lcell_comb \Printing|Add0~14 (
-// Equation(s):
-// \Printing|Add0~14_combout  = (\Printing|count [7] & (!\Printing|Add0~13 )) # (!\Printing|count [7] & ((\Printing|Add0~13 ) # (GND)))
-// \Printing|Add0~15  = CARRY((!\Printing|Add0~13 ) # (!\Printing|count [7]))
-
-	.dataa(\Printing|count [7]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~13 ),
-	.combout(\Printing|Add0~14_combout ),
-	.cout(\Printing|Add0~15 ));
-// synopsys translate_off
-defparam \Printing|Add0~14 .lut_mask = 16'h5A5F;
-defparam \Printing|Add0~14 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N22
-cycloneive_lcell_comb \Printing|count~6 (
-// Equation(s):
-// \Printing|count~6_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~14_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Printing|Equal0~6_combout ),
-	.datad(\Printing|Add0~14_combout ),
-	.cin(gnd),
-	.combout(\Printing|count~6_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~6 .lut_mask = 16'h0F00;
-defparam \Printing|count~6 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N23
-dffeas \Printing|count[7] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~6_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [7]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[7] .is_wysiwyg = "true";
-defparam \Printing|count[7] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N26
-cycloneive_lcell_comb \Printing|Add0~16 (
-// Equation(s):
-// \Printing|Add0~16_combout  = (\Printing|count [8] & (\Printing|Add0~15  $ (GND))) # (!\Printing|count [8] & (!\Printing|Add0~15  & VCC))
-// \Printing|Add0~17  = CARRY((\Printing|count [8] & !\Printing|Add0~15 ))
-
-	.dataa(\Printing|count [8]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~15 ),
-	.combout(\Printing|Add0~16_combout ),
-	.cout(\Printing|Add0~17 ));
-// synopsys translate_off
-defparam \Printing|Add0~16 .lut_mask = 16'hA50A;
-defparam \Printing|Add0~16 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N0
-cycloneive_lcell_comb \Printing|count~5 (
-// Equation(s):
-// \Printing|count~5_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~16_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Printing|Equal0~6_combout ),
-	.datad(\Printing|Add0~16_combout ),
-	.cin(gnd),
-	.combout(\Printing|count~5_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~5 .lut_mask = 16'h0F00;
-defparam \Printing|count~5 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N1
-dffeas \Printing|count[8] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~5_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [8]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[8] .is_wysiwyg = "true";
-defparam \Printing|count[8] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N28
-cycloneive_lcell_comb \Printing|Add0~18 (
-// Equation(s):
-// \Printing|Add0~18_combout  = (\Printing|count [9] & (!\Printing|Add0~17 )) # (!\Printing|count [9] & ((\Printing|Add0~17 ) # (GND)))
-// \Printing|Add0~19  = CARRY((!\Printing|Add0~17 ) # (!\Printing|count [9]))
-
-	.dataa(gnd),
-	.datab(\Printing|count [9]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~17 ),
-	.combout(\Printing|Add0~18_combout ),
-	.cout(\Printing|Add0~19 ));
-// synopsys translate_off
-defparam \Printing|Add0~18 .lut_mask = 16'h3C3F;
-defparam \Printing|Add0~18 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y8_N29
-dffeas \Printing|count[9] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~18_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [9]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[9] .is_wysiwyg = "true";
-defparam \Printing|count[9] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y8_N30
-cycloneive_lcell_comb \Printing|Add0~20 (
-// Equation(s):
-// \Printing|Add0~20_combout  = (\Printing|count [10] & (\Printing|Add0~19  $ (GND))) # (!\Printing|count [10] & (!\Printing|Add0~19  & VCC))
-// \Printing|Add0~21  = CARRY((\Printing|count [10] & !\Printing|Add0~19 ))
-
-	.dataa(\Printing|count [10]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~19 ),
-	.combout(\Printing|Add0~20_combout ),
-	.cout(\Printing|Add0~21 ));
-// synopsys translate_off
-defparam \Printing|Add0~20 .lut_mask = 16'hA50A;
-defparam \Printing|Add0~20 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N16
-cycloneive_lcell_comb \Printing|count~4 (
-// Equation(s):
-// \Printing|count~4_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~20_combout )
-
-	.dataa(\Printing|Equal0~6_combout ),
-	.datab(gnd),
-	.datac(\Printing|Add0~20_combout ),
-	.datad(gnd),
-	.cin(gnd),
-	.combout(\Printing|count~4_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~4 .lut_mask = 16'h5050;
-defparam \Printing|count~4 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N17
-dffeas \Printing|count[10] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~4_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [10]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[10] .is_wysiwyg = "true";
-defparam \Printing|count[10] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N0
-cycloneive_lcell_comb \Printing|Add0~22 (
-// Equation(s):
-// \Printing|Add0~22_combout  = (\Printing|count [11] & (!\Printing|Add0~21 )) # (!\Printing|count [11] & ((\Printing|Add0~21 ) # (GND)))
-// \Printing|Add0~23  = CARRY((!\Printing|Add0~21 ) # (!\Printing|count [11]))
-
-	.dataa(gnd),
-	.datab(\Printing|count [11]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~21 ),
-	.combout(\Printing|Add0~22_combout ),
-	.cout(\Printing|Add0~23 ));
-// synopsys translate_off
-defparam \Printing|Add0~22 .lut_mask = 16'h3C3F;
-defparam \Printing|Add0~22 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N1
-dffeas \Printing|count[11] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~22_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [11]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[11] .is_wysiwyg = "true";
-defparam \Printing|count[11] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N2
-cycloneive_lcell_comb \Printing|Add0~24 (
-// Equation(s):
-// \Printing|Add0~24_combout  = (\Printing|count [12] & (\Printing|Add0~23  $ (GND))) # (!\Printing|count [12] & (!\Printing|Add0~23  & VCC))
-// \Printing|Add0~25  = CARRY((\Printing|count [12] & !\Printing|Add0~23 ))
-
-	.dataa(gnd),
-	.datab(\Printing|count [12]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~23 ),
-	.combout(\Printing|Add0~24_combout ),
-	.cout(\Printing|Add0~25 ));
-// synopsys translate_off
-defparam \Printing|Add0~24 .lut_mask = 16'hC30C;
-defparam \Printing|Add0~24 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N3
-dffeas \Printing|count[12] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~24_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [12]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[12] .is_wysiwyg = "true";
-defparam \Printing|count[12] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N4
-cycloneive_lcell_comb \Printing|Add0~26 (
-// Equation(s):
-// \Printing|Add0~26_combout  = (\Printing|count [13] & (!\Printing|Add0~25 )) # (!\Printing|count [13] & ((\Printing|Add0~25 ) # (GND)))
-// \Printing|Add0~27  = CARRY((!\Printing|Add0~25 ) # (!\Printing|count [13]))
-
-	.dataa(gnd),
-	.datab(\Printing|count [13]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~25 ),
-	.combout(\Printing|Add0~26_combout ),
-	.cout(\Printing|Add0~27 ));
-// synopsys translate_off
-defparam \Printing|Add0~26 .lut_mask = 16'h3C3F;
-defparam \Printing|Add0~26 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N28
-cycloneive_lcell_comb \Printing|count~3 (
-// Equation(s):
-// \Printing|count~3_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~26_combout )
-
-	.dataa(\Printing|Equal0~6_combout ),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\Printing|Add0~26_combout ),
-	.cin(gnd),
-	.combout(\Printing|count~3_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~3 .lut_mask = 16'h5500;
-defparam \Printing|count~3 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N29
-dffeas \Printing|count[13] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~3_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [13]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[13] .is_wysiwyg = "true";
-defparam \Printing|count[13] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N6
-cycloneive_lcell_comb \Printing|Add0~28 (
-// Equation(s):
-// \Printing|Add0~28_combout  = (\Printing|count [14] & (\Printing|Add0~27  $ (GND))) # (!\Printing|count [14] & (!\Printing|Add0~27  & VCC))
-// \Printing|Add0~29  = CARRY((\Printing|count [14] & !\Printing|Add0~27 ))
-
-	.dataa(\Printing|count [14]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~27 ),
-	.combout(\Printing|Add0~28_combout ),
-	.cout(\Printing|Add0~29 ));
-// synopsys translate_off
-defparam \Printing|Add0~28 .lut_mask = 16'hA50A;
-defparam \Printing|Add0~28 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N7
-dffeas \Printing|count[14] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~28_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [14]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[14] .is_wysiwyg = "true";
-defparam \Printing|count[14] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N8
-cycloneive_lcell_comb \Printing|Add0~30 (
-// Equation(s):
-// \Printing|Add0~30_combout  = (\Printing|count [15] & (!\Printing|Add0~29 )) # (!\Printing|count [15] & ((\Printing|Add0~29 ) # (GND)))
-// \Printing|Add0~31  = CARRY((!\Printing|Add0~29 ) # (!\Printing|count [15]))
-
-	.dataa(\Printing|count [15]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~29 ),
-	.combout(\Printing|Add0~30_combout ),
-	.cout(\Printing|Add0~31 ));
-// synopsys translate_off
-defparam \Printing|Add0~30 .lut_mask = 16'h5A5F;
-defparam \Printing|Add0~30 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N9
-dffeas \Printing|count[15] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~30_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [15]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[15] .is_wysiwyg = "true";
-defparam \Printing|count[15] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N10
-cycloneive_lcell_comb \Printing|Add0~32 (
-// Equation(s):
-// \Printing|Add0~32_combout  = (\Printing|count [16] & (\Printing|Add0~31  $ (GND))) # (!\Printing|count [16] & (!\Printing|Add0~31  & VCC))
-// \Printing|Add0~33  = CARRY((\Printing|count [16] & !\Printing|Add0~31 ))
-
-	.dataa(\Printing|count [16]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~31 ),
-	.combout(\Printing|Add0~32_combout ),
-	.cout(\Printing|Add0~33 ));
-// synopsys translate_off
-defparam \Printing|Add0~32 .lut_mask = 16'hA50A;
-defparam \Printing|Add0~32 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N11
-dffeas \Printing|count[16] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~32_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [16]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[16] .is_wysiwyg = "true";
-defparam \Printing|count[16] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N12
-cycloneive_lcell_comb \Printing|Add0~34 (
-// Equation(s):
-// \Printing|Add0~34_combout  = (\Printing|count [17] & (!\Printing|Add0~33 )) # (!\Printing|count [17] & ((\Printing|Add0~33 ) # (GND)))
-// \Printing|Add0~35  = CARRY((!\Printing|Add0~33 ) # (!\Printing|count [17]))
-
-	.dataa(\Printing|count [17]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~33 ),
-	.combout(\Printing|Add0~34_combout ),
-	.cout(\Printing|Add0~35 ));
-// synopsys translate_off
-defparam \Printing|Add0~34 .lut_mask = 16'h5A5F;
-defparam \Printing|Add0~34 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N12
-cycloneive_lcell_comb \Printing|count~2 (
-// Equation(s):
-// \Printing|count~2_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~34_combout )
-
-	.dataa(\Printing|Equal0~6_combout ),
-	.datab(gnd),
-	.datac(\Printing|Add0~34_combout ),
-	.datad(gnd),
-	.cin(gnd),
-	.combout(\Printing|count~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~2 .lut_mask = 16'h5050;
-defparam \Printing|count~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N13
-dffeas \Printing|count[17] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~2_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [17]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[17] .is_wysiwyg = "true";
-defparam \Printing|count[17] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N10
-cycloneive_lcell_comb \Printing|Equal0~1 (
-// Equation(s):
-// \Printing|Equal0~1_combout  = (\Printing|count [17] & (!\Printing|count [16] & (!\Printing|count [15] & !\Printing|count [14])))
-
-	.dataa(\Printing|count [17]),
-	.datab(\Printing|count [16]),
-	.datac(\Printing|count [15]),
-	.datad(\Printing|count [14]),
-	.cin(gnd),
-	.combout(\Printing|Equal0~1_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~1 .lut_mask = 16'h0002;
-defparam \Printing|Equal0~1 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N14
-cycloneive_lcell_comb \Printing|Add0~36 (
-// Equation(s):
-// \Printing|Add0~36_combout  = (\Printing|count [18] & (\Printing|Add0~35  $ (GND))) # (!\Printing|count [18] & (!\Printing|Add0~35  & VCC))
-// \Printing|Add0~37  = CARRY((\Printing|count [18] & !\Printing|Add0~35 ))
-
-	.dataa(gnd),
-	.datab(\Printing|count [18]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~35 ),
-	.combout(\Printing|Add0~36_combout ),
-	.cout(\Printing|Add0~37 ));
-// synopsys translate_off
-defparam \Printing|Add0~36 .lut_mask = 16'hC30C;
-defparam \Printing|Add0~36 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N24
-cycloneive_lcell_comb \Printing|count~1 (
-// Equation(s):
-// \Printing|count~1_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~36_combout )
-
-	.dataa(\Printing|Equal0~6_combout ),
-	.datab(gnd),
-	.datac(\Printing|Add0~36_combout ),
-	.datad(gnd),
-	.cin(gnd),
-	.combout(\Printing|count~1_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~1 .lut_mask = 16'h5050;
-defparam \Printing|count~1 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N25
-dffeas \Printing|count[18] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~1_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [18]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[18] .is_wysiwyg = "true";
-defparam \Printing|count[18] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N16
-cycloneive_lcell_comb \Printing|Add0~38 (
-// Equation(s):
-// \Printing|Add0~38_combout  = (\Printing|count [19] & (!\Printing|Add0~37 )) # (!\Printing|count [19] & ((\Printing|Add0~37 ) # (GND)))
-// \Printing|Add0~39  = CARRY((!\Printing|Add0~37 ) # (!\Printing|count [19]))
-
-	.dataa(gnd),
-	.datab(\Printing|count [19]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~37 ),
-	.combout(\Printing|Add0~38_combout ),
-	.cout(\Printing|Add0~39 ));
-// synopsys translate_off
-defparam \Printing|Add0~38 .lut_mask = 16'h3C3F;
-defparam \Printing|Add0~38 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N17
-dffeas \Printing|count[19] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~38_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [19]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[19] .is_wysiwyg = "true";
-defparam \Printing|count[19] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N18
-cycloneive_lcell_comb \Printing|Add0~40 (
-// Equation(s):
-// \Printing|Add0~40_combout  = (\Printing|count [20] & (\Printing|Add0~39  $ (GND))) # (!\Printing|count [20] & (!\Printing|Add0~39  & VCC))
-// \Printing|Add0~41  = CARRY((\Printing|count [20] & !\Printing|Add0~39 ))
-
-	.dataa(gnd),
-	.datab(\Printing|count [20]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Printing|Add0~39 ),
-	.combout(\Printing|Add0~40_combout ),
-	.cout(\Printing|Add0~41 ));
-// synopsys translate_off
-defparam \Printing|Add0~40 .lut_mask = 16'hC30C;
-defparam \Printing|Add0~40 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N19
-dffeas \Printing|count[20] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Add0~40_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [20]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[20] .is_wysiwyg = "true";
-defparam \Printing|count[20] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N20
-cycloneive_lcell_comb \Printing|Add0~42 (
-// Equation(s):
-// \Printing|Add0~42_combout  = \Printing|count [21] $ (\Printing|Add0~41 )
-
-	.dataa(\Printing|count [21]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(gnd),
-	.cin(\Printing|Add0~41 ),
-	.combout(\Printing|Add0~42_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Add0~42 .lut_mask = 16'h5A5A;
-defparam \Printing|Add0~42 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N22
-cycloneive_lcell_comb \Printing|count~0 (
-// Equation(s):
-// \Printing|count~0_combout  = (!\Printing|Equal0~6_combout  & \Printing|Add0~42_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Printing|Equal0~6_combout ),
-	.datad(\Printing|Add0~42_combout ),
-	.cin(gnd),
-	.combout(\Printing|count~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|count~0 .lut_mask = 16'h0F00;
-defparam \Printing|count~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X9_Y7_N23
-dffeas \Printing|count[21] (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|count~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|count [21]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|count[21] .is_wysiwyg = "true";
-defparam \Printing|count[21] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N26
-cycloneive_lcell_comb \Printing|Equal0~0 (
-// Equation(s):
-// \Printing|Equal0~0_combout  = (\Printing|count [21] & (!\Printing|count [20] & (\Printing|count [18] & !\Printing|count [19])))
-
-	.dataa(\Printing|count [21]),
-	.datab(\Printing|count [20]),
-	.datac(\Printing|count [18]),
-	.datad(\Printing|count [19]),
-	.cin(gnd),
-	.combout(\Printing|Equal0~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~0 .lut_mask = 16'h0020;
-defparam \Printing|Equal0~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y7_N30
-cycloneive_lcell_comb \Printing|Equal0~2 (
-// Equation(s):
-// \Printing|Equal0~2_combout  = (\Printing|count [10] & (!\Printing|count [11] & (\Printing|count [13] & !\Printing|count [12])))
-
-	.dataa(\Printing|count [10]),
-	.datab(\Printing|count [11]),
-	.datac(\Printing|count [13]),
-	.datad(\Printing|count [12]),
-	.cin(gnd),
-	.combout(\Printing|Equal0~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~2 .lut_mask = 16'h0020;
-defparam \Printing|Equal0~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N24
-cycloneive_lcell_comb \Printing|Equal0~3 (
-// Equation(s):
-// \Printing|Equal0~3_combout  = (\Printing|count [7] & (\Printing|count [8] & (!\Printing|count [9] & !\Printing|count [6])))
-
-	.dataa(\Printing|count [7]),
-	.datab(\Printing|count [8]),
-	.datac(\Printing|count [9]),
-	.datad(\Printing|count [6]),
-	.cin(gnd),
-	.combout(\Printing|Equal0~3_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~3 .lut_mask = 16'h0008;
-defparam \Printing|Equal0~3 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N2
-cycloneive_lcell_comb \Printing|Equal0~4 (
-// Equation(s):
-// \Printing|Equal0~4_combout  = (\Printing|Equal0~1_combout  & (\Printing|Equal0~0_combout  & (\Printing|Equal0~2_combout  & \Printing|Equal0~3_combout )))
-
-	.dataa(\Printing|Equal0~1_combout ),
-	.datab(\Printing|Equal0~0_combout ),
-	.datac(\Printing|Equal0~2_combout ),
-	.datad(\Printing|Equal0~3_combout ),
-	.cin(gnd),
-	.combout(\Printing|Equal0~4_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~4 .lut_mask = 16'h8000;
-defparam \Printing|Equal0~4 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N26
-cycloneive_lcell_comb \Printing|Equal0~6 (
-// Equation(s):
-// \Printing|Equal0~6_combout  = (!\Printing|count [1] & (!\Printing|count [0] & (\Printing|Equal0~5_combout  & \Printing|Equal0~4_combout )))
-
-	.dataa(\Printing|count [1]),
-	.datab(\Printing|count [0]),
-	.datac(\Printing|Equal0~5_combout ),
-	.datad(\Printing|Equal0~4_combout ),
-	.cin(gnd),
-	.combout(\Printing|Equal0~6_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Equal0~6 .lut_mask = 16'h1000;
-defparam \Printing|Equal0~6 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X7_Y7_N15
-dffeas \Printing|act_state.S8 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|act_state.S8~feeder_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S8~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S8 .is_wysiwyg = "true";
-defparam \Printing|act_state.S8 .power_up = "low";
-// synopsys translate_on
-
 // Location: IOIBUF_X0_Y11_N22
 cycloneive_io_ibuf \i_RST~input (
 	.i(i_RST),
@@ -1473,205 +450,6 @@ cycloneive_io_ibuf \i_RST~input (
 // synopsys translate_off
 defparam \i_RST~input .bus_hold = "false";
 defparam \i_RST~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N6
-cycloneive_lcell_comb \Printing|Selector5~0 (
-// Equation(s):
-// \Printing|Selector5~0_combout  = (\i_RST~input_o ) # ((!\Printing|act_state.IDLE~q  & !\Printing|act_state.S6~q ))
-
-	.dataa(\Printing|act_state.IDLE~q ),
-	.datab(\Printing|act_state.S6~q ),
-	.datac(\i_RST~input_o ),
-	.datad(gnd),
-	.cin(gnd),
-	.combout(\Printing|Selector5~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Selector5~0 .lut_mask = 16'hF1F1;
-defparam \Printing|Selector5~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N7
-dffeas \Printing|act_state.S0 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Selector5~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S0~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S0 .is_wysiwyg = "true";
-defparam \Printing|act_state.S0 .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X7_Y7_N24
-cycloneive_lcell_comb \Printing|act_state.S1~0 (
-// Equation(s):
-// \Printing|act_state.S1~0_combout  = !\Printing|act_state.S0~q 
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\Printing|act_state.S0~q ),
-	.cin(gnd),
-	.combout(\Printing|act_state.S1~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|act_state.S1~0 .lut_mask = 16'h00FF;
-defparam \Printing|act_state.S1~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X7_Y7_N25
-dffeas \Printing|act_state.S1 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|act_state.S1~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S1~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S1 .is_wysiwyg = "true";
-defparam \Printing|act_state.S1 .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N14
-cycloneive_lcell_comb \Printing|act_state.S2~feeder (
-// Equation(s):
-// \Printing|act_state.S2~feeder_combout  = \Printing|act_state.S1~q 
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\Printing|act_state.S1~q ),
-	.cin(gnd),
-	.combout(\Printing|act_state.S2~feeder_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|act_state.S2~feeder .lut_mask = 16'hFF00;
-defparam \Printing|act_state.S2~feeder .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N15
-dffeas \Printing|act_state.S2 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|act_state.S2~feeder_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S2~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S2 .is_wysiwyg = "true";
-defparam \Printing|act_state.S2 .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N18
-cycloneive_lcell_comb \Printing|act_state.S3~feeder (
-// Equation(s):
-// \Printing|act_state.S3~feeder_combout  = \Printing|act_state.S2~q 
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Printing|act_state.S2~q ),
-	.datad(gnd),
-	.cin(gnd),
-	.combout(\Printing|act_state.S3~feeder_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|act_state.S3~feeder .lut_mask = 16'hF0F0;
-defparam \Printing|act_state.S3~feeder .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N19
-dffeas \Printing|act_state.S3 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|act_state.S3~feeder_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S3~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S3 .is_wysiwyg = "true";
-defparam \Printing|act_state.S3 .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N8
-cycloneive_lcell_comb \Printing|act_state.S4~feeder (
-// Equation(s):
-// \Printing|act_state.S4~feeder_combout  = \Printing|act_state.S3~q 
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\Printing|act_state.S3~q ),
-	.cin(gnd),
-	.combout(\Printing|act_state.S4~feeder_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|act_state.S4~feeder .lut_mask = 16'hFF00;
-defparam \Printing|act_state.S4~feeder .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N9
-dffeas \Printing|act_state.S4 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|act_state.S4~feeder_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S4~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S4 .is_wysiwyg = "true";
-defparam \Printing|act_state.S4 .power_up = "low";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N21
-dffeas \Printing|act_state.S5 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(gnd),
-	.asdata(\Printing|act_state.S4~q ),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(vcc),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S5~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S5 .is_wysiwyg = "true";
-defparam \Printing|act_state.S5 .power_up = "low";
 // synopsys translate_on
 
 // Location: IOIBUF_X34_Y12_N1
@@ -1684,180 +462,3190 @@ defparam \i_ST~input .bus_hold = "false";
 defparam \i_ST~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LCCOMB_X8_Y7_N20
-cycloneive_lcell_comb \Printing|Selector6~0 (
+// Location: LCCOMB_X12_Y19_N2
+cycloneive_lcell_comb \data_printing|act_state.S8~feeder (
 // Equation(s):
-// \Printing|Selector6~0_combout  = (\Printing|act_state.S5~q ) # ((\Printing|act_state.IDLE~q  & (\i_RST~input_o  & !\i_ST~input_o )))
+// \data_printing|act_state.S8~feeder_combout  = \data_printing|act_state.S7~q 
 
-	.dataa(\Printing|act_state.IDLE~q ),
-	.datab(\i_RST~input_o ),
-	.datac(\Printing|act_state.S5~q ),
-	.datad(\i_ST~input_o ),
-	.cin(gnd),
-	.combout(\Printing|Selector6~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Selector6~0 .lut_mask = 16'hF0F8;
-defparam \Printing|Selector6~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N30
-cycloneive_lcell_comb \Printing|Selector6~1 (
-// Equation(s):
-// \Printing|Selector6~1_combout  = (\Printing|act_state.S8~q ) # (\Printing|Selector6~0_combout )
-
-	.dataa(\Printing|act_state.S8~q ),
+	.dataa(gnd),
 	.datab(gnd),
 	.datac(gnd),
-	.datad(\Printing|Selector6~0_combout ),
+	.datad(\data_printing|act_state.S7~q ),
 	.cin(gnd),
-	.combout(\Printing|Selector6~1_combout ),
+	.combout(\data_printing|act_state.S8~feeder_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Printing|Selector6~1 .lut_mask = 16'hFFAA;
-defparam \Printing|Selector6~1 .sum_lutc_input = "datac";
+defparam \data_printing|act_state.S8~feeder .lut_mask = 16'hFF00;
+defparam \data_printing|act_state.S8~feeder .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X8_Y7_N31
-dffeas \Printing|act_state.IDLE (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Selector6~1_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.IDLE~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.IDLE .is_wysiwyg = "true";
-defparam \Printing|act_state.IDLE .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N4
-cycloneive_lcell_comb \Printing|Selector7~0 (
+// Location: LCCOMB_X13_Y19_N10
+cycloneive_lcell_comb \data_printing|Add0~0 (
 // Equation(s):
-// \Printing|Selector7~0_combout  = (\i_RST~input_o  & (\i_ST~input_o  & ((\Printing|act_state.IDLE~q ) # (\Printing|act_state.S6~q ))))
-
-	.dataa(\Printing|act_state.IDLE~q ),
-	.datab(\i_RST~input_o ),
-	.datac(\Printing|act_state.S6~q ),
-	.datad(\i_ST~input_o ),
-	.cin(gnd),
-	.combout(\Printing|Selector7~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|Selector7~0 .lut_mask = 16'hC800;
-defparam \Printing|Selector7~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X8_Y7_N5
-dffeas \Printing|act_state.S6 (
-	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|Selector7~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\Printing|act_state.S6~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam \Printing|act_state.S6 .is_wysiwyg = "true";
-defparam \Printing|act_state.S6 .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X8_Y7_N28
-cycloneive_lcell_comb \Printing|next_state.S7~0 (
-// Equation(s):
-// \Printing|next_state.S7~0_combout  = (\Printing|act_state.S6~q  & (\i_RST~input_o  & !\i_ST~input_o ))
+// \data_printing|Add0~0_combout  = \data_printing|count [0] $ (VCC)
+// \data_printing|Add0~1  = CARRY(\data_printing|count [0])
 
 	.dataa(gnd),
-	.datab(\Printing|act_state.S6~q ),
-	.datac(\i_RST~input_o ),
-	.datad(\i_ST~input_o ),
+	.datab(\data_printing|count [0]),
+	.datac(gnd),
+	.datad(vcc),
 	.cin(gnd),
-	.combout(\Printing|next_state.S7~0_combout ),
-	.cout());
+	.combout(\data_printing|Add0~0_combout ),
+	.cout(\data_printing|Add0~1 ));
 // synopsys translate_off
-defparam \Printing|next_state.S7~0 .lut_mask = 16'h00C0;
-defparam \Printing|next_state.S7~0 .sum_lutc_input = "datac";
+defparam \data_printing|Add0~0 .lut_mask = 16'h33CC;
+defparam \data_printing|Add0~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X8_Y7_N29
-dffeas \Printing|act_state.S7 (
+// Location: LCCOMB_X13_Y19_N8
+cycloneive_lcell_comb \data_printing|count~8 (
+// Equation(s):
+// \data_printing|count~8_combout  = (\data_printing|Add0~0_combout  & !\data_printing|Equal0~6_combout )
+
+	.dataa(\data_printing|Add0~0_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_printing|Equal0~6_combout ),
+	.cin(gnd),
+	.combout(\data_printing|count~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~8 .lut_mask = 16'h00AA;
+defparam \data_printing|count~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N9
+dffeas \data_printing|count[0] (
 	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
-	.d(\Printing|next_state.S7~0_combout ),
+	.d(\data_printing|count~8_combout ),
 	.asdata(vcc),
 	.clrn(vcc),
 	.aload(gnd),
 	.sclr(gnd),
 	.sload(gnd),
-	.ena(\Printing|Equal0~6_combout ),
+	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(\Printing|act_state.S7~q ),
+	.q(\data_printing|count [0]),
 	.prn(vcc));
 // synopsys translate_off
-defparam \Printing|act_state.S7 .is_wysiwyg = "true";
-defparam \Printing|act_state.S7 .power_up = "low";
+defparam \data_printing|count[0] .is_wysiwyg = "true";
+defparam \data_printing|count[0] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X9_Y9_N8
-cycloneive_lcell_comb \Printing|WideOr4 (
+// Location: LCCOMB_X13_Y19_N12
+cycloneive_lcell_comb \data_printing|Add0~2 (
 // Equation(s):
-// \Printing|WideOr4~combout  = (\Printing|act_state.S4~q ) # (((\Printing|act_state.S7~q ) # (\Printing|act_state.S2~q )) # (!\Printing|act_state.S0~q ))
+// \data_printing|Add0~2_combout  = (\data_printing|count [1] & (!\data_printing|Add0~1 )) # (!\data_printing|count [1] & ((\data_printing|Add0~1 ) # (GND)))
+// \data_printing|Add0~3  = CARRY((!\data_printing|Add0~1 ) # (!\data_printing|count [1]))
 
-	.dataa(\Printing|act_state.S4~q ),
-	.datab(\Printing|act_state.S0~q ),
-	.datac(\Printing|act_state.S7~q ),
-	.datad(\Printing|act_state.S2~q ),
-	.cin(gnd),
-	.combout(\Printing|WideOr4~combout ),
-	.cout());
-// synopsys translate_off
-defparam \Printing|WideOr4 .lut_mask = 16'hFFFB;
-defparam \Printing|WideOr4 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X9_Y9_N6
-cycloneive_lcell_comb \Printing|WideOr4~0 (
-// Equation(s):
-// \Printing|WideOr4~0_combout  = (!\Printing|act_state.S4~q  & (!\Printing|act_state.S7~q  & !\Printing|act_state.S2~q ))
-
-	.dataa(\Printing|act_state.S4~q ),
+	.dataa(\data_printing|count [1]),
 	.datab(gnd),
-	.datac(\Printing|act_state.S7~q ),
-	.datad(\Printing|act_state.S2~q ),
-	.cin(gnd),
-	.combout(\Printing|WideOr4~0_combout ),
-	.cout());
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~1 ),
+	.combout(\data_printing|Add0~2_combout ),
+	.cout(\data_printing|Add0~3 ));
 // synopsys translate_off
-defparam \Printing|WideOr4~0 .lut_mask = 16'h0005;
-defparam \Printing|WideOr4~0 .sum_lutc_input = "datac";
+defparam \data_printing|Add0~2 .lut_mask = 16'h5A5F;
+defparam \data_printing|Add0~2 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: LCCOMB_X1_Y23_N16
-cycloneive_lcell_comb \Printing|o_LCD_DATA~0 (
+// Location: FF_X13_Y19_N13
+dffeas \data_printing|count[1] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[1] .is_wysiwyg = "true";
+defparam \data_printing|count[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N14
+cycloneive_lcell_comb \data_printing|Add0~4 (
 // Equation(s):
-// \Printing|o_LCD_DATA~0_combout  = (\Printing|act_state.S4~q ) # (!\Printing|act_state.S0~q )
+// \data_printing|Add0~4_combout  = (\data_printing|count [2] & (\data_printing|Add0~3  $ (GND))) # (!\data_printing|count [2] & (!\data_printing|Add0~3  & VCC))
+// \data_printing|Add0~5  = CARRY((\data_printing|count [2] & !\data_printing|Add0~3 ))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~3 ),
+	.combout(\data_printing|Add0~4_combout ),
+	.cout(\data_printing|Add0~5 ));
+// synopsys translate_off
+defparam \data_printing|Add0~4 .lut_mask = 16'hC30C;
+defparam \data_printing|Add0~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N15
+dffeas \data_printing|count[2] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[2] .is_wysiwyg = "true";
+defparam \data_printing|count[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N16
+cycloneive_lcell_comb \data_printing|Add0~6 (
+// Equation(s):
+// \data_printing|Add0~6_combout  = (\data_printing|count [3] & (!\data_printing|Add0~5 )) # (!\data_printing|count [3] & ((\data_printing|Add0~5 ) # (GND)))
+// \data_printing|Add0~7  = CARRY((!\data_printing|Add0~5 ) # (!\data_printing|count [3]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~5 ),
+	.combout(\data_printing|Add0~6_combout ),
+	.cout(\data_printing|Add0~7 ));
+// synopsys translate_off
+defparam \data_printing|Add0~6 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N17
+dffeas \data_printing|count[3] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[3] .is_wysiwyg = "true";
+defparam \data_printing|count[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N18
+cycloneive_lcell_comb \data_printing|Add0~8 (
+// Equation(s):
+// \data_printing|Add0~8_combout  = (\data_printing|count [4] & (\data_printing|Add0~7  $ (GND))) # (!\data_printing|count [4] & (!\data_printing|Add0~7  & VCC))
+// \data_printing|Add0~9  = CARRY((\data_printing|count [4] & !\data_printing|Add0~7 ))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~7 ),
+	.combout(\data_printing|Add0~8_combout ),
+	.cout(\data_printing|Add0~9 ));
+// synopsys translate_off
+defparam \data_printing|Add0~8 .lut_mask = 16'hC30C;
+defparam \data_printing|Add0~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N19
+dffeas \data_printing|count[4] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[4] .is_wysiwyg = "true";
+defparam \data_printing|count[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N20
+cycloneive_lcell_comb \data_printing|Add0~10 (
+// Equation(s):
+// \data_printing|Add0~10_combout  = (\data_printing|count [5] & (!\data_printing|Add0~9 )) # (!\data_printing|count [5] & ((\data_printing|Add0~9 ) # (GND)))
+// \data_printing|Add0~11  = CARRY((!\data_printing|Add0~9 ) # (!\data_printing|count [5]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~9 ),
+	.combout(\data_printing|Add0~10_combout ),
+	.cout(\data_printing|Add0~11 ));
+// synopsys translate_off
+defparam \data_printing|Add0~10 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N0
+cycloneive_lcell_comb \data_printing|count~7 (
+// Equation(s):
+// \data_printing|count~7_combout  = (\data_printing|Add0~10_combout  & !\data_printing|Equal0~6_combout )
+
+	.dataa(gnd),
+	.datab(\data_printing|Add0~10_combout ),
+	.datac(gnd),
+	.datad(\data_printing|Equal0~6_combout ),
+	.cin(gnd),
+	.combout(\data_printing|count~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~7 .lut_mask = 16'h00CC;
+defparam \data_printing|count~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N1
+dffeas \data_printing|count[5] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[5] .is_wysiwyg = "true";
+defparam \data_printing|count[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N6
+cycloneive_lcell_comb \data_printing|Equal0~5 (
+// Equation(s):
+// \data_printing|Equal0~5_combout  = (!\data_printing|count [4] & (!\data_printing|count [3] & (!\data_printing|count [2] & \data_printing|count [5])))
+
+	.dataa(\data_printing|count [4]),
+	.datab(\data_printing|count [3]),
+	.datac(\data_printing|count [2]),
+	.datad(\data_printing|count [5]),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~5 .lut_mask = 16'h0100;
+defparam \data_printing|Equal0~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N22
+cycloneive_lcell_comb \data_printing|Add0~12 (
+// Equation(s):
+// \data_printing|Add0~12_combout  = (\data_printing|count [6] & (\data_printing|Add0~11  $ (GND))) # (!\data_printing|count [6] & (!\data_printing|Add0~11  & VCC))
+// \data_printing|Add0~13  = CARRY((\data_printing|count [6] & !\data_printing|Add0~11 ))
+
+	.dataa(\data_printing|count [6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~11 ),
+	.combout(\data_printing|Add0~12_combout ),
+	.cout(\data_printing|Add0~13 ));
+// synopsys translate_off
+defparam \data_printing|Add0~12 .lut_mask = 16'hA50A;
+defparam \data_printing|Add0~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N23
+dffeas \data_printing|count[6] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~12_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[6] .is_wysiwyg = "true";
+defparam \data_printing|count[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N24
+cycloneive_lcell_comb \data_printing|Add0~14 (
+// Equation(s):
+// \data_printing|Add0~14_combout  = (\data_printing|count [7] & (!\data_printing|Add0~13 )) # (!\data_printing|count [7] & ((\data_printing|Add0~13 ) # (GND)))
+// \data_printing|Add0~15  = CARRY((!\data_printing|Add0~13 ) # (!\data_printing|count [7]))
+
+	.dataa(\data_printing|count [7]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~13 ),
+	.combout(\data_printing|Add0~14_combout ),
+	.cout(\data_printing|Add0~15 ));
+// synopsys translate_off
+defparam \data_printing|Add0~14 .lut_mask = 16'h5A5F;
+defparam \data_printing|Add0~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N10
+cycloneive_lcell_comb \data_printing|count~6 (
+// Equation(s):
+// \data_printing|count~6_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~14_combout )
 
 	.dataa(gnd),
 	.datab(gnd),
-	.datac(\Printing|act_state.S4~q ),
-	.datad(\Printing|act_state.S0~q ),
+	.datac(\data_printing|Equal0~6_combout ),
+	.datad(\data_printing|Add0~14_combout ),
 	.cin(gnd),
-	.combout(\Printing|o_LCD_DATA~0_combout ),
+	.combout(\data_printing|count~6_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Printing|o_LCD_DATA~0 .lut_mask = 16'hF0FF;
-defparam \Printing|o_LCD_DATA~0 .sum_lutc_input = "datac";
+defparam \data_printing|count~6 .lut_mask = 16'h0F00;
+defparam \data_printing|count~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N11
+dffeas \data_printing|count[7] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[7] .is_wysiwyg = "true";
+defparam \data_printing|count[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N26
+cycloneive_lcell_comb \data_printing|Add0~16 (
+// Equation(s):
+// \data_printing|Add0~16_combout  = (\data_printing|count [8] & (\data_printing|Add0~15  $ (GND))) # (!\data_printing|count [8] & (!\data_printing|Add0~15  & VCC))
+// \data_printing|Add0~17  = CARRY((\data_printing|count [8] & !\data_printing|Add0~15 ))
+
+	.dataa(\data_printing|count [8]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~15 ),
+	.combout(\data_printing|Add0~16_combout ),
+	.cout(\data_printing|Add0~17 ));
+// synopsys translate_off
+defparam \data_printing|Add0~16 .lut_mask = 16'hA50A;
+defparam \data_printing|Add0~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N16
+cycloneive_lcell_comb \data_printing|count~5 (
+// Equation(s):
+// \data_printing|count~5_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~16_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_printing|Equal0~6_combout ),
+	.datad(\data_printing|Add0~16_combout ),
+	.cin(gnd),
+	.combout(\data_printing|count~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~5 .lut_mask = 16'h0F00;
+defparam \data_printing|count~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N17
+dffeas \data_printing|count[8] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[8] .is_wysiwyg = "true";
+defparam \data_printing|count[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N28
+cycloneive_lcell_comb \data_printing|Add0~18 (
+// Equation(s):
+// \data_printing|Add0~18_combout  = (\data_printing|count [9] & (!\data_printing|Add0~17 )) # (!\data_printing|count [9] & ((\data_printing|Add0~17 ) # (GND)))
+// \data_printing|Add0~19  = CARRY((!\data_printing|Add0~17 ) # (!\data_printing|count [9]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [9]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~17 ),
+	.combout(\data_printing|Add0~18_combout ),
+	.cout(\data_printing|Add0~19 ));
+// synopsys translate_off
+defparam \data_printing|Add0~18 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N29
+dffeas \data_printing|count[9] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~18_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[9] .is_wysiwyg = "true";
+defparam \data_printing|count[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N30
+cycloneive_lcell_comb \data_printing|Add0~20 (
+// Equation(s):
+// \data_printing|Add0~20_combout  = (\data_printing|count [10] & (\data_printing|Add0~19  $ (GND))) # (!\data_printing|count [10] & (!\data_printing|Add0~19  & VCC))
+// \data_printing|Add0~21  = CARRY((\data_printing|count [10] & !\data_printing|Add0~19 ))
+
+	.dataa(\data_printing|count [10]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~19 ),
+	.combout(\data_printing|Add0~20_combout ),
+	.cout(\data_printing|Add0~21 ));
+// synopsys translate_off
+defparam \data_printing|Add0~20 .lut_mask = 16'hA50A;
+defparam \data_printing|Add0~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N14
+cycloneive_lcell_comb \data_printing|count~4 (
+// Equation(s):
+// \data_printing|count~4_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~20_combout )
+
+	.dataa(\data_printing|Equal0~6_combout ),
+	.datab(gnd),
+	.datac(\data_printing|Add0~20_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\data_printing|count~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~4 .lut_mask = 16'h5050;
+defparam \data_printing|count~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N15
+dffeas \data_printing|count[10] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[10] .is_wysiwyg = "true";
+defparam \data_printing|count[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N0
+cycloneive_lcell_comb \data_printing|Add0~22 (
+// Equation(s):
+// \data_printing|Add0~22_combout  = (\data_printing|count [11] & (!\data_printing|Add0~21 )) # (!\data_printing|count [11] & ((\data_printing|Add0~21 ) # (GND)))
+// \data_printing|Add0~23  = CARRY((!\data_printing|Add0~21 ) # (!\data_printing|count [11]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [11]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~21 ),
+	.combout(\data_printing|Add0~22_combout ),
+	.cout(\data_printing|Add0~23 ));
+// synopsys translate_off
+defparam \data_printing|Add0~22 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N1
+dffeas \data_printing|count[11] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~22_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [11]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[11] .is_wysiwyg = "true";
+defparam \data_printing|count[11] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N2
+cycloneive_lcell_comb \data_printing|Add0~24 (
+// Equation(s):
+// \data_printing|Add0~24_combout  = (\data_printing|count [12] & (\data_printing|Add0~23  $ (GND))) # (!\data_printing|count [12] & (!\data_printing|Add0~23  & VCC))
+// \data_printing|Add0~25  = CARRY((\data_printing|count [12] & !\data_printing|Add0~23 ))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [12]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~23 ),
+	.combout(\data_printing|Add0~24_combout ),
+	.cout(\data_printing|Add0~25 ));
+// synopsys translate_off
+defparam \data_printing|Add0~24 .lut_mask = 16'hC30C;
+defparam \data_printing|Add0~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N3
+dffeas \data_printing|count[12] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~24_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [12]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[12] .is_wysiwyg = "true";
+defparam \data_printing|count[12] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N4
+cycloneive_lcell_comb \data_printing|Add0~26 (
+// Equation(s):
+// \data_printing|Add0~26_combout  = (\data_printing|count [13] & (!\data_printing|Add0~25 )) # (!\data_printing|count [13] & ((\data_printing|Add0~25 ) # (GND)))
+// \data_printing|Add0~27  = CARRY((!\data_printing|Add0~25 ) # (!\data_printing|count [13]))
+
+	.dataa(\data_printing|count [13]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~25 ),
+	.combout(\data_printing|Add0~26_combout ),
+	.cout(\data_printing|Add0~27 ));
+// synopsys translate_off
+defparam \data_printing|Add0~26 .lut_mask = 16'h5A5F;
+defparam \data_printing|Add0~26 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N4
+cycloneive_lcell_comb \data_printing|count~3 (
+// Equation(s):
+// \data_printing|count~3_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~26_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_printing|Equal0~6_combout ),
+	.datad(\data_printing|Add0~26_combout ),
+	.cin(gnd),
+	.combout(\data_printing|count~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~3 .lut_mask = 16'h0F00;
+defparam \data_printing|count~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N5
+dffeas \data_printing|count[13] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [13]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[13] .is_wysiwyg = "true";
+defparam \data_printing|count[13] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N6
+cycloneive_lcell_comb \data_printing|Equal0~2 (
+// Equation(s):
+// \data_printing|Equal0~2_combout  = (!\data_printing|count [11] & (\data_printing|count [10] & (\data_printing|count [13] & !\data_printing|count [12])))
+
+	.dataa(\data_printing|count [11]),
+	.datab(\data_printing|count [10]),
+	.datac(\data_printing|count [13]),
+	.datad(\data_printing|count [12]),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~2 .lut_mask = 16'h0040;
+defparam \data_printing|Equal0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N20
+cycloneive_lcell_comb \data_printing|Equal0~3 (
+// Equation(s):
+// \data_printing|Equal0~3_combout  = (\data_printing|count [7] & (\data_printing|count [8] & (!\data_printing|count [6] & !\data_printing|count [9])))
+
+	.dataa(\data_printing|count [7]),
+	.datab(\data_printing|count [8]),
+	.datac(\data_printing|count [6]),
+	.datad(\data_printing|count [9]),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~3 .lut_mask = 16'h0008;
+defparam \data_printing|Equal0~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N6
+cycloneive_lcell_comb \data_printing|Add0~28 (
+// Equation(s):
+// \data_printing|Add0~28_combout  = (\data_printing|count [14] & (\data_printing|Add0~27  $ (GND))) # (!\data_printing|count [14] & (!\data_printing|Add0~27  & VCC))
+// \data_printing|Add0~29  = CARRY((\data_printing|count [14] & !\data_printing|Add0~27 ))
+
+	.dataa(\data_printing|count [14]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~27 ),
+	.combout(\data_printing|Add0~28_combout ),
+	.cout(\data_printing|Add0~29 ));
+// synopsys translate_off
+defparam \data_printing|Add0~28 .lut_mask = 16'hA50A;
+defparam \data_printing|Add0~28 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N7
+dffeas \data_printing|count[14] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~28_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [14]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[14] .is_wysiwyg = "true";
+defparam \data_printing|count[14] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N8
+cycloneive_lcell_comb \data_printing|Add0~30 (
+// Equation(s):
+// \data_printing|Add0~30_combout  = (\data_printing|count [15] & (!\data_printing|Add0~29 )) # (!\data_printing|count [15] & ((\data_printing|Add0~29 ) # (GND)))
+// \data_printing|Add0~31  = CARRY((!\data_printing|Add0~29 ) # (!\data_printing|count [15]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [15]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~29 ),
+	.combout(\data_printing|Add0~30_combout ),
+	.cout(\data_printing|Add0~31 ));
+// synopsys translate_off
+defparam \data_printing|Add0~30 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~30 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N9
+dffeas \data_printing|count[15] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~30_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [15]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[15] .is_wysiwyg = "true";
+defparam \data_printing|count[15] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N10
+cycloneive_lcell_comb \data_printing|Add0~32 (
+// Equation(s):
+// \data_printing|Add0~32_combout  = (\data_printing|count [16] & (\data_printing|Add0~31  $ (GND))) # (!\data_printing|count [16] & (!\data_printing|Add0~31  & VCC))
+// \data_printing|Add0~33  = CARRY((\data_printing|count [16] & !\data_printing|Add0~31 ))
+
+	.dataa(\data_printing|count [16]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~31 ),
+	.combout(\data_printing|Add0~32_combout ),
+	.cout(\data_printing|Add0~33 ));
+// synopsys translate_off
+defparam \data_printing|Add0~32 .lut_mask = 16'hA50A;
+defparam \data_printing|Add0~32 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N11
+dffeas \data_printing|count[16] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~32_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [16]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[16] .is_wysiwyg = "true";
+defparam \data_printing|count[16] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N12
+cycloneive_lcell_comb \data_printing|Add0~34 (
+// Equation(s):
+// \data_printing|Add0~34_combout  = (\data_printing|count [17] & (!\data_printing|Add0~33 )) # (!\data_printing|count [17] & ((\data_printing|Add0~33 ) # (GND)))
+// \data_printing|Add0~35  = CARRY((!\data_printing|Add0~33 ) # (!\data_printing|count [17]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [17]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~33 ),
+	.combout(\data_printing|Add0~34_combout ),
+	.cout(\data_printing|Add0~35 ));
+// synopsys translate_off
+defparam \data_printing|Add0~34 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~34 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N24
+cycloneive_lcell_comb \data_printing|count~2 (
+// Equation(s):
+// \data_printing|count~2_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~34_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_printing|Equal0~6_combout ),
+	.datad(\data_printing|Add0~34_combout ),
+	.cin(gnd),
+	.combout(\data_printing|count~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~2 .lut_mask = 16'h0F00;
+defparam \data_printing|count~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N25
+dffeas \data_printing|count[17] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [17]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[17] .is_wysiwyg = "true";
+defparam \data_printing|count[17] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N14
+cycloneive_lcell_comb \data_printing|Add0~36 (
+// Equation(s):
+// \data_printing|Add0~36_combout  = (\data_printing|count [18] & (\data_printing|Add0~35  $ (GND))) # (!\data_printing|count [18] & (!\data_printing|Add0~35  & VCC))
+// \data_printing|Add0~37  = CARRY((\data_printing|count [18] & !\data_printing|Add0~35 ))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [18]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~35 ),
+	.combout(\data_printing|Add0~36_combout ),
+	.cout(\data_printing|Add0~37 ));
+// synopsys translate_off
+defparam \data_printing|Add0~36 .lut_mask = 16'hC30C;
+defparam \data_printing|Add0~36 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N28
+cycloneive_lcell_comb \data_printing|count~1 (
+// Equation(s):
+// \data_printing|count~1_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~36_combout )
+
+	.dataa(gnd),
+	.datab(\data_printing|Equal0~6_combout ),
+	.datac(\data_printing|Add0~36_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\data_printing|count~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~1 .lut_mask = 16'h3030;
+defparam \data_printing|count~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N29
+dffeas \data_printing|count[18] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [18]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[18] .is_wysiwyg = "true";
+defparam \data_printing|count[18] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N16
+cycloneive_lcell_comb \data_printing|Add0~38 (
+// Equation(s):
+// \data_printing|Add0~38_combout  = (\data_printing|count [19] & (!\data_printing|Add0~37 )) # (!\data_printing|count [19] & ((\data_printing|Add0~37 ) # (GND)))
+// \data_printing|Add0~39  = CARRY((!\data_printing|Add0~37 ) # (!\data_printing|count [19]))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [19]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~37 ),
+	.combout(\data_printing|Add0~38_combout ),
+	.cout(\data_printing|Add0~39 ));
+// synopsys translate_off
+defparam \data_printing|Add0~38 .lut_mask = 16'h3C3F;
+defparam \data_printing|Add0~38 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N17
+dffeas \data_printing|count[19] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~38_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [19]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[19] .is_wysiwyg = "true";
+defparam \data_printing|count[19] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N18
+cycloneive_lcell_comb \data_printing|Add0~40 (
+// Equation(s):
+// \data_printing|Add0~40_combout  = (\data_printing|count [20] & (\data_printing|Add0~39  $ (GND))) # (!\data_printing|count [20] & (!\data_printing|Add0~39  & VCC))
+// \data_printing|Add0~41  = CARRY((\data_printing|count [20] & !\data_printing|Add0~39 ))
+
+	.dataa(gnd),
+	.datab(\data_printing|count [20]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_printing|Add0~39 ),
+	.combout(\data_printing|Add0~40_combout ),
+	.cout(\data_printing|Add0~41 ));
+// synopsys translate_off
+defparam \data_printing|Add0~40 .lut_mask = 16'hC30C;
+defparam \data_printing|Add0~40 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N19
+dffeas \data_printing|count[20] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Add0~40_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [20]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[20] .is_wysiwyg = "true";
+defparam \data_printing|count[20] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N20
+cycloneive_lcell_comb \data_printing|Add0~42 (
+// Equation(s):
+// \data_printing|Add0~42_combout  = \data_printing|count [21] $ (\data_printing|Add0~41 )
+
+	.dataa(\data_printing|count [21]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\data_printing|Add0~41 ),
+	.combout(\data_printing|Add0~42_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Add0~42 .lut_mask = 16'h5A5A;
+defparam \data_printing|Add0~42 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N26
+cycloneive_lcell_comb \data_printing|count~0 (
+// Equation(s):
+// \data_printing|count~0_combout  = (!\data_printing|Equal0~6_combout  & \data_printing|Add0~42_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_printing|Equal0~6_combout ),
+	.datad(\data_printing|Add0~42_combout ),
+	.cin(gnd),
+	.combout(\data_printing|count~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|count~0 .lut_mask = 16'h0F00;
+defparam \data_printing|count~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y18_N27
+dffeas \data_printing|count[21] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|count~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|count [21]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|count[21] .is_wysiwyg = "true";
+defparam \data_printing|count[21] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N22
+cycloneive_lcell_comb \data_printing|Equal0~0 (
+// Equation(s):
+// \data_printing|Equal0~0_combout  = (\data_printing|count [21] & (\data_printing|count [18] & (!\data_printing|count [20] & !\data_printing|count [19])))
+
+	.dataa(\data_printing|count [21]),
+	.datab(\data_printing|count [18]),
+	.datac(\data_printing|count [20]),
+	.datad(\data_printing|count [19]),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~0 .lut_mask = 16'h0008;
+defparam \data_printing|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y18_N30
+cycloneive_lcell_comb \data_printing|Equal0~1 (
+// Equation(s):
+// \data_printing|Equal0~1_combout  = (!\data_printing|count [16] & (\data_printing|count [17] & (!\data_printing|count [15] & !\data_printing|count [14])))
+
+	.dataa(\data_printing|count [16]),
+	.datab(\data_printing|count [17]),
+	.datac(\data_printing|count [15]),
+	.datad(\data_printing|count [14]),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~1 .lut_mask = 16'h0004;
+defparam \data_printing|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N24
+cycloneive_lcell_comb \data_printing|Equal0~4 (
+// Equation(s):
+// \data_printing|Equal0~4_combout  = (\data_printing|Equal0~2_combout  & (\data_printing|Equal0~3_combout  & (\data_printing|Equal0~0_combout  & \data_printing|Equal0~1_combout )))
+
+	.dataa(\data_printing|Equal0~2_combout ),
+	.datab(\data_printing|Equal0~3_combout ),
+	.datac(\data_printing|Equal0~0_combout ),
+	.datad(\data_printing|Equal0~1_combout ),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~4 .lut_mask = 16'h8000;
+defparam \data_printing|Equal0~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N30
+cycloneive_lcell_comb \data_printing|Equal0~6 (
+// Equation(s):
+// \data_printing|Equal0~6_combout  = (\data_printing|Equal0~5_combout  & (!\data_printing|count [0] & (!\data_printing|count [1] & \data_printing|Equal0~4_combout )))
+
+	.dataa(\data_printing|Equal0~5_combout ),
+	.datab(\data_printing|count [0]),
+	.datac(\data_printing|count [1]),
+	.datad(\data_printing|Equal0~4_combout ),
+	.cin(gnd),
+	.combout(\data_printing|Equal0~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Equal0~6 .lut_mask = 16'h0200;
+defparam \data_printing|Equal0~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N3
+dffeas \data_printing|act_state.S8 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|act_state.S8~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S8~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S8 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S8 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N28
+cycloneive_lcell_comb \data_printing|Selector5~0 (
+// Equation(s):
+// \data_printing|Selector5~0_combout  = (\i_RST~input_o ) # ((!\data_printing|act_state.S6~q  & !\data_printing|act_state.IDLE~q ))
+
+	.dataa(\i_RST~input_o ),
+	.datab(gnd),
+	.datac(\data_printing|act_state.S6~q ),
+	.datad(\data_printing|act_state.IDLE~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector5~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector5~0 .lut_mask = 16'hAAAF;
+defparam \data_printing|Selector5~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N29
+dffeas \data_printing|act_state.S0 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Selector5~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S0~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S0 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S0 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N8
+cycloneive_lcell_comb \data_printing|act_state.S1~0 (
+// Equation(s):
+// \data_printing|act_state.S1~0_combout  = !\data_printing|act_state.S0~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_printing|act_state.S0~q ),
+	.cin(gnd),
+	.combout(\data_printing|act_state.S1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|act_state.S1~0 .lut_mask = 16'h00FF;
+defparam \data_printing|act_state.S1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N9
+dffeas \data_printing|act_state.S1 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|act_state.S1~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S1~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S1 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S1 .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N19
+dffeas \data_printing|act_state.S2 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_printing|act_state.S1~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S2~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S2 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S2 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N2
+cycloneive_lcell_comb \data_printing|act_state.S3~feeder (
+// Equation(s):
+// \data_printing|act_state.S3~feeder_combout  = \data_printing|act_state.S2~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_printing|act_state.S2~q ),
+	.cin(gnd),
+	.combout(\data_printing|act_state.S3~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|act_state.S3~feeder .lut_mask = 16'hFF00;
+defparam \data_printing|act_state.S3~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N3
+dffeas \data_printing|act_state.S3 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|act_state.S3~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S3~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S3 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S3 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N26
+cycloneive_lcell_comb \data_printing|act_state.S4~feeder (
+// Equation(s):
+// \data_printing|act_state.S4~feeder_combout  = \data_printing|act_state.S3~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_printing|act_state.S3~q ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\data_printing|act_state.S4~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|act_state.S4~feeder .lut_mask = 16'hF0F0;
+defparam \data_printing|act_state.S4~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N27
+dffeas \data_printing|act_state.S4 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|act_state.S4~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S4~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S4 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S4 .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N13
+dffeas \data_printing|act_state.S5 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_printing|act_state.S4~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S5~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S5 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S5 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N12
+cycloneive_lcell_comb \data_printing|Selector6~0 (
+// Equation(s):
+// \data_printing|Selector6~0_combout  = (\data_printing|act_state.S5~q ) # ((\i_RST~input_o  & (!\i_ST~input_o  & \data_printing|act_state.IDLE~q )))
+
+	.dataa(\i_RST~input_o ),
+	.datab(\i_ST~input_o ),
+	.datac(\data_printing|act_state.S5~q ),
+	.datad(\data_printing|act_state.IDLE~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector6~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector6~0 .lut_mask = 16'hF2F0;
+defparam \data_printing|Selector6~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y19_N4
+cycloneive_lcell_comb \data_printing|Selector6~1 (
+// Equation(s):
+// \data_printing|Selector6~1_combout  = (\data_printing|act_state.S8~q ) # (\data_printing|Selector6~0_combout )
+
+	.dataa(\data_printing|act_state.S8~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_printing|Selector6~0_combout ),
+	.cin(gnd),
+	.combout(\data_printing|Selector6~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector6~1 .lut_mask = 16'hFFAA;
+defparam \data_printing|Selector6~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y19_N5
+dffeas \data_printing|act_state.IDLE (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Selector6~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.IDLE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.IDLE .is_wysiwyg = "true";
+defparam \data_printing|act_state.IDLE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N22
+cycloneive_lcell_comb \data_printing|Selector7~0 (
+// Equation(s):
+// \data_printing|Selector7~0_combout  = (\i_RST~input_o  & (\i_ST~input_o  & ((\data_printing|act_state.S6~q ) # (\data_printing|act_state.IDLE~q ))))
+
+	.dataa(\i_RST~input_o ),
+	.datab(\i_ST~input_o ),
+	.datac(\data_printing|act_state.S6~q ),
+	.datad(\data_printing|act_state.IDLE~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector7~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector7~0 .lut_mask = 16'h8880;
+defparam \data_printing|Selector7~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N23
+dffeas \data_printing|act_state.S6 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|Selector7~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S6~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S6 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S6 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N0
+cycloneive_lcell_comb \data_printing|next_state.S7~0 (
+// Equation(s):
+// \data_printing|next_state.S7~0_combout  = (\i_RST~input_o  & (!\i_ST~input_o  & \data_printing|act_state.S6~q ))
+
+	.dataa(\i_RST~input_o ),
+	.datab(\i_ST~input_o ),
+	.datac(\data_printing|act_state.S6~q ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\data_printing|next_state.S7~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|next_state.S7~0 .lut_mask = 16'h2020;
+defparam \data_printing|next_state.S7~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y19_N1
+dffeas \data_printing|act_state.S7 (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_printing|next_state.S7~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\data_printing|Equal0~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_printing|act_state.S7~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_printing|act_state.S7 .is_wysiwyg = "true";
+defparam \data_printing|act_state.S7 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y19_N18
+cycloneive_lcell_comb \data_printing|WideOr4~0 (
+// Equation(s):
+// \data_printing|WideOr4~0_combout  = (\data_printing|act_state.S4~q ) # (((\data_printing|act_state.S2~q ) # (\data_printing|act_state.S7~q )) # (!\data_printing|act_state.S0~q ))
+
+	.dataa(\data_printing|act_state.S4~q ),
+	.datab(\data_printing|act_state.S0~q ),
+	.datac(\data_printing|act_state.S2~q ),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|WideOr4~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|WideOr4~0 .lut_mask = 16'hFFFB;
+defparam \data_printing|WideOr4~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X28_Y24_N22
+cycloneive_io_ibuf \i_RX~input (
+	.i(i_RX),
+	.ibar(gnd),
+	.o(\i_RX~input_o ));
+// synopsys translate_off
+defparam \i_RX~input .bus_hold = "false";
+defparam \i_RX~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X18_Y22_N23
+dffeas \data_receive|rx_data (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\i_RX~input_o ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|rx_data~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|rx_data .is_wysiwyg = "true";
+defparam \data_receive|rx_data .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N2
+cycloneive_lcell_comb \data_receive|cnt[0]~13 (
+// Equation(s):
+// \data_receive|cnt[0]~13_combout  = \data_receive|cnt [0] $ (VCC)
+// \data_receive|cnt[0]~14  = CARRY(\data_receive|cnt [0])
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\data_receive|cnt[0]~13_combout ),
+	.cout(\data_receive|cnt[0]~14 ));
+// synopsys translate_off
+defparam \data_receive|cnt[0]~13 .lut_mask = 16'h33CC;
+defparam \data_receive|cnt[0]~13 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N6
+cycloneive_lcell_comb \data_receive|cnt[10]~15 (
+// Equation(s):
+// \data_receive|cnt[10]~15_combout  = (!\data_receive|busy~q ) # (!\data_receive|Equal0~3_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_receive|Equal0~3_combout ),
+	.datad(\data_receive|busy~q ),
+	.cin(gnd),
+	.combout(\data_receive|cnt[10]~15_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|cnt[10]~15 .lut_mask = 16'h0FFF;
+defparam \data_receive|cnt[10]~15 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N3
+dffeas \data_receive|cnt[0] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[0]~13_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[0] .is_wysiwyg = "true";
+defparam \data_receive|cnt[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N4
+cycloneive_lcell_comb \data_receive|cnt[1]~16 (
+// Equation(s):
+// \data_receive|cnt[1]~16_combout  = (\data_receive|cnt [1] & (\data_receive|cnt[0]~14  & VCC)) # (!\data_receive|cnt [1] & (!\data_receive|cnt[0]~14 ))
+// \data_receive|cnt[1]~17  = CARRY((!\data_receive|cnt [1] & !\data_receive|cnt[0]~14 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[0]~14 ),
+	.combout(\data_receive|cnt[1]~16_combout ),
+	.cout(\data_receive|cnt[1]~17 ));
+// synopsys translate_off
+defparam \data_receive|cnt[1]~16 .lut_mask = 16'hC303;
+defparam \data_receive|cnt[1]~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N5
+dffeas \data_receive|cnt[1] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[1]~16_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[1] .is_wysiwyg = "true";
+defparam \data_receive|cnt[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N6
+cycloneive_lcell_comb \data_receive|cnt[2]~18 (
+// Equation(s):
+// \data_receive|cnt[2]~18_combout  = (\data_receive|cnt [2] & ((GND) # (!\data_receive|cnt[1]~17 ))) # (!\data_receive|cnt [2] & (\data_receive|cnt[1]~17  $ (GND)))
+// \data_receive|cnt[2]~19  = CARRY((\data_receive|cnt [2]) # (!\data_receive|cnt[1]~17 ))
+
+	.dataa(\data_receive|cnt [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[1]~17 ),
+	.combout(\data_receive|cnt[2]~18_combout ),
+	.cout(\data_receive|cnt[2]~19 ));
+// synopsys translate_off
+defparam \data_receive|cnt[2]~18 .lut_mask = 16'h5AAF;
+defparam \data_receive|cnt[2]~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N7
+dffeas \data_receive|cnt[2] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[2]~18_combout ),
+	.asdata(\data_receive|busy~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[2] .is_wysiwyg = "true";
+defparam \data_receive|cnt[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N8
+cycloneive_lcell_comb \data_receive|cnt[3]~20 (
+// Equation(s):
+// \data_receive|cnt[3]~20_combout  = (\data_receive|cnt [3] & (\data_receive|cnt[2]~19  & VCC)) # (!\data_receive|cnt [3] & (!\data_receive|cnt[2]~19 ))
+// \data_receive|cnt[3]~21  = CARRY((!\data_receive|cnt [3] & !\data_receive|cnt[2]~19 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[2]~19 ),
+	.combout(\data_receive|cnt[3]~20_combout ),
+	.cout(\data_receive|cnt[3]~21 ));
+// synopsys translate_off
+defparam \data_receive|cnt[3]~20 .lut_mask = 16'hC303;
+defparam \data_receive|cnt[3]~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N26
+cycloneive_lcell_comb \data_receive|busy~_wirecell (
+// Equation(s):
+// \data_receive|busy~_wirecell_combout  = !\data_receive|busy~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_receive|busy~q ),
+	.cin(gnd),
+	.combout(\data_receive|busy~_wirecell_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|busy~_wirecell .lut_mask = 16'h00FF;
+defparam \data_receive|busy~_wirecell .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N9
+dffeas \data_receive|cnt[3] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[3]~20_combout ),
+	.asdata(\data_receive|busy~_wirecell_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[3] .is_wysiwyg = "true";
+defparam \data_receive|cnt[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N10
+cycloneive_lcell_comb \data_receive|cnt[4]~22 (
+// Equation(s):
+// \data_receive|cnt[4]~22_combout  = (\data_receive|cnt [4] & ((GND) # (!\data_receive|cnt[3]~21 ))) # (!\data_receive|cnt [4] & (\data_receive|cnt[3]~21  $ (GND)))
+// \data_receive|cnt[4]~23  = CARRY((\data_receive|cnt [4]) # (!\data_receive|cnt[3]~21 ))
+
+	.dataa(\data_receive|cnt [4]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[3]~21 ),
+	.combout(\data_receive|cnt[4]~22_combout ),
+	.cout(\data_receive|cnt[4]~23 ));
+// synopsys translate_off
+defparam \data_receive|cnt[4]~22 .lut_mask = 16'h5AAF;
+defparam \data_receive|cnt[4]~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N11
+dffeas \data_receive|cnt[4] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[4]~22_combout ),
+	.asdata(\data_receive|busy~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[4] .is_wysiwyg = "true";
+defparam \data_receive|cnt[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N12
+cycloneive_lcell_comb \data_receive|cnt[5]~24 (
+// Equation(s):
+// \data_receive|cnt[5]~24_combout  = (\data_receive|cnt [5] & (\data_receive|cnt[4]~23  & VCC)) # (!\data_receive|cnt [5] & (!\data_receive|cnt[4]~23 ))
+// \data_receive|cnt[5]~25  = CARRY((!\data_receive|cnt [5] & !\data_receive|cnt[4]~23 ))
+
+	.dataa(\data_receive|cnt [5]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[4]~23 ),
+	.combout(\data_receive|cnt[5]~24_combout ),
+	.cout(\data_receive|cnt[5]~25 ));
+// synopsys translate_off
+defparam \data_receive|cnt[5]~24 .lut_mask = 16'hA505;
+defparam \data_receive|cnt[5]~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N13
+dffeas \data_receive|cnt[5] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[5]~24_combout ),
+	.asdata(\data_receive|busy~_wirecell_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[5] .is_wysiwyg = "true";
+defparam \data_receive|cnt[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N14
+cycloneive_lcell_comb \data_receive|cnt[6]~26 (
+// Equation(s):
+// \data_receive|cnt[6]~26_combout  = (\data_receive|cnt [6] & ((GND) # (!\data_receive|cnt[5]~25 ))) # (!\data_receive|cnt [6] & (\data_receive|cnt[5]~25  $ (GND)))
+// \data_receive|cnt[6]~27  = CARRY((\data_receive|cnt [6]) # (!\data_receive|cnt[5]~25 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[5]~25 ),
+	.combout(\data_receive|cnt[6]~26_combout ),
+	.cout(\data_receive|cnt[6]~27 ));
+// synopsys translate_off
+defparam \data_receive|cnt[6]~26 .lut_mask = 16'h3CCF;
+defparam \data_receive|cnt[6]~26 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N15
+dffeas \data_receive|cnt[6] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[6]~26_combout ),
+	.asdata(\data_receive|busy~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[6] .is_wysiwyg = "true";
+defparam \data_receive|cnt[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N16
+cycloneive_lcell_comb \data_receive|cnt[7]~28 (
+// Equation(s):
+// \data_receive|cnt[7]~28_combout  = (\data_receive|cnt [7] & (\data_receive|cnt[6]~27  & VCC)) # (!\data_receive|cnt [7] & (!\data_receive|cnt[6]~27 ))
+// \data_receive|cnt[7]~29  = CARRY((!\data_receive|cnt [7] & !\data_receive|cnt[6]~27 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[6]~27 ),
+	.combout(\data_receive|cnt[7]~28_combout ),
+	.cout(\data_receive|cnt[7]~29 ));
+// synopsys translate_off
+defparam \data_receive|cnt[7]~28 .lut_mask = 16'hC303;
+defparam \data_receive|cnt[7]~28 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N24
+cycloneive_lcell_comb \~GND (
+// Equation(s):
+// \~GND~combout  = GND
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\~GND~combout ),
+	.cout());
+// synopsys translate_off
+defparam \~GND .lut_mask = 16'h0000;
+defparam \~GND .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N17
+dffeas \data_receive|cnt[7] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[7]~28_combout ),
+	.asdata(\~GND~combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[7] .is_wysiwyg = "true";
+defparam \data_receive|cnt[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N18
+cycloneive_lcell_comb \data_receive|cnt[8]~30 (
+// Equation(s):
+// \data_receive|cnt[8]~30_combout  = (\data_receive|cnt [8] & ((GND) # (!\data_receive|cnt[7]~29 ))) # (!\data_receive|cnt [8] & (\data_receive|cnt[7]~29  $ (GND)))
+// \data_receive|cnt[8]~31  = CARRY((\data_receive|cnt [8]) # (!\data_receive|cnt[7]~29 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[7]~29 ),
+	.combout(\data_receive|cnt[8]~30_combout ),
+	.cout(\data_receive|cnt[8]~31 ));
+// synopsys translate_off
+defparam \data_receive|cnt[8]~30 .lut_mask = 16'h3CCF;
+defparam \data_receive|cnt[8]~30 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N4
+cycloneive_lcell_comb \data_receive|cnt[8]~feeder (
+// Equation(s):
+// \data_receive|cnt[8]~feeder_combout  = \data_receive|cnt[8]~30_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_receive|cnt[8]~30_combout ),
+	.cin(gnd),
+	.combout(\data_receive|cnt[8]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|cnt[8]~feeder .lut_mask = 16'hFF00;
+defparam \data_receive|cnt[8]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y22_N5
+dffeas \data_receive|cnt[8] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[8]~feeder_combout ),
+	.asdata(\~GND~combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[8] .is_wysiwyg = "true";
+defparam \data_receive|cnt[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N20
+cycloneive_lcell_comb \data_receive|cnt[9]~32 (
+// Equation(s):
+// \data_receive|cnt[9]~32_combout  = (\data_receive|cnt [9] & (\data_receive|cnt[8]~31  & VCC)) # (!\data_receive|cnt [9] & (!\data_receive|cnt[8]~31 ))
+// \data_receive|cnt[9]~33  = CARRY((!\data_receive|cnt [9] & !\data_receive|cnt[8]~31 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [9]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[8]~31 ),
+	.combout(\data_receive|cnt[9]~32_combout ),
+	.cout(\data_receive|cnt[9]~33 ));
+// synopsys translate_off
+defparam \data_receive|cnt[9]~32 .lut_mask = 16'hC303;
+defparam \data_receive|cnt[9]~32 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N22
+cycloneive_lcell_comb \data_receive|cnt[9]~feeder (
+// Equation(s):
+// \data_receive|cnt[9]~feeder_combout  = \data_receive|cnt[9]~32_combout 
+
+	.dataa(\data_receive|cnt[9]~32_combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\data_receive|cnt[9]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|cnt[9]~feeder .lut_mask = 16'hAAAA;
+defparam \data_receive|cnt[9]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y22_N23
+dffeas \data_receive|cnt[9] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[9]~feeder_combout ),
+	.asdata(\data_receive|busy~_wirecell_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[9] .is_wysiwyg = "true";
+defparam \data_receive|cnt[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N22
+cycloneive_lcell_comb \data_receive|cnt[10]~34 (
+// Equation(s):
+// \data_receive|cnt[10]~34_combout  = (\data_receive|cnt [10] & ((GND) # (!\data_receive|cnt[9]~33 ))) # (!\data_receive|cnt [10] & (\data_receive|cnt[9]~33  $ (GND)))
+// \data_receive|cnt[10]~35  = CARRY((\data_receive|cnt [10]) # (!\data_receive|cnt[9]~33 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [10]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[9]~33 ),
+	.combout(\data_receive|cnt[10]~34_combout ),
+	.cout(\data_receive|cnt[10]~35 ));
+// synopsys translate_off
+defparam \data_receive|cnt[10]~34 .lut_mask = 16'h3CCF;
+defparam \data_receive|cnt[10]~34 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N28
+cycloneive_lcell_comb \data_receive|cnt[10]~feeder (
+// Equation(s):
+// \data_receive|cnt[10]~feeder_combout  = \data_receive|cnt[10]~34_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_receive|cnt[10]~34_combout ),
+	.cin(gnd),
+	.combout(\data_receive|cnt[10]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|cnt[10]~feeder .lut_mask = 16'hFF00;
+defparam \data_receive|cnt[10]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y22_N29
+dffeas \data_receive|cnt[10] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[10]~feeder_combout ),
+	.asdata(\data_receive|busy~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[10] .is_wysiwyg = "true";
+defparam \data_receive|cnt[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N24
+cycloneive_lcell_comb \data_receive|cnt[11]~36 (
+// Equation(s):
+// \data_receive|cnt[11]~36_combout  = (\data_receive|cnt [11] & (\data_receive|cnt[10]~35  & VCC)) # (!\data_receive|cnt [11] & (!\data_receive|cnt[10]~35 ))
+// \data_receive|cnt[11]~37  = CARRY((!\data_receive|cnt [11] & !\data_receive|cnt[10]~35 ))
+
+	.dataa(gnd),
+	.datab(\data_receive|cnt [11]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\data_receive|cnt[10]~35 ),
+	.combout(\data_receive|cnt[11]~36_combout ),
+	.cout(\data_receive|cnt[11]~37 ));
+// synopsys translate_off
+defparam \data_receive|cnt[11]~36 .lut_mask = 16'hC303;
+defparam \data_receive|cnt[11]~36 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N18
+cycloneive_lcell_comb \data_receive|cnt[11]~feeder (
+// Equation(s):
+// \data_receive|cnt[11]~feeder_combout  = \data_receive|cnt[11]~36_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_receive|cnt[11]~36_combout ),
+	.cin(gnd),
+	.combout(\data_receive|cnt[11]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|cnt[11]~feeder .lut_mask = 16'hFF00;
+defparam \data_receive|cnt[11]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y22_N19
+dffeas \data_receive|cnt[11] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[11]~feeder_combout ),
+	.asdata(\data_receive|busy~_wirecell_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [11]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[11] .is_wysiwyg = "true";
+defparam \data_receive|cnt[11] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N26
+cycloneive_lcell_comb \data_receive|cnt[12]~38 (
+// Equation(s):
+// \data_receive|cnt[12]~38_combout  = \data_receive|cnt [12] $ (\data_receive|cnt[11]~37 )
+
+	.dataa(\data_receive|cnt [12]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\data_receive|cnt[11]~37 ),
+	.combout(\data_receive|cnt[12]~38_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|cnt[12]~38 .lut_mask = 16'h5A5A;
+defparam \data_receive|cnt[12]~38 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X17_Y22_N27
+dffeas \data_receive|cnt[12] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|cnt[12]~38_combout ),
+	.asdata(\data_receive|busy~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\data_receive|cnt[10]~15_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|cnt [12]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|cnt[12] .is_wysiwyg = "true";
+defparam \data_receive|cnt[12] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N28
+cycloneive_lcell_comb \data_receive|Equal0~0 (
+// Equation(s):
+// \data_receive|Equal0~0_combout  = (\data_receive|cnt [2]) # ((\data_receive|cnt [1]) # ((\data_receive|cnt [3]) # (\data_receive|cnt [0])))
+
+	.dataa(\data_receive|cnt [2]),
+	.datab(\data_receive|cnt [1]),
+	.datac(\data_receive|cnt [3]),
+	.datad(\data_receive|cnt [0]),
+	.cin(gnd),
+	.combout(\data_receive|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Equal0~0 .lut_mask = 16'hFFFE;
+defparam \data_receive|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y22_N16
+cycloneive_lcell_comb \data_receive|Equal0~2 (
+// Equation(s):
+// \data_receive|Equal0~2_combout  = (\data_receive|cnt [9]) # ((\data_receive|cnt [10]) # ((\data_receive|cnt [8]) # (\data_receive|cnt [11])))
+
+	.dataa(\data_receive|cnt [9]),
+	.datab(\data_receive|cnt [10]),
+	.datac(\data_receive|cnt [8]),
+	.datad(\data_receive|cnt [11]),
+	.cin(gnd),
+	.combout(\data_receive|Equal0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Equal0~2 .lut_mask = 16'hFFFE;
+defparam \data_receive|Equal0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N0
+cycloneive_lcell_comb \data_receive|Equal0~1 (
+// Equation(s):
+// \data_receive|Equal0~1_combout  = (\data_receive|cnt [5]) # ((\data_receive|cnt [7]) # ((\data_receive|cnt [6]) # (\data_receive|cnt [4])))
+
+	.dataa(\data_receive|cnt [5]),
+	.datab(\data_receive|cnt [7]),
+	.datac(\data_receive|cnt [6]),
+	.datad(\data_receive|cnt [4]),
+	.cin(gnd),
+	.combout(\data_receive|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Equal0~1 .lut_mask = 16'hFFFE;
+defparam \data_receive|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y22_N30
+cycloneive_lcell_comb \data_receive|Equal0~3 (
+// Equation(s):
+// \data_receive|Equal0~3_combout  = (\data_receive|cnt [12]) # ((\data_receive|Equal0~0_combout ) # ((\data_receive|Equal0~2_combout ) # (\data_receive|Equal0~1_combout )))
+
+	.dataa(\data_receive|cnt [12]),
+	.datab(\data_receive|Equal0~0_combout ),
+	.datac(\data_receive|Equal0~2_combout ),
+	.datad(\data_receive|Equal0~1_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Equal0~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Equal0~3 .lut_mask = 16'hFFFE;
+defparam \data_receive|Equal0~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N26
+cycloneive_lcell_comb \data_receive|num_bits~0 (
+// Equation(s):
+// \data_receive|num_bits~0_combout  = (\data_receive|busy~q  & (((\data_receive|Equal2~0_combout  & !\data_receive|Equal0~3_combout )))) # (!\data_receive|busy~q  & (!\data_receive|rx_data~q ))
+
+	.dataa(\data_receive|rx_data~q ),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|Equal2~0_combout ),
+	.datad(\data_receive|Equal0~3_combout ),
+	.cin(gnd),
+	.combout(\data_receive|num_bits~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|num_bits~0 .lut_mask = 16'h11D1;
+defparam \data_receive|num_bits~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N0
+cycloneive_lcell_comb \data_receive|num_bits[1]~1 (
+// Equation(s):
+// \data_receive|num_bits[1]~1_combout  = (\data_receive|num_bits~0_combout  & (\data_receive|busy~q  & (\data_receive|num_bits [0] $ (\data_receive|num_bits [1])))) # (!\data_receive|num_bits~0_combout  & (((\data_receive|num_bits [1]))))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|num_bits~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|num_bits[1]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|num_bits[1]~1 .lut_mask = 16'h48F0;
+defparam \data_receive|num_bits[1]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y22_N1
+dffeas \data_receive|num_bits[1] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|num_bits[1]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|num_bits [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|num_bits[1] .is_wysiwyg = "true";
+defparam \data_receive|num_bits[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N20
+cycloneive_lcell_comb \data_receive|Add1~0 (
+// Equation(s):
+// \data_receive|Add1~0_combout  = \data_receive|num_bits [2] $ (((\data_receive|num_bits [0] & \data_receive|num_bits [1])))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(gnd),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|num_bits [2]),
+	.cin(gnd),
+	.combout(\data_receive|Add1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Add1~0 .lut_mask = 16'h5FA0;
+defparam \data_receive|Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N30
+cycloneive_lcell_comb \data_receive|num_bits[2]~2 (
+// Equation(s):
+// \data_receive|num_bits[2]~2_combout  = (\data_receive|num_bits~0_combout  & (\data_receive|Add1~0_combout  & (\data_receive|busy~q ))) # (!\data_receive|num_bits~0_combout  & (((\data_receive|num_bits [2]))))
+
+	.dataa(\data_receive|Add1~0_combout ),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|num_bits [2]),
+	.datad(\data_receive|num_bits~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|num_bits[2]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|num_bits[2]~2 .lut_mask = 16'h88F0;
+defparam \data_receive|num_bits[2]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y22_N31
+dffeas \data_receive|num_bits[2] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|num_bits[2]~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|num_bits [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|num_bits[2] .is_wysiwyg = "true";
+defparam \data_receive|num_bits[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N18
+cycloneive_lcell_comb \data_receive|Add1~1 (
+// Equation(s):
+// \data_receive|Add1~1_combout  = \data_receive|num_bits [3] $ (((\data_receive|num_bits [2] & (\data_receive|num_bits [1] & \data_receive|num_bits [0]))))
+
+	.dataa(\data_receive|num_bits [2]),
+	.datab(\data_receive|num_bits [1]),
+	.datac(\data_receive|num_bits [0]),
+	.datad(\data_receive|num_bits [3]),
+	.cin(gnd),
+	.combout(\data_receive|Add1~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Add1~1 .lut_mask = 16'h7F80;
+defparam \data_receive|Add1~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N6
+cycloneive_lcell_comb \data_receive|num_bits[3]~4 (
+// Equation(s):
+// \data_receive|num_bits[3]~4_combout  = (\data_receive|num_bits~0_combout  & (\data_receive|Add1~1_combout  & (\data_receive|busy~q ))) # (!\data_receive|num_bits~0_combout  & (((\data_receive|num_bits [3]))))
+
+	.dataa(\data_receive|Add1~1_combout ),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|num_bits [3]),
+	.datad(\data_receive|num_bits~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|num_bits[3]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|num_bits[3]~4 .lut_mask = 16'h88F0;
+defparam \data_receive|num_bits[3]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y22_N7
+dffeas \data_receive|num_bits[3] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|num_bits[3]~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|num_bits [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|num_bits[3] .is_wysiwyg = "true";
+defparam \data_receive|num_bits[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N16
+cycloneive_lcell_comb \data_receive|Equal2~0 (
+// Equation(s):
+// \data_receive|Equal2~0_combout  = (((\data_receive|num_bits [2]) # (\data_receive|num_bits [1])) # (!\data_receive|num_bits [0])) # (!\data_receive|num_bits [3])
+
+	.dataa(\data_receive|num_bits [3]),
+	.datab(\data_receive|num_bits [0]),
+	.datac(\data_receive|num_bits [2]),
+	.datad(\data_receive|num_bits [1]),
+	.cin(gnd),
+	.combout(\data_receive|Equal2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Equal2~0 .lut_mask = 16'hFFF7;
+defparam \data_receive|Equal2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N24
+cycloneive_lcell_comb \data_receive|Equal1~0 (
+// Equation(s):
+// \data_receive|Equal1~0_combout  = (!\data_receive|num_bits [3] & (!\data_receive|num_bits [0] & (!\data_receive|num_bits [2] & !\data_receive|num_bits [1])))
+
+	.dataa(\data_receive|num_bits [3]),
+	.datab(\data_receive|num_bits [0]),
+	.datac(\data_receive|num_bits [2]),
+	.datad(\data_receive|num_bits [1]),
+	.cin(gnd),
+	.combout(\data_receive|Equal1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Equal1~0 .lut_mask = 16'h0001;
+defparam \data_receive|Equal1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N18
+cycloneive_lcell_comb \data_receive|busy~0 (
+// Equation(s):
+// \data_receive|busy~0_combout  = (\data_receive|Equal0~3_combout ) # ((\data_receive|Equal1~0_combout  & ((!\data_receive|rx_data~q ))) # (!\data_receive|Equal1~0_combout  & (\data_receive|Equal2~0_combout )))
+
+	.dataa(\data_receive|Equal2~0_combout ),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|Equal0~3_combout ),
+	.datad(\data_receive|Equal1~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|busy~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|busy~0 .lut_mask = 16'hF3FA;
+defparam \data_receive|busy~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N0
+cycloneive_lcell_comb \data_receive|busy~feeder (
+// Equation(s):
+// \data_receive|busy~feeder_combout  = \data_receive|busy~0_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_receive|busy~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|busy~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|busy~feeder .lut_mask = 16'hFF00;
+defparam \data_receive|busy~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N8
+cycloneive_lcell_comb \data_receive|rx_data~_wirecell (
+// Equation(s):
+// \data_receive|rx_data~_wirecell_combout  = !\data_receive|rx_data~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\data_receive|rx_data~q ),
+	.cin(gnd),
+	.combout(\data_receive|rx_data~_wirecell_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|rx_data~_wirecell .lut_mask = 16'h00FF;
+defparam \data_receive|rx_data~_wirecell .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N1
+dffeas \data_receive|busy (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|busy~feeder_combout ),
+	.asdata(\data_receive|rx_data~_wirecell_combout ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(!\data_receive|busy~q ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|busy~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|busy .is_wysiwyg = "true";
+defparam \data_receive|busy .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y22_N28
+cycloneive_lcell_comb \data_receive|num_bits[0]~3 (
+// Equation(s):
+// \data_receive|num_bits[0]~3_combout  = (\data_receive|num_bits [0] & ((!\data_receive|num_bits~0_combout ))) # (!\data_receive|num_bits [0] & (\data_receive|busy~q  & \data_receive|num_bits~0_combout ))
+
+	.dataa(gnd),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|num_bits [0]),
+	.datad(\data_receive|num_bits~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|num_bits[0]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|num_bits[0]~3 .lut_mask = 16'h0CF0;
+defparam \data_receive|num_bits[0]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y22_N29
+dffeas \data_receive|num_bits[0] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|num_bits[0]~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|num_bits [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|num_bits[0] .is_wysiwyg = "true";
+defparam \data_receive|num_bits[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N10
+cycloneive_lcell_comb \data_receive|Decoder0~0 (
+// Equation(s):
+// \data_receive|Decoder0~0_combout  = (\data_receive|Equal2~0_combout  & (\data_receive|busy~q  & (!\data_receive|Equal0~3_combout  & !\data_receive|Equal1~0_combout )))
+
+	.dataa(\data_receive|Equal2~0_combout ),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|Equal0~3_combout ),
+	.datad(\data_receive|Equal1~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~0 .lut_mask = 16'h0008;
+defparam \data_receive|Decoder0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N16
+cycloneive_lcell_comb \data_receive|Decoder0~1 (
+// Equation(s):
+// \data_receive|Decoder0~1_combout  = (\data_receive|num_bits [0] & (!\data_receive|num_bits [1] & (!\data_receive|num_bits [2] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [1]),
+	.datac(\data_receive|num_bits [2]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~1 .lut_mask = 16'h0200;
+defparam \data_receive|Decoder0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N0
+cycloneive_lcell_comb \data_receive|data_out_buf[0]~0 (
+// Equation(s):
+// \data_receive|data_out_buf[0]~0_combout  = (\data_receive|Decoder0~1_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~1_combout  & ((\data_receive|data_out_buf [0])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [0]),
+	.datad(\data_receive|Decoder0~1_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[0]~0 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N1
+dffeas \data_receive|data_out_buf[0] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[0] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N8
+cycloneive_lcell_comb \data_receive|o_DATA[0]~0 (
+// Equation(s):
+// \data_receive|o_DATA[0]~0_combout  = (\data_receive|busy~q  & (!\data_receive|Equal0~3_combout  & !\data_receive|Equal2~0_combout ))
+
+	.dataa(gnd),
+	.datab(\data_receive|busy~q ),
+	.datac(\data_receive|Equal0~3_combout ),
+	.datad(\data_receive|Equal2~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|o_DATA[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|o_DATA[0]~0 .lut_mask = 16'h000C;
+defparam \data_receive|o_DATA[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N1
+dffeas \data_receive|o_DATA[0] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [0]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[0] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N0
+cycloneive_lcell_comb \data_printing|Selector4~0 (
+// Equation(s):
+// \data_printing|Selector4~0_combout  = (\data_printing|act_state.S4~q ) # ((\data_printing|act_state.S2~q ) # ((\data_receive|o_DATA [0] & \data_printing|act_state.S7~q )))
+
+	.dataa(\data_printing|act_state.S4~q ),
+	.datab(\data_printing|act_state.S2~q ),
+	.datac(\data_receive|o_DATA [0]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector4~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector4~0 .lut_mask = 16'hFEEE;
+defparam \data_printing|Selector4~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N2
+cycloneive_lcell_comb \data_receive|Decoder0~2 (
+// Equation(s):
+// \data_receive|Decoder0~2_combout  = (!\data_receive|num_bits [0] & (!\data_receive|num_bits [2] & (\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~2 .lut_mask = 16'h1000;
+defparam \data_receive|Decoder0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N26
+cycloneive_lcell_comb \data_receive|data_out_buf[1]~1 (
+// Equation(s):
+// \data_receive|data_out_buf[1]~1_combout  = (\data_receive|Decoder0~2_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~2_combout  & ((\data_receive|data_out_buf [1])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [1]),
+	.datad(\data_receive|Decoder0~2_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[1]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[1]~1 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[1]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N27
+dffeas \data_receive|data_out_buf[1] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[1]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[1] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N31
+dffeas \data_receive|o_DATA[1] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [1]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[1] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N30
+cycloneive_lcell_comb \data_printing|o_LCD_DATA[1]~0 (
+// Equation(s):
+// \data_printing|o_LCD_DATA[1]~0_combout  = (\data_receive|o_DATA [1] & \data_printing|act_state.S7~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_receive|o_DATA [1]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|o_LCD_DATA[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|o_LCD_DATA[1]~0 .lut_mask = 16'hF000;
+defparam \data_printing|o_LCD_DATA[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N4
+cycloneive_lcell_comb \data_receive|Decoder0~3 (
+// Equation(s):
+// \data_receive|Decoder0~3_combout  = (\data_receive|num_bits [0] & (!\data_receive|num_bits [2] & (\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~3 .lut_mask = 16'h2000;
+defparam \data_receive|Decoder0~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N26
+cycloneive_lcell_comb \data_receive|data_out_buf[2]~2 (
+// Equation(s):
+// \data_receive|data_out_buf[2]~2_combout  = (\data_receive|Decoder0~3_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~3_combout  & ((\data_receive|data_out_buf [2])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [2]),
+	.datad(\data_receive|Decoder0~3_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[2]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[2]~2 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[2]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N27
+dffeas \data_receive|data_out_buf[2] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[2]~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[2] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N29
+dffeas \data_receive|o_DATA[2] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [2]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[2] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N28
+cycloneive_lcell_comb \data_printing|Selector3~0 (
+// Equation(s):
+// \data_printing|Selector3~0_combout  = (\data_printing|act_state.S4~q ) # ((\data_receive|o_DATA [2] & \data_printing|act_state.S7~q ))
+
+	.dataa(\data_printing|act_state.S4~q ),
+	.datab(gnd),
+	.datac(\data_receive|o_DATA [2]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector3~0 .lut_mask = 16'hFAAA;
+defparam \data_printing|Selector3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N22
+cycloneive_lcell_comb \data_receive|Decoder0~4 (
+// Equation(s):
+// \data_receive|Decoder0~4_combout  = (!\data_receive|num_bits [0] & (\data_receive|num_bits [2] & (!\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~4 .lut_mask = 16'h0400;
+defparam \data_receive|Decoder0~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N20
+cycloneive_lcell_comb \data_receive|data_out_buf[3]~3 (
+// Equation(s):
+// \data_receive|data_out_buf[3]~3_combout  = (\data_receive|Decoder0~4_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~4_combout  & ((\data_receive|data_out_buf [3])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [3]),
+	.datad(\data_receive|Decoder0~4_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[3]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[3]~3 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[3]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N21
+dffeas \data_receive|data_out_buf[3] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[3]~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[3] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N7
+dffeas \data_receive|o_DATA[3] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [3]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[3] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N6
+cycloneive_lcell_comb \data_printing|Selector2~0 (
+// Equation(s):
+// \data_printing|Selector2~0_combout  = (\data_printing|act_state.S4~q ) # (((\data_printing|act_state.S7~q  & \data_receive|o_DATA [3])) # (!\data_printing|act_state.S0~q ))
+
+	.dataa(\data_printing|act_state.S4~q ),
+	.datab(\data_printing|act_state.S7~q ),
+	.datac(\data_receive|o_DATA [3]),
+	.datad(\data_printing|act_state.S0~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector2~0 .lut_mask = 16'hEAFF;
+defparam \data_printing|Selector2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N24
+cycloneive_lcell_comb \data_receive|Decoder0~5 (
+// Equation(s):
+// \data_receive|Decoder0~5_combout  = (\data_receive|num_bits [0] & (\data_receive|num_bits [2] & (!\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~5 .lut_mask = 16'h0800;
+defparam \data_receive|Decoder0~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N14
+cycloneive_lcell_comb \data_receive|data_out_buf[4]~4 (
+// Equation(s):
+// \data_receive|data_out_buf[4]~4_combout  = (\data_receive|Decoder0~5_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~5_combout  & ((\data_receive|data_out_buf [4])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [4]),
+	.datad(\data_receive|Decoder0~5_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[4]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[4]~4 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[4]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N15
+dffeas \data_receive|data_out_buf[4] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[4]~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[4] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N25
+dffeas \data_receive|o_DATA[4] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [4]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[4] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N24
+cycloneive_lcell_comb \data_printing|Selector1~0 (
+// Equation(s):
+// \data_printing|Selector1~0_combout  = ((\data_receive|o_DATA [4] & \data_printing|act_state.S7~q )) # (!\data_printing|act_state.S0~q )
+
+	.dataa(\data_printing|act_state.S0~q ),
+	.datab(gnd),
+	.datac(\data_receive|o_DATA [4]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector1~0 .lut_mask = 16'hF555;
+defparam \data_printing|Selector1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N6
+cycloneive_lcell_comb \data_receive|Decoder0~6 (
+// Equation(s):
+// \data_receive|Decoder0~6_combout  = (!\data_receive|num_bits [0] & (\data_receive|num_bits [2] & (\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~6 .lut_mask = 16'h4000;
+defparam \data_receive|Decoder0~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N12
+cycloneive_lcell_comb \data_receive|data_out_buf[5]~5 (
+// Equation(s):
+// \data_receive|data_out_buf[5]~5_combout  = (\data_receive|Decoder0~6_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~6_combout  & ((\data_receive|data_out_buf [5])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [5]),
+	.datad(\data_receive|Decoder0~6_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[5]~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[5]~5 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[5]~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N13
+dffeas \data_receive|data_out_buf[5] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[5]~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[5] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N23
+dffeas \data_receive|o_DATA[5] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [5]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[5] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N22
+cycloneive_lcell_comb \data_printing|Selector0~0 (
+// Equation(s):
+// \data_printing|Selector0~0_combout  = ((\data_receive|o_DATA [5] & \data_printing|act_state.S7~q )) # (!\data_printing|act_state.S0~q )
+
+	.dataa(\data_printing|act_state.S0~q ),
+	.datab(gnd),
+	.datac(\data_receive|o_DATA [5]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|Selector0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|Selector0~0 .lut_mask = 16'hF555;
+defparam \data_printing|Selector0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N28
+cycloneive_lcell_comb \data_receive|Decoder0~7 (
+// Equation(s):
+// \data_receive|Decoder0~7_combout  = (\data_receive|num_bits [0] & (\data_receive|num_bits [2] & (\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~7 .lut_mask = 16'h8000;
+defparam \data_receive|Decoder0~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N30
+cycloneive_lcell_comb \data_receive|data_out_buf[6]~6 (
+// Equation(s):
+// \data_receive|data_out_buf[6]~6_combout  = (\data_receive|Decoder0~7_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~7_combout  & ((\data_receive|data_out_buf [6])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [6]),
+	.datad(\data_receive|Decoder0~7_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[6]~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[6]~6 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[6]~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N31
+dffeas \data_receive|data_out_buf[6] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[6]~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[6] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N13
+dffeas \data_receive|o_DATA[6] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [6]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[6] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N12
+cycloneive_lcell_comb \data_printing|o_LCD_DATA[6]~1 (
+// Equation(s):
+// \data_printing|o_LCD_DATA[6]~1_combout  = (\data_receive|o_DATA [6] & \data_printing|act_state.S7~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_receive|o_DATA [6]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|o_LCD_DATA[6]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|o_LCD_DATA[6]~1 .lut_mask = 16'hF000;
+defparam \data_printing|o_LCD_DATA[6]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N18
+cycloneive_lcell_comb \data_receive|Decoder0~8 (
+// Equation(s):
+// \data_receive|Decoder0~8_combout  = (!\data_receive|num_bits [0] & (!\data_receive|num_bits [2] & (!\data_receive|num_bits [1] & \data_receive|Decoder0~0_combout )))
+
+	.dataa(\data_receive|num_bits [0]),
+	.datab(\data_receive|num_bits [2]),
+	.datac(\data_receive|num_bits [1]),
+	.datad(\data_receive|Decoder0~0_combout ),
+	.cin(gnd),
+	.combout(\data_receive|Decoder0~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|Decoder0~8 .lut_mask = 16'h0100;
+defparam \data_receive|Decoder0~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N8
+cycloneive_lcell_comb \data_receive|data_out_buf[7]~7 (
+// Equation(s):
+// \data_receive|data_out_buf[7]~7_combout  = (\data_receive|Decoder0~8_combout  & (\data_receive|rx_data~q )) # (!\data_receive|Decoder0~8_combout  & ((\data_receive|data_out_buf [7])))
+
+	.dataa(gnd),
+	.datab(\data_receive|rx_data~q ),
+	.datac(\data_receive|data_out_buf [7]),
+	.datad(\data_receive|Decoder0~8_combout ),
+	.cin(gnd),
+	.combout(\data_receive|data_out_buf[7]~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_receive|data_out_buf[7]~7 .lut_mask = 16'hCCF0;
+defparam \data_receive|data_out_buf[7]~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N9
+dffeas \data_receive|data_out_buf[7] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(\data_receive|data_out_buf[7]~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|data_out_buf [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|data_out_buf[7] .is_wysiwyg = "true";
+defparam \data_receive|data_out_buf[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X16_Y21_N11
+dffeas \data_receive|o_DATA[7] (
+	.clk(\i_FPGA_CLK~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\data_receive|data_out_buf [7]),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\data_receive|o_DATA[0]~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\data_receive|o_DATA [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \data_receive|o_DATA[7] .is_wysiwyg = "true";
+defparam \data_receive|o_DATA[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y21_N10
+cycloneive_lcell_comb \data_printing|o_LCD_DATA[7]~2 (
+// Equation(s):
+// \data_printing|o_LCD_DATA[7]~2_combout  = (\data_receive|o_DATA [7] & \data_printing|act_state.S7~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\data_receive|o_DATA [7]),
+	.datad(\data_printing|act_state.S7~q ),
+	.cin(gnd),
+	.combout(\data_printing|o_LCD_DATA[7]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \data_printing|o_LCD_DATA[7]~2 .lut_mask = 16'hF000;
+defparam \data_printing|o_LCD_DATA[7]~2 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 assign o_RS = \o_RS~output_o ;
@@ -1881,6 +3669,8 @@ assign o_LCD_DATA[5] = \o_LCD_DATA[5]~output_o ;
 assign o_LCD_DATA[6] = \o_LCD_DATA[6]~output_o ;
 
 assign o_LCD_DATA[7] = \o_LCD_DATA[7]~output_o ;
+
+assign o_DVD = \o_DVD~output_o ;
 
 endmodule
 

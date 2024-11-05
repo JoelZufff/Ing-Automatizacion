@@ -1,0 +1,2 @@
+-- Ocupo que este componente haga lo siguiente
+    -- Estados que manejen la secuencia de pasos

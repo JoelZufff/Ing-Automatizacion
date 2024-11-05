@@ -16,6 +16,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "o_LCD_DATA[1]",
+					"strict" : false
+				},
+				{
 					"name" : "o_LCD_DATA[2]",
 					"strict" : false
 				},
@@ -36,6 +40,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "o_LCD_DATA[7]",
+					"strict" : false
+				},
+				{
 					"name" : "i_ST",
 					"strict" : false
 				},
@@ -45,6 +53,10 @@
 				},
 				{
 					"name" : "i_FPGA_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "i_RX",
 					"strict" : false
 				}
 			]

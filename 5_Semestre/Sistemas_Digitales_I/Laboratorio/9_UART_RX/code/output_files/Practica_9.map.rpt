@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica_9
-Thu Oct 17 00:51:39 2024
+Sat Oct 19 09:30:34 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,16 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Practica_9|LCD:data_printing|act_state
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "UART_RX:data_receive"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -37,20 +46,20 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Thu Oct 17 00:51:39 2024              ;
+; Analysis & Synthesis Status        ; Successful - Sat Oct 19 09:30:34 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Practica_9                                     ;
 ; Top-level Entity Name              ; Practica_9                                     ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; N/A until Partition Merge                      ;
-;     Total combinational functions  ; N/A until Partition Merge                      ;
-;     Dedicated logic registers      ; N/A until Partition Merge                      ;
-; Total registers                    ; N/A until Partition Merge                      ;
-; Total pins                         ; N/A until Partition Merge                      ;
-; Total virtual pins                 ; N/A until Partition Merge                      ;
-; Total memory bits                  ; N/A until Partition Merge                      ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
-; Total PLLs                         ; N/A until Partition Merge                      ;
+; Total logic elements               ; 116                                            ;
+;     Total combinational functions  ; 102                                            ;
+;     Dedicated logic registers      ; 67                                             ;
+; Total registers                    ; 67                                             ;
+; Total pins                         ; 16                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -149,11 +158,154 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                           ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; UART_RX.vhd                      ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd    ;         ;
+; Practica_9.vhd                   ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd ;         ;
+; LCD.vhd                          ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd        ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 116              ;
+;                                             ;                  ;
+; Total combinational functions               ; 102              ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 33               ;
+;     -- 3 input functions                    ; 16               ;
+;     -- <=2 input functions                  ; 53               ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 69               ;
+;     -- arithmetic mode                      ; 33               ;
+;                                             ;                  ;
+; Total registers                             ; 67               ;
+;     -- Dedicated logic registers            ; 67               ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 16               ;
+;                                             ;                  ;
+; Embedded Multiplier 9-bit elements          ; 0                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; i_FPGA_CLK~input ;
+; Maximum fan-out                             ; 67               ;
+; Total fan-out                               ; 483              ;
+; Average fan-out                             ; 2.40             ;
++---------------------------------------------+------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+-------------+--------------+
+; |Practica_9                ; 102 (1)             ; 67 (0)                    ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |Practica_9                      ; Practica_9  ; work         ;
+;    |LCD:data_printing|     ; 53 (53)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_9|LCD:data_printing    ; LCD         ; work         ;
+;    |UART_RX:data_receive|  ; 48 (48)             ; 35 (35)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_9|UART_RX:data_receive ; UART_RX     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Practica_9|LCD:data_printing|act_state                                                                                                                ;
++----------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+----------------+--------------+--------------+
+; Name           ; act_state.S8 ; act_state.S7 ; act_state.S6 ; act_state.S5 ; act_state.S4 ; act_state.S3 ; act_state.S2 ; act_state.IDLE ; act_state.S1 ; act_state.S0 ;
++----------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+----------------+--------------+--------------+
+; act_state.S0   ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0            ; 0            ;
+; act_state.S1   ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 1            ; 1            ;
+; act_state.IDLE ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1              ; 0            ; 1            ;
+; act_state.S2   ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0              ; 0            ; 1            ;
+; act_state.S3   ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0              ; 0            ; 1            ;
+; act_state.S4   ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0              ; 0            ; 1            ;
+; act_state.S5   ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0              ; 0            ; 1            ;
+; act_state.S6   ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0            ; 1            ;
+; act_state.S7   ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0            ; 1            ;
+; act_state.S8   ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0              ; 0            ; 1            ;
++----------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+----------------+--------------+--------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 67    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 14    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Practica_9|UART_RX:data_receive|num_bits[3] ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |Practica_9|UART_RX:data_receive|cnt[10]     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_RX:data_receive"                                                                ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; o_rdy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 16                          ;
+; cycloneiii_ff         ; 67                          ;
+;     ENA               ; 18                          ;
+;     SLD               ; 14                          ;
+;     plain             ; 35                          ;
+; cycloneiii_lcell_comb ; 102                         ;
+;     arith             ; 33                          ;
+;         2 data inputs ; 33                          ;
+;     normal            ; 69                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 33                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -162,24 +314,43 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Oct 17 00:51:33 2024
+    Info: Processing started: Sat Oct 19 09:30:27 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica_9 -c Practica_9
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file uart_rx.vhd
-    Info (12022): Found design unit 1: UART_RX-Reception File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd Line: 27
-    Info (12023): Found entity 1: UART_RX File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd Line: 15
+    Info (12022): Found design unit 1: uart_rx-Behavioral File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd Line: 26
+    Info (12023): Found entity 1: UART_RX File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file practica_9.vhd
-    Info (12022): Found design unit 1: Practica_9-Reception File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 18
+    Info (12022): Found design unit 1: Practica_9-Reception File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 23
     Info (12023): Found entity 1: Practica_9 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file lcd.vhd
     Info (12022): Found design unit 1: LCD-char_print File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 32
     Info (12023): Found entity 1: LCD File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 18
-Error (10482): VHDL error at UART_RX.vhd(71): object "o_DVD" is used but not declared File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd Line: 71
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4791 megabytes
-    Error: Processing ended: Thu Oct 17 00:51:39 2024
-    Error: Elapsed time: 00:00:06
-    Error: Total CPU time (on all processors): 00:00:06
+Info (12127): Elaborating entity "Practica_9" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Practica_9.vhd(38): object "RDY" assigned a value but never read File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 38
+Info (12128): Elaborating entity "UART_RX" for hierarchy "UART_RX:data_receive" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 58
+Warning (10541): VHDL Signal Declaration warning at UART_RX.vhd(19): used implicit default value for signal "o_DVD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/UART_RX.vhd Line: 19
+Info (12128): Elaborating entity "LCD" for hierarchy "LCD:data_printing" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at LCD.vhd(137): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 137
+Warning (10492): VHDL Process Statement warning at LCD.vhd(139): signal "i_ST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 139
+Warning (10492): VHDL Process Statement warning at LCD.vhd(152): signal "i_RST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 152
+Warning (10492): VHDL Process Statement warning at LCD.vhd(154): signal "i_ST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at LCD.vhd(163): signal "i_DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/LCD.vhd Line: 163
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "o_RW" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 13
+    Warning (13410): Pin "o_DVD" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/9_UART_RX/code/Practica_9.vhd Line: 18
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 132 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 116 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4830 megabytes
+    Info: Processing ended: Sat Oct 19 09:30:34 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

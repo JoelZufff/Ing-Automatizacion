@@ -1,0 +1,115 @@
+Ver la forma de que se ejecuten varios estados que no interfieran entre si a al ves.
+Puede ser enclavando algun relevador en funcion de la etapa actual. Las etapas no se interfieren entre si
+Entonces si esta desactivada una etapa, se puede activar el primer estado de esta.
+Ejemplos de etapa:
+    Etapa de reconocimiento
+    Etapa de clasificacion
+
+2 sensor de presencia           i_SPOS1, i_SPOS2
+1 sensor de peso            	i_SPESO
+1 Bit para almacenar dato de sensor de peso     DATA
+
+2 botones
+    Start			            i_CON
+    Stop                        i_DES
+
+1 Torreta                       o_GREEN, o_YELLOW, o_RED
+
+3 Motor de movimiento       	o_M, o_MA, o_MB
+
+3 pistones
+    A -> 4/2 biestable      	o_A1, o_A2
+        Sensor inicio       	i_SAS
+        Sensor fin          	i_SAE
+    B -> 4/2 biestable      	o_B1, o_B2
+        Sensor inicio       	i_SBS
+        Sensor fin          	i_SBE
+    C -> 3/2 monoestable      	o_C
+        Sensor inicio       	i_SCS
+        Sensor fin          	i_SCE
+
+
+9 entradas, 7 salidas y 1 bit
+
+MAQUINA DE ESTADOS FINITOS
+
+Tendra un relevador de ENABLE para pausar el proceso en cualquier parte
+
+EN
+    Latch:      CON
+    Unlatch:    DES
+
+---------------------------------------------------------------------------------------------------
+E0
+    Se activa el motor M hasta llegar a la posicion de SPOS1
+
+    Latch:      EN * IDLE * START
+    Unlatch:    E1
+    Outputs:    M
+
+E1                                                                          -- Con timer
+    Se obtiene una señal digital del peso del objeto, el sensor SPESO enclavara el bit DATA.
+
+    Latch:      EN * E0 * S1
+    Unlatch:    E2
+    Outputs:    DATA
+
+E2
+    Se activa el motor M para continuar el recorrido hasta llegar a la posicion del SPOS2
+
+    Latch:      EN * E1
+    Unlatch:    E3
+    Outputs:    M
+
+E3
+    Se activa el piston C para elevar el paquete hasta activar SCE 
+
+    Latch:      EN * E2 * SCS * SPOS2
+    Unlatch:    E4_1 + E4_2
+    Outputs:    C+
+
+E4_1
+    Se activa el piston A y activa SAE, para enviarlo a su ruta correspondiente
+
+    Latch:      EN * E3 * SCE * SAS * DATA
+    Unlatch:    E5_1
+    Outputs:    A1
+
+E4_2
+    Se activa el piston B y activa SBE, para enviarlo a su ruta correspondiente
+
+    Latch:      EN * E3 * SCE * SBS * !DATA
+    Unlatch:    E5_2
+    Outputs:    B1
+
+-- Se desenclava DATA, posible bit para indicar que hay un dato almacenado en data
+-- Aumentar contador de cajas en ruta A o B
+
+E5_1
+    Se desactiva el piston A y C, y se activa la banda correspondiente al piston A
+
+    Latch:      EN * E4_1 * SAE
+    Unlatch:    E6
+    Outputs:    A2, C-, MA
+
+E5_2
+    Se desactiva el piston B y C, y se activa la banda correspondiente al piston B
+
+    Latch:      EN * E4_2 * SBE
+    Unlatch:    E6
+    Outputs:    B2, C-, MB
+
+E6                                                                          -- Sin enclavado -- Con timer
+    Se desactivan las bandas y se vuelve al estado base. (Con la activacion del estado se desactivan los motores)
+    -- Ver si sera un relevador con timer o habra otro sensor de presencia
+
+    Trigger:    EN * E5_1 + E5_2
+    Outputs:    
+
+IDLE (PENDIENTE)
+    Estado de espera en caso de no detectar cajas que clasificar
+    -- Ver si agregamos algun sensor de presencia al inicio para saber si hay cajas por clasificar
+
+    Latch:      -- Posible sensor 
+    Unlatch:    
+    Outputs:    

@@ -1,0 +1,96 @@
+1 Motor de movimiento       -> 1 salida M1
+
+4 pistones
+    A -> 5/2 biestable      -> 2 salidas A1, A2         (Controla 2 pistones)
+        Sensor inicio       -> 1 entrada SAS
+        Sensor fin          -> 1 entrada SAE
+    B -> 4/2 monoestable    -> 1 salida B
+        Sensor inicio       -> 1 entrada SBS
+        Sensor fin          -> 1 entrada SBE
+    C -> 3/2 monoestable    -> 1 salida C
+        Sensor fin          -> 1 entrada SCE
+
+3 botones
+    Start               -> 1 entrada CON
+    Stop                -> 1 entrada DES
+    Sensor posicion     -> 1 entrada SP
+
+Por lo que tenemos
+    8 entradas
+        5 sensores
+        3 botones
+    5 salidas
+        4 electrovalvulas
+        1 motor
+
+Secuencia
+1. Al presionar CON, se activa el motor M1, hasta detectar SP.
+2. Salen los pistones A. Se activan los sensores SAS.
+3. Despues de 3 segundos sale el piston B y activa SBE.
+4. Despues de 5 segundos vuelve piston B y activa SBS.
+5. Vuelven los 2 pistones A y activan SAS.
+6. Sale el piston C y activa sensor SCE.
+7. Vuelve el piston C y se reinicia el proceso.
+
+-------------------------------------------------------------------------------------
+MAQUINA DE ESTADOS FINITOS
+
+Cree una salida de bit de cada estado, la activacion del estado depende de las entradas, el estado actual controla las salidas
+
+Tendra un relevador de ENABLE para pausar el proceso en cualquier parte
+
+EN
+    Latch:      CON
+    Unlatch:    DES
+
+IDLE -> !E0 * !E1 * !E2 * !E3 * !E4 * E5
+
+E0
+    Latch:      EN * IDLE
+    Unlatch:    E1 + DES
+    Outputs:    M1
+
+E1
+    Activamos los 2 pistones para sotener
+
+    Latch:      EN * E0 * SP
+    Unlatch:    E2
+    Outputs:    A1
+
+E2                                                              -- Con timer 3 segundos
+    Activamos el piston de etiquetado unos segundos
+
+    Latch:      EN * E1 * SAE
+    Unlatch:    E3
+    Outputs:    B
+
+E3                                                              -- Con timer 5 segundos
+    Desactivamos el piston de etiquetado (Al cambiar de estado se desactiva)
+
+    Latch:      EN * E2 * SBE
+    Unlatch:    E4
+    Outputs:    
+
+E4
+    Soltamos la pieza sostenida con los pistones A
+
+    Latch:      EN * E3 * SBS
+    Unlatch:    E5
+    Outputs:    A2
+
+E5
+    Activamos el piston C, para empujar la pieza
+
+    Latch:      EN * E4 * SAS
+    Unlatch:    SCE
+    Outputs:    C
+
+-------------------------------------------------------------------------------------
+Los estados se ejecutan de forma secuencial, por lo que establesco las salidas en funcion del estado actual
+
+M1 -> E0
+A
+    A1      -> E1
+    A2      -> E4
+B -> E2
+C -> E5

@@ -1,5 +1,5 @@
 
-State Machine - |Practica_9|LCD:Printing|act_state
+State Machine - |Practica_9|LCD:data_printing|act_state
 Name act_state.S8 act_state.S7 act_state.S6 act_state.S5 act_state.S4 act_state.S3 act_state.S2 act_state.IDLE act_state.S1 act_state.S0 
 act_state.S0 0 0 0 0 0 0 0 0 0 0 
 act_state.S1 0 0 0 0 0 0 0 0 1 1 

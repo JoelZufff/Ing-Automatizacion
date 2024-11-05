@@ -1,96 +1,79 @@
--- Haremos la division de reloj hasta tener 2 * Baudios. Esto para detectar el valor a la mitad de cada intervalo
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Joash Naidoo
+----------------------------------------------------------------------------------
 
--- MAQUINA DE ESTADOS FINITOS UART_RX --
--- X Entradas
-    --
--- X Salidas
-    --
--- x Estados --
-    --
-------------------------------------------------------------------------------
+
 library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
+use IEEE.STD_LOGIC_1164.ALL;
+-- use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity UART_RX is
-	port
-	(
-		i_FPGA_CLK      : in STD_LOGIC;                         -- Oscilador de placa (50 MHz)
-		i_RST           : in STD_LOGIC;                         -- Boton de reset (Para errores de paridad)
-        
-        i_RX            : in STD_LOGIC;                         -- Reception PIN
-        o_EOR           : out STD_LOGIC;                        -- End Of Reception
-        o_DATA          : out STD_LOGIC_VECTOR(7 downto 0)      -- Valor de dato receptado
-	); 
-end UART_RX;
+    Port 
+    ( 
+        i_FPGA_CLK      : in STD_LOGIC;                         -- Oscilador de placa (50 MHz)
+        i_RST           : in STD_LOGIC;                         -- Boton de reset (Para errores de paridad)
 
-architecture Reception of UART_RX is 
+        i_RX            : in STD_LOGIC;                         -- Reception PIN
+        o_DVD           : out STD_LOGIC;
+        o_RDY           : out STD_LOGIC;                        -- End Of Reception
+        o_DATA          : out STD_LOGIC_VECTOR(7 downto 0)      -- Valor de dato receptado
+
+    );
+end uart_rx;
+
+architecture Behavioral of uart_rx is
     
-    -- Maquina de estado
-    type States is (IDLE, S0, S1);
-    signal act_state, next_state: States := IDLE; -- Ponemos en estado inicial la maquina
+    constant clks_per_bit : integer := 5208; -- 100 MHz / 9600 baud = 10417
     
-    -- Division de reloj
-    signal count    : integer range 0 to 5208;      -- 9600 Baudios
-    signal UART_CLK : STD_LOGIC;
+    signal cnt : integer range 0 to clks_per_bit-1 := 0;
+    signal rx_data : STD_LOGIC := '0';
+    signal busy : STD_LOGIC := '0';
+    signal num_bits : STD_LOGIC_VECTOR(3 downto 0) := (others => '0'); -- Count to 8 
+    signal data_out_buf : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
 
 begin
-    ------------------------------------------------------------------------------
-                -- DIVISION DE RELOJ PARA BAUDIOS DE RECEPCION --
-    ------------------------------------------------------------------------------
-    process (i_FPGA_clk)        -- En estado IDLE => UART_CLK = FPGA_CLK
-    begin
-
-        if act_state = IDLE then    -- Si estamos en modo de espera CLK esta a la maxima frecuencia para esperar bit de start
-            UART_CLK <= i_FPGA_CLK;
-        elsif rising_edge(i_FPGA_CLK) then      -- Si detectamos un flanco de subida    
-            count <= count + 1;
-
-            if count = 5208 then                -- 9600 Baudios
-                UART_clk <= not UART_CLK;
-                count <= 0;
-            end if;
-        end if;
-
-    end process;
-
-    ------------------------------------------------------------------------------
-                            -- RECEPCION DE DATOS --
-    ------------------------------------------------------------------------------ 
-    process (UART_CLK)
-    begin
-        if rising_edge(UART_CLK) then           
-
-            act_state <= next_state;    -- Actualizamos estado presente
-    
-            case act_state  is
-                when IDLE =>
+    process(i_FPGA_CLK) begin
+        if rising_edge(i_FPGA_CLK) then
+            rx_data <= i_RX;
+            if busy = '0' then
+                
+                if rx_data = '0' then -- Start of transmission
+                    busy <= '1';
+                    num_bits <= X"0";
+                end if;
+                
+                --o_RDY <= '0'; -- Want the rdy flag to pull high one clock cycle when word complete
+                cnt <= ((clks_per_bit-1)/2); -- Start Bit so only need to look half period 
+            
+            else -- busy = '1'. Sampling the rest of the bits in frame
+            
+                -- Start searching for middle of bit by counting down
+                if cnt = 0 then -- Found middle
                     
-                    -- Salida de estado actual
-                    o_EOR <= not '1';       -- Se finalizo la recepcion
-                    o_DVD <= not '1';       -- Hay validez con paridad
-    
-                    -- Estado futuro en funcion de entradas
-                    if i_RX = '0' then        -- Se detecta bit de start
-                        next_state <= S0;
-                    else
-                        next_state <= IDLE;
+                    if num_bits = 0 then -- first (start) bit sampled 
+                        busy <= not rx_data;
+                        num_bits <= num_bits + 1;
+                    elsif num_bits = 9 then -- Sampled all bits
+                        o_RDY <= '1'; -- Want the rdy flag to pull high one clock cycle when sampled word complete
+                        busy <= '0';
+                        o_DATA <= data_out_buf;
+                    else -- Still sampling
+                        data_out_buf(conv_integer(num_bits)-1) <= rx_data;
+                        busy <= '1';
+                        num_bits <= num_bits + 1;
                     end if;
-    
-                when S0 =>      -- Recepcion de datos
                     
-                    -- Tener un Booleano que conmutara los ciclos de reloj que usaremos, para solo activar lectura en medio del intervalo de dato, con una señal estable
-
-                    -- Tener un indice de bit, cuando este haya llegado a 7, pasar a estado de comparacion de paridad
-                    
-                when S1 =>      -- Comparacion de bit de paridad
-                    
-                    -- Si no coincide la paridad enclavamos este estado hasta recibir señal RST
-                    
-                when others => null;
-            end case;
+                    cnt <= clks_per_bit-1; -- Reset. Next middle is one whole period away
+                
+                else -- Still finding middle (i.e. counting up)
+                    cnt <= cnt - 1;
+                end if;    
+            
+            end if;
 
         end if;
     end process;
 
-end Reception;
+end Behavioral;

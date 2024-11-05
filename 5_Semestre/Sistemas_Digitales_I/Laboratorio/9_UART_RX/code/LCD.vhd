@@ -134,7 +134,7 @@ begin
                 o_RS <= '0';
 
                 -- Actualizamos estado futuro en funcion de las entradas    
-                if i_RST = not '1' then
+                if i_RST = not '1' then     -- El boton es resistencia PULL-UP
                     next_state <= S0;
                 elsif i_ST = '1' then
                     next_state <= S6;
@@ -143,7 +143,6 @@ begin
                 end if;
             
             when S6 =>
-                
                 -- Enviamos señales de salida de estado actual
                 o_LCD_DATA <= "00000000";
                 o_E <= '0';
