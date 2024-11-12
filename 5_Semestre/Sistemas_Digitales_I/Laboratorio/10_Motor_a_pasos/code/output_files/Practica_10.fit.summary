@@ -1,16 +1,16 @@
-Fitter Status : Successful - Tue Oct 29 09:50:41 2024
+Fitter Status : Successful - Tue Nov 12 00:09:25 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : Practica_10
 Top-level Entity Name : Practica_10
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 139 / 6,272 ( 2 % )
-    Total combinational functions : 131 / 6,272 ( 2 % )
-    Dedicated logic registers : 85 / 6,272 ( 1 % )
-Total registers : 85
-Total pins : 14 / 92 ( 15 % )
+Total logic elements : 2,276 / 6,272 ( 36 % )
+    Total combinational functions : 2,241 / 6,272 ( 36 % )
+    Dedicated logic registers : 520 / 6,272 ( 8 % )
+Total registers : 520
+Total pins : 23 / 92 ( 25 % )
 Total virtual pins : 0
-Total memory bits : 0 / 276,480 ( 0 % )
+Total memory bits : 100 / 276,480 ( < 1 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
 Total PLLs : 0 / 2 ( 0 % )

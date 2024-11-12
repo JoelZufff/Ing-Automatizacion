@@ -1,0 +1,144 @@
+-- Este componente recibe y maneja la cola de distancias recibidas
+-- EL algoritmo es de la siguiente forma
+-- 1. Hay una cola de distancias procesadas por este componente, por lo que o_queue = '1'
+-- 2. Se completa una distancia y se recibe la señal i_done
+-- 3. Se actualiza el ultimo dato de distancia y se manda una señal a 
+------------------------------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+------------------------------------------------------------------------------
+entity Distance_queue is
+    generic 
+    (
+        baud_freq       : INTEGER;   
+        clk_freq        : INTEGER   
+    );
+    port
+    (
+        i_CLK       : in STD_LOGIC;         -- Señal de reloj base
+        i_RST       : in STD_LOGIC;         -- Reinicio total
+
+        i_done      : in STD_LOGIC;         -- Indica si la distancia se completo
+        i_updated   : out STD_LOGIC;        -- Indica si se actualizo la distancia
+        o_queue     : out STD_LOGIC;        -- Indica si hay cola de distancias pendientes
+
+        o_dist      : out STD_LOGIC_VECTOR(1 downto 0);     -- Indica cual de las 4 distancias se recibio (0-3)
+
+        -- UART
+        i_RX                : in STD_LOGIC;
+    );
+end Distance_queue;
+
+architecture rtl of Distance_queue is
+    -- DIVISION DE RELOJ --
+        component CLK_DIV is
+            generic 
+            (
+                clk_freq    : INTEGER          -- Frecuencia interna de FPGA (Hz)
+            );
+            port
+            (
+                i_out_freq      : INTEGER;              -- Frequencia deseada
+                
+                i_FPGA_clk      : in STD_LOGIC;         -- Señal de reloj base
+                o_clk           : out STD_LOGIC    
+            );
+        end component;
+
+        signal QUEUE_CLK : STD_LOGIC;
+    
+    -- MAQUINA DE ESTADOS FINITOS --
+        type states is (LCD_SEND, TX_SEND, SET_IDLE, IDLE);
+        signal act_state : states := SET_IDLE;
+
+        signal LCD_nxt_state : states;
+        signal TX_nxt_state : states;
+
+    -- UART RX --
+        component UART_RX
+            generic 
+            (
+                baud_freq : INTEGER;
+                clk_freq : INTEGER
+            );
+            port 
+            (
+                i_FPGA_CLK : in STD_LOGIC;
+                i_RST : in STD_LOGIC;
+                i_RX : in STD_LOGIC;
+                o_RCV : out STD_LOGIC;
+                o_DATA : out STD_LOGIC_VECTOR(7 downto 0)
+            );
+        end component;
+
+        signal RX_RCV : STD_LOGIC; 
+        signal RX_DATA : STD_LOGIC_VECTOR(7 downto 0); 
+    
+    -- SEÑALES --
+        type array_50 is array (0 to 49) of STD_LOGIC_VECTOR(1 downto 0);
+        signal distance_queue   : array_50;
+        signal stored_index     : INTEGER := 0;     -- Indice para almacenamiento de distancias
+        signal send_index       : INTEGER := 0;     -- Indice para distancia enviada
+
+begin
+    ------------------------------------------------------------------------------
+                                -- DIVISION DE RELOJ --
+    ------------------------------------------------------------------------------
+    c_QUEUE_CLK : CLK_DIV
+        generic map ( clk_freq => clk_freq )
+        port map ( i_out_freq => 1000000, i_FPGA_clk => i_CLK, o_clk => QUEUE_CLK );
+    ------------------------------------------------------------------------------
+                                    -- UART RX --
+    ------------------------------------------------------------------------------
+    RX_Receive : UART_RX
+        generic map( baud_freq => baud_freq, clk_freq => clk_freq )
+        port map( i_FPGA_CLK => i_CLK, i_RST => i_RST, i_RX => i_RX, o_RCV => RX_RCV, o_DATA => RX_DATA );
+    ------------------------------------------------------------------------------
+            -- MAQUINA DE ESTADOS FINITOS PROCESADORA DE DATOS DE RX --
+    ------------------------------------------------------------------------------
+    process (QUEUE_CLK, i_RST)
+    begin
+        if (i_RST = '1') then                           -- Se presiono RST
+            act_state <= SET_IDLE;
+        elsif (rising_edge(QUEUE_CLK)) then
+            case act_state is
+                when IDLE =>
+                    -- Estado proximo
+                    if (RX_RCV = '1') then   -- Recibimos un dato del puerto serial
+                        act_state <= STORE_DATA;
+                    else
+                        act_state <= IDLE;
+                    end if;
+                
+                when STORE_DATA =>
+                    
+                    -- Salidas del estado
+                    if (RX_DATA = X"31") then        -- 1
+                        distance_queue(stored_index) <= "00";
+                    elsif (RX_DATA = X"32") then     -- 2
+                        distance_queue(stored_index) <= "01";
+                    elsif (RX_DATA = X"33") then     -- 3
+                        distance_queue(stored_index) <= "10";
+                    elsif (RX_DATA = X"34") then     -- 4
+                        distance_queue(stored_index) <= "11";
+                    else                                                -- No es una distancia valida
+                        act_state <= IDLE;
+                    end if;
+
+                    -- Estado proximo
+                    if (RX_RCV = '0') then      -- Para evitar leer 2 veces el mismo dato
+                        stored_index = stored_index + 1;
+                        act_state <= IDLE;
+                    else
+                        act_state <= STORE_DATA;
+                    end if;
+
+                when others => null;
+            end case;
+        end if;
+    end process;
+
+end architecture;
+
+-- Hacer cola de 15 mediciones, irlas recorriendo, si se llena

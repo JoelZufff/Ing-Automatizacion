@@ -1,13 +1,96 @@
 
-State Machine - |Practica_10|LCD:c_LCD|act_state
-Name act_state.PUTCH3 act_state.PUTCH2 act_state.PUTCH1 act_state.PUTCH0 act_state.IDLE act_state.CONFIG4 act_state.CONFIG3 act_state.CONFIG2 act_state.CONFIG1 act_state.CONFIG0 
-act_state.CONFIG0 0 0 0 0 0 0 0 0 0 0 
-act_state.CONFIG1 0 0 0 0 0 0 0 0 1 1 
-act_state.CONFIG2 0 0 0 0 0 0 0 1 0 1 
-act_state.CONFIG3 0 0 0 0 0 0 1 0 0 1 
-act_state.CONFIG4 0 0 0 0 0 1 0 0 0 1 
-act_state.IDLE 0 0 0 0 1 0 0 0 0 1 
-act_state.PUTCH0 0 0 0 1 0 0 0 0 0 1 
-act_state.PUTCH1 0 0 1 0 0 0 0 0 0 1 
-act_state.PUTCH2 0 1 0 0 0 0 0 0 0 1 
-act_state.PUTCH3 1 0 0 0 0 0 0 0 0 1 
+State Machine - |Practica_10|STOP_nxt_state
+Name STOP_nxt_state.PRINT_STOP STOP_nxt_state.WAIT_2SEC STOP_nxt_state.COUPLING STOP_nxt_state.PRINT_COUPLING STOP_nxt_state.IDLE STOP_nxt_state.PRINT_IDLE STOP_nxt_state.TX_SEND STOP_nxt_state.LCD_SEND 
+STOP_nxt_state.LCD_SEND 0 0 0 0 0 0 0 0 
+STOP_nxt_state.TX_SEND 0 0 0 0 0 0 1 1 
+STOP_nxt_state.PRINT_IDLE 0 0 0 0 0 1 0 1 
+STOP_nxt_state.IDLE 0 0 0 0 1 0 0 1 
+STOP_nxt_state.PRINT_COUPLING 0 0 0 1 0 0 0 1 
+STOP_nxt_state.COUPLING 0 0 1 0 0 0 0 1 
+STOP_nxt_state.WAIT_2SEC 0 1 0 0 0 0 0 1 
+STOP_nxt_state.PRINT_STOP 1 0 0 0 0 0 0 1 
+
+State Machine - |Practica_10|TX_nxt_state
+Name TX_nxt_state.PRINT_STOP TX_nxt_state.WAIT_2SEC TX_nxt_state.COUPLING TX_nxt_state.PRINT_COUPLING TX_nxt_state.IDLE TX_nxt_state.PRINT_IDLE TX_nxt_state.TX_SEND TX_nxt_state.LCD_SEND 
+TX_nxt_state.LCD_SEND 0 0 0 0 0 0 0 0 
+TX_nxt_state.TX_SEND 0 0 0 0 0 0 1 1 
+TX_nxt_state.PRINT_IDLE 0 0 0 0 0 1 0 1 
+TX_nxt_state.IDLE 0 0 0 0 1 0 0 1 
+TX_nxt_state.PRINT_COUPLING 0 0 0 1 0 0 0 1 
+TX_nxt_state.COUPLING 0 0 1 0 0 0 0 1 
+TX_nxt_state.WAIT_2SEC 0 1 0 0 0 0 0 1 
+TX_nxt_state.PRINT_STOP 1 0 0 0 0 0 0 1 
+
+State Machine - |Practica_10|LCD_nxt_state
+Name LCD_nxt_state.PRINT_STOP LCD_nxt_state.WAIT_2SEC LCD_nxt_state.COUPLING LCD_nxt_state.PRINT_COUPLING LCD_nxt_state.IDLE LCD_nxt_state.PRINT_IDLE LCD_nxt_state.TX_SEND LCD_nxt_state.LCD_SEND 
+LCD_nxt_state.LCD_SEND 0 0 0 0 0 0 0 0 
+LCD_nxt_state.TX_SEND 0 0 0 0 0 0 1 1 
+LCD_nxt_state.PRINT_IDLE 0 0 0 0 0 1 0 1 
+LCD_nxt_state.IDLE 0 0 0 0 1 0 0 1 
+LCD_nxt_state.PRINT_COUPLING 0 0 0 1 0 0 0 1 
+LCD_nxt_state.COUPLING 0 0 1 0 0 0 0 1 
+LCD_nxt_state.WAIT_2SEC 0 1 0 0 0 0 0 1 
+LCD_nxt_state.PRINT_STOP 1 0 0 0 0 0 0 1 
+
+State Machine - |Practica_10|act_state
+Name act_state.PRINT_STOP act_state.WAIT_2SEC act_state.COUPLING act_state.PRINT_COUPLING act_state.IDLE act_state.LCD_SEND act_state.TX_SEND act_state.PRINT_IDLE 
+act_state.PRINT_IDLE 0 0 0 0 0 0 0 0 
+act_state.TX_SEND 0 0 0 0 0 0 1 1 
+act_state.LCD_SEND 0 0 0 0 0 1 0 1 
+act_state.IDLE 0 0 0 0 1 0 0 1 
+act_state.PRINT_COUPLING 0 0 0 1 0 0 0 1 
+act_state.COUPLING 0 0 1 0 0 0 0 1 
+act_state.WAIT_2SEC 0 1 0 0 0 0 0 1 
+act_state.PRINT_STOP 1 0 0 0 0 0 0 1 
+
+State Machine - |Practica_10|Distance_queue:c_queue|SET_act_state
+Name SET_act_state.WAIT_READ SET_act_state.UPT_DIST SET_act_state.IDLE 
+SET_act_state.IDLE 0 0 0 
+SET_act_state.UPT_DIST 0 1 1 
+SET_act_state.WAIT_READ 1 0 1 
+
+State Machine - |Practica_10|Distance_queue:c_queue|GET_act_state
+Name GET_act_state.WAIT_RCV GET_act_state.STORE_DATA GET_act_state.IDLE 
+GET_act_state.IDLE 0 0 0 
+GET_act_state.STORE_DATA 0 1 1 
+GET_act_state.WAIT_RCV 1 0 1 
+
+State Machine - |Practica_10|UART_TX_string:c_TX_message|act_state
+Name act_state.SEND_CHAR act_state.WAIT_RDY act_state.IDLE 
+act_state.IDLE 0 0 0 
+act_state.WAIT_RDY 0 1 1 
+act_state.SEND_CHAR 1 0 1 
+
+State Machine - |Practica_10|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte|act_state
+Name act_state.STOP_BIT act_state.PARITY_BIT act_state.DATA_BITS act_state.START_BIT act_state.IDLE 
+act_state.IDLE 0 0 0 0 0 
+act_state.START_BIT 0 0 0 1 1 
+act_state.DATA_BITS 0 0 1 0 1 
+act_state.PARITY_BIT 0 1 0 0 1 
+act_state.STOP_BIT 1 0 0 0 1 
+
+State Machine - |Practica_10|LCD_putstring:c_LCD|stored_state
+Name stored_state.NEW_LINE stored_state.SEND_CHAR stored_state.CLEAR_DISP stored_state.IDLE stored_state.CONFIG1 stored_state.CONFIG0 stored_state.DOWN_SIGNAL 
+stored_state.DOWN_SIGNAL 0 0 0 0 0 0 0 
+stored_state.CONFIG0 0 0 0 0 0 1 1 
+stored_state.CONFIG1 0 0 0 0 1 0 1 
+stored_state.IDLE 0 0 0 1 0 0 1 
+stored_state.CLEAR_DISP 0 0 1 0 0 0 1 
+stored_state.SEND_CHAR 0 1 0 0 0 0 1 
+stored_state.NEW_LINE 1 0 0 0 0 0 1 
+
+State Machine - |Practica_10|LCD_putstring:c_LCD|act_state
+Name act_state.NEW_LINE act_state.SEND_CHAR act_state.CLEAR_DISP act_state.IDLE act_state.CONFIG1 act_state.DOWN_SIGNAL act_state.CONFIG0 
+act_state.CONFIG0 0 0 0 0 0 0 0 
+act_state.DOWN_SIGNAL 0 0 0 0 0 1 1 
+act_state.CONFIG1 0 0 0 0 1 0 1 
+act_state.IDLE 0 0 0 1 0 0 1 
+act_state.CLEAR_DISP 0 0 1 0 0 0 1 
+act_state.SEND_CHAR 0 1 0 0 0 0 1 
+act_state.NEW_LINE 1 0 0 0 0 0 1 
+
+State Machine - |Practica_10|Stepper_motor:STEPS|act_state
+Name act_state.STEPS act_state.WAIT_ST act_state.IDLE 
+act_state.IDLE 0 0 0 
+act_state.WAIT_ST 0 1 1 
+act_state.STEPS 1 0 1 

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Oct 19 09:30:34 2024
+Analysis & Synthesis Status : Successful - Sat Nov  9 05:22:20 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : Practica_9
 Top-level Entity Name : Practica_9
 Family : Cyclone IV E
-Total logic elements : 116
-    Total combinational functions : 102
-    Dedicated logic registers : 67
-Total registers : 67
-Total pins : 16
+Total logic elements : 141
+    Total combinational functions : 130
+    Dedicated logic registers : 88
+Total registers : 88
+Total pins : 15
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

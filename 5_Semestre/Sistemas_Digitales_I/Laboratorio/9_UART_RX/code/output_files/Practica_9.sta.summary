@@ -3,39 +3,75 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'i_FPGA_CLK'
-Slack : -3.338
-TNS   : -169.396
+Slack : -4.144
+TNS   : -198.407
+
+Type  : Slow 1200mV 85C Model Setup 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : -2.255
+TNS   : -41.698
 
 Type  : Slow 1200mV 85C Model Hold 'i_FPGA_CLK'
-Slack : 0.433
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : 0.453
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_FPGA_CLK'
 Slack : -3.000
-TNS   : -102.629
+TNS   : -99.655
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : -1.487
+TNS   : -34.201
 
 Type  : Slow 1200mV 0C Model Setup 'i_FPGA_CLK'
-Slack : -3.097
-TNS   : -152.362
+Slack : -3.864
+TNS   : -180.272
+
+Type  : Slow 1200mV 0C Model Setup 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : -2.031
+TNS   : -36.993
 
 Type  : Slow 1200mV 0C Model Hold 'i_FPGA_CLK'
-Slack : 0.382
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : 0.401
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_FPGA_CLK'
 Slack : -3.000
-TNS   : -102.629
+TNS   : -99.655
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : -1.487
+TNS   : -34.416
 
 Type  : Fast 1200mV 0C Model Setup 'i_FPGA_CLK'
-Slack : -0.910
-TNS   : -36.896
+Slack : -1.157
+TNS   : -45.903
+
+Type  : Fast 1200mV 0C Model Setup 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : -0.389
+TNS   : -5.471
+
+Type  : Fast 1200mV 0C Model Hold 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : 0.186
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'i_FPGA_CLK'
-Slack : 0.178
+Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_FPGA_CLK'
 Slack : -3.000
-TNS   : -74.768
+TNS   : -72.175
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'UART_RX:data_receive|CLK_DIV:c_UART_CLK|clk'
+Slack : -1.000
+TNS   : -23.000
 
 ------------------------------------------------------------

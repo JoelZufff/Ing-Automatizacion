@@ -1,0 +1,79 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Joash Naidoo
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+-- use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity UART_RX is
+    Port 
+    ( 
+        i_FPGA_CLK      : in STD_LOGIC;                         -- Oscilador de placa (50 MHz)
+        i_RST           : in STD_LOGIC;                         -- Boton de reset (Para errores de paridad)
+
+        i_RX            : in STD_LOGIC;                         -- Reception PIN
+        o_DVD           : out STD_LOGIC;
+        o_RDY           : out STD_LOGIC;                        -- End Of Reception
+        o_DATA          : out STD_LOGIC_VECTOR(7 downto 0)      -- Valor de dato receptado
+
+    );
+end uart_rx;
+
+architecture Behavioral of uart_rx is
+    
+    constant clks_per_bit : integer := 5208; -- 100 MHz / 9600 baud = 10417
+    
+    signal cnt : integer range 0 to clks_per_bit-1 := 0;
+    signal rx_data : STD_LOGIC := '0';
+    signal busy : STD_LOGIC := '0';
+    signal num_bits : STD_LOGIC_VECTOR(3 downto 0) := (others => '0'); -- Count to 8 
+    signal data_out_buf : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+
+begin
+    process(i_FPGA_CLK) begin
+        if rising_edge(i_FPGA_CLK) then
+            rx_data <= i_RX;
+            if busy = '0' then
+                
+                if rx_data = '0' then -- Start of transmission
+                    busy <= '1';
+                    num_bits <= X"0";
+                end if;
+                
+                --o_RDY <= '0'; -- Want the rdy flag to pull high one clock cycle when word complete
+                cnt <= ((clks_per_bit-1)/2); -- Start Bit so only need to look half period 
+            
+            else -- busy = '1'. Sampling the rest of the bits in frame
+            
+                -- Start searching for middle of bit by counting down
+                if cnt = 0 then -- Found middle
+                    
+                    if num_bits = 0 then -- first (start) bit sampled 
+                        busy <= not rx_data;
+                        num_bits <= num_bits + 1;
+                    elsif num_bits = 9 then -- Sampled all bits
+                        o_RDY <= '1'; -- Want the rdy flag to pull high one clock cycle when sampled word complete
+                        busy <= '0';
+                        o_DATA <= data_out_buf;
+                    else -- Still sampling
+                        data_out_buf(conv_integer(num_bits)-1) <= rx_data;
+                        busy <= '1';
+                        num_bits <= num_bits + 1;
+                    end if;
+                    
+                    cnt <= clks_per_bit-1; -- Reset. Next middle is one whole period away
+                
+                else -- Still finding middle (i.e. counting up)
+                    cnt <= cnt - 1;
+                end if;    
+            
+            end if;
+
+        end if;
+    end process;
+
+end Behavioral;

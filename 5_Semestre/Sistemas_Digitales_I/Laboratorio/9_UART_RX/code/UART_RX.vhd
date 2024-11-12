@@ -1,79 +1,121 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Joash Naidoo
-----------------------------------------------------------------------------------
 
-
+------------------------------------------------------------------------------
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
--- use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity UART_RX is
-    Port 
-    ( 
-        i_FPGA_CLK      : in STD_LOGIC;                         -- Oscilador de placa (50 MHz)
-        i_RST           : in STD_LOGIC;                         -- Boton de reset (Para errores de paridad)
+    generic 
+    (
+        baud_freq       : INTEGER;
+        clk_freq        : INTEGER   
+    );
+	port
+	(
+		i_FPGA_CLK      : in STD_LOGIC;                         -- Oscilador de placa (50 MHz)
+		i_RST           : in STD_LOGIC;                         -- Boton de reset (Para errores de paridad)
 
         i_RX            : in STD_LOGIC;                         -- Reception PIN
-        o_DVD           : out STD_LOGIC;
-        o_RDY           : out STD_LOGIC;                        -- End Of Reception
+        o_NEW           : out STD_LOGIC;                        -- Indica que se recibio un nuevo dato
         o_DATA          : out STD_LOGIC_VECTOR(7 downto 0)      -- Valor de dato receptado
+	); 
+end UART_RX;
 
-    );
-end uart_rx;
-
-architecture Behavioral of uart_rx is
+architecture Reception of UART_RX is 
     
-    constant clks_per_bit : integer := 5208; -- 100 MHz / 9600 baud = 10417
-    
-    signal cnt : integer range 0 to clks_per_bit-1 := 0;
-    signal rx_data : STD_LOGIC := '0';
-    signal busy : STD_LOGIC := '0';
-    signal num_bits : STD_LOGIC_VECTOR(3 downto 0) := (others => '0'); -- Count to 8 
-    signal data_out_buf : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+    -- Division de reloj
+        component CLK_DIV is
+            generic 
+            (
+                clk_freq    : integer          -- Frecuencia interna de FPGA (Hz)
+            );
+            port
+            (
+                i_out_freq      : integer;              -- Frequencia deseada
+                i_FPGA_clk      : in STD_LOGIC;         -- Señal de reloj base
+                o_clk           : out STD_LOGIC    
+            );
+        end component;
+        
+        signal UART_CLK : STD_LOGIC;
+        signal UART_CLK_freq : integer := clk_freq;
 
-begin
-    process(i_FPGA_CLK) begin
-        if rising_edge(i_FPGA_CLK) then
-            rx_data <= i_RX;
-            if busy = '0' then
-                
-                if rx_data = '0' then -- Start of transmission
-                    busy <= '1';
-                    num_bits <= X"0";
-                end if;
-                
-                --o_RDY <= '0'; -- Want the rdy flag to pull high one clock cycle when word complete
-                cnt <= ((clks_per_bit-1)/2); -- Start Bit so only need to look half period 
-            
-            else -- busy = '1'. Sampling the rest of the bits in frame
-            
-                -- Start searching for middle of bit by counting down
-                if cnt = 0 then -- Found middle
-                    
-                    if num_bits = 0 then -- first (start) bit sampled 
-                        busy <= not rx_data;
-                        num_bits <= num_bits + 1;
-                    elsif num_bits = 9 then -- Sampled all bits
-                        o_RDY <= '1'; -- Want the rdy flag to pull high one clock cycle when sampled word complete
-                        busy <= '0';
-                        o_DATA <= data_out_buf;
-                    else -- Still sampling
-                        data_out_buf(conv_integer(num_bits)-1) <= rx_data;
-                        busy <= '1';
-                        num_bits <= num_bits + 1;
+    -- Maquina de estado
+        type States is (IDLE, DATA_RECEIVE);
+        signal act_state : States := IDLE; -- Ponemos en estado inicial la maquina
+    
+    -- Señales para muestreo de dato
+        signal middle   : STD_LOGIC := '0';
+        signal data_index : integer range 0 to 9 := 0;
+        signal DATA     : STD_LOGIC_VECTOR(7 downto 0) := X"41";
+        signal parity   : STD_LOGIC;
+    
+begin    
+    c_UART_CLK : CLK_DIV
+        generic map ( clk_freq => clk_freq ) 
+        port map ( i_out_freq => UART_CLK_freq, i_FPGA_clk => i_FPGA_clk, o_clk => UART_clk );
+
+    ------------------------------------------------------------------------------
+                -- DIVISION DE RELOJ PARA BAUDIOS DE RECEPCION --
+    ------------------------------------------------------------------------------
+    process (UART_CLK)
+    begin
+        if rising_edge(UART_CLK) then      -- Si detectamos un flanco de subida
+            case act_state  is
+                when IDLE =>
+                    -- Salida de estado actual
+    
+                    UART_CLK_freq <= clk_freq;      -- Esperamos señal de start a maxima velocidad
+
+                    -- Estado futuro en funcion de entradas
+                    if (i_RX = '0') then        -- Se detecto bit de start
+                        UART_CLK_freq <= baud_freq * 2;     -- Para detectar la mitar del bit
+                        
+                        data_index  <= 0;
+                        middle <= '1';      -- El siguiente ciclo es la mitad del bit
+                        
+                        act_state  <= DATA_RECEIVE;
+                    else
+                        act_state <= IDLE;
                     end if;
+    
+                when DATA_RECEIVE =>
                     
-                    cnt <= clks_per_bit-1; -- Reset. Next middle is one whole period away
-                
-                else -- Still finding middle (i.e. counting up)
-                    cnt <= cnt - 1;
-                end if;    
-            
-            end if;
+                    -- Salida de estado actual
+ 
+                    if (middle = '1') then      -- Nos ayuda a conmutar la lectura del dato
+                        if (data_index = 0) then      -- Bit de start, ignorar
+                            
+                            data_index <= data_index + 1;
+
+                            -- Estado siguiente
+                            act_state <= DATA_RECEIVE;
+                        
+                        elsif data_index < 9 then
+                            
+                            DATA(data_index - 1) <= i_RX; -- Captura del bit
+                            data_index <= data_index + 1;
+
+                            -- Estado siguiente
+                            act_state <= DATA_RECEIVE;
+                        
+                        elsif data_index = 9 then   -- Bit de paridad
+                            
+                            parity <= i_RX; -- Captura del bit de paridad
+                            o_DATA <= DATA;
+
+                            -- Estado siguiente
+                            act_state <= IDLE;
+                        
+                        end if;
+                    end if;
+
+                    middle <= not middle;
+
+                when others => null;
+            end case;
 
         end if;
     end process;
 
-end Behavioral;
+end Reception;

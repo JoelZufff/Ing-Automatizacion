@@ -1,0 +1,120 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+------------------------------------------------------------------------------
+entity Stepper_motor is
+    generic 
+    (
+        clk_freq        : INTEGER := 50000000   
+    );
+    port
+    (
+        i_FPGA_clk          : in STD_LOGIC;         -- Señal de reloj base
+        i_RST               : in STD_LOGIC;         -- Reinicio total
+        
+        i_ST                : in STD_LOGIC;
+        i_Sentido           : in STD_LOGIC;         -- 0 izquierda | 1 Derecha 
+
+        o_STEPS             : out STD_LOGIC_VECTOR(3 downto 0);      -- 4 pasos del motor a pasos
+        o_RDY               : out STD_LOGIC;
+        o_step_num          : out INTEGER;
+
+        i_step_freq         : in INTEGER;
+    );
+end Stepper_motor;
+
+architecture rtl of Stepper_motor is
+
+    -- Division de reloj
+        component CLK_DIV is
+            generic 
+            (
+                clk_freq    : integer          -- Frecuencia interna de FPGA (Hz)
+            );
+            port
+            (
+                i_out_freq      : integer;              -- Frequencia deseada
+                i_FPGA_clk      : in STD_LOGIC;         -- Señal de reloj base
+                o_clk           : out STD_LOGIC    
+            );
+        end component;
+        
+        signal STEP_CLK : STD_LOGIC;
+        signal STEP_freq : INTEGER;
+
+    -- Maquina de estado --
+        type States is (IDLE);
+        signal act_state : States := IDLE; -- Ponemos en estado inicial la maquina
+
+    signal done_steps : INTEGER := 0;
+    type array_4 is array (0 to 3) of STD_LOGIC_VECTOR(3 downto 0);
+    constant steps_sequence : array_4 := "0001" & "0010" & "0100" & "1000";     -- Es derecho
+    
+    signal step_index : INTEGER := 0;
+
+begin
+    c_STEP_CLK : CLK_DIV
+        generic map ( clk_freq => clk_freq ) 
+        port map ( i_out_freq => STEP_freq, i_FPGA_clk => i_FPGA_clk, o_clk => STEP_CLK );
+    
+    process (STEP_CLK, i_RST)
+        begin
+            if (i_RST = '1') then                           -- Se presiono RST
+                act_state <= IDLE;
+            elsif (rising_edge(STEP_CLK)) then
+                case act_state is
+                    when IDLE =>            -- Esperar señal ST
+                        o_RDY <= '1';
+                        
+                        done_steps <= 0;
+
+                        if(i_ST = '1') then
+                            act_state <= WAIT_ST;
+                        else
+                            act_state <= IDLE;
+                        end if;
+                    
+                    when WAIT_ST =>
+                        o_RDY <= '0';
+                        
+                        if (i_ST = '0') then
+                            act_state <= STEPS;
+                        else
+                            act_state <= WAIT_ST;
+                        end if;
+
+                    when STEPS =>      -- Tengo sentido de giro y cantidad de pasos
+                        o_RDY <= '0';
+                        
+                        o_STEPS <= steps_sequence(step_index);
+
+                        if(i_Sentido = '1') then    -- Giro a la derecha, step_index suma
+                            if (step_index = 3) then
+                                step_index <= 0;
+                            else
+                                step_index <= step_index + 1;
+                            end if;
+                        else                        -- Giro a la izquierda, step_index resta
+                            if (step_index = 0) then
+                                step_index <= 3;
+                            else
+                                step_index <= step_index - 1;
+                            end if;
+                        end if;
+                        
+                        done_steps = done_steps + 1;
+
+                        if(done_steps < o_step_num) then
+                            act_state <= STEPS;
+                        else
+                            act_state <= IDLE;
+                        end if;
+
+                    when others =>
+                        null;
+                end case;
+            
+            end if;
+
+
+end architecture;
