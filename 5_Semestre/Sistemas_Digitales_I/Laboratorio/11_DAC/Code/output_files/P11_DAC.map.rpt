@@ -1,0 +1,461 @@
+Analysis & Synthesis report for P11_DAC
+Sat Nov 16 10:11:13 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |P11_DAC|DAC_MCP4802:c_DAC_MCP4802|act_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |P11_DAC
+ 13. Parameter Settings for User Entity Instance: DISPLAY_PRINT:c_DISP_PRINT
+ 14. Parameter Settings for User Entity Instance: DISPLAY_PRINT:c_DISP_PRINT|CLK_DIV:c_DISP_CLK
+ 15. Parameter Settings for User Entity Instance: DAC_MCP4802:c_DAC_MCP4802
+ 16. Parameter Settings for User Entity Instance: DAC_MCP4802:c_DAC_MCP4802|CLK_DIV:c_DAC_CLK
+ 17. Port Connectivity Checks: "DAC_MCP4802:c_DAC_MCP4802|CLK_DIV:c_DAC_CLK"
+ 18. Port Connectivity Checks: "DAC_MCP4802:c_DAC_MCP4802"
+ 19. Port Connectivity Checks: "DISPLAY_PRINT:c_DISP_PRINT|CLK_DIV:c_DISP_CLK"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Nov 16 10:11:13 2024          ;
+; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                      ; P11_DAC                                        ;
+; Top-level Entity Name              ; P11_DAC                                        ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 135                                            ;
+;     Total combinational functions  ; 130                                            ;
+;     Dedicated logic registers      ; 100                                            ;
+; Total registers                    ; 100                                            ;
+; Total pins                         ; 20                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; P11_DAC            ; P11_DAC            ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                             ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                      ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
+; Components/DISPLAY_PRINT.vhd     ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DISPLAY_PRINT.vhd ;         ;
+; Components/DAC_MCP4802.vhd       ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DAC_MCP4802.vhd   ;         ;
+; Components/CLK_DIV.vhd           ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/CLK_DIV.vhd       ;         ;
+; P11_DAC.vhd                      ; yes             ; User VHDL File  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/P11_DAC.vhd                  ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 135         ;
+;                                             ;             ;
+; Total combinational functions               ; 130         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 31          ;
+;     -- 3 input functions                    ; 9           ;
+;     -- <=2 input functions                  ; 90          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 64          ;
+;     -- arithmetic mode                      ; 66          ;
+;                                             ;             ;
+; Total registers                             ; 100         ;
+;     -- Dedicated logic registers            ; 100         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 20          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; i_CLK~input ;
+; Maximum fan-out                             ; 66          ;
+; Total fan-out                               ; 647         ;
+; Average fan-out                             ; 2.40        ;
++---------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Entity Name   ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+---------------+--------------+
+; |P11_DAC                        ; 130 (6)             ; 100 (5)                   ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |P11_DAC                                               ; P11_DAC       ; work         ;
+;    |DAC_MCP4802:c_DAC_MCP4802|  ; 73 (29)             ; 51 (18)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P11_DAC|DAC_MCP4802:c_DAC_MCP4802                     ; DAC_MCP4802   ; work         ;
+;       |CLK_DIV:c_DAC_CLK|       ; 44 (44)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P11_DAC|DAC_MCP4802:c_DAC_MCP4802|CLK_DIV:c_DAC_CLK   ; CLK_DIV       ; work         ;
+;    |DISPLAY_PRINT:c_DISP_PRINT| ; 51 (8)              ; 44 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P11_DAC|DISPLAY_PRINT:c_DISP_PRINT                    ; DISPLAY_PRINT ; work         ;
+;       |CLK_DIV:c_DISP_CLK|      ; 43 (43)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |P11_DAC|DISPLAY_PRINT:c_DISP_PRINT|CLK_DIV:c_DISP_CLK ; CLK_DIV       ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------+
+; State Machine - |P11_DAC|DAC_MCP4802:c_DAC_MCP4802|act_state                                         ;
++---------------------+---------------------+---------------------+-------------------+----------------+
+; Name                ; act_state.LATCH_DAC ; act_state.SEND_DATA ; act_state.WAIT_ST ; act_state.IDLE ;
++---------------------+---------------------+---------------------+-------------------+----------------+
+; act_state.IDLE      ; 0                   ; 0                   ; 0                 ; 0              ;
+; act_state.WAIT_ST   ; 0                   ; 0                   ; 1                 ; 1              ;
+; act_state.SEND_DATA ; 0                   ; 1                   ; 0                 ; 1              ;
+; act_state.LATCH_DAC ; 1                   ; 0                   ; 0                 ; 1              ;
++---------------------+---------------------+---------------------+-------------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++-------------------------------------------+---------------------------------------------------+
+; Register name                             ; Reason for Removal                                ;
++-------------------------------------------+---------------------------------------------------+
+; DISP_NUM[1][0]                            ; Stuck at GND due to stuck port data_in            ;
+; DISP_NUM[1][2]                            ; Stuck at GND due to stuck port data_in            ;
+; DISP_NUM[1][3]                            ; Stuck at GND due to stuck port data_in            ;
+; DISP_NUM[1][5]                            ; Stuck at GND due to stuck port data_in            ;
+; DISP_NUM[1][7]                            ; Stuck at VCC due to stuck port data_in            ;
+; DISP_NUM[0][1]                            ; Stuck at GND due to stuck port data_in            ;
+; DISP_NUM[0][7]                            ; Stuck at GND due to stuck port data_in            ;
+; DAC_MCP4802:c_DAC_MCP4802|DAC_DATA[9..11] ; Stuck at GND due to stuck port data_in            ;
+; DAC_MCP4802:c_DAC_MCP4802|DAC_DATA[8]     ; Stuck at VCC due to stuck port data_in            ;
+; DAC_MCP4802:c_DAC_MCP4802|DAC_DATA[1..4]  ; Merged with DAC_MCP4802:c_DAC_MCP4802|DAC_DATA[0] ;
+; DISP_NUM[0][3]                            ; Merged with DISP_NUM[0][0]                        ;
+; DISP_NUM[0][4]                            ; Merged with DISP_NUM[0][0]                        ;
+; DISP_NUM[1][4]                            ; Merged with DISP_NUM[1][1]                        ;
+; DISP_NUM[1][6]                            ; Merged with DISP_NUM[1][1]                        ;
+; Total Number of Removed Registers = 19    ;                                                   ;
++-------------------------------------------+---------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 100   ;
+; Number of registers using Synchronous Clear  ; 64    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 19    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; DISP_NUM[0][6]                         ; 1       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |P11_DAC ;
++----------------+----------+---------------------------------------------+
+; Parameter Name ; Value    ; Type                                        ;
++----------------+----------+---------------------------------------------+
+; CLK_FREQ       ; 50000000 ; Signed Integer                              ;
++----------------+----------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DISPLAY_PRINT:c_DISP_PRINT ;
++----------------+----------+---------------------------------------------+
+; Parameter Name ; Value    ; Type                                        ;
++----------------+----------+---------------------------------------------+
+; clk_freq       ; 50000000 ; Signed Integer                              ;
++----------------+----------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DISPLAY_PRINT:c_DISP_PRINT|CLK_DIV:c_DISP_CLK ;
++----------------+----------+----------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                           ;
++----------------+----------+----------------------------------------------------------------+
+; clk_freq       ; 50000000 ; Signed Integer                                                 ;
++----------------+----------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DAC_MCP4802:c_DAC_MCP4802 ;
++----------------+----------+--------------------------------------------+
+; Parameter Name ; Value    ; Type                                       ;
++----------------+----------+--------------------------------------------+
+; clk_freq       ; 50000000 ; Signed Integer                             ;
++----------------+----------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DAC_MCP4802:c_DAC_MCP4802|CLK_DIV:c_DAC_CLK ;
++----------------+----------+--------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                         ;
++----------------+----------+--------------------------------------------------------------+
+; clk_freq       ; 50000000 ; Signed Integer                                               ;
++----------------+----------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "DAC_MCP4802:c_DAC_MCP4802|CLK_DIV:c_DAC_CLK" ;
++--------------------+-------+----------+---------------------------------+
+; Port               ; Type  ; Severity ; Details                         ;
++--------------------+-------+----------+---------------------------------+
+; i_out_freq[19..16] ; Input ; Info     ; Stuck at VCC                    ;
+; i_out_freq[31..20] ; Input ; Info     ; Stuck at GND                    ;
+; i_out_freq[13..10] ; Input ; Info     ; Stuck at GND                    ;
+; i_out_freq[8..7]   ; Input ; Info     ; Stuck at GND                    ;
+; i_out_freq[5..0]   ; Input ; Info     ; Stuck at GND                    ;
+; i_out_freq[15]     ; Input ; Info     ; Stuck at GND                    ;
+; i_out_freq[14]     ; Input ; Info     ; Stuck at VCC                    ;
+; i_out_freq[9]      ; Input ; Info     ; Stuck at VCC                    ;
+; i_out_freq[6]      ; Input ; Info     ; Stuck at VCC                    ;
++--------------------+-------+----------+---------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "DAC_MCP4802:c_DAC_MCP4802" ;
++------------------+-------+----------+-----------------+
+; Port             ; Type  ; Severity ; Details         ;
++------------------+-------+----------+-----------------+
+; i_dac_conf[3..1] ; Input ; Info     ; Stuck at GND    ;
+; i_dac_conf[0]    ; Input ; Info     ; Stuck at VCC    ;
++------------------+-------+----------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "DISPLAY_PRINT:c_DISP_PRINT|CLK_DIV:c_DISP_CLK" ;
++--------------------+-------+----------+-----------------------------------+
+; Port               ; Type  ; Severity ; Details                           ;
++--------------------+-------+----------+-----------------------------------+
+; i_out_freq[9..5]   ; Input ; Info     ; Stuck at VCC                      ;
+; i_out_freq[31..10] ; Input ; Info     ; Stuck at GND                      ;
+; i_out_freq[2..0]   ; Input ; Info     ; Stuck at GND                      ;
+; i_out_freq[4]      ; Input ; Info     ; Stuck at GND                      ;
+; i_out_freq[3]      ; Input ; Info     ; Stuck at VCC                      ;
++--------------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 20                          ;
+; cycloneiii_ff         ; 100                         ;
+;     CLR               ; 10                          ;
+;     ENA               ; 19                          ;
+;     SCLR              ; 64                          ;
+;     plain             ; 7                           ;
+; cycloneiii_lcell_comb ; 131                         ;
+;     arith             ; 66                          ;
+;         2 data inputs ; 66                          ;
+;     normal            ; 65                          ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 31                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.10                        ;
+; Average LUT depth     ; 2.85                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Sat Nov 16 10:11:03 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off P11_DAC -c P11_DAC
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file components/display_print.vhd
+    Info (12022): Found design unit 1: DISPLAY_PRINT-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DISPLAY_PRINT.vhd Line: 25
+    Info (12023): Found entity 1: DISPLAY_PRINT File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DISPLAY_PRINT.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file components/dac_mcp4802.vhd
+    Info (12022): Found design unit 1: DAC_MCP4802-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DAC_MCP4802.vhd Line: 38
+    Info (12023): Found entity 1: DAC_MCP4802 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DAC_MCP4802.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file components/clk_div.vhd
+    Info (12022): Found design unit 1: CLK_DIV-DIV File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/CLK_DIV.vhd Line: 19
+    Info (12023): Found entity 1: CLK_DIV File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/CLK_DIV.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file p11_dac.vhd
+    Info (12022): Found design unit 1: P11_DAC-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/P11_DAC.vhd Line: 33
+    Info (12023): Found entity 1: P11_DAC File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/P11_DAC.vhd Line: 6
+Info (12127): Elaborating entity "P11_DAC" for the top level hierarchy
+Info (12128): Elaborating entity "DISPLAY_PRINT" for hierarchy "DISPLAY_PRINT:c_DISP_PRINT" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/P11_DAC.vhd Line: 95
+Info (12128): Elaborating entity "CLK_DIV" for hierarchy "DISPLAY_PRINT:c_DISP_PRINT|CLK_DIV:c_DISP_CLK" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/DISPLAY_PRINT.vhd Line: 51
+Warning (10540): VHDL Signal Declaration warning at CLK_DIV.vhd(22): used explicit default value for signal "clks_max" because signal was never assigned a value File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/Components/CLK_DIV.vhd Line: 22
+Info (12128): Elaborating entity "DAC_MCP4802" for hierarchy "DAC_MCP4802:c_DAC_MCP4802" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/11_DAC/code/P11_DAC.vhd Line: 110
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 136 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Sat Nov 16 10:11:13 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:07
+
+

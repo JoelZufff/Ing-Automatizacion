@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Nov 16 10:11:17 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : P11_DAC
+Top-level Entity Name : P11_DAC
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 139 / 6,272 ( 2 % )
+    Total combinational functions : 130 / 6,272 ( 2 % )
+    Dedicated logic registers : 100 / 6,272 ( 2 % )
+Total registers : 100
+Total pins : 20 / 92 ( 22 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

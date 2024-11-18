@@ -345,7 +345,7 @@ begin
                         l_sp & l_sp & l_sp & l_sp & l_sp & l_sp & l_STN & l_sp & l_CC & l_MM & l_sp & l_sp & l_sp & l_sp & l_sp & l_sp;
 
                     -- Estado futuro
-                    if (LCD_RDY = '1' and i_START = '0') then               -- Enviaremos un mensaje a LCD
+                    if (LCD_RDY = '1') then               -- Enviaremos un mensaje a LCD
                         QUEUE_read      <= '1';
                         STEP_DIR        <= '1';                             -- Direccion de acoplamiento
 

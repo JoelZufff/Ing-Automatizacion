@@ -984,7 +984,6 @@ i_RST => STEP_num[0].ENA
 i_RST => STEP_DIR.ENA
 i_RST => QUEUE_RST_aux.ENA
 i_START => process_0.IN1
-i_START => process_0.IN1
 i_STOP => QUEUE_RST_aux.OUTPUTSELECT
 i_STOP => STEP_num.OUTPUTSELECT
 i_STOP => STEP_num.OUTPUTSELECT
@@ -1074,22 +1073,22 @@ i_VEL[1] => Mux2.IN4
 i_VEL[1] => Mux1.IN4
 i_VEL[1] => Mux0.IN4
 i_RX => Distance_queue:c_queue.i_RX
-o_TX <= UART_TX_string:c_TX_message.o_TX
-o_RS <= LCD_putstring:c_LCD.o_RS
-o_E <= LCD_putstring:c_LCD.o_E
-o_RW <= LCD_putstring:c_LCD.o_RW
-o_LCD_DATA[0] <= LCD_putstring:c_LCD.o_LCD_DATA[0]
-o_LCD_DATA[1] <= LCD_putstring:c_LCD.o_LCD_DATA[1]
-o_LCD_DATA[2] <= LCD_putstring:c_LCD.o_LCD_DATA[2]
-o_LCD_DATA[3] <= LCD_putstring:c_LCD.o_LCD_DATA[3]
-o_LCD_DATA[4] <= LCD_putstring:c_LCD.o_LCD_DATA[4]
-o_LCD_DATA[5] <= LCD_putstring:c_LCD.o_LCD_DATA[5]
-o_LCD_DATA[6] <= LCD_putstring:c_LCD.o_LCD_DATA[6]
-o_LCD_DATA[7] <= LCD_putstring:c_LCD.o_LCD_DATA[7]
-o_STEPS[0] <= Stepper_motor:STEPS.o_STEPS[0]
-o_STEPS[1] <= Stepper_motor:STEPS.o_STEPS[1]
-o_STEPS[2] <= Stepper_motor:STEPS.o_STEPS[2]
-o_STEPS[3] <= Stepper_motor:STEPS.o_STEPS[3]
+o_TX << UART_TX_string:c_TX_message.o_TX
+o_RS << LCD_putstring:c_LCD.o_RS
+o_E << LCD_putstring:c_LCD.o_E
+o_RW << LCD_putstring:c_LCD.o_RW
+o_LCD_DATA[0] << LCD_putstring:c_LCD.o_LCD_DATA[0]
+o_LCD_DATA[1] << LCD_putstring:c_LCD.o_LCD_DATA[1]
+o_LCD_DATA[2] << LCD_putstring:c_LCD.o_LCD_DATA[2]
+o_LCD_DATA[3] << LCD_putstring:c_LCD.o_LCD_DATA[3]
+o_LCD_DATA[4] << LCD_putstring:c_LCD.o_LCD_DATA[4]
+o_LCD_DATA[5] << LCD_putstring:c_LCD.o_LCD_DATA[5]
+o_LCD_DATA[6] << LCD_putstring:c_LCD.o_LCD_DATA[6]
+o_LCD_DATA[7] << LCD_putstring:c_LCD.o_LCD_DATA[7]
+o_STEPS[0] << Stepper_motor:STEPS.o_STEPS[0]
+o_STEPS[1] << Stepper_motor:STEPS.o_STEPS[1]
+o_STEPS[2] << Stepper_motor:STEPS.o_STEPS[2]
+o_STEPS[3] << Stepper_motor:STEPS.o_STEPS[3]
 
 
 |Practica_10|Stepper_motor:STEPS

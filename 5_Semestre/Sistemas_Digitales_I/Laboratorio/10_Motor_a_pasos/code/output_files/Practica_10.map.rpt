@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica_10
-Tue Nov 12 00:09:15 2024
+Wed Nov 13 11:03:30 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -85,7 +85,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Nov 12 00:09:15 2024          ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 13 11:03:29 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Practica_10                                    ;
 ; Top-level Entity Name              ; Practica_10                                    ;
@@ -203,9 +203,9 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -253,9 +253,9 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                  ;
 ; Total combinational functions               ; 2234             ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 645              ;
-;     -- 3 input functions                    ; 610              ;
-;     -- <=2 input functions                  ; 979              ;
+;     -- 4 input functions                    ; 647              ;
+;     -- 3 input functions                    ; 613              ;
+;     -- <=2 input functions                  ; 974              ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
 ;     -- normal mode                          ; 1362             ;
@@ -272,7 +272,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                  ;
 ; Maximum fan-out node                        ; i_FPGA_clk~input ;
 ; Maximum fan-out                             ; 167              ;
-; Total fan-out                               ; 8116             ;
+; Total fan-out                               ; 8123             ;
 ; Average fan-out                             ; 2.90             ;
 +---------------------------------------------+------------------+
 
@@ -282,11 +282,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name     ; Library Name ;
 +---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |Practica_10                                ; 2234 (267)          ; 520 (96)                  ; 100         ; 0            ; 0       ; 0         ; 23   ; 0            ; |Practica_10                                                                                                                                    ; Practica_10     ; work         ;
+; |Practica_10                                ; 2234 (270)          ; 520 (96)                  ; 100         ; 0            ; 0       ; 0         ; 23   ; 0            ; |Practica_10                                                                                                                                    ; Practica_10     ; work         ;
 ;    |CLK_DIV:c_P10_CLK|                      ; 44 (44)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|CLK_DIV:c_P10_CLK                                                                                                                  ; CLK_DIV         ; work         ;
-;    |Distance_queue:c_queue|                 ; 226 (123)           ; 148 (90)                  ; 100         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue                                                                                                             ; Distance_queue  ; work         ;
+;    |Distance_queue:c_queue|                 ; 224 (123)           ; 148 (90)                  ; 100         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue                                                                                                             ; Distance_queue  ; work         ;
 ;       |CLK_DIV:c_QUEUE_CLK|                 ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue|CLK_DIV:c_QUEUE_CLK                                                                                         ; CLK_DIV         ; work         ;
-;       |UART_RX:RX_Receive|                  ; 102 (38)            ; 57 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue|UART_RX:RX_Receive                                                                                          ; UART_RX         ; work         ;
+;       |UART_RX:RX_Receive|                  ; 100 (36)            ; 57 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue|UART_RX:RX_Receive                                                                                          ; UART_RX         ; work         ;
 ;          |CLK_DIV:c_UART_CLK|               ; 64 (64)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK                                                                       ; CLK_DIV         ; work         ;
 ;       |altsyncram:distance_queue_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 100         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue|altsyncram:distance_queue_rtl_0                                                                             ; altsyncram      ; work         ;
 ;          |altsyncram_h8i1:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 100         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Distance_queue:c_queue|altsyncram:distance_queue_rtl_0|altsyncram_h8i1:auto_generated                                              ; altsyncram_h8i1 ; work         ;
@@ -298,7 +298,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |lpm_divide_92p:auto_generated| ; 1157 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0|lpm_divide_92p:auto_generated                                               ; lpm_divide_92p  ; work         ;
 ;                |abs_divider_4dg:divider|    ; 1157 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0|lpm_divide_92p:auto_generated|abs_divider_4dg:divider                       ; abs_divider_4dg ; work         ;
 ;                   |alt_u_div_6af:divider|   ; 1157 (1157)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0|lpm_divide_92p:auto_generated|abs_divider_4dg:divider|alt_u_div_6af:divider ; alt_u_div_6af   ; work         ;
-;    |UART_TX_string:c_TX_message|            ; 205 (141)           ; 88 (44)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|UART_TX_string:c_TX_message                                                                                                        ; UART_TX_string  ; work         ;
+;    |UART_TX_string:c_TX_message|            ; 204 (140)           ; 88 (44)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|UART_TX_string:c_TX_message                                                                                                        ; UART_TX_string  ; work         ;
 ;       |CLK_DIV:c_UART_CLK|                  ; 43 (43)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|UART_TX_string:c_TX_message|CLK_DIV:c_UART_CLK                                                                                     ; CLK_DIV         ; work         ;
 ;       |UART_TX_byte:TX_byte|                ; 21 (20)             ; 11 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte                                                                                   ; UART_TX_byte    ; work         ;
 ;          |CLK_DIV:c_UART_CLK|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Practica_10|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte|CLK_DIV:c_UART_CLK                                                                ; CLK_DIV         ; work         ;
@@ -988,19 +988,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Practica_10|Distance_queue:c_queue|UART_RX:RX_Receive|data_index[3]        ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |Practica_10|Stepper_motor:STEPS|step_index[25]                             ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Practica_10|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte|data_index[0] ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |Practica_10|Stepper_motor:STEPS|step_index[29]                             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Practica_10|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte|data_index[1] ;
 ; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Practica_10|clks[28]                                                       ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Practica_10|STEP_num[6]                                                    ;
-; 256:1              ; 32 bits   ; 5440 LEs      ; 0 LEs                ; 5440 LEs               ; Yes        ; |Practica_10|Distance_queue:c_queue|stored_index[4]                         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Practica_10|STOP_nxt_state.PRINT_STOP                                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Practica_10|STOP_nxt_state.WAIT_2SEC                                       ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Practica_10|STEP_num[1]                                                    ;
+; 256:1              ; 32 bits   ; 5440 LEs      ; 0 LEs                ; 5440 LEs               ; Yes        ; |Practica_10|Distance_queue:c_queue|stored_index[16]                        ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Practica_10|STOP_nxt_state.LCD_SEND                                        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Practica_10|STOP_nxt_state.COUPLING                                        ;
 ; 3:1                ; 25 bits   ; 50 LEs        ; 50 LEs               ; 0 LEs                  ; No         ; |Practica_10|STEP_num                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Practica_10|TX_nxt_state.PRINT_IDLE                                        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |Practica_10|TX_nxt_state.IDLE                                              ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Practica_10|Distance_queue:c_queue|distance_queue                          ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |Practica_10|LCD_nxt_state.LCD_SEND                                         ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; No         ; |Practica_10|LCD_putstring:c_LCD|stored_state.NEW_LINE                      ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |Practica_10|LCD_putstring:c_LCD|stored_state.SEND_CHAR                     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |Practica_10|LCD_nxt_state.PRINT_COUPLING                                   ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |Practica_10|LCD_nxt_state.LCD_SEND                                         ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; No         ; |Practica_10|LCD_putstring:c_LCD|stored_state.CLEAR_DISP                    ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |Practica_10|LCD_putstring:c_LCD|stored_state.CONFIG1                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
 
 
@@ -1384,13 +1385,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     normal            ; 1364                        ;
 ;         0 data inputs ; 23                          ;
 ;         1 data inputs ; 32                          ;
-;         2 data inputs ; 537                         ;
-;         3 data inputs ; 127                         ;
-;         4 data inputs ; 645                         ;
+;         2 data inputs ; 532                         ;
+;         3 data inputs ; 130                         ;
+;         4 data inputs ; 647                         ;
 ; cycloneiii_ram_block  ; 2                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 86.70                       ;
-; Average LUT depth     ; 40.41                       ;
+; Average LUT depth     ; 40.44                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1399,7 +1400,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:22     ;
 +----------------+--------------+
 
 
@@ -1409,7 +1410,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Tue Nov 12 00:09:02 2024
+    Info: Processing started: Wed Nov 13 11:02:52 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica_10 -c Practica_10
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -1438,39 +1439,39 @@ Info (12021): Found 2 design units, including 1 entities, in source file practic
     Info (12022): Found design unit 1: Practica_10-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 33
     Info (12023): Found entity 1: Practica_10 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 5
 Info (12127): Elaborating entity "Practica_10" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at Practica_10.vhd(427): inferring latch(es) for signal or variable "STEP_freq", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[0]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[1]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[2]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[3]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[4]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[5]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[6]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[7]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[8]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[9]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[10]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[11]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[12]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[13]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[14]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[15]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[16]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[17]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[18]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[19]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[20]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[21]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[22]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[23]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[24]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[25]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[26]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[27]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[28]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[29]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[30]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Info (10041): Inferred latch for "STEP_freq[31]" at Practica_10.vhd(427) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
+Warning (10631): VHDL Process Statement warning at Practica_10.vhd(428): inferring latch(es) for signal or variable "STEP_freq", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[0]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[1]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[2]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[3]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[4]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[5]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[6]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[7]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[8]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[9]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[10]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[11]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[12]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[13]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[14]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[15]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[16]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[17]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[18]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[19]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[20]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[21]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[22]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[23]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[24]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[25]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[26]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[27]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[28]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[29]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[30]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[31]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
 Info (12128): Elaborating entity "Stepper_motor" for hierarchy "Stepper_motor:STEPS" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 231
 Info (12128): Elaborating entity "CLK_DIV" for hierarchy "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Stepper_motor.vhd Line: 69
 Warning (10540): VHDL Signal Declaration warning at CLK_DIV.vhd(22): used explicit default value for signal "clks_max" because signal was never assigned a value File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
@@ -1547,8 +1548,8 @@ Info (12133): Instantiated megafunction "Distance_queue:c_queue|UART_RX:RX_Recei
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "STEP_freq[2]" merged with LATCH primitive "STEP_freq[4]" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
-Warning (13012): Latch STEP_freq[4] has unsafe behavior File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 427
+    Info (13026): Duplicate LATCH primitive "STEP_freq[2]" merged with LATCH primitive "STEP_freq[4]" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
+Warning (13012): Latch STEP_freq[4] has unsafe behavior File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
     Warning (13013): Ports D and ENA on the latch are fed by the same signal i_VEL[0] File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 17
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "o_RW" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 24
@@ -1556,15 +1557,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 32 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2303 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2301 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 2278 logic cells
+    Info (21061): Implemented 2276 logic cells
     Info (21064): Implemented 2 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4856 megabytes
-    Info: Processing ended: Tue Nov 12 00:09:15 2024
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Peak virtual memory: 4890 megabytes
+    Info: Processing ended: Wed Nov 13 11:03:30 2024
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:22
 
 

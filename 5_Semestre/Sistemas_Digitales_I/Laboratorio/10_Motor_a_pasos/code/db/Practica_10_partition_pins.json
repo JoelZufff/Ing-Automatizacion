@@ -72,11 +72,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "i_START",
+					"name" : "i_STOP",
 					"strict" : false
 				},
 				{
-					"name" : "i_STOP",
+					"name" : "i_START",
 					"strict" : false
 				},
 				{

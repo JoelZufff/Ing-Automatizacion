@@ -1,0 +1,7 @@
+
+State Machine - |P11_DAC|DAC_MCP4802:c_DAC_MCP4802|act_state
+Name act_state.LATCH_DAC act_state.SEND_DATA act_state.WAIT_ST act_state.IDLE 
+act_state.IDLE 0 0 0 0 
+act_state.WAIT_ST 0 0 1 1 
+act_state.SEND_DATA 0 1 0 1 
+act_state.LATCH_DAC 1 0 0 1 

@@ -1,0 +1,87 @@
+-- Ocupo mandar 16 bits de datos para configurar el SPI
+-- Algoritmo:
+-- LDAC
+
+-- 1. CS <= '0'     -- Esta en '1' todo el tiempo
+-- 2. SCK <= CLK    -- Contamos 16 pulsos de cada bit (0 -> 15)
+-- 3. SPI(i) <= Bits de datos       -- Cambia en cada flanco de subida de CLK
+-- 4. Al finalizar de los 16 bits, enviamos LDAC <= '0', despues de 40 ns y por 100 ns minimo.
+------------------------------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+------------------------------------------------------------------------------
+entity P11_DAC is
+    generic 
+    (
+        CLK_FREQ    : INTEGER := 50000000
+    );
+    port
+    (
+        i_CLK       : in STD_LOGIC;         -- Señal de reloj base
+        i_RST       : in STD_LOGIC;         -- Reinicio total
+
+        -- Salidas fisicas MCP4802
+        o_SDI       : out STD_LOGIC;                        -- Datos seriales
+        o_SCK       : out STD_LOGIC;                        -- Señal de reloj
+        o_CS        : out STD_LOGIC;                        -- Chip select
+        o_LDAC      : out STD_LOGIC;                        -- Latch DAC
+    );
+end P11_DAC;
+
+architecture rtl of P11_DAC is
+    -- DIVISOR DE RELOJ --
+        component CLK_DIV
+            generic 
+            (
+                clk_freq : INTEGER
+            );
+            port 
+            (
+                i_out_freq :  INTEGER;
+                i_FPGA_clk : in STD_LOGIC;
+                o_clk : out STD_LOGIC
+            );
+        end component;
+
+        signal P11_CLK : STD_LOGIC;
+    
+    -- MAQUINA DE ESTADOS FINITOS --
+        type states is (IDLE);
+        signal act_state : states := IDLE;
+    
+    -- DAC MCP4802 --
+        component DAC_MCP4802 is
+            generic 
+            (
+                CLK_FREQ    : INTEGER
+            );
+            port
+            (
+                i_CLK       : in STD_LOGIC;                         -- Señal de reloj base
+                i_RST       : in STD_LOGIC;                         -- Reinicio total
+                
+                i_ST        : in STD_LOGIC;                         -- Señal de start
+                i_DAC_CONF  : in STD_LOGIC_VECTOR(3 downto 0);      -- 4 Bits para configuracion de DAC
+                i_DAC_VOLT  : in STD_LOGIC_VECTOR(7 downto 0);      -- 8 Bits para resolucion de voltaje analogico
+                
+                o_RDY       : out STD_LOGIC;                        -- Ready
+        
+                -- Salidas fisicas MCP4802
+                o_SDI       : out STD_LOGIC;                        -- Datos seriales
+                o_SCK       : out STD_LOGIC;                        -- Señal de reloj
+                o_CS        : out STD_LOGIC;                        -- Chip select
+                o_LDAC      : out STD_LOGIC;                        -- Latch DAC
+            );
+        end component;
+
+        signal DAC_ST   : STD_LOGIC;
+        signal DAC_CONF : STD_LOGIC_VECTOR(3 downto 0);
+        signal DAC_VOLT : STD_LOGIC_VECTOR(7 downto 0);
+        signal DAC_RDY  : STD_LOGIC_VECTOR(7 downto 0);
+
+begin
+
+    
+
+end architecture;
