@@ -148,6 +148,7 @@ void main()
 
       // Imprimir color en display
       char color_string[16];
+      
       switch (color)
       {
           case BLACK:
