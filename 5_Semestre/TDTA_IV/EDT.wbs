@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <project version="5">
-	<proj ListSeperator="," DefaultDurationUnits="days" DefaultWorkUnits="hours" HoursPerDay="8" HoursPerWeek="40" DaysPerMonth="21.75" ScheduleDisplay="automatic" DefaultStartTime="08:00" DefaultFinishTime="17:00" NADate="" uimode="normal" lockwbs="yes" CalendarUID="0" NavigatorCodes="long" projUID="R014R028RCPA">
+	<proj ListSeperator="," DefaultDurationUnits="days" DefaultWorkUnits="hours" HoursPerDay="8" HoursPerWeek="40" DaysPerMonth="21.75" ScheduleDisplay="automatic" DefaultStartTime="08:00" DefaultFinishTime="17:00" NADate="" uimode="normal" lockwbs="yes" CalendarUID="0" NavigatorCodes="long" projUID="R014R036RCPA">
 		<calendar name="Standard" uid="0" baseuid="-1">
 			<normalhours s1="08:00" f1="12:00" s2="13:00" f2="17:00"/>
 			<dow day="sun" working="no"/>
@@ -33,12 +33,12 @@
 			<dow day="sat" working="yes"/>
 		</calendar>
 		<currency symbol="$" digits="2" positiveOrder="0" negativeOrder="1"/>
-		<summary ScheduleFromStart="yes" CalculateCostProgress="yes" MultipleCriticalPaths="no" CriticalSlack="0d" Progress="normal" Name="EDT" Calendar="Standard" Title="EDT" Duration="203d" Start="2024-11-04T08:00" Finish="2025-08-13T17:00"/>
+		<summary ScheduleFromStart="yes" CalculateCostProgress="yes" MultipleCriticalPaths="no" CriticalSlack="0d" Progress="normal" Name="EDT" Calendar="Standard" Title="EDT" Duration="205d" ActualDuration="-6.15d" PercentComplete="-3%" Start="2024-11-04T08:00" Finish="2025-08-15T17:00"/>
 		<valuelist name="WBS" restrict="no" append="no" autosuffix="yes">
 			<item value="1" desc="Sistema Portatil de monitoreo cardiaco"/>
 			<item value="1" desc="Investigacion" level="1"/>
 			<item value="2" desc="Selecci&#243;n de componentes" level="1"/>
-			<item value="3" desc="DIse&#241;o de prototipo" level="1"/>
+			<item value="3" desc="Dise&#241;o de prototipo" level="1"/>
 			<item value="4" desc="Desarrollo de software" level="1"/>
 			<item value="5" desc="Pruebas y validaci&#243;n" level="1"/>
 		</valuelist>
@@ -63,37 +63,45 @@
 		<valuelist name="Outline Code10" restrict="no" append="yes" autosuffix="no">
 		</valuelist>
 		<groupspec>
-			<outline current="6"/>
+			<outline current="43"/>
 		</groupspec>
 		<tasks>
-			<task ID="0" UniqueID="0" OutlineLevel="0" WBS="0" Name="EDT" FreeSlack="143d" TotalSlack="143d" Duration="203d" DurationVariance="203d" RemainingDuration="203d" Start="2024-11-04T08:00" Finish="2025-08-13T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-05-22T08:00" LateFinish="2025-08-13T17:00" Summary="yes"/>
-			<task ID="1" UniqueID="6" OutlineLevel="1" WBS="1" Name="Sistema Portatil de monitoreo cardiaco" FreeSlack="143d" TotalSlack="143d" Duration="203d" DurationVariance="203d" RemainingDuration="203d" Start="2024-11-04T08:00" Finish="2025-08-13T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-05-22T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
-			<task ID="2" UniqueID="7" OutlineLevel="2" WBS="1.1" Name="Investigacion" FreeSlack="188d" TotalSlack="188d" Duration="29d" DurationVariance="29d" RemainingDuration="29d" Start="2024-11-04T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
-			<task ID="3" UniqueID="10" OutlineLevel="3" WBS="1.1.1" Name="Revisi&#243;n del estado del arte del dispositivo" FreeSlack="188d" TotalSlack="188d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" Start="2024-11-04T08:00" Finish="2024-11-22T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2024-11-22T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" FixedCostAccrual="Prorated"/>
-			<task ID="4" UniqueID="11" OutlineLevel="3" WBS="1.1.2" Name="Investigar rangos de frecuencia de la bradicardia" FreeSlack="174d" TotalSlack="174d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-11-22T08:00" Start="2024-11-22T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-22T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="5" UniqueID="12" OutlineLevel="3" WBS="1.1.3" Name="An&#225;lisis de cardiopat&#237;as que requieren monitoreo constante" FreeSlack="174d" TotalSlack="174d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-11-22T08:00" Start="2024-11-22T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-22T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="6" UniqueID="13" OutlineLevel="3" WBS="1.1.4" Name="Investigar regulaciones m&#233;dicas y normas mexicanas." FreeSlack="174d" TotalSlack="174d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-11-22T08:00" Start="2024-11-22T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-22T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="7" UniqueID="14" OutlineLevel="2" WBS="1.2" Name="Selecci&#243;n de componentes" FreeSlack="160d" TotalSlack="160d" Duration="43d" DurationVariance="43d" RemainingDuration="43d" Start="2024-12-12T08:00" Finish="2025-02-10T17:00" EarlyStart="2024-12-12T08:00" EarlyFinish="2025-02-10T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
-			<task ID="8" UniqueID="15" OutlineLevel="3" WBS="1.2.1" Name="Microcontrolador" FreeSlack="160d" TotalSlack="160d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-12-12T08:00" Start="2024-12-12T08:00" Finish="2025-01-01T17:00" EarlyStart="2024-12-12T08:00" EarlyFinish="2025-01-01T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="9" UniqueID="16" OutlineLevel="3" WBS="1.2.2" Name="Sensor optico infrarojo" FreeSlack="160d" TotalSlack="160d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-12-12T08:00" Start="2024-12-12T08:00" Finish="2025-01-01T17:00" EarlyStart="2024-12-12T08:00" EarlyFinish="2025-01-01T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="10" UniqueID="17" OutlineLevel="3" WBS="1.2.3" Name="M&#243;dulo Bluetooth" FreeSlack="146d" TotalSlack="146d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-01T08:00" Start="2025-01-01T08:00" Finish="2025-01-21T17:00" EarlyStart="2025-01-01T08:00" EarlyFinish="2025-01-21T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="11" UniqueID="18" OutlineLevel="3" WBS="1.2.4" Name="Bateria recargable de polimero de litio" FreeSlack="146d" TotalSlack="146d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-01T08:00" Start="2025-01-01T08:00" Finish="2025-01-21T17:00" EarlyStart="2025-01-01T08:00" EarlyFinish="2025-01-21T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="12" UniqueID="20" OutlineLevel="3" WBS="1.2.5" Name="M&#243;dulo GPS" FreeSlack="132d" TotalSlack="132d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-21T08:00" Start="2025-01-21T08:00" Finish="2025-02-10T17:00" EarlyStart="2025-01-21T08:00" EarlyFinish="2025-02-10T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="13" UniqueID="19" OutlineLevel="3" WBS="1.2.6" Name="M&#243;dulo GSM" FreeSlack="132d" TotalSlack="132d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-21T08:00" Start="2025-01-21T08:00" Finish="2025-02-10T17:00" EarlyStart="2025-01-21T08:00" EarlyFinish="2025-02-10T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="14" UniqueID="22" OutlineLevel="2" WBS="1.3" Name="DIse&#241;o de prototipo" FreeSlack="103d" TotalSlack="103d" Duration="30d" DurationVariance="30d" RemainingDuration="30d" Start="2025-02-10T08:00" Finish="2025-03-21T17:00" EarlyStart="2025-02-10T08:00" EarlyFinish="2025-03-21T17:00" LateStart="2025-07-03T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
-			<task ID="15" UniqueID="24" OutlineLevel="3" WBS="1.3.1" Name="Modelado del hardware" FreeSlack="118d" TotalSlack="118d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-02-10T08:00" Start="2025-02-10T08:00" Finish="2025-02-28T17:00" EarlyStart="2025-02-10T08:00" EarlyFinish="2025-02-28T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="16" UniqueID="25" OutlineLevel="3" WBS="1.3.2" Name="Implementaci&#243;n del software para el microcontrolador" FreeSlack="118d" TotalSlack="118d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-02-10T08:00" Start="2025-02-10T08:00" Finish="2025-02-28T17:00" EarlyStart="2025-02-10T08:00" EarlyFinish="2025-02-28T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="17" UniqueID="26" OutlineLevel="3" WBS="1.3.3" Name="Implementaci&#243;n de sistema de alertas y geolocalizaci&#243;n" FreeSlack="118d" TotalSlack="118d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-02-10T08:00" Start="2025-02-10T08:00" Finish="2025-02-28T17:00" EarlyStart="2025-02-10T08:00" EarlyFinish="2025-02-28T17:00" LateStart="2025-07-24T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="18" UniqueID="23" OutlineLevel="3" WBS="1.3.4" Name="Ensamblaje del hardware del prototipo" FreeSlack="103d" TotalSlack="103d" Duration="30d" DurationVariance="30d" RemainingDuration="30d" ConstraintDate="2025-02-10T08:00" Start="2025-02-10T08:00" Finish="2025-03-21T17:00" EarlyStart="2025-02-10T08:00" EarlyFinish="2025-03-21T17:00" LateStart="2025-07-03T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="19" UniqueID="27" OutlineLevel="2" WBS="1.4" Name="Desarrollo de software" FreeSlack="44d" TotalSlack="44d" Duration="75d" DurationVariance="75d" RemainingDuration="75d" Start="2025-03-21T08:00" Finish="2025-07-03T17:00" EarlyStart="2025-03-21T08:00" EarlyFinish="2025-07-03T17:00" LateStart="2025-05-22T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
-			<task ID="20" UniqueID="31" OutlineLevel="3" WBS="1.4.1" Name="Desarrollo inicial del software para la adquisici&#243;n de se&#241;ales (Arduino IDE o ESP-IDF)" FreeSlack="44d" TotalSlack="44d" Duration="60d" DurationVariance="60d" RemainingDuration="60d" ConstraintDate="2025-03-21T08:00" Start="2025-03-21T08:00" Finish="2025-06-12T17:00" EarlyStart="2025-03-21T08:00" EarlyFinish="2025-06-12T17:00" LateStart="2025-05-22T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="21" UniqueID="28" OutlineLevel="3" WBS="1.4.2" Name="Simulaciones de algoritmos en Matlab o Python para filtrado de se&#241;ales" FreeSlack="29d" TotalSlack="29d" Duration="30d" DurationVariance="30d" RemainingDuration="30d" ConstraintDate="2025-05-23T08:00" Start="2025-05-23T08:00" Finish="2025-07-03T17:00" EarlyStart="2025-05-23T08:00" EarlyFinish="2025-07-03T17:00" LateStart="2025-07-03T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="22" UniqueID="30" OutlineLevel="3" WBS="1.4.3" Name="Desarrollo de la aplicaci&#243;n m&#243;vil en App Inventor" FreeSlack="44d" TotalSlack="44d" Duration="60d" DurationVariance="60d" RemainingDuration="60d" ConstraintDate="2025-03-21T08:00" Start="2025-03-21T08:00" Finish="2025-06-12T17:00" EarlyStart="2025-03-21T08:00" EarlyFinish="2025-06-12T17:00" LateStart="2025-05-22T08:00" LateFinish="2025-08-13T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="23" UniqueID="32" OutlineLevel="2" WBS="1.5" Name="Pruebas y validaci&#243;n" Duration="45d" DurationVariance="45d" RemainingDuration="45d" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-12T08:00" LateFinish="2025-08-13T17:00" Critical="yes" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
-			<task ID="24" UniqueID="34" OutlineLevel="3" WBS="1.5.1" Name="Pruebas iniciales del prototipo" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-12T08:00" LateFinish="2025-08-13T17:00" Critical="yes" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="25" UniqueID="35" OutlineLevel="3" WBS="1.5.2" Name="Pruebas de usuario" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-12T08:00" LateFinish="2025-08-13T17:00" Critical="yes" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="26" UniqueID="36" OutlineLevel="3" WBS="1.5.3" Name="An&#225;lisis de resultados" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-12T08:00" LateFinish="2025-08-13T17:00" Critical="yes" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
-			<task ID="27" UniqueID="33" OutlineLevel="3" WBS="1.5.4" Name="Reajuste del software y hardware" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-12T08:00" LateFinish="2025-08-13T17:00" Critical="yes" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="0" UniqueID="0" OutlineLevel="0" WBS="0" PercentComplete="-3%" Name="EDT" FreeSlack="145d" TotalSlack="145d" ActualDuration="-6.15d" Duration="205d" DurationVariance="205d" RemainingDuration="211.15d" Start="2024-11-04T08:00" Finish="2025-08-15T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2025-08-15T17:00" LateStart="2025-05-26T08:00" LateFinish="2025-08-15T17:00" Summary="yes"/>
+			<task ID="1" UniqueID="6" OutlineLevel="1" WBS="1" PercentComplete="-3%" Name="Sistema Portatil de monitoreo cardiaco" FreeSlack="145d" TotalSlack="145d" ActualDuration="-6.15d" Duration="205d" DurationVariance="205d" RemainingDuration="211.15d" Start="2024-11-04T08:00" Finish="2025-08-15T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2025-08-15T17:00" LateStart="2025-05-26T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
+			<task ID="2" UniqueID="7" OutlineLevel="2" WBS="1.1" Name="Investigacion" FreeSlack="190d" TotalSlack="190d" Duration="30d" DurationVariance="30d" RemainingDuration="30d" Start="2024-11-04T08:00" Finish="2024-12-13T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2024-12-13T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
+			<task ID="3" UniqueID="10" OutlineLevel="3" WBS="1.1.1" Name="Revisi&#243;n del estado del arte del dispositivo" FreeSlack="190d" TotalSlack="190d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" Start="2024-11-04T08:00" Finish="2024-11-22T17:00" EarlyStart="2024-11-04T08:00" EarlyFinish="2024-11-22T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" FixedCostAccrual="Prorated"/>
+			<task ID="4" UniqueID="11" OutlineLevel="3" WBS="1.1.2" Name="Investigar rangos de frecuencia de la bradicardia" Notes="Cuales son los rangos de frecuencia de la bradicardia que tomaremos en cuenta a partir de un muestreo, para el sistema de portatil de monitoreo cardiaco.&#13;&#10;&#13;&#10;Encargado Luis Alejandro" FreeSlack="176d" TotalSlack="176d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-11-22T08:00" Start="2024-11-22T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-22T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="5" UniqueID="12" OutlineLevel="3" WBS="1.1.3" Name="An&#225;lisis de cardiopat&#237;as que requieren monitoreo constante" Notes="Investigaci&#243;n acerca de las cardiopat&#237;as en general, para poder proceder a diferenciar las que pueden ocacionar un grave probelma en el ser humano (Bradicardia)&#13;&#10;&#13;&#10;Encargado Luis Alejandro" FreeSlack="176d" TotalSlack="176d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-11-22T08:00" Start="2024-11-22T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-22T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="6" UniqueID="13" OutlineLevel="3" WBS="1.1.4" Name="Investigar regulaciones m&#233;dicas y normas mexicanas." Notes="Se realizar&#225; una investigaci&#243;n en diferentes revistas cient&#237;ficas, as&#237; como en paginas web que nos proporcionen las normas y regulaciones medicas mexicanas.&#13;&#10;&#13;&#10;Encargado Luis Alejandro" FreeSlack="176d" TotalSlack="176d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-11-22T08:00" Start="2024-11-22T08:00" Finish="2024-12-12T17:00" EarlyStart="2024-11-22T08:00" EarlyFinish="2024-12-12T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="7" UniqueID="38" OutlineLevel="3" WBS="1.1.5" Name="Entregable de la investigaci&#243;n" Notes="Se entregar&#225; un documento que muestre todo lo que se realiz&#243; en la etapa de investigaci&#243;n, en el cual se podr&#225; consultar toda esta informaci&#243;n.&#13;&#10;&#13;&#10;Encargado Luis Alejandro" FreeSlack="175d" TotalSlack="175d" Duration="2d" DurationVariance="2d" RemainingDuration="2d" ConstraintDate="2024-12-12T08:00" Start="2024-12-12T08:00" Finish="2024-12-13T17:00" EarlyStart="2024-12-12T08:00" EarlyFinish="2024-12-13T17:00" LateStart="2025-08-14T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="8" UniqueID="14" OutlineLevel="2" WBS="1.2" Name="Selecci&#243;n de componentes" FreeSlack="161d" TotalSlack="161d" Duration="44d" DurationVariance="44d" RemainingDuration="44d" Start="2024-12-13T08:00" Finish="2025-02-12T17:00" EarlyStart="2024-12-13T08:00" EarlyFinish="2025-02-12T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
+			<task ID="9" UniqueID="15" OutlineLevel="3" WBS="1.2.1" Name="Microcontrolador" Notes="El ESP32 tiene capacidad de procesamiento de alto rendimiento y m&#250;ltiples interfaces de comunicaci&#243;n (como Bluetooth y Wi-Fi). Adem&#225;s, soporta tareas en tiempo real, lo que es esencial para procesar las se&#241;ales card&#237;acas sin retrasos.&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="161d" TotalSlack="161d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-12-13T08:00" Start="2024-12-13T08:00" Finish="2025-01-02T17:00" EarlyStart="2024-12-13T08:00" EarlyFinish="2025-01-02T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="10" UniqueID="16" OutlineLevel="3" WBS="1.2.2" Name="Sensor optico infrarojo" Notes="Este sensor tiene alta precisi&#243;n para medir la variaci&#243;n del volumen sangu&#237;neo y es ideal para dispositivos port&#225;tiles debido a su bajo consumo de energ&#237;a y peque&#241;o tama&#241;o. Es ampliamente usado en la industria m&#233;dica para este tipo de aplicaciones.&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="161d" TotalSlack="161d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2024-12-13T08:00" Start="2024-12-13T08:00" Finish="2025-01-02T17:00" EarlyStart="2024-12-13T08:00" EarlyFinish="2025-01-02T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="11" UniqueID="17" OutlineLevel="3" WBS="1.2.3" Name="M&#243;dulo Bluetooth" Notes="Permite la conexi&#243;n inal&#225;mbrica con la aplicaci&#243;n m&#243;vil, donde el usuario puede visualizar sus datos de frecuencia card&#237;aca en tiempo real.&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="147d" TotalSlack="147d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-02T08:00" Start="2025-01-02T08:00" Finish="2025-01-22T17:00" EarlyStart="2025-01-02T08:00" EarlyFinish="2025-01-22T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="12" UniqueID="18" OutlineLevel="3" WBS="1.2.4" Name="Bateria recargable de polimero de litio" Notes="Estas bater&#237;as ofrecen una alta densidad energ&#233;tica, lo cual es clave para que el dispositivo sea compacto y ligero, adem&#225;s de ofrecer una larga duraci&#243;n en operaci&#243;n.&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="147d" TotalSlack="147d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-02T08:00" Start="2025-01-02T08:00" Finish="2025-01-22T17:00" EarlyStart="2025-01-02T08:00" EarlyFinish="2025-01-22T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="13" UniqueID="20" OutlineLevel="3" WBS="1.2.5" Name="M&#243;dulo GPS" Notes="El m&#243;dulo Neo-6M tiene alta precisi&#243;n para obtener la ubicaci&#243;n por sat&#233;lite. Se conecta al ESP32 v&#237;a UART para la transmisi&#243;n de datos de ubicaci&#243;n.&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="133d" TotalSlack="133d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-22T08:00" Start="2025-01-22T08:00" Finish="2025-02-11T17:00" EarlyStart="2025-01-22T08:00" EarlyFinish="2025-02-11T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="14" UniqueID="19" OutlineLevel="3" WBS="1.2.6" Name="M&#243;dulo GSM" Notes="Los m&#243;dulos SIM800L o SIM900 permiten enviar mensajes SMS o realizar llamadas telef&#243;nicas utilizando una tarjeta SIM de un operador de red m&#243;vil&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="133d" TotalSlack="133d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-01-22T08:00" Start="2025-01-22T08:00" Finish="2025-02-11T17:00" EarlyStart="2025-01-22T08:00" EarlyFinish="2025-02-11T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="15" UniqueID="39" OutlineLevel="3" WBS="1.2.7" Name="Entregable de la selecci&#243;n de componentes" Notes="Documentaci&#243;n de la lista de componentes, as&#237; como sus respectivos datasheets lo cuales se a&#241;adir&#225;n en el documento, sin embargo,&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="132d" TotalSlack="132d" Duration="2d" DurationVariance="2d" RemainingDuration="2d" ConstraintDate="2025-02-11T08:00" Start="2025-02-11T08:00" Finish="2025-02-12T17:00" EarlyStart="2025-02-11T08:00" EarlyFinish="2025-02-12T17:00" LateStart="2025-08-14T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="16" UniqueID="22" OutlineLevel="2" WBS="1.3" PercentComplete="-17%" Name="Dise&#241;o de prototipo" FreeSlack="103d" TotalSlack="103d" ActualDuration="-7.65d" Duration="45d" DurationVariance="45d" RemainingDuration="52.65d" Start="2025-02-12T08:00" Finish="2025-04-15T17:00" EarlyStart="2025-02-12T08:00" EarlyFinish="2025-04-15T17:00" LateStart="2025-07-07T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
+			<task ID="17" UniqueID="24" OutlineLevel="3" WBS="1.3.1" Name="Modelado del hardware" Notes="Se utilizar&#225; el software SolidWorks para realizar la modelaci&#243;n de los comoponentes, as&#237; como su distribuci&#243;n en un ensamblaje en el mismo sofwtare.&#13;&#10;&#13;&#10;Encargado Daniela Del Carmen" FreeSlack="118d" TotalSlack="118d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-02-12T08:00" Start="2025-02-12T08:00" Finish="2025-03-04T17:00" EarlyStart="2025-02-12T08:00" EarlyFinish="2025-03-04T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="18" UniqueID="25" OutlineLevel="3" WBS="1.3.2" Name="Implementaci&#243;n del software para el microcontrolador" Notes="Realizaci&#243;n del c&#243;digo correspondiente en el IDE Arduino el cual se utiliza regularmente para programar el ESP32. A su vez se le pedir&#225; al encargado realizar un desglose de trabajo para la realizaci&#243;n del c&#243;digo.&#13;&#10;&#13;&#10;Encargado Diego Joel Z&#250;&#241;iga" FreeSlack="118d" TotalSlack="118d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-02-12T08:00" Start="2025-02-12T08:00" Finish="2025-03-04T17:00" EarlyStart="2025-02-12T08:00" EarlyFinish="2025-03-04T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="19" UniqueID="26" OutlineLevel="3" WBS="1.3.3" Name="Implementaci&#243;n de sistema de alertas y geolocalizaci&#243;n" Notes="Se implementar&#225; un sistema de alerta que, al detectar una frecuencia card&#237;aca anormalmente baja, env&#237;e un mensaje con las coordenadas de la ubicaci&#243;n del usuario a un contacto de emergencia.&#13;&#10;&#13;&#10;Encargado Luis Alejandro" FreeSlack="118d" TotalSlack="118d" Duration="15d" DurationVariance="15d" RemainingDuration="15d" ConstraintDate="2025-02-12T08:00" Start="2025-02-12T08:00" Finish="2025-03-04T17:00" EarlyStart="2025-02-12T08:00" EarlyFinish="2025-03-04T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="20" UniqueID="23" OutlineLevel="3" WBS="1.3.4" Name="Ensamblaje del hardware del prototipo" Notes="Se integrar&#225; el sensor &#243;ptico en un lugar donde sea f&#225;cil obtener una lectura clara (como la mu&#241;eca o el dedo).&#13;&#10;&#13;&#10;Encargado Diego Joel" FreeSlack="103d" TotalSlack="103d" Duration="30d" DurationVariance="30d" RemainingDuration="30d" ConstraintDate="2025-02-12T08:00" Start="2025-02-12T08:00" Finish="2025-03-25T17:00" EarlyStart="2025-02-12T08:00" EarlyFinish="2025-03-25T17:00" LateStart="2025-07-07T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="21" UniqueID="40" OutlineLevel="3" WBS="1.3.5" Name="Dise&#241;o de PCB" Notes="Se dise&#241;ar&#225; la PCB  teniendo en cuenta la disposici&#243;n f&#237;sica de los componentes, garantizando un tama&#241;o compacto y port&#225;til para el usuario.&#13;&#10;&#13;&#10;Encargado Diego Joel" FreeSlack="89d" TotalSlack="89d" ActualDuration="-16d" Duration="15d" DurationVariance="15d" RemainingDuration="31d" ConstraintDate="2025-03-25T08:00" Start="2025-03-25T08:00" Finish="2025-04-14T17:00" EarlyStart="2025-03-25T08:00" EarlyFinish="2025-04-14T17:00" LateStart="2025-07-28T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="22" UniqueID="41" OutlineLevel="3" WBS="1.3.6" Name="Entregable del reporte de dise&#241;o" Notes="Documento que tiene como contedio todo el desarrollo del hardware y software del proptotipo&#13;&#10;&#13;&#10;E ncargado Diego Joel" FreeSlack="88d" TotalSlack="88d" Duration="2d" DurationVariance="2d" RemainingDuration="2d" ConstraintDate="2025-04-14T08:00" Start="2025-04-14T08:00" Finish="2025-04-15T17:00" EarlyStart="2025-04-14T08:00" EarlyFinish="2025-04-15T17:00" LateStart="2025-08-14T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="23" UniqueID="27" OutlineLevel="2" WBS="1.4" Name="Desarrollo de software" FreeSlack="29d" TotalSlack="29d" Duration="60d" DurationVariance="60d" RemainingDuration="60d" Start="2025-04-15T08:00" Finish="2025-07-07T17:00" EarlyStart="2025-04-15T08:00" EarlyFinish="2025-07-07T17:00" LateStart="2025-05-26T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
+			<task ID="24" UniqueID="31" OutlineLevel="3" WBS="1.4.1" Name="Desarrollo inicial del software para la adquisici&#243;n de se&#241;ales (Arduino IDE o ESP-IDF)" Notes="Utilizado para programar el microcontrolador que procesa las se&#241;ales de los sensores.&#13;&#10;&#13;&#10;Encargado Daniela Del Carmen" FreeSlack="29d" TotalSlack="29d" Duration="60d" DurationVariance="60d" RemainingDuration="60d" ConstraintDate="2025-04-15T08:00" Start="2025-04-15T08:00" Finish="2025-07-07T17:00" EarlyStart="2025-04-15T08:00" EarlyFinish="2025-07-07T17:00" LateStart="2025-05-26T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="25" UniqueID="28" OutlineLevel="3" WBS="1.4.2" Name="Simulaciones de algoritmos en Matlab o Python para filtrado de se&#241;ales" Notes="Para el an&#225;lisis y procesamiento de las se&#241;ales en la fase de pruebas iniciales. Se realizaron simulaciones de los algoritmos de filtrado y procesamiento de se&#241;ales antes de integrarlos en el microcontrolador.&#13;&#10;&#13;&#10;Encargado Daniela Del Carmen" FreeSlack="31d" TotalSlack="31d" Duration="30d" DurationVariance="30d" RemainingDuration="30d" ConstraintDate="2025-05-23T08:00" Start="2025-05-23T08:00" Finish="2025-07-03T17:00" EarlyStart="2025-05-23T08:00" EarlyFinish="2025-07-03T17:00" LateStart="2025-07-07T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="26" UniqueID="30" OutlineLevel="3" WBS="1.4.3" Name="Desarrollo de la aplicaci&#243;n m&#243;vil en App Inventor" Notes="Desarrollo de una aplicaci&#243;n para mostrar los datos en tiempo real y alertar al usuario en caso de detecci&#243;n de bradicardia. La app permitir&#225; la conexi&#243;n v&#237;a Bluetooth con el dispositivo. El software permitir&#225; almacenar los datos hist&#243;ricos para el an&#225;lisis posterior y sincronizarlos con plataformas de salud si es necesario.&#13;&#10;&#13;&#10;Encargado Diego Joel" FreeSlack="29d" TotalSlack="29d" Duration="60d" DurationVariance="60d" RemainingDuration="60d" ConstraintDate="2025-04-15T08:00" Start="2025-04-15T08:00" Finish="2025-07-07T17:00" EarlyStart="2025-04-15T08:00" EarlyFinish="2025-07-07T17:00" LateStart="2025-05-26T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="27" UniqueID="45" OutlineLevel="3" WBS="1.4.4" Name="Documentaci&#243;n del desarrollo de software" FreeSlack="54d" TotalSlack="54d" Duration="7d" DurationVariance="7d" RemainingDuration="7d" ConstraintDate="2025-05-23T08:00" Start="2025-05-23T08:00" Finish="2025-06-02T17:00" EarlyStart="2025-05-23T08:00" EarlyFinish="2025-06-02T17:00" LateStart="2025-08-07T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="28" UniqueID="42" OutlineLevel="3" WBS="1.4.5" Name="Entregable del desarrollo de software" Notes="Documento que tiene como contedio todo el desarrollo del software del proptotipo&#13;&#10;&#13;&#10;Encargado Diego Joel" FreeSlack="53d" TotalSlack="53d" Duration="2d" DurationVariance="2d" RemainingDuration="2d" ConstraintDate="2025-06-02T08:00" Start="2025-06-02T08:00" Finish="2025-06-03T17:00" EarlyStart="2025-06-02T08:00" EarlyFinish="2025-06-03T17:00" LateStart="2025-08-14T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="29" UniqueID="32" OutlineLevel="2" WBS="1.5" Name="Pruebas y validaci&#243;n" FreeSlack="2d" TotalSlack="2d" Duration="47d" DurationVariance="47d" RemainingDuration="47d" Start="2025-06-12T08:00" Finish="2025-08-15T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-15T17:00" LateStart="2025-06-16T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" Summary="yes" FixedCostAccrual="Prorated"/>
+			<task ID="30" UniqueID="34" OutlineLevel="3" WBS="1.5.1" Name="Pruebas iniciales del prototipo" Notes="Se realizar&#225;n pruebas controladas para verificar la precisi&#243;n del sensor infrarrojo, la estabilidad del microcontrolador en el manejo de se&#241;ales y la efectividad del sistema de alertas.&#13;&#10;&#13;&#10;Encargado Luis Fernando" FreeSlack="2d" TotalSlack="2d" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-16T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="31" UniqueID="35" OutlineLevel="3" WBS="1.5.2" Name="Pruebas de usuario" Notes="Se seleccionar&#225;n voluntarios para probar el dispositivo en situaciones reales, evaluando la comodidad, la precisi&#243;n del monitoreo y la funcionalidad del sistema de alertas.&#13;&#10;&#13;&#10;Encargado Luis Alejandro" FreeSlack="2d" TotalSlack="2d" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-16T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="32" UniqueID="36" OutlineLevel="3" WBS="1.5.3" Name="An&#225;lisis de resultados" Notes="Los datos recopilados ser&#225;n utilizados para ajustar los algoritmos y mejorar la detecci&#243;n de episodios de bradicardia.&#13;&#10;&#13;&#10;Emcargado Luis Fernando" FreeSlack="2d" TotalSlack="2d" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-16T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="33" UniqueID="33" OutlineLevel="3" WBS="1.5.4" Name="Reajuste del software y hardware" Notes="Se realizar&#225;n ajustes finales en el dise&#241;o del hardware y software seg&#250;n los resultados de las pruebas para asegurar un producto final robusto y confiable.&#13;&#10;&#13;&#10;Encargado Diego Joel" FreeSlack="2d" TotalSlack="2d" Duration="45d" DurationVariance="45d" RemainingDuration="45d" ConstraintDate="2025-06-12T08:00" Start="2025-06-12T08:00" Finish="2025-08-13T17:00" EarlyStart="2025-06-12T08:00" EarlyFinish="2025-08-13T17:00" LateStart="2025-06-16T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="34" UniqueID="46" OutlineLevel="3" WBS="1.5.5" Name="Documentaci&#243;n de las pruebas" FreeSlack="1d" TotalSlack="1d" Duration="2d" DurationVariance="2d" RemainingDuration="2d" ConstraintDate="2025-08-13T08:00" Start="2025-08-13T08:00" Finish="2025-08-14T17:00" EarlyStart="2025-08-13T08:00" EarlyFinish="2025-08-14T17:00" LateStart="2025-08-14T08:00" LateFinish="2025-08-15T17:00" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
+			<task ID="35" UniqueID="43" OutlineLevel="3" WBS="1.5.6" Name="Entregable de pruebas y validacion" Notes="Documento que tiene como contedio todo el desarrollo del software del proptotipo&#13;&#10;&#13;&#10;Encargado Diego Joel" Duration="2d" DurationVariance="2d" RemainingDuration="2d" ConstraintDate="2025-08-14T08:00" Start="2025-08-14T08:00" Finish="2025-08-15T17:00" EarlyStart="2025-08-14T08:00" EarlyFinish="2025-08-15T17:00" LateStart="2025-08-14T08:00" LateFinish="2025-08-15T17:00" Critical="yes" EffortDriven="yes" ConstraintType="Start No Earlier Than" FixedCostAccrual="Prorated"/>
 		</tasks>
 	</proj>
 	<printInfo mode="scale" orient="landscape" size="1" length="0" width="0" pagesWide="1" pagesHigh="1" scale="100%" bw="no" enlarge="no" byColumn="no" adjustPageBreaks="no" marginTop="36pt" marginLeft="36pt" marginBottom="36pt" marginRight="36pt"/>
@@ -1155,6 +1163,10 @@
 			<groupspec showempty="yes">
 			</groupspec>
 <nd_diff>
+
+
+
+
 </nd_diff>
 
 		</nd_view>
@@ -1245,6 +1257,10 @@
 			<groupspec showempty="yes">
 			</groupspec>
 <nd_diff>
+
+
+
+
 </nd_diff>
 
 		</nd_view>
@@ -1318,6 +1334,10 @@
 			<groupspec showempty="yes">
 			</groupspec>
 <nd_diff>
+
+
+
+
 </nd_diff>
 
 		</nd_view>
@@ -1400,6 +1420,10 @@
 			<groupspec showempty="yes">
 			</groupspec>
 <nd_diff>
+
+
+
+
 </nd_diff>
 
 		</nd_view>
@@ -2076,6 +2100,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -2253,6 +2281,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -2314,10 +2346,14 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
-		<wbs_view id="WBS Chart View Detailed" pagelayout="WBS Chart Page Layout" defaultarrange="wbs" zoomlevel="80" borderpolicy="criticalpath" borderfillpolicy="criticalpath" bordershadowpolicy="criticalpath" hyperlinksymbols="yes" indicatenotes="yes" indicateconstraint="yes" indicatecompleted="yes">
+		<wbs_view id="WBS Chart View Detailed" pagelayout="WBS Chart Page Layout" defaultarrange="wbs" zoomlevel="120" borderpolicy="criticalpath" borderfillpolicy="criticalpath" bordershadowpolicy="criticalpath" hyperlinksymbols="yes" indicatenotes="yes" indicateconstraint="yes" indicatecompleted="yes">
 			<connector crstyle="curve">
 				<line id="in" width="1.5pt" color="#46AAC5"/>
 				<line id="out" width="1.5pt" color="#46AAC5"/>
@@ -2565,6 +2601,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -2686,6 +2726,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -2998,6 +3042,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -3111,6 +3159,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -3408,6 +3460,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -3537,6 +3593,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>
@@ -3644,6 +3704,10 @@
 			<groupspec>
 			</groupspec>
 <wbs_diff>
+
+
+
+
 </wbs_diff>
 
 		</wbs_view>

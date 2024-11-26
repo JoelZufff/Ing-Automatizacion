@@ -1,0 +1,132 @@
+-- 1. Ponemos CS en bajo
+-- 2. Enviamos pulso en bajo a WR (min 100 ns)
+-- 2. Ponemos CS en alto
+-- 3. Al detectar flanco de bajada de WR, el pin de interrupcion (INTR) tiene un flanco de subida
+-- 4. Al detectar finalizacion de pulso bajo en WR, comienza la conversion y al finalizar el pin INTR tendra un flanco de bajada
+------------------------------------------------------------------------------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+------------------------------------------------------------------------------------------------------------------------------
+entity ADC_0804LCN is
+    generic 
+    (
+        CLK_FREQ    : INTEGER
+    );
+    port 
+    (
+        i_CLK       : in STD_LOGIC;
+        i_RST       : in STD_LOGIC;
+
+        i_GET       : in STD_LOGIC;                         -- Boton para solicitar una conversion
+        i_READ      : in STD_LOGIC;                         -- Boton para solicitar una lectura
+
+        o_DATA      : out STD_LOGIC_VECTOR(7 downto 0); 
+
+        -- I/O fisicos ADC0804
+        i_INTR      : in STD_LOGIC;                         -- Interrupcion
+        i_DATA      : in STD_LOGIC_VECTOR(7 downto 0);      -- 8 Bits de datos
+        o_CS        : out STD_LOGIC;                        -- Chip select
+        o_RD        : out STD_LOGIC;                        -- Lectura
+        o_WR        : out STD_LOGIC;                        -- Escritura
+        o_CLK_IN    : out STD_LOGIC;                        -- Clock
+    );
+end ADC_0804LCN;
+------------------------------------------------------------------------------------------------------------------------------
+architecture rtl of ADC_0804LCN is
+
+    -- DIVISOR DE RELOJ --
+        component CLK_DIV
+            generic 
+            (
+                clk_freq : INTEGER
+            );
+            port 
+            (
+                i_out_freq :  INTEGER;
+                i_FPGA_clk : in STD_LOGIC;
+                o_clk : out STD_LOGIC
+            );
+        end component;
+
+        signal ADC_CLK : STD_LOGIC;
+
+    -- MAQUINA DE ESTADOS FINITOS --
+        type states is (IDLE);
+        signal act_state : states := IDLE;
+
+begin
+
+    o_CLK_IN <= ADC_CLK;
+
+    ------------------------------------------------------------------------------
+                            -- MAQUINA DE ESTADOS FINITOS --
+    ------------------------------------------------------------------------------
+    c_ADC_CLK : CLK_DIV
+        generic map ( clk_freq => CLK_FREQ )
+        port map ( i_out_freq => 1000, i_FPGA_clk => i_CLK, o_clk => ADC_CLK );
+
+    process (ADC_CLK, i_RST)
+    begin
+        if (i_RST = '1') then           -- Detectamos señal RST
+            act_state   <= IDLE;
+            
+        elsif (rising_edge(ADC_CLK)) then
+            case act_state is
+                when IDLE =>
+                    -- Salidas del estado
+                    o_CS <= '1'; o_WR <= '1'; o_RD <= '1'; 
+                    -- NO chip select | NO write | NO read 
+
+                    -- Estado proximo
+                    if (i_GET = '1') then                       -- Se solicito conversion de dato
+                        act_state <= GET_ADC0;
+                    elsif (i_READ = '1' and i_INTR = '0') then  -- Se solicito lectura de dato y hay un dato que leer  
+                        act_state <= READ_ADC0;
+                    else
+                        act_state <= IDLE;
+                    end if;
+
+                when GET_ADC0 =>
+                    -- Salidas del estado
+                    o_CS <= '0'; o_WR <= '1'; o_RD <= '1'; 
+                    -- SI chip select | NO write | NO read
+
+                    -- Estado proximo
+                    act_state <= GET_ADC1;
+                
+                when GET_ADC1 =>
+                    -- Salidas del estado
+                    o_CS <= '0'; o_WR <= '0'; o_RD <= '1'; 
+                    -- SI chip select | SI write | NO read
+
+                    -- Estado proximo
+                    act_state <= IDLE;
+
+                when READ_ADC0 =>
+                    -- Salidas del estado
+                    o_CS <= '0'; o_WR <= '1'; o_RD <= '1'; 
+                    -- SI chip select | NO write | NO read
+
+                    -- Estado proximo
+                    act_state <= READ_ADC1;
+                
+                when READ_ADC1 =>
+                    -- Salidas del estado
+                    o_CS <= '0'; o_WR <= '1'; o_RD <= '0'; 
+                    -- SI chip select | NO write | SI read
+                    
+                    o_DATA <= i_DATA;                       -- Ver si no hay error de timing, para agregar otro estado
+
+                    -- Estado proximo
+                    act_state <= IDLE;
+
+                when others => null;
+            end case;
+
+        end if;
+    
+    end process;
+    
+
+end architecture;

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Nov 23 09:21:34 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : P12_ADC
+Top-level Entity Name : P12_ADC
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 110 / 6,272 ( 2 % )
+    Total combinational functions : 104 / 6,272 ( 2 % )
+    Dedicated logic registers : 64 / 6,272 ( 1 % )
+Total registers : 64
+Total pins : 29 / 92 ( 32 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

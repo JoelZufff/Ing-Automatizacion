@@ -1,0 +1,147 @@
+ELEMENTOS
+    1 sensor de presencia           i_SQUEUE                    -- Sensor de cola de caja
+    2 sensor de color             	i_SWHITE, i_SBLACK
+
+    2 botones
+        Start			            i_START
+        Stop                        i_STOP
+
+    1 Torreta                       o_GREEN, o_RED, o_ORANGE
+
+    3 Motor de movimiento       	o_MP, o_MWH, o_MBK
+
+    4 pistones
+        Dispensador principal       -> 3/2 monoestable      o_DIS
+        Elevador                    -> 5/2 monoestable      o_ELE
+        Dispensador color blanco    -> 5/2 monoestable      o_DISWH
+            Sensor fin          	i_SE_DISWH
+        Dispensador color negro     -> 5/2 monoestable      o_DISBK
+            Sensor fin          	i_SE_DISBK
+------------------------------------------------------------------------------------------------------------------------------
+MAQUINA DE ESTADOS FINITOS
+
+    IDLE <= !E0 * !E1 * !E2 * !o_ORANGE;                    -- Esperamos deteccion de caja si no se ha sobrepasado el max
+
+    E0                                                                              -- TON (3 s)
+        Esperamos activacion de sensor de presencia.
+        La activacion del estado permite el almacenamiento del color
+
+        Latch:      EN * IDLE * i_SQUEUE
+        Unlatch:    E1
+        Outputs:    --
+
+    E1
+        Esperamos un almacenamiento de color.
+        Activamos dispensador principal y motor principal.
+
+        Latch:      EN * E0 * (WHITE + BLACK)
+        Unlatch:    E2
+        Outputs:    o_DIS, o_MP, (CONT_WH or CONT_BK)
+
+    E2                                                                              -- RTO (20 s)
+        Esperamos unos segundos a que la caja llegue a elevador.
+        Se enclava el piston de elevador.
+        
+        Latch:      EN * E1
+        Unlatch:    E3_WH, E3_BK
+        Outputs:    o_ELE+
+    
+    -- Ya que se escogio el color, podemos volver a IDLE para comenzar otro proceso
+
+    -- VARIANTE CAJA NEGRA
+    
+    E3_WH                                                                           -- RTO (5 s)
+        Esperamos unos segundos a que piston elevador se termine de extender.
+        La activacion del estado activa piston dispensador y motor dependiendo el color seleccionado.
+
+        Latch:      EN * E2 * WH
+        Unlatch:    E4_WH
+        Outputs:    o_DISWH, o_MWH+
+
+    E4_WH
+        Esperamos sensor de fin de carrera de cualquier piston dispensador de color.
+        Desenclavamos piston elevador. La activacion de este estado, desactiva piston dispensador de color.
+
+        Latch:      EN * E3_WH * i_SE_DISWH
+        Unlatch:    E5_WH
+        Outputs:    o_ELE-
+
+    E5_WH                                                                           -- RTO (15 s)
+        Esperamos unos segundos a que el motor de la banda lleve a la caja a su lugar correspondiente.
+        Desenclavamos motor de banda de color. Desactivamos relevador de color almacenado.
+
+        ON:         EN * E4_WH
+        Outputs:    o_MWH, CONTWH
+
+    -- VARIANTE CAJA NEGRA
+
+    E3_BK                                                                           -- RTO (5 s)
+        Esperamos unos segundos a que piston elevador se termine de extender.
+        La activacion del estado activa piston dispensador y motor dependiendo el color seleccionado.
+
+        Latch:      EN * E2 * BK
+        Unlatch:    E4_BK
+        Outputs:    o_DISBK, o_MBK+
+
+    E4_BK
+        Esperamos sensor de fin de carrera de cualquier piston dispensador de color.
+        Desenclavamos piston elevador. La activacion de este estado, desactiva piston dispensador de color.
+
+        Latch:      EN * E3_BK * i_SE_DISBK
+        Unlatch:    E5_BK
+        Outputs:    o_ELE-
+
+    E5_BK                                                                              -- RTO (15 s)
+        Esperamos unos segundos a que el motor de la banda lleve a la caja a su lugar correspondiente.
+        Desenclavamos motor de banda de color. Desactivamos relevador de color almacenado.
+
+        ON:         EN * E4_BK
+        Outputs:    o_MBK, CONTBK
+    
+
+---------------------------------------------------------------------------------------------------------------------
+BITS
+
+    EN
+        Latch:      i_START
+        Unlatch:    i_STOP
+
+    WH
+        Latch:      E0 * i_SWHITE
+        Unlatch:    E3_WH
+
+    BK
+        Latch:      E0 * i_SBLACK
+        Unlatch:    E3_BK
+
+    -- Al llegar a 10 se activa su DN, que se resetea al presionar i_START
+    CONT_WH <= E1 * WH                       
+    CONT_BK <= E1 * BK
+
+    RES(CONT_WH) <= i_START * CONT_WH/DN
+    RES(CONT_BK) <= i_START * CONT_BK/DN
+
+------------------------------------------------------------------------------------------------------------------------------
+SALIDAS FISICAS
+
+    -- Motores
+        o_MP <= EN * E1
+        o_MWH
+            Latch:      EN * E3_WH      
+            Unlatch:    E5_WH
+        o_MBK
+            Latch:      EN * E3_BK
+            Unlatch:    E5_BK
+
+    -- Electrovalvulas
+        o_DIS <= E1
+        o_ELE
+            Latch:      E2
+            Unlatch:    E4_WH + E4_BK
+        o_DISWH <= E3_WH
+        o_DISBK <= E3_BK
+
+    -- Torreta
+        o_GREEN     <= EN;
+        o_RED       <= !EN;
+        o_ORANGE    <= CONT_WH/DN + CONT_BK/DN 

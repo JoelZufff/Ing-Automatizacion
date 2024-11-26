@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat Nov 23 09:21:29 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : P12_ADC
+Top-level Entity Name : P12_ADC
+Family : Cyclone IV E
+Total logic elements : 113
+    Total combinational functions : 104
+    Dedicated logic registers : 64
+Total registers : 64
+Total pins : 29
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -1,0 +1,121 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "o_CS",
+					"strict" : false
+				},
+				{
+					"name" : "o_RD",
+					"strict" : false
+				},
+				{
+					"name" : "o_WR",
+					"strict" : false
+				},
+				{
+					"name" : "o_CLK_IN",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[4]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[5]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_SEG[6]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_COM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_COM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_COM[2]",
+					"strict" : false
+				},
+				{
+					"name" : "o_DISP_COM[3]",
+					"strict" : false
+				},
+				{
+					"name" : "i_RST",
+					"strict" : false
+				},
+				{
+					"name" : "i_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "i_INTR",
+					"strict" : false
+				},
+				{
+					"name" : "i_READ",
+					"strict" : false
+				},
+				{
+					"name" : "i_GET",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_DATA[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

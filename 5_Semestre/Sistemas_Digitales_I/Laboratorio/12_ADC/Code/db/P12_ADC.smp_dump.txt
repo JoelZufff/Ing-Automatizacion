@@ -1,0 +1,9 @@
+
+State Machine - |P12_ADC|ADC_0804LCN:c_ADC_0804LCN|act_state
+Name act_state.READ_ADC2 act_state.READ_ADC1 act_state.READ_ADC0 act_state.GET_ADC1 act_state.GET_ADC0 act_state.IDLE 
+act_state.IDLE 0 0 0 0 0 0 
+act_state.GET_ADC0 0 0 0 0 1 1 
+act_state.GET_ADC1 0 0 0 1 0 1 
+act_state.READ_ADC0 0 0 1 0 0 1 
+act_state.READ_ADC1 0 1 0 0 0 1 
+act_state.READ_ADC2 1 0 0 0 0 1 

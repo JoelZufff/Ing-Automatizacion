@@ -1,115 +1,119 @@
-Ver la forma de que se ejecuten varios estados que no interfieran entre si a al ves.
-Puede ser enclavando algun relevador en funcion de la etapa actual. Las etapas no se interfieren entre si
-Entonces si esta desactivada una etapa, se puede activar el primer estado de esta.
-Ejemplos de etapa:
-    Etapa de reconocimiento
-    Etapa de clasificacion
+ELEMENTOS
+    1 sensor de presencia           i_SQUEUE                    -- Sensor de cola de caja
+    2 sensor de color             	i_SWHITE, i_SBLACK
 
-2 sensor de presencia           i_SPOS1, i_SPOS2
-1 sensor de peso            	i_SPESO
-1 Bit para almacenar dato de sensor de peso     DATA
+    2 botones
+        Start			            i_START
+        Stop                        i_STOP
 
-2 botones
-    Start			            i_CON
-    Stop                        i_DES
+    1 Torreta                       o_GREEN, o_RED
 
-1 Torreta                       o_GREEN, o_YELLOW, o_RED
+    3 Motor de movimiento       	o_MP, o_MWH, o_MBK
 
-3 Motor de movimiento       	o_M, o_MA, o_MB
-
-3 pistones
-    A -> 4/2 biestable      	o_A1, o_A2
-        Sensor inicio       	i_SAS
-        Sensor fin          	i_SAE
-    B -> 4/2 biestable      	o_B1, o_B2
-        Sensor inicio       	i_SBS
-        Sensor fin          	i_SBE
-    C -> 3/2 monoestable      	o_C
-        Sensor inicio       	i_SCS
-        Sensor fin          	i_SCE
-
-
-9 entradas, 7 salidas y 1 bit
-
+    4 pistones
+        A -> 3/2 monoestable      	o_A
+        B -> 5/2 monoestable      	o_B
+        C -> 5/2 monoestable      	o_C
+            Sensor fin          	i_SCE
+        D -> 5/2 monoestable      	o_D
+            Sensor fin          	i_SDE
+------------------------------------------------------------------------------------------------------------------------------
 MAQUINA DE ESTADOS FINITOS
 
-Tendra un relevador de ENABLE para pausar el proceso en cualquier parte
+    Tendra un relevador de ENABLE para pausar el proceso en cualquier parte
 
-EN
-    Latch:      CON
-    Unlatch:    DES
+    IDLE <= !E0 + !E1 + !E2 * !E3 + !E4 * !E5;            -- Finalizo el proceso
 
----------------------------------------------------------------------------------------------------
-E0
-    Se activa el motor M hasta llegar a la posicion de SPOS1
+    E0                                                                              -- TON (3 s)
+        Esperamos activacion de sensor de presencia.
+        La activacion del estado permite el almacenamiento del color
 
-    Latch:      EN * IDLE * START
-    Unlatch:    E1
-    Outputs:    M
+        Latch:      EN * IDLE * i_SQUEUE
+        Unlatch:    E1
+        Outputs:    --
 
-E1                                                                          -- Con timer
-    Se obtiene una señal digital del peso del objeto, el sensor SPESO enclavara el bit DATA.
+    E1
+        Esperamos un almacenamiento de color.
+        Activamos dispensador principal y motor principal.
 
-    Latch:      EN * E0 * S1
-    Unlatch:    E2
-    Outputs:    DATA
+        Latch:      EN * E0 * (WHITE + BLACK)
+        Unlatch:    E2
+        Outputs:    o_A, o_MP
 
-E2
-    Se activa el motor M para continuar el recorrido hasta llegar a la posicion del SPOS2
+    E2                                                                              -- RTO (20 s)
+        Esperamos unos segundos a que la caja llegue a elevador.
+        Se enclava el piston B de elevador.
+        
+        Latch:      EN * E1
+        Unlatch:    E3
+        Outputs:    o_B+
 
-    Latch:      EN * E1
-    Unlatch:    E3
-    Outputs:    M
+    E3                                                                              -- RTO (5 s)
+        Esperamos unos segundos a que piston elevador se termine de extender.
+        La activacion del estado activa piston dispensador y motor dependiendo el color seleccionado.
 
-E3
-    Se activa el piston C para elevar el paquete hasta activar SCE 
+        Latch:      EN * E2
+        Unlatch:    E4
+        Outputs:    (o_MWH+ || o_MBK+), (o_C || o_D)
 
-    Latch:      EN * E2 * SCS * SPOS2
-    Unlatch:    E4_1 + E4_2
-    Outputs:    C+
+    E4
+        Esperamos sensor de fin de carrera de cualquier piston dispensador de color.
+        Desenclavamos piston elevador. La activacion de este estado, desactiva piston dispensador de color.
 
-E4_1
-    Se activa el piston A y activa SAE, para enviarlo a su ruta correspondiente
+        Latch:      EN * E3 * (i_SCE + i_SDE)
+        Unlatch:    E5
+        Outputs:    o_B-
 
-    Latch:      EN * E3 * SCE * SAS * DATA
-    Unlatch:    E5_1
-    Outputs:    A1
+    -- A partir de aqui ya podriamos volver a E0 para clasificacion de otra caja, nos ahorrariamos tiempo
 
-E4_2
-    Se activa el piston B y activa SBE, para enviarlo a su ruta correspondiente
+    E5                                                                              -- RTO (15 s)
+        Esperamos unos segundos a que el motor de la banda lleve a la caja a su lugar correspondiente.
+        Desenclavamos motor de banda de color. Desactivamos relevador de color almacenado.
 
-    Latch:      EN * E3 * SCE * SBS * !DATA
-    Unlatch:    E5_2
-    Outputs:    B1
+        ON:         EN * E4
+        Outputs:    (o_MWH- || o_MBK-), CONT_ON
 
--- Se desenclava DATA, posible bit para indicar que hay un dato almacenado en data
--- Aumentar contador de cajas en ruta A o B
+---------------------------------------------------------------------------------------------------------------------
+BITS
 
-E5_1
-    Se desactiva el piston A y C, y se activa la banda correspondiente al piston A
+    EN
+        Latch:      i_START
+        Unlatch:    i_STOP + CONT_WHITE + CONT_BLACK
 
-    Latch:      EN * E4_1 * SAE
-    Unlatch:    E6
-    Outputs:    A2, C-, MA
+    WHITE
+        Latch:      E0 * i_SWHITE
+        Unlatch:    E5
 
-E5_2
-    Se desactiva el piston B y C, y se activa la banda correspondiente al piston B
+    BLACK
+        Latch:      E0 * i_SBLACK
+        Unlatch:    E5
 
-    Latch:      EN * E4_2 * SBE
-    Unlatch:    E6
-    Outputs:    B2, C-, MB
+    CONT_WHITE <= E5 * WHITE                        -- Al llegar a 10 desactiva EN
+    CONT_BLACK <= E5 * BLACK                        -- Al llegar a 10 desactiva EN
 
-E6                                                                          -- Sin enclavado -- Con timer
-    Se desactivan las bandas y se vuelve al estado base. (Con la activacion del estado se desactivan los motores)
-    -- Ver si sera un relevador con timer o habra otro sensor de presencia
+    RES(CONT_WHITE) <= i_START * CONT_WHITE              -- Resetear con boton RESET
+    RES(CONT_BLACK) <= i_START * CONT_BLACK
 
-    Trigger:    EN * E5_1 + E5_2
-    Outputs:    
+------------------------------------------------------------------------------------------------------------------------------
+SALIDAS FISICAS
 
-IDLE (PENDIENTE)
-    Estado de espera en caso de no detectar cajas que clasificar
-    -- Ver si agregamos algun sensor de presencia al inicio para saber si hay cajas por clasificar
+    -- Motores
+        o_MP <= EN * E1
+        o_MWH
+            Latch:      EN * E3 * WHITE      
+            Unlatch:    E5
+        o_MBK
+            Latch:      EN * E3 * BLACK
+            Unlatch:    E5   
 
-    Latch:      -- Posible sensor 
-    Unlatch:    
-    Outputs:    
+    -- Electrovalvulas
+        o_A <= E1
+        o_B
+            Latch:      E2
+            Unlatch:    E4
+        o_C <= E3 * WHITE
+        o_D <= E3 * BLACK
+
+    -- Torreta
+        o_GREEN <= EN;
+        o_RED <= !EN;

@@ -16,10 +16,6 @@ architecture bin_bcd of Binary_BCD is
     -- Variables y señales para multiplexado de display
     signal disp_clk             : std_logic;                            -- Señal del reloj para impresion de display
     signal disp_clk_count       : integer range 0 to (50000 * 2 - 1);   -- Contador para dividir el reloj cada 1 ms
-	signal comun_index          : integer range 0 to 4;
-    
-    type int_array is array (0 to 3) of integer;
-    signal numbers : int_array := (0, 0, 0, 0);
     
     type array_4_t is array (0 to 3) of std_logic_vector(3 downto 0); -- Tipo para manejar los comunes
     constant com_array : array_4_t := 
@@ -29,6 +25,11 @@ architecture bin_bcd of Binary_BCD is
        "1011",
        "0111"
     );
+	signal comun_index          : integer range 0 to 4;
+    
+    type int_array is array (0 to 3) of integer;
+    signal numbers : int_array := (0, 0, 0, 0);
+    
 
     type array_10_t is array (0 to 9) of std_logic_vector(7 downto 0); -- Tipo para los números de display de 7 segmentos
     constant num_array : array_10_t := 

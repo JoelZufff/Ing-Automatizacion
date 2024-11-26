@@ -1,0 +1,372 @@
+|P12_ADC
+i_CLK => DISPLAY_BCD:c_DISPLAY_BCD.i_CLK
+i_CLK => ADC_0804LCN:c_ADC_0804LCN.i_CLK
+i_RST => ADC_0804LCN:c_ADC_0804LCN.i_RST
+i_GET => ADC_0804LCN:c_ADC_0804LCN.i_GET
+i_READ => ADC_0804LCN:c_ADC_0804LCN.i_READ
+i_INTR => ADC_0804LCN:c_ADC_0804LCN.i_INTR
+i_DATA[0] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[0]
+i_DATA[1] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[1]
+i_DATA[2] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[2]
+i_DATA[3] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[3]
+i_DATA[4] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[4]
+i_DATA[5] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[5]
+i_DATA[6] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[6]
+i_DATA[7] => ADC_0804LCN:c_ADC_0804LCN.i_DATA[7]
+o_CS << ADC_0804LCN:c_ADC_0804LCN.o_CS
+o_RD << ADC_0804LCN:c_ADC_0804LCN.o_RD
+o_WR << ADC_0804LCN:c_ADC_0804LCN.o_WR
+o_CLK_IN << ADC_0804LCN:c_ADC_0804LCN.o_CLK_IN
+o_DISP_SEG[0] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[0]
+o_DISP_SEG[1] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[1]
+o_DISP_SEG[2] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[2]
+o_DISP_SEG[3] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[3]
+o_DISP_SEG[4] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[4]
+o_DISP_SEG[5] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[5]
+o_DISP_SEG[6] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[6]
+o_DISP_SEG[7] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_SEG[7]
+o_DISP_COM[0] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_COM[0]
+o_DISP_COM[1] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_COM[1]
+o_DISP_COM[2] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_COM[2]
+o_DISP_COM[3] << DISPLAY_BCD:c_DISPLAY_BCD.o_DISP_COM[3]
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD
+i_CLK => CLK_DIV:c_DISP_CLK.i_FPGA_clk
+i_DATA[0] => Mux7.IN3
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DISP_SEG[0] <= o_DISP_SEG[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[1] <= o_DISP_SEG[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[2] <= o_DISP_SEG[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[3] <= o_DISP_SEG[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[4] <= o_DISP_SEG[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[5] <= o_DISP_SEG[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[6] <= o_DISP_SEG[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_SEG[7] <= o_DISP_SEG[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_COM[0] <= o_DISP_COM[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_COM[1] <= o_DISP_COM[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_COM[2] <= o_DISP_COM[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DISP_COM[3] <= o_DISP_COM[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK
+i_out_freq[0] => Div0.IN63
+i_out_freq[1] => Div0.IN62
+i_out_freq[2] => Div0.IN61
+i_out_freq[3] => Div0.IN60
+i_out_freq[4] => Div0.IN59
+i_out_freq[5] => Div0.IN58
+i_out_freq[6] => Div0.IN57
+i_out_freq[7] => Div0.IN56
+i_out_freq[8] => Div0.IN55
+i_out_freq[9] => Div0.IN54
+i_out_freq[10] => Div0.IN53
+i_out_freq[11] => Div0.IN52
+i_out_freq[12] => Div0.IN51
+i_out_freq[13] => Div0.IN50
+i_out_freq[14] => Div0.IN49
+i_out_freq[15] => Div0.IN48
+i_out_freq[16] => Div0.IN47
+i_out_freq[17] => Div0.IN46
+i_out_freq[18] => Div0.IN45
+i_out_freq[19] => Div0.IN44
+i_out_freq[20] => Div0.IN43
+i_out_freq[21] => Div0.IN42
+i_out_freq[22] => Div0.IN41
+i_out_freq[23] => Div0.IN40
+i_out_freq[24] => Div0.IN39
+i_out_freq[25] => Div0.IN38
+i_out_freq[26] => Div0.IN37
+i_out_freq[27] => Div0.IN36
+i_out_freq[28] => Div0.IN35
+i_out_freq[29] => Div0.IN34
+i_out_freq[30] => Div0.IN33
+i_out_freq[31] => ~NO_FANOUT~
+i_FPGA_clk => clk.CLK
+i_FPGA_clk => clks[0].CLK
+i_FPGA_clk => clks[1].CLK
+i_FPGA_clk => clks[2].CLK
+i_FPGA_clk => clks[3].CLK
+i_FPGA_clk => clks[4].CLK
+i_FPGA_clk => clks[5].CLK
+i_FPGA_clk => clks[6].CLK
+i_FPGA_clk => clks[7].CLK
+i_FPGA_clk => clks[8].CLK
+i_FPGA_clk => clks[9].CLK
+i_FPGA_clk => clks[10].CLK
+i_FPGA_clk => clks[11].CLK
+i_FPGA_clk => clks[12].CLK
+i_FPGA_clk => clks[13].CLK
+i_FPGA_clk => clks[14].CLK
+i_FPGA_clk => clks[15].CLK
+i_FPGA_clk => clks[16].CLK
+i_FPGA_clk => clks[17].CLK
+i_FPGA_clk => clks[18].CLK
+i_FPGA_clk => clks[19].CLK
+i_FPGA_clk => clks[20].CLK
+i_FPGA_clk => clks[21].CLK
+i_FPGA_clk => clks[22].CLK
+i_FPGA_clk => clks[23].CLK
+i_FPGA_clk => clks[24].CLK
+i_FPGA_clk => clks[25].CLK
+i_FPGA_clk => clks[26].CLK
+i_FPGA_clk => clks[27].CLK
+i_FPGA_clk => clks[28].CLK
+i_FPGA_clk => clks[29].CLK
+i_FPGA_clk => clks[30].CLK
+i_FPGA_clk => clks[31].CLK
+o_clk <= clk.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P12_ADC|ADC_0804LCN:c_ADC_0804LCN
+i_CLK => CLK_DIV:c_ADC_CLK.i_FPGA_clk
+i_RST => act_state~5.DATAIN
+i_RST => o_DATA[0]~reg0.ENA
+i_RST => o_CS~reg0.ENA
+i_RST => o_WR~reg0.ENA
+i_RST => o_RD~reg0.ENA
+i_RST => o_DATA[7]~reg0.ENA
+i_RST => o_DATA[6]~reg0.ENA
+i_RST => o_DATA[5]~reg0.ENA
+i_RST => o_DATA[4]~reg0.ENA
+i_RST => o_DATA[3]~reg0.ENA
+i_RST => o_DATA[2]~reg0.ENA
+i_RST => o_DATA[1]~reg0.ENA
+i_GET => act_state.OUTPUTSELECT
+i_GET => act_state.OUTPUTSELECT
+i_GET => act_state.DATAB
+i_GET => act_state.DATAB
+i_READ => process_0.IN0
+i_READ => Selector1.IN3
+i_READ => act_state.DATAB
+o_DATA[0] <= o_DATA[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[4] <= o_DATA[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[5] <= o_DATA[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[6] <= o_DATA[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[7] <= o_DATA[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+i_INTR => process_0.IN1
+i_DATA[0] => o_DATA.DATAB
+i_DATA[1] => o_DATA.DATAB
+i_DATA[2] => o_DATA.DATAB
+i_DATA[3] => o_DATA.DATAB
+i_DATA[4] => o_DATA.DATAB
+i_DATA[5] => o_DATA.DATAB
+i_DATA[6] => o_DATA.DATAB
+i_DATA[7] => o_DATA.DATAB
+o_CS <= o_CS~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_RD <= o_RD~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_WR <= o_WR~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_CLK_IN <= CLK_DIV:c_ADC_CLK.o_clk
+
+
+|P12_ADC|ADC_0804LCN:c_ADC_0804LCN|CLK_DIV:c_ADC_CLK
+i_out_freq[0] => Div0.IN63
+i_out_freq[1] => Div0.IN62
+i_out_freq[2] => Div0.IN61
+i_out_freq[3] => Div0.IN60
+i_out_freq[4] => Div0.IN59
+i_out_freq[5] => Div0.IN58
+i_out_freq[6] => Div0.IN57
+i_out_freq[7] => Div0.IN56
+i_out_freq[8] => Div0.IN55
+i_out_freq[9] => Div0.IN54
+i_out_freq[10] => Div0.IN53
+i_out_freq[11] => Div0.IN52
+i_out_freq[12] => Div0.IN51
+i_out_freq[13] => Div0.IN50
+i_out_freq[14] => Div0.IN49
+i_out_freq[15] => Div0.IN48
+i_out_freq[16] => Div0.IN47
+i_out_freq[17] => Div0.IN46
+i_out_freq[18] => Div0.IN45
+i_out_freq[19] => Div0.IN44
+i_out_freq[20] => Div0.IN43
+i_out_freq[21] => Div0.IN42
+i_out_freq[22] => Div0.IN41
+i_out_freq[23] => Div0.IN40
+i_out_freq[24] => Div0.IN39
+i_out_freq[25] => Div0.IN38
+i_out_freq[26] => Div0.IN37
+i_out_freq[27] => Div0.IN36
+i_out_freq[28] => Div0.IN35
+i_out_freq[29] => Div0.IN34
+i_out_freq[30] => Div0.IN33
+i_out_freq[31] => ~NO_FANOUT~
+i_FPGA_clk => clk.CLK
+i_FPGA_clk => clks[0].CLK
+i_FPGA_clk => clks[1].CLK
+i_FPGA_clk => clks[2].CLK
+i_FPGA_clk => clks[3].CLK
+i_FPGA_clk => clks[4].CLK
+i_FPGA_clk => clks[5].CLK
+i_FPGA_clk => clks[6].CLK
+i_FPGA_clk => clks[7].CLK
+i_FPGA_clk => clks[8].CLK
+i_FPGA_clk => clks[9].CLK
+i_FPGA_clk => clks[10].CLK
+i_FPGA_clk => clks[11].CLK
+i_FPGA_clk => clks[12].CLK
+i_FPGA_clk => clks[13].CLK
+i_FPGA_clk => clks[14].CLK
+i_FPGA_clk => clks[15].CLK
+i_FPGA_clk => clks[16].CLK
+i_FPGA_clk => clks[17].CLK
+i_FPGA_clk => clks[18].CLK
+i_FPGA_clk => clks[19].CLK
+i_FPGA_clk => clks[20].CLK
+i_FPGA_clk => clks[21].CLK
+i_FPGA_clk => clks[22].CLK
+i_FPGA_clk => clks[23].CLK
+i_FPGA_clk => clks[24].CLK
+i_FPGA_clk => clks[25].CLK
+i_FPGA_clk => clks[26].CLK
+i_FPGA_clk => clks[27].CLK
+i_FPGA_clk => clks[28].CLK
+i_FPGA_clk => clks[29].CLK
+i_FPGA_clk => clks[30].CLK
+i_FPGA_clk => clks[31].CLK
+o_clk <= clk.DB_MAX_OUTPUT_PORT_TYPE
+
+

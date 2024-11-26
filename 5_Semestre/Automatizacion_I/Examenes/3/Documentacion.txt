@@ -1,3 +1,5 @@
+ELEMENTOS
+
 1 Motor de movimiento       -> 1 salida M1
 
 4 pistones
@@ -23,7 +25,8 @@ Por lo que tenemos
         4 electrovalvulas
         1 motor
 
-Secuencia
+SECUENCIA
+
 1. Al presionar CON, se activa el motor M1, hasta detectar SP.
 2. Salen los pistones A. Se activan los sensores SAS.
 3. Despues de 3 segundos sale el piston B y activa SBE.
@@ -32,7 +35,7 @@ Secuencia
 6. Sale el piston C y activa sensor SCE.
 7. Vuelve el piston C y se reinicia el proceso.
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 MAQUINA DE ESTADOS FINITOS
 
 Cree una salida de bit de cada estado, la activacion del estado depende de las entradas, el estado actual controla las salidas
@@ -85,7 +88,7 @@ E5
     Unlatch:    SCE
     Outputs:    C
 
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 Los estados se ejecutan de forma secuencial, por lo que establesco las salidas en funcion del estado actual
 
 M1 -> E0
