@@ -1,0 +1,59 @@
+-------------------------------------------------------------------------------------------------
+                                        E L E M E N T O S
+-------------------------------------------------------------------------------------------------
+
+    Hay 4 calles (NORTH, SOUTH, EAST, WEST), y cada una cuenta con 2 carriles
+
+        Flujo NORTH-SOUTH
+            Semaforo peatonal                   o_PE_TRLH_NS                -- 2 bits
+            Semaforo vehicular                  o_TRLH_NS                   -- 4 bits
+            Boton peatonal                      i_PE_BUTTON_NS
+
+            Calle NORTH
+                Carril NN (NORTH-NOTH):
+                    Sensor de flujo             i_SENSOR_NN
+
+                Carril NS (NORTH-SOUTH):
+                    Sensor de flujo             i_SENSOR_NS
+
+            Calle SOUTH
+                Carril SN (SOUTH-NORTH):
+                    Sensor de flujo             i_SENSOR_SN
+
+                Carril SS (SOUTH-SOUTH):
+                    Sensor de flujo             i_SENSOR_SS
+
+
+        Flujo EAST-WEST
+            Semaforo peatonal                   o_PETRLH_EW                 -- 2 bits
+            Semaforo vehicular                  o_TRLH_EW                   -- 4 bits
+            Boton peatonal                      i_PE_BUTTON_EW
+
+            Calle EAST
+                Carril EE (EAST-EAST):
+                    Sensor de flujo             i_SENSOR_EE
+
+                Carril EW (EAST-WEST):
+                    Sensor de flujo             i_SENSOR_EW
+            
+            Calle WEST
+                Carril WE (WEST-EAST):
+                    Sensor de flujo             i_SENSOR_WE
+
+                Carril WW (WEST-WEST):
+                    Sensor de flujo             i_SENSOR_WW
+
+-------------------------------------------------------------------------------------------------
+                                    MAQUINA DE ESTADOS FINITOS
+-------------------------------------------------------------------------------------------------
+
+    STOP
+        No se detecta ningun coche circulando. Esperamos un aumento en el contador de flujo vehicular de cualquier carril
+        -- Activamos buzzer intermitente para indicar a peatones que pueden pasar
+
+    FLOW_NORT_SOUTH
+        Detectamos mayor flujo vehicular en carriles NORTH-SOUTH, por lo que permitimos el flujo en esa direccion.
+        
+
+    FLOW_EAST_WEST
+        Detectamos mayor flujo vehicular en carriles EAST-WEST, por lo que permitimos el flujo en esa direccion

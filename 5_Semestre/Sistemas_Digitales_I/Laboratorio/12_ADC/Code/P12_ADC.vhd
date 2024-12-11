@@ -54,10 +54,6 @@ architecture rtl of P12_ADC is
         end component;
         signal ADC_CLK : STD_LOGIC;
 
-    -- MAQUINA DE ESTADOS FINITOS --
-        type states is (IDLE);
-        signal act_state : states := IDLE;
-    
     -- DISPLAY CON DECODER BCD DE 8 BITS --
         component DISPLAY_BCD
             generic 

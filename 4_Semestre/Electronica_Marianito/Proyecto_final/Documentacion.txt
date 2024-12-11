@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------------------------
+                                        E L E M E N T O S
+-------------------------------------------------------------------------------------------------
+
+Tenemos una grua con 3 ejes de libertad
+
+Ocupo controlar 3 motores a paso, en funcion de las instrucciones de una interfaz
+
+Tengo 3 microcontroladores.
+
+Master (20 MHz)
+    * Recibe instrucciones por UART para el movimiento de los motores. Ocupo mandar instrucciones con cierta frecuencia.
+    * Envia confirmacion de recepcion junto con la temperatura de los 2 motores.
+    * Ejecuta el movimiento de motor de eje X.
+    * Envia instrucciones por i2c a microcontroladores esclavo para ejecutar el movimiento de eje Y y Z.
+
+Y_Axis (8 MHz)
+    * Recibe instrucciones de maestro para el movimiento del motor en el eje Y
+
+Z_Axis (8 MHz)
+    * Recibe instrucciones de maestro para el movimiento del motor en el eje Z
+
+* Ver si usar protocolo i2c para los microcontroladores
+
+-------------------------------------------------------------------------------------------------
+                                    MAQUINA DE ESTADOS FINITOS
+-------------------------------------------------------------------------------------------------

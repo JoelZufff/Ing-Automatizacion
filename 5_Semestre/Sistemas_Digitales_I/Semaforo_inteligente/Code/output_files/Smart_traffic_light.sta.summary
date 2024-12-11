@@ -1,0 +1,617 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : -34.697
+TNS   : -245.243
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -31.174
+TNS   : -39.722
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -31.087
+TNS   : -40.194
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -30.806
+TNS   : -42.828
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -30.702
+TNS   : -39.095
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -30.417
+TNS   : -40.197
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -30.353
+TNS   : -38.622
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -30.107
+TNS   : -38.703
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.747
+TNS   : -38.151
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.604
+TNS   : -37.723
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.543
+TNS   : -38.124
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.456
+TNS   : -37.180
+
+Type  : Slow 1200mV 85C Model Setup 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.242
+TNS   : -37.247
+
+Type  : Slow 1200mV 85C Model Setup 'CLK_DIV:c_STL_CLK|CLK'
+Slack : -8.834
+TNS   : -1184.961
+
+Type  : Slow 1200mV 85C Model Setup 'i_CLK'
+Slack : -4.388
+TNS   : -288.256
+
+Type  : Slow 1200mV 85C Model Setup 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.178
+TNS   : -11.169
+
+Type  : Slow 1200mV 85C Model Setup 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.129
+TNS   : -11.251
+
+Type  : Slow 1200mV 85C Model Hold 'CLK_DIV:c_STL_CLK|CLK'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'i_CLK'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.452
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.728
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.762
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.769
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.769
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.770
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.795
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.801
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.801
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.801
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.802
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.803
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.804
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i_CLK'
+Slack : -3.000
+TNS   : -121.960
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK_DIV:c_STL_CLK|CLK'
+Slack : -1.487
+TNS   : -278.069
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.487
+TNS   : -25.279
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.487
+TNS   : -25.279
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : -1.487
+TNS   : -19.331
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Setup 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : -31.634
+TNS   : -223.242
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.243
+TNS   : -35.318
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -28.164
+TNS   : -35.853
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -27.879
+TNS   : -38.577
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -27.790
+TNS   : -34.720
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -27.546
+TNS   : -35.882
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -27.483
+TNS   : -34.306
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -27.268
+TNS   : -34.500
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -25.985
+TNS   : -33.899
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -25.854
+TNS   : -33.590
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -25.821
+TNS   : -34.072
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -25.724
+TNS   : -33.073
+
+Type  : Slow 1200mV 0C Model Setup 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -25.537
+TNS   : -33.024
+
+Type  : Slow 1200mV 0C Model Setup 'CLK_DIV:c_STL_CLK|CLK'
+Slack : -8.009
+TNS   : -1095.899
+
+Type  : Slow 1200mV 0C Model Setup 'i_CLK'
+Slack : -4.080
+TNS   : -265.206
+
+Type  : Slow 1200mV 0C Model Setup 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.049
+TNS   : -9.784
+
+Type  : Slow 1200mV 0C Model Setup 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.004
+TNS   : -9.476
+
+Type  : Slow 1200mV 0C Model Hold 'CLK_DIV:c_STL_CLK|CLK'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'i_CLK'
+Slack : 0.408
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.604
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.643
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.707
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.713
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.715
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.737
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.742
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.743
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.743
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.743
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.744
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.745
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i_CLK'
+Slack : -3.000
+TNS   : -121.960
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK_DIV:c_STL_CLK|CLK'
+Slack : -1.487
+TNS   : -278.069
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.487
+TNS   : -25.279
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.487
+TNS   : -25.279
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : -1.487
+TNS   : -19.331
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.978
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.487
+TNS   : -11.896
+
+Type  : Fast 1200mV 0C Model Setup 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : -14.148
+TNS   : -98.961
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.961
+TNS   : -13.415
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.918
+TNS   : -13.553
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.808
+TNS   : -14.689
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.741
+TNS   : -13.119
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.610
+TNS   : -13.669
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.573
+TNS   : -12.877
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -12.456
+TNS   : -12.968
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -11.873
+TNS   : -12.671
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -11.807
+TNS   : -12.368
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -11.764
+TNS   : -12.382
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -11.704
+TNS   : -12.137
+
+Type  : Fast 1200mV 0C Model Setup 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -11.600
+TNS   : -12.237
+
+Type  : Fast 1200mV 0C Model Setup 'CLK_DIV:c_STL_CLK|CLK'
+Slack : -3.271
+TNS   : -413.593
+
+Type  : Fast 1200mV 0C Model Setup 'i_CLK'
+Slack : -1.309
+TNS   : -72.518
+
+Type  : Fast 1200mV 0C Model Setup 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.055
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.075
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK_DIV:c_STL_CLK|CLK'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'i_CLK'
+Slack : 0.218
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.309
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.320
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : 0.325
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i_CLK'
+Slack : -3.000
+TNS   : -106.662
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK_DIV:c_STL_CLK|CLK'
+Slack : -1.000
+TNS   : -187.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ADC_0804LCN:c_ADC_POT|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.000
+TNS   : -17.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK|CLK'
+Slack : -1.000
+TNS   : -17.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DISPLAY_BCD:c_DISPLAY_BCD|CLK_DIV:c_DISP_CLK|CLK'
+Slack : -1.000
+TNS   : -13.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:PTL_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_EW_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_0|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_1|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_2|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PWM:TRLH_NS_3|CLK_DIV:c_PWM_CLK|CLK'
+Slack : -1.000
+TNS   : -8.000
+
+------------------------------------------------------------

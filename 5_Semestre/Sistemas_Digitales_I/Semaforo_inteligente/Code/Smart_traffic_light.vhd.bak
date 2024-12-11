@@ -1,0 +1,132 @@
+------------------------------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+------------------------------------------------------------------------------
+entity Smart_traffic_light is
+    generic 
+    (
+        CLK_FREQ    : INTEGER := 50000000
+    );
+    port
+    (
+        i_CLK           : in STD_LOGIC;                             -- Señal de reloj base
+        i_RST           : in STD_LOGIC;                             -- Reinicio total
+        
+        -- Flujo NORTH-SOUTH
+            -- Semaforos
+            o_PE_TRLH_NS    : out STD_LOGIC_VECTOR(1 downto 0);     -- Semaforo peatonal
+            o_TRLH_NS       : out STD_LOGIC_VECTOR(3 downto 0);     -- Semaforo vehicular 
+            i_PE_BUTTON_NS  : in STD_LOGIC;                         -- Boton peatonal
+            -- Carril NORTH
+            i_SENSOR_NN     : in STD_LOGIC;
+            i_SENSOR_NS     : in STD_LOGIC;
+            -- Carril SOUTH
+            i_SENSOR_SN     : in STD_LOGIC;
+            i_SENSOR_SS     : in STD_LOGIC;
+        
+        -- Flujo EAST_WEST
+            -- Semaforos
+            o_PE_TRLH_EW    : out STD_LOGIC_VECTOR(1 downto 0);     -- Semaforo peatonal
+            o_TRLH_EW       : out STD_LOGIC_VECTOR(3 downto 0);     -- Semaforo vehicular
+            i_PE_BUTTON_EW  : in STD_LOGIC;                         -- Boton peatonal
+            -- Carril EAST
+            i_SENSOR_EE     : in STD_LOGIC;
+            i_SENSOR_EW     : in STD_LOGIC;
+            -- Carril WEST
+            i_SENSOR_WE     : in STD_LOGIC;
+            i_SENSOR_WW     : in STD_LOGIC;
+        
+        o_BUZZER        : out STD_LOGIC;                            -- Buzzer peatonal
+    );
+end Smart_traffic_light;
+
+architecture rtl of Smart_traffic_light is
+    
+    -- DIVISOR DE RELOJ --
+        component CLK_DIV is
+            generic 
+            (
+                clk_freq    : INTEGER          -- Frecuencia interna de FPGA (Hz)
+            );
+            port
+            (
+                i_out_freq      : INTEGER;              -- Frequencia deseada
+                
+                i_CLK           : in STD_LOGIC;         -- Señal de reloj base
+                o_CLK           : out STD_LOGIC
+            );
+        end component;
+
+        signal STL_CLK : STD_LOGIC;
+        signal clks    : INTEGER;
+
+    -- MAQUINA DE ESTADOS FINITOS --
+        type states is (STOP, FLOW_NORT_SOUTH, FLOW_EAST_WEST, YELLOW);
+        signal act_state        : states := STOP;
+        signal YW_next_state    : states;
+
+begin
+
+    c_STL_CLK : CLK_DIV
+        generic map ( clk_freq => clk_freq )
+        port map ( i_out_freq => 1000, i_CLK => i_CLK, o_CLK => STL_CLK );
+
+    ------------------------------------------------------------------------------
+                            -- MAQUINA DE ESTADOS FINITOS --
+    ------------------------------------------------------------------------------
+    process (STL_CLK, i_RST)
+    begin
+        if (i_RST = '0') then               -- Se presiona RST
+            act_state <= CONFIG0;
+        elsif rising_edge(STL_CLK) then     -- Se detecta señal de reloj
+            case act_state is
+                when STOP =>
+                    -- Señales de salida
+                    o_PE_TRLH_NS <= "10";           -- Verde
+                    o_TRLH_NS    <= "0001"          -- Rojo
+
+                    o_PE_TRLH_EW <= "10";           -- Verde
+                    o_TRLH_EW    <= "0001"          -- Rojo
+
+                    -- Buzzer peatonal
+                    if clks = (2000 - 1) then
+                        o_BUZZER <= '1';
+                    elsif clks = (3000 - 1) then
+                        o_BUZZER <= '0';
+                        clks <= 0;
+                    else if;
+                        
+                    clks <= clks + 1;
+                    
+                    -- Estado futuro
+                    act_state <= STOP;
+
+                when FLOW_NORT_SOUTH =>
+                    -- Señales de salida
+                    o_PE_TRLH_NS <= "01";           -- Rojo
+                    o_TRLH_NS    <= "1100"          -- Verde
+
+                    -- Estado futuro
+
+
+                when FLOW_EAST_WEST =>
+                    -- Señales de salida
+                    o_PE_TRLH_EW <= "01";           -- Rojo
+                    o_TRLH_EW    <= "1100"          -- Verde
+
+                    -- Estado futuro
+
+
+                when YELLOW =>
+                    -- Señales de salida
+                    
+
+                    -- Estado futuro
+                    act_state <= YW_next_state;
+
+                when others => null;
+            end case;
+        end if;
+
+end architecture;

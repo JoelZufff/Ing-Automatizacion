@@ -1,0 +1,32 @@
+
+State Machine - |Smart_traffic_light|YW_next_state
+Name YW_next_state.YELLOW YW_next_state.FLOW_EAST_WEST YW_next_state.FLOW_NORT_SOUTH YW_next_state.STOP 
+YW_next_state.STOP 0 0 0 0 
+YW_next_state.FLOW_NORT_SOUTH 0 0 1 1 
+YW_next_state.FLOW_EAST_WEST 0 1 0 1 
+YW_next_state.YELLOW 1 0 0 1 
+
+State Machine - |Smart_traffic_light|act_state
+Name act_state.YELLOW act_state.FLOW_EAST_WEST act_state.FLOW_NORT_SOUTH act_state.STOP 
+act_state.STOP 0 0 0 0 
+act_state.FLOW_NORT_SOUTH 0 0 1 1 
+act_state.FLOW_EAST_WEST 0 1 0 1 
+act_state.YELLOW 1 0 0 1 
+
+State Machine - |Smart_traffic_light|ADC_0804LCN:c_ADC_TEMP|act_state
+Name act_state.READ_ADC2 act_state.READ_ADC1 act_state.READ_ADC0 act_state.WAIT_INTR act_state.GET_ADC1 act_state.GET_ADC0 
+act_state.GET_ADC0 0 0 0 0 0 0 
+act_state.GET_ADC1 0 0 0 0 1 1 
+act_state.WAIT_INTR 0 0 0 1 0 1 
+act_state.READ_ADC0 0 0 1 0 0 1 
+act_state.READ_ADC1 0 1 0 0 0 1 
+act_state.READ_ADC2 1 0 0 0 0 1 
+
+State Machine - |Smart_traffic_light|ADC_0804LCN:c_ADC_POT|act_state
+Name act_state.READ_ADC2 act_state.READ_ADC1 act_state.READ_ADC0 act_state.WAIT_INTR act_state.GET_ADC1 act_state.GET_ADC0 
+act_state.GET_ADC0 0 0 0 0 0 0 
+act_state.GET_ADC1 0 0 0 0 1 1 
+act_state.WAIT_INTR 0 0 0 1 0 1 
+act_state.READ_ADC0 0 0 1 0 0 1 
+act_state.READ_ADC1 0 1 0 0 0 1 
+act_state.READ_ADC2 1 0 0 0 0 1 
