@@ -13,6 +13,42 @@ act_state.FLOW_NORT_SOUTH 0 0 1 1
 act_state.FLOW_EAST_WEST 0 1 0 1 
 act_state.YELLOW 1 0 0 1 
 
+State Machine - |Smart_traffic_light|Interface_Comm:c_Interface_Comm|TX_nxt_state
+Name TX_nxt_state.WAIT_TIME TX_nxt_state.SEND_PTL_DIST TX_nxt_state.SEND_WE_CAR_FLOW TX_nxt_state.SEND_EW_CAR_FLOW TX_nxt_state.SEND_SN_CAR_FLOW TX_nxt_state.SEND_NS_CAR_FLOW TX_nxt_state.SEND_TEMP TX_nxt_state.TX_SEND 
+TX_nxt_state.TX_SEND 0 0 0 0 0 0 0 0 
+TX_nxt_state.SEND_TEMP 0 0 0 0 0 0 1 1 
+TX_nxt_state.SEND_NS_CAR_FLOW 0 0 0 0 0 1 0 1 
+TX_nxt_state.SEND_SN_CAR_FLOW 0 0 0 0 1 0 0 1 
+TX_nxt_state.SEND_EW_CAR_FLOW 0 0 0 1 0 0 0 1 
+TX_nxt_state.SEND_WE_CAR_FLOW 0 0 1 0 0 0 0 1 
+TX_nxt_state.SEND_PTL_DIST 0 1 0 0 0 0 0 1 
+TX_nxt_state.WAIT_TIME 1 0 0 0 0 0 0 1 
+
+State Machine - |Smart_traffic_light|Interface_Comm:c_Interface_Comm|act_state
+Name act_state.WAIT_TIME act_state.SEND_PTL_DIST act_state.SEND_WE_CAR_FLOW act_state.SEND_EW_CAR_FLOW act_state.SEND_SN_CAR_FLOW act_state.SEND_NS_CAR_FLOW act_state.TX_SEND act_state.SEND_TEMP 
+act_state.SEND_TEMP 0 0 0 0 0 0 0 0 
+act_state.TX_SEND 0 0 0 0 0 0 1 1 
+act_state.SEND_NS_CAR_FLOW 0 0 0 0 0 1 0 1 
+act_state.SEND_SN_CAR_FLOW 0 0 0 0 1 0 0 1 
+act_state.SEND_EW_CAR_FLOW 0 0 0 1 0 0 0 1 
+act_state.SEND_WE_CAR_FLOW 0 0 1 0 0 0 0 1 
+act_state.SEND_PTL_DIST 0 1 0 0 0 0 0 1 
+act_state.WAIT_TIME 1 0 0 0 0 0 0 1 
+
+State Machine - |Smart_traffic_light|Interface_Comm:c_Interface_Comm|UART_TX_string:c_TX_message|act_state
+Name act_state.SEND_CHAR act_state.WAIT_RDY act_state.IDLE 
+act_state.IDLE 0 0 0 
+act_state.WAIT_RDY 0 1 1 
+act_state.SEND_CHAR 1 0 1 
+
+State Machine - |Smart_traffic_light|Interface_Comm:c_Interface_Comm|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte|act_state
+Name act_state.STOP_BIT act_state.PARITY_BIT act_state.DATA_BITS act_state.START_BIT act_state.IDLE 
+act_state.IDLE 0 0 0 0 0 
+act_state.START_BIT 0 0 0 1 1 
+act_state.DATA_BITS 0 0 1 0 1 
+act_state.PARITY_BIT 0 1 0 0 1 
+act_state.STOP_BIT 1 0 0 0 1 
+
 State Machine - |Smart_traffic_light|ADC_0804LCN:c_ADC_TEMP|act_state
 Name act_state.READ_ADC2 act_state.READ_ADC1 act_state.READ_ADC0 act_state.WAIT_INTR act_state.GET_ADC1 act_state.GET_ADC0 
 act_state.GET_ADC0 0 0 0 0 0 0 

@@ -4,22 +4,6 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "o_LEDS[0]",
-					"strict" : false
-				},
-				{
-					"name" : "o_LEDS[1]",
-					"strict" : false
-				},
-				{
-					"name" : "o_LEDS[2]",
-					"strict" : false
-				},
-				{
-					"name" : "o_LEDS[3]",
-					"strict" : false
-				},
-				{
 					"name" : "o_PTL_NS[0]",
 					"strict" : false
 				},
@@ -144,19 +128,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "o_TRIG",
+					"strict" : false
+				},
+				{
+					"name" : "o_TX",
+					"strict" : false
+				},
+				{
 					"name" : "i_RST",
 					"strict" : false
 				},
 				{
 					"name" : "i_CLK",
-					"strict" : false
-				},
-				{
-					"name" : "i_PBUTTON_NS",
-					"strict" : false
-				},
-				{
-					"name" : "i_PBUTTON_EW",
 					"strict" : false
 				},
 				{
@@ -192,6 +176,58 @@
 					"strict" : false
 				},
 				{
+					"name" : "i_PBUTTON_NS",
+					"strict" : false
+				},
+				{
+					"name" : "i_PBUTTON_EW",
+					"strict" : false
+				},
+				{
+					"name" : "i_ECHO",
+					"strict" : false
+				},
+				{
+					"name" : "i_INTR0",
+					"strict" : false
+				},
+				{
+					"name" : "i_INTR1",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_S[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_E[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_W[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_N[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_W[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_E[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_S[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_SENSOR_N[1]",
+					"strict" : false
+				},
+				{
 					"name" : "i_DATA1[6]",
 					"strict" : false
 				},
@@ -221,46 +257,6 @@
 				},
 				{
 					"name" : "i_DATA1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "i_INTR0",
-					"strict" : false
-				},
-				{
-					"name" : "i_INTR1",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_N[0]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_E[0]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_S[0]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_S[1]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_W[1]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_N[1]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_W[0]",
-					"strict" : false
-				},
-				{
-					"name" : "i_SENSOR_E[1]",
 					"strict" : false
 				}
 			]

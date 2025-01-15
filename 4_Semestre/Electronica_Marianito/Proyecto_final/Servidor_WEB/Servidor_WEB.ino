@@ -6,8 +6,8 @@ const char* password = "123456789";
 WiFiServer server(80);
 
 #define LED2  2    // LED en terminal 2
-#define SENSOR_X_PIN 34 // Pin ADC para LM35 X
-#define SENSOR_THETA_PIN 35 // Pin ADC para LM35 Theta
+#define SENSOR_X_PIN 33 // Pin ADC para LM35 X
+#define SENSOR_THETA_PIN 34 // Pin ADC para LM35 Theta
 
 String X_temp = "";
 String THETA_temp = "";
@@ -45,8 +45,9 @@ void setup()
 void loop() 
 {
   // Leer sensores LM35
-  float temp_X  = analogRead(SENSOR_X_PIN) / 10.0; // Convertir a voltaje
-  float temp_THETA = analogRead(SENSOR_THETA_PIN) / 10.0; // Convertir a voltaje
+  float temp_X  = analogRead(SENSOR_X_PIN) / 4.56; // Convertir a voltaje
+  delay(10);
+  float temp_THETA = analogRead(SENSOR_THETA_PIN) / 4.81; // Convertir a voltaje
   
   X_temp = String(temp_X, 1) + " °C";
   THETA_temp = String(temp_THETA, 1) + " °C";
@@ -60,7 +61,7 @@ void loop()
   Serial.println(client.remoteIP());
    
   // Espera hasta que se reciban datos.
-  delay(1000);
+  delay(5000);
   
   // Leer entradas ADC y modificar variables 
 

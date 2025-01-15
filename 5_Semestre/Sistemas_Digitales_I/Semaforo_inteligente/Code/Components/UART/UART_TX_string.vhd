@@ -14,12 +14,12 @@ entity UART_TX_string is
         i_RST           : in STD_LOGIC;                         -- Señal de RST
         
         -- I/O
-        i_string        : in STD_LOGIC_VECTOR(623 downto 0);    -- 79 caracteres maximo
+        i_string        : in STD_LOGIC_VECTOR(39 downto 0);    -- 79 caracteres maximo
         i_ST            : in STD_LOGIC;                         -- Señal para indicar inicio de transmision
         o_RDY           : out STD_LOGIC;                        -- Indica si esta listo para transmitir 
-        
-        -- I/O Fisicas
-        o_TX            : out STD_LOGIC         -- Pin TX de transmision serial 
+
+        -- Variables de flujo
+        o_TX            : out STD_LOGIC                             -- Transmisor
 	);
 end UART_TX_string;
 ------------------------------------------------------------------------------
@@ -28,14 +28,15 @@ architecture transmit of UART_TX_string is
         component CLK_DIV is
             generic 
             (
-                clk_freq    : INTEGER          -- Frecuencia interna de FPGA (Hz)
+                clk_freq    : integer          -- Frecuencia interna de FPGA (Hz)
             );
             port
             (
-                i_out_freq      : INTEGER;              -- Frequencia deseada
+                i_out_freq      : integer;              -- Frequencia deseada
                 
-                i_CLK           : in STD_LOGIC;         -- Señal de reloj base
-                o_CLK           : out STD_LOGIC
+                i_CLK      : in STD_LOGIC;         -- Señal de reloj base
+                -- Ver si poner RST
+                o_clk           : out STD_LOGIC    
             );
         end component;
 
@@ -50,7 +51,7 @@ architecture transmit of UART_TX_string is
             );
             port
             (
-                i_FPGA_clk      : in STD_LOGIC;                         -- Señal de reloj base
+                i_CLK      : in STD_LOGIC;                         -- Señal de reloj base
                 i_RST           : in STD_LOGIC;                         -- Señal de RST
                 i_DATA          : in STD_LOGIC_VECTOR(7 downto 0);      -- Dato a enviar
                 i_ST            : in STD_LOGIC;                         -- Señal para indicar inicio de transmision
@@ -75,17 +76,17 @@ begin
     ------------------------------------------------------------------------------
     c_UART_CLK : CLK_DIV
     generic map ( clk_freq => clk_freq ) 
-        port map ( i_out_freq => baud_freq, i_CLK => i_CLK, o_CLK => UART_clk );
+        port map ( i_out_freq => baud_freq, i_CLK => i_CLK, o_clk => UART_clk );
     ------------------------------------------------------------------------------
                             -- COMPONENTE UART_TX_BYTE --
     ------------------------------------------------------------------------------
     TX_byte : UART_TX_byte
         generic map ( clk_freq => clk_freq, baud_freq => baud_freq )
-        port map ( i_FPGA_clk => i_CLK, i_RST => i_RST, i_DATA => UART_DATA, i_ST => UART_ST, o_RDY => UART_RDY, o_TX => o_TX );
+        port map ( i_CLK => i_CLK, i_RST => i_RST, i_DATA => UART_DATA, i_ST => UART_ST, o_RDY => UART_RDY, o_TX => o_TX );
     ------------------------------------------------------------------------------
                             -- MAQUINA DE ESTADOS FINITOS --
     ------------------------------------------------------------------------------ 
-    process (UART_clk, i_RST, i_ST)                      
+    process (UART_clk, i_RST, i_ST)
     begin
         if (i_RST = '1') then
             act_state <= IDLE;
@@ -117,10 +118,10 @@ begin
                     
                 when SEND_CHAR =>
                     o_RDY       <= '0';
-                    UART_ST     <= '1'; UART_DATA <= i_string(623 - (char_index * 8) downto 616 - (char_index * 8));
-
+                    UART_ST     <= '1'; 
+                    UART_DATA   <= i_string(39 - (char_index * 8) downto 32 - (char_index * 8));
                     
-                    if (char_index = 79) then           -- Longitud maxima
+                    if (char_index = 4) then            -- Longitud maxima
                         act_state <= IDLE;
                     elsif (UART_RDY = '0') then         -- Se esta imprimiendo el caracter
                         char_index <= char_index + 1;

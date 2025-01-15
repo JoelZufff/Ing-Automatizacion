@@ -1,1 +1,4 @@
 v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,US_HCSR_04:c_US_HCSR_04|lpm_mult:Mult0|mult_g9t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,US_HCSR_04:c_US_HCSR_04|lpm_mult:Mult0|mult_g9t:auto_generated|mac_out4,
+PORT_SWAPPING,PORT_SWAPPING_FINISHED,US_HCSR_04:c_US_HCSR_04|lpm_mult:Mult0|mult_g9t:auto_generated|mac_mult1,

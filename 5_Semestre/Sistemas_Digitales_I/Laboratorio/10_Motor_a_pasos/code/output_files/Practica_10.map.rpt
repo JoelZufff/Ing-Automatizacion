@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Practica_10
-Wed Nov 13 11:03:30 2024
+Fri Dec 13 09:20:48 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -85,7 +85,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 13 11:03:29 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri Dec 13 09:20:47 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Practica_10                                    ;
 ; Top-level Entity Name              ; Practica_10                                    ;
@@ -205,7 +205,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
+;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -214,14 +214,14 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path   ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                      ; Library ;
 +------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; Components/UART/UART_RX.vhd        ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_RX.vhd        ;         ;
-; Components/Distance_queue.vhd      ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Distance_queue.vhd      ;         ;
-; Components/UART/UART_TX_string.vhd ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_string.vhd ;         ;
-; Components/UART/UART_TX_byte.vhd   ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_byte.vhd   ;         ;
-; Components/LCD_putstring.vhd       ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/LCD_putstring.vhd       ;         ;
-; Components/Stepper_motor.vhd       ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Stepper_motor.vhd       ;         ;
-; Components/CLK_DIV.vhd             ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd             ;         ;
-; Practica_10.vhd                    ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd                    ;         ;
+; Components/UART/UART_RX.vhd        ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_RX.vhd        ;         ;
+; Components/Distance_queue.vhd      ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Distance_queue.vhd      ;         ;
+; Components/UART/UART_TX_string.vhd ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_string.vhd ;         ;
+; Components/UART/UART_TX_byte.vhd   ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_byte.vhd   ;         ;
+; Components/LCD_putstring.vhd       ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/LCD_putstring.vhd       ;         ;
+; Components/Stepper_motor.vhd       ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Stepper_motor.vhd       ;         ;
+; Components/CLK_DIV.vhd             ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd             ;         ;
+; Practica_10.vhd                    ; yes             ; User VHDL File               ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd                    ;         ;
 ; altsyncram.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                                          ;         ;
 ; stratix_ram_block.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                   ;         ;
 ; lpm_mux.inc                        ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                                             ;         ;
@@ -231,16 +231,16 @@ https://fpgasoftware.intel.com/eula.
 ; altrom.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc                                                                              ;         ;
 ; altram.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                                                                              ;         ;
 ; altdpram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                                                                            ;         ;
-; db/altsyncram_h8i1.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/altsyncram_h8i1.tdf             ;         ;
+; db/altsyncram_h8i1.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/altsyncram_h8i1.tdf             ;         ;
 ; lpm_divide.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                                                          ;         ;
 ; abs_divider.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc                                                                         ;         ;
 ; sign_div_unsign.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                                                                     ;         ;
-; db/lpm_divide_92p.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/lpm_divide_92p.tdf              ;         ;
-; db/abs_divider_4dg.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/abs_divider_4dg.tdf             ;         ;
-; db/alt_u_div_6af.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/alt_u_div_6af.tdf               ;         ;
-; db/add_sub_7pc.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/add_sub_7pc.tdf                 ;         ;
-; db/add_sub_8pc.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/add_sub_8pc.tdf                 ;         ;
-; db/lpm_abs_i0a.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/lpm_abs_i0a.tdf                 ;         ;
+; db/lpm_divide_92p.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/lpm_divide_92p.tdf              ;         ;
+; db/abs_divider_4dg.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/abs_divider_4dg.tdf             ;         ;
+; db/alt_u_div_6af.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/alt_u_div_6af.tdf               ;         ;
+; db/add_sub_7pc.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/add_sub_7pc.tdf                 ;         ;
+; db/add_sub_8pc.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/add_sub_8pc.tdf                 ;         ;
+; db/lpm_abs_i0a.tdf                 ; yes             ; Auto-Generated Megafunction  ; C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/lpm_abs_i0a.tdf                 ;         ;
 +------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -1400,7 +1400,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:22     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -1410,77 +1410,77 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Wed Nov 13 11:02:52 2024
+    Info: Processing started: Fri Dec 13 09:20:34 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Practica_10 -c Practica_10
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file components/uart/uart_rx.vhd
-    Info (12022): Found design unit 1: UART_RX-Reception File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_RX.vhd Line: 22
-    Info (12023): Found entity 1: UART_RX File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_RX.vhd Line: 5
+    Info (12022): Found design unit 1: UART_RX-Reception File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_RX.vhd Line: 22
+    Info (12023): Found entity 1: UART_RX File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_RX.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file components/distance_queue.vhd
-    Info (12022): Found design unit 1: Distance_queue-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Distance_queue.vhd Line: 32
-    Info (12023): Found entity 1: Distance_queue File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Distance_queue.vhd Line: 11
+    Info (12022): Found design unit 1: Distance_queue-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Distance_queue.vhd Line: 32
+    Info (12023): Found entity 1: Distance_queue File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Distance_queue.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file components/uart/uart_tx_string.vhd
-    Info (12022): Found design unit 1: UART_TX_string-transmit File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_string.vhd Line: 26
-    Info (12023): Found entity 1: UART_TX_string File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_string.vhd Line: 5
+    Info (12022): Found design unit 1: UART_TX_string-transmit File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_string.vhd Line: 26
+    Info (12023): Found entity 1: UART_TX_string File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_string.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file components/uart/uart_tx_byte.vhd
-    Info (12022): Found design unit 1: UART_TX_byte-TX_BYTE File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_byte.vhd Line: 26
-    Info (12023): Found entity 1: UART_TX_byte File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_byte.vhd Line: 7
+    Info (12022): Found design unit 1: UART_TX_byte-TX_BYTE File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_byte.vhd Line: 26
+    Info (12023): Found entity 1: UART_TX_byte File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_byte.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file components/lcd_putstring.vhd
-    Info (12022): Found design unit 1: LCD_putstring-string_print File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/LCD_putstring.vhd Line: 29
-    Info (12023): Found entity 1: LCD_putstring File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/LCD_putstring.vhd Line: 7
+    Info (12022): Found design unit 1: LCD_putstring-string_print File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/LCD_putstring.vhd Line: 29
+    Info (12023): Found entity 1: LCD_putstring File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/LCD_putstring.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file components/stepper_motor.vhd
-    Info (12022): Found design unit 1: Stepper_motor-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Stepper_motor.vhd Line: 28
-    Info (12023): Found entity 1: Stepper_motor File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Stepper_motor.vhd Line: 8
+    Info (12022): Found design unit 1: Stepper_motor-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Stepper_motor.vhd Line: 28
+    Info (12023): Found entity 1: Stepper_motor File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Stepper_motor.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file components/clk_div.vhd
-    Info (12022): Found design unit 1: CLK_DIV-DIV File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 19
-    Info (12023): Found entity 1: CLK_DIV File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 5
+    Info (12022): Found design unit 1: CLK_DIV-DIV File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 19
+    Info (12023): Found entity 1: CLK_DIV File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file practica_10.vhd
-    Info (12022): Found design unit 1: Practica_10-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 33
-    Info (12023): Found entity 1: Practica_10 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 5
+    Info (12022): Found design unit 1: Practica_10-rtl File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 33
+    Info (12023): Found entity 1: Practica_10 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 5
 Info (12127): Elaborating entity "Practica_10" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at Practica_10.vhd(428): inferring latch(es) for signal or variable "STEP_freq", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[0]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[1]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[2]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[3]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[4]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[5]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[6]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[7]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[8]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[9]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[10]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[11]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[12]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[13]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[14]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[15]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[16]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[17]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[18]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[19]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[20]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[21]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[22]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[23]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[24]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[25]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[26]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[27]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[28]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[29]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[30]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (10041): Inferred latch for "STEP_freq[31]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Info (12128): Elaborating entity "Stepper_motor" for hierarchy "Stepper_motor:STEPS" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 231
-Info (12128): Elaborating entity "CLK_DIV" for hierarchy "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Stepper_motor.vhd Line: 69
-Warning (10540): VHDL Signal Declaration warning at CLK_DIV.vhd(22): used explicit default value for signal "clks_max" because signal was never assigned a value File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
-Info (12128): Elaborating entity "LCD_putstring" for hierarchy "LCD_putstring:c_LCD" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 238
-Info (12128): Elaborating entity "UART_TX_string" for hierarchy "UART_TX_string:c_TX_message" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 244
-Info (12128): Elaborating entity "UART_TX_byte" for hierarchy "UART_TX_string:c_TX_message|UART_TX_byte:TX_byte" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_TX_string.vhd Line: 83
-Info (12128): Elaborating entity "Distance_queue" for hierarchy "Distance_queue:c_queue" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 250
-Info (12128): Elaborating entity "UART_RX" for hierarchy "Distance_queue:c_queue|UART_RX:RX_Receive" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/Distance_queue.vhd Line: 86
-Warning (10036): Verilog HDL or VHDL warning at UART_RX.vhd(48): object "parity" assigned a value but never read File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/UART/UART_RX.vhd Line: 48
+Warning (10631): VHDL Process Statement warning at Practica_10.vhd(428): inferring latch(es) for signal or variable "STEP_freq", which holds its previous value in one or more paths through the process File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[0]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[1]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[2]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[3]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[4]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[5]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[6]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[7]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[8]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[9]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[10]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[11]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[12]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[13]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[14]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[15]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[16]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[17]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[18]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[19]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[20]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[21]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[22]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[23]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[24]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[25]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[26]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[27]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[28]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[29]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[30]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (10041): Inferred latch for "STEP_freq[31]" at Practica_10.vhd(428) File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Info (12128): Elaborating entity "Stepper_motor" for hierarchy "Stepper_motor:STEPS" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 231
+Info (12128): Elaborating entity "CLK_DIV" for hierarchy "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Stepper_motor.vhd Line: 69
+Warning (10540): VHDL Signal Declaration warning at CLK_DIV.vhd(22): used explicit default value for signal "clks_max" because signal was never assigned a value File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
+Info (12128): Elaborating entity "LCD_putstring" for hierarchy "LCD_putstring:c_LCD" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 238
+Info (12128): Elaborating entity "UART_TX_string" for hierarchy "UART_TX_string:c_TX_message" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 244
+Info (12128): Elaborating entity "UART_TX_byte" for hierarchy "UART_TX_string:c_TX_message|UART_TX_byte:TX_byte" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_TX_string.vhd Line: 83
+Info (12128): Elaborating entity "Distance_queue" for hierarchy "Distance_queue:c_queue" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 250
+Info (12128): Elaborating entity "UART_RX" for hierarchy "Distance_queue:c_queue|UART_RX:RX_Receive" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/Distance_queue.vhd Line: 86
+Warning (10036): Verilog HDL or VHDL warning at UART_RX.vhd(48): object "parity" assigned a value but never read File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/UART/UART_RX.vhd Line: 48
 Warning (276020): Inferred RAM node "Distance_queue:c_queue|distance_queue_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "Distance_queue:c_queue|distance_queue_rtl_0" 
@@ -1500,8 +1500,8 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK|Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK|Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
 Info (12130): Elaborated megafunction instantiation "Distance_queue:c_queue|altsyncram:distance_queue_rtl_0"
 Info (12133): Instantiated megafunction "Distance_queue:c_queue|altsyncram:distance_queue_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1520,39 +1520,39 @@ Info (12133): Instantiated megafunction "Distance_queue:c_queue|altsyncram:dista
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_h8i1.tdf
-    Info (12023): Found entity 1: altsyncram_h8i1 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/altsyncram_h8i1.tdf Line: 28
-Info (12130): Elaborated megafunction instantiation "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
-Info (12133): Instantiated megafunction "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0" with the following parameter: File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
+    Info (12023): Found entity 1: altsyncram_h8i1 File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/altsyncram_h8i1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
+Info (12133): Instantiated megafunction "Stepper_motor:STEPS|CLK_DIV:c_STEP_CLK|lpm_divide:Div0" with the following parameter: File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_92p.tdf
-    Info (12023): Found entity 1: lpm_divide_92p File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/lpm_divide_92p.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_92p File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/lpm_divide_92p.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/abs_divider_4dg.tdf Line: 27
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/abs_divider_4dg.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
-    Info (12023): Found entity 1: alt_u_div_6af File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/alt_u_div_6af.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_6af File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/alt_u_div_6af.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/add_sub_8pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/add_sub_8pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
-    Info (12023): Found entity 1: lpm_abs_i0a File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/db/lpm_abs_i0a.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK|lpm_divide:Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
-Info (12133): Instantiated megafunction "Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK|lpm_divide:Div0" with the following parameter: File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Components/CLK_DIV.vhd Line: 22
+    Info (12023): Found entity 1: lpm_abs_i0a File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/db/lpm_abs_i0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK|lpm_divide:Div0" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
+Info (12133): Instantiated megafunction "Distance_queue:c_queue|UART_RX:RX_Receive|CLK_DIV:c_UART_CLK|lpm_divide:Div0" with the following parameter: File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Components/CLK_DIV.vhd Line: 22
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "STEP_freq[2]" merged with LATCH primitive "STEP_freq[4]" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-Warning (13012): Latch STEP_freq[4] has unsafe behavior File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 428
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal i_VEL[0] File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 17
+    Info (13026): Duplicate LATCH primitive "STEP_freq[2]" merged with LATCH primitive "STEP_freq[4]" File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+Warning (13012): Latch STEP_freq[4] has unsafe behavior File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 428
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal i_VEL[0] File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 17
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "o_RW" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/code/Practica_10.vhd Line: 24
+    Warning (13410): Pin "o_RW" is stuck at GND File: C:/Users/diego/Desktop/Ing_en_automatizacion/5_Semestre/Sistemas_Digitales_I/Laboratorio/10_Motor_a_pasos/Code/Practica_10.vhd Line: 24
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 32 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -1563,9 +1563,9 @@ Info (21057): Implemented 2301 device resources after synthesis - the final reso
     Info (21061): Implemented 2276 logic cells
     Info (21064): Implemented 2 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4890 megabytes
-    Info: Processing ended: Wed Nov 13 11:03:30 2024
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 4854 megabytes
+    Info: Processing ended: Fri Dec 13 09:20:48 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:12
 
 

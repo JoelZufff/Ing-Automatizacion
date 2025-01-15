@@ -62,15 +62,14 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_location_assignment PIN_23 -to i_CLK
 set_location_assignment PIN_25 -to i_RST
-set_location_assignment PIN_110 -to o_BUZZER
-set_location_assignment PIN_53 -to i_SENSOR_N[0]
-set_location_assignment PIN_55 -to i_SENSOR_N[1]
-set_location_assignment PIN_66 -to i_SENSOR_E[0]
-set_location_assignment PIN_68 -to i_SENSOR_E[1]
-set_location_assignment PIN_64 -to i_SENSOR_S[1]
-set_location_assignment PIN_59 -to i_SENSOR_S[0]
-set_location_assignment PIN_70 -to i_SENSOR_W[0]
-set_location_assignment PIN_72 -to i_SENSOR_W[1]
+set_location_assignment PIN_11 -to i_SENSOR_N[0]
+set_location_assignment PIN_7 -to i_SENSOR_N[1]
+set_location_assignment PIN_142 -to i_SENSOR_E[0]
+set_location_assignment PIN_138 -to i_SENSOR_E[1]
+set_location_assignment PIN_144 -to i_SENSOR_S[1]
+set_location_assignment PIN_2 -to i_SENSOR_S[0]
+set_location_assignment PIN_3 -to i_SENSOR_W[0]
+set_location_assignment PIN_1 -to i_SENSOR_W[1]
 set_location_assignment PIN_28 -to o_TRLH_NS[0]
 set_location_assignment PIN_31 -to o_TRLH_NS[1]
 set_location_assignment PIN_33 -to o_TRLH_NS[2]
@@ -95,63 +94,36 @@ set_location_assignment PIN_129 -to o_DISP_SEG[3]
 set_location_assignment PIN_125 -to o_DISP_SEG[2]
 set_location_assignment PIN_121 -to o_DISP_SEG[1]
 set_location_assignment PIN_128 -to o_DISP_SEG[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_CLK
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_RST
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_E[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_E[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_N[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_N[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_S[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_S[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_W[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_SENSOR_W[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_BUZZER
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_COM[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_COM[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_COM[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_COM[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_DISP_SEG[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_LEDS[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_LEDS[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_LEDS[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_LEDS[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_EW[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_EW[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_EW[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_EW[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_NS[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_NS[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_NS[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_TRLH_NS[0]
-set_global_assignment -name VHDL_FILE Components/UART/UART_TX_string.vhd
-set_global_assignment -name VHDL_FILE Components/UART/UART_TX_byte.vhd
-set_global_assignment -name VHDL_FILE Components/UART/UART_RX_byte.vhd
-set_global_assignment -name VHDL_FILE Components/PWM.vhd
-set_global_assignment -name VHDL_FILE Components/Flow_counter.vhd
-set_global_assignment -name VHDL_FILE Components/Display_BCD/DISPLAY_BCD.vhd
-set_global_assignment -name VHDL_FILE Components/Display_BCD/BCD_4bit.vhd
-set_global_assignment -name VHDL_FILE Components/CLK_DIV.vhd
-set_global_assignment -name VHDL_FILE Components/ADC_0804LCN.vhd
-set_global_assignment -name VHDL_FILE Smart_traffic_light.vhd
-set_location_assignment PIN_76 -to i_PBUTTON_EW
-set_location_assignment PIN_74 -to i_PBUTTON_NS
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_RST
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_SENSOR_E[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_SENSOR_N[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_SENSOR_S[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_SENSOR_S[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_SENSOR_W[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_COM[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_COM[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_SEG[7]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_SEG[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_SEG[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_SEG[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_DISP_SEG[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_LEDS[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_LEDS[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_TRLH_EW[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_TRLH_EW[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_TRLH_EW[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_TRLH_EW[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_TRLH_NS[2]
+set_location_assignment PIN_10 -to i_PBUTTON_EW
+set_location_assignment PIN_24 -to i_PBUTTON_NS
 set_location_assignment PIN_71 -to o_PTL_EW[0]
 set_location_assignment PIN_73 -to o_PTL_EW[1]
 set_location_assignment PIN_67 -to o_PTL_NS[0]
 set_location_assignment PIN_69 -to o_PTL_NS[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_PTL_EW[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_PBUTTON_NS
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_PBUTTON_EW
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_PTL_EW[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_PTL_NS[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_PTL_NS[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_PTL_EW[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_PBUTTON_EW
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_PTL_EW[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_PTL_NS[0]
 set_location_assignment PIN_52 -to i_DATA0[0]
 set_location_assignment PIN_50 -to i_DATA0[1]
 set_location_assignment PIN_46 -to i_DATA0[2]
@@ -165,43 +137,57 @@ set_location_assignment PIN_75 -to o_CLK_IN0
 set_location_assignment PIN_65 -to o_CS0
 set_location_assignment PIN_60 -to o_RD0
 set_location_assignment PIN_58 -to o_WR0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA0[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_DATA1[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_INTR0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to i_INTR1
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_RD0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_RD1
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_WR0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_WR1
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_CLK_IN0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_CLK_IN1
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_CS0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to o_CS1
-set_location_assignment PIN_10 -to i_DATA1[0]
-set_location_assignment PIN_24 -to i_DATA1[1]
-set_location_assignment PIN_138 -to i_DATA1[2]
-set_location_assignment PIN_142 -to i_DATA1[3]
-set_location_assignment PIN_144 -to i_DATA1[4]
-set_location_assignment PIN_7 -to i_DATA1[6]
-set_location_assignment PIN_2 -to i_DATA1[5]
-set_location_assignment PIN_11 -to i_DATA1[7]
-set_location_assignment PIN_3 -to i_INTR1
-set_location_assignment PIN_120 -to o_CLK_IN1
-set_location_assignment PIN_141 -to o_CS1
-set_location_assignment PIN_143 -to o_RD1
-set_location_assignment PIN_1 -to o_WR1
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA0[7]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA0[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA0[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA0[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA0[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA0[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_DATA1[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_INTR1
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_CLK_IN0
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_CS0
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_CS1
+set_location_assignment PIN_72 -to i_DATA1[0]
+set_location_assignment PIN_70 -to i_DATA1[1]
+set_location_assignment PIN_68 -to i_DATA1[2]
+set_location_assignment PIN_66 -to i_DATA1[3]
+set_location_assignment PIN_64 -to i_DATA1[4]
+set_location_assignment PIN_55 -to i_DATA1[6]
+set_location_assignment PIN_59 -to i_DATA1[5]
+set_location_assignment PIN_53 -to i_DATA1[7]
+set_location_assignment PIN_74 -to i_INTR1
+set_location_assignment PIN_83 -to o_CLK_IN1
+set_location_assignment PIN_77 -to o_CS1
+set_location_assignment PIN_80 -to o_RD1
+set_location_assignment PIN_76 -to o_WR1
+set_location_assignment PIN_115 -to i_RX
+set_location_assignment PIN_114 -to o_TX
+set_location_assignment PIN_99 -to o_TRIG
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_ECHO
+set_instance_assignment -name IO_STANDARD "2.5 V" -to i_RX
+set_instance_assignment -name IO_STANDARD "2.5 V" -to o_TRIG
+set_location_assignment PIN_88 -to i_ST
+set_global_assignment -name VHDL_FILE Components/HCSR_04/INTESC_LIB_ULTRASONICO_RevC.vhd
+set_global_assignment -name VHDL_FILE Components/HCSR_04/DIVISION_ULTRASONICO_RevA.vhd
+set_global_assignment -name VHDL_FILE Components/US_HCSR_04.vhd
+set_global_assignment -name VHDL_FILE Components/BCD/BCD_byte.vhd
+set_global_assignment -name VHDL_FILE Components/BCD/BCD_4bit.vhd
+set_global_assignment -name VHDL_FILE Components/Interface_Comm.vhd
+set_global_assignment -name VHDL_FILE Components/DISPLAY_BCD.vhd
+set_global_assignment -name VHDL_FILE Components/UART/UART_TX_string.vhd
+set_global_assignment -name VHDL_FILE Components/UART/UART_TX_byte.vhd
+set_global_assignment -name VHDL_FILE Components/UART/UART_RX_byte.vhd
+set_global_assignment -name VHDL_FILE Components/PWM.vhd
+set_global_assignment -name VHDL_FILE Components/Flow_counter.vhd
+set_global_assignment -name VHDL_FILE Components/CLK_DIV.vhd
+set_global_assignment -name VHDL_FILE Components/ADC_0804LCN.vhd
+set_global_assignment -name VHDL_FILE Smart_traffic_light.vhd
+set_location_assignment PIN_98 -to i_ECHO
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

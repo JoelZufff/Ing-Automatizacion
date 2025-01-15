@@ -1,5 +1,5 @@
 Flow report for Smart_traffic_light
-Fri Dec  6 13:52:09 2024
+Sat Jan  4 01:35:06 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,21 +41,21 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Fri Dec  6 13:52:09 2024          ;
+; Flow Status                        ; Successful - Sat Jan  4 01:35:06 2025          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; Smart_traffic_light                            ;
 ; Top-level Entity Name              ; Smart_traffic_light                            ;
 ; Family                             ; Cyclone IV E                                   ;
 ; Device                             ; EP4CE6E22C8                                    ;
 ; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 1,576 / 6,272 ( 25 % )                         ;
-;     Total combinational functions  ; 1,555 / 6,272 ( 25 % )                         ;
-;     Dedicated logic registers      ; 410 / 6,272 ( 7 % )                            ;
-; Total registers                    ; 410                                            ;
-; Total pins                         ; 67 / 92 ( 73 % )                               ;
+; Total logic elements               ; 2,989 / 6,272 ( 48 % )                         ;
+;     Total combinational functions  ; 2,964 / 6,272 ( 47 % )                         ;
+;     Dedicated logic registers      ; 666 / 6,272 ( 11 % )                           ;
+; Total registers                    ; 666                                            ;
+; Total pins                         ; 66 / 92 ( 72 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                            ;
-; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                                 ;
+; Embedded Multiplier 9-bit elements ; 4 / 30 ( 13 % )                                ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                                  ;
 +------------------------------------+------------------------------------------------+
 
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/06/2024 13:51:44 ;
+; Start date & time ; 01/04/2025 01:34:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Smart_traffic_light ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589197.173351470412636         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 277302816315712.173597606925116        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -101,12 +101,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4856 MB             ; 00:00:10                           ;
-; Fitter               ; 00:00:08     ; 1.1                     ; 5647 MB             ; 00:00:04                           ;
-; Assembler            ; 00:00:00     ; 1.0                     ; 4690 MB             ; 00:00:00                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 4824 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4645 MB             ; 00:00:00                           ;
-; Total                ; 00:00:22     ; --                      ; --                  ; 00:00:15                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4889 MB             ; 00:00:13                           ;
+; Fitter               ; 00:00:15     ; 1.1                     ; 5663 MB             ; 00:00:10                           ;
+; Assembler            ; 00:00:00     ; 1.0                     ; 4705 MB             ; 00:00:00                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.2                     ; 4817 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4652 MB             ; 00:00:01                           ;
+; Total                ; 00:00:32     ; --                      ; --                  ; 00:00:26                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

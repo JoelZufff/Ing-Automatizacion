@@ -37,12 +37,22 @@ architecture rtl of Template is
         signal act_state : states := IDLE;
 
 begin
+    
+    ------------------------------------------------------------------------------
+                                -- DIVISOR DE RELOJ --
+    ------------------------------------------------------------------------------
+    c_TEM_CLK : CLK_DIV
+        generic map ( clk_freq => CLK_FREQ )
+        port map ( i_out_freq => 1, i_CLK => i_CLK, o_CLK => TEM_CLK );
 
-    process (i_CLK, i_RST)
+    ------------------------------------------------------------------------------
+                            -- MAQUINA DE ESTADOS FINITOS --
+    ------------------------------------------------------------------------------
+    process (TEM_CLK, i_RST)
     begin
         if (i_RST = '1') then
             
-        elsif rising_edge(i_CLK) then
+        elsif rising_edge(TEM_CLK) then
             case act_state is
                 when IDLE =>
                     

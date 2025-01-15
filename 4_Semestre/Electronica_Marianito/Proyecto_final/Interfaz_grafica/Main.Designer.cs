@@ -62,7 +62,6 @@
             // 
             // SerialPort
             // 
-            this.SerialPort.BaudRate = 115200;
             this.SerialPort.PortName = "COM3";
             this.SerialPort.ReadTimeout = 500;
             this.SerialPort.WriteTimeout = 500;
@@ -278,7 +277,7 @@
             this.Temp2.Name = "Temp2";
             this.Temp2.Size = new System.Drawing.Size(69, 24);
             this.Temp2.TabIndex = 1;
-            this.Temp2.Text = "2.00 °C";
+            this.Temp2.Text = "0.00 °C";
             // 
             // Temp1
             // 
@@ -289,7 +288,7 @@
             this.Temp1.Name = "Temp1";
             this.Temp1.Size = new System.Drawing.Size(69, 24);
             this.Temp1.TabIndex = 0;
-            this.Temp1.Text = "1.00 °C";
+            this.Temp1.Text = "0.00 °C";
             // 
             // ConectionTimer
             // 

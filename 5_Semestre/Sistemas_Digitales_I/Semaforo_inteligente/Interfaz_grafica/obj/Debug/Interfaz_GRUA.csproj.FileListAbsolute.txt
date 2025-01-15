@@ -1,0 +1,11 @@
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\bin\Debug\Wire-Trimmer.exe.config
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\bin\Debug\Wire-Trimmer.exe
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\bin\Debug\Wire-Trimmer.pdb
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Interfaz_GRUA.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Interfaz_GRUA.csproj.SuggestedBindingRedirects.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Wire_Trimmer.Main.resources
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Wire_Trimmer.Properties.Resources.resources
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Interfaz_GRUA.csproj.GenerateResource.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Interfaz_GRUA.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Wire-Trimmer.exe
+C:\Users\diego\Desktop\Ing_en_automatizacion\4_Semestre\Electronica_Marianito\Proyecto_final\Interfaz_grafica\obj\Debug\Wire-Trimmer.pdb

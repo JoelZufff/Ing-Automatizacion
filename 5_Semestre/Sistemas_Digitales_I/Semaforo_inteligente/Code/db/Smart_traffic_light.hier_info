@@ -15,6 +15,8 @@ i_CLK => PWM:TRLH_EW_3.i_CLK
 i_CLK => DISPLAY_BCD:c_DISPLAY_BCD.i_CLK
 i_CLK => ADC_0804LCN:c_ADC_POT.i_CLK
 i_CLK => ADC_0804LCN:c_ADC_TEMP.i_CLK
+i_CLK => US_HCSR_04:c_US_HCSR_04.i_CLK
+i_CLK => Interface_Comm:c_Interface_Comm.i_CLK
 i_RST => Flow_counter:NORTH_SOUTH.i_RST
 i_RST => Flow_counter:SOUTH_NORTH.i_RST
 i_RST => Flow_counter:EAST_WEST.i_RST
@@ -58,6 +60,8 @@ i_RST => clks[31].ACLR
 i_RST => act_state~3.DATAIN
 i_RST => ADC_0804LCN:c_ADC_POT.i_RST
 i_RST => ADC_0804LCN:c_ADC_TEMP.i_RST
+i_RST => US_HCSR_04:c_US_HCSR_04.i_RST
+i_RST => Interface_Comm:c_Interface_Comm.i_RST
 i_RST => PTL_NS_EN[1].ENA
 i_RST => PTL_NS_EN[0].ENA
 i_RST => PTL_EW_EN[1].ENA
@@ -70,14 +74,6 @@ i_RST => TRLH_EW_EN[3].ENA
 i_RST => TRLH_EW_EN[2].ENA
 i_RST => TRLH_EW_EN[1].ENA
 i_RST => TRLH_EW_EN[0].ENA
-i_RST => o_LEDS[3]~reg0.ENA
-i_RST => o_LEDS[2]~reg0.ENA
-i_RST => o_LEDS[1]~reg0.ENA
-i_RST => o_LEDS[0]~reg0.ENA
-o_LEDS[0] <= o_LEDS[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_LEDS[1] <= o_LEDS[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_LEDS[2] <= o_LEDS[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o_LEDS[3] <= o_LEDS[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 o_PTL_NS[0] <= PWM:PTL_NS_0.o_PWM
 o_PTL_NS[1] <= PWM:PTL_NS_1.o_PWM
 o_TRLH_NS[0] <= PWM:TRLH_NS_0.o_PWM
@@ -142,7 +138,10 @@ o_CS1 <= ADC_0804LCN:c_ADC_TEMP.o_CS
 o_RD1 <= ADC_0804LCN:c_ADC_TEMP.o_RD
 o_WR1 <= ADC_0804LCN:c_ADC_TEMP.o_WR
 o_CLK_IN1 <= ADC_0804LCN:c_ADC_TEMP.o_CLK_IN
-o_BUZZER <= comb.DB_MAX_OUTPUT_PORT_TYPE
+i_ECHO => US_HCSR_04:c_US_HCSR_04.i_ECHO
+o_TRIG <= US_HCSR_04:c_US_HCSR_04.o_TRIG
+i_RX => Interface_Comm:c_Interface_Comm.i_RX
+o_TX <= Interface_Comm:c_Interface_Comm.o_TX
 
 
 |Smart_traffic_light|CLK_DIV:c_STL_CLK
@@ -1776,14 +1775,14 @@ o_CLK <= CLK.DB_MAX_OUTPUT_PORT_TYPE
 
 |Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD
 i_CLK => CLK_DIV:c_DISP_CLK.i_CLK
-i_DATA[0] => Mux7.IN3
-i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
-i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
-i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
-i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
-i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
-i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
-i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+i_DATA[0] => BCD_byte:c_BCD_byte.i_DATA[0]
+i_DATA[1] => BCD_byte:c_BCD_byte.i_DATA[1]
+i_DATA[2] => BCD_byte:c_BCD_byte.i_DATA[2]
+i_DATA[3] => BCD_byte:c_BCD_byte.i_DATA[3]
+i_DATA[4] => BCD_byte:c_BCD_byte.i_DATA[4]
+i_DATA[5] => BCD_byte:c_BCD_byte.i_DATA[5]
+i_DATA[6] => BCD_byte:c_BCD_byte.i_DATA[6]
+i_DATA[7] => BCD_byte:c_BCD_byte.i_DATA[7]
 o_DISP_SEG[0] <= o_DISP_SEG[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 o_DISP_SEG[1] <= o_DISP_SEG[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 o_DISP_SEG[2] <= o_DISP_SEG[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -1798,7 +1797,28 @@ o_DISP_COM[2] <= o_DISP_COM[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 o_DISP_COM[3] <= o_DISP_COM[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_0
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_0
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -1817,7 +1837,7 @@ o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_1
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_1
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -1836,7 +1856,7 @@ o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_2
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_2
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -1855,7 +1875,7 @@ o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_3
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_3
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -1874,7 +1894,7 @@ o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_4
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_4
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -1893,7 +1913,7 @@ o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_5
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_5
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -1912,7 +1932,7 @@ o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_4bit:BCD_4bit_6
+|Smart_traffic_light|DISPLAY_BCD:c_DISPLAY_BCD|BCD_byte:c_BCD_byte|BCD_4bit:BCD_4bit_6
 i_DATA[0] => LessThan0.IN8
 i_DATA[0] => Add0.IN8
 i_DATA[0] => o_DATA.DATAA
@@ -2150,6 +2170,1633 @@ o_CLK_IN <= CLK_DIV:c_ADC_CLK.o_CLK
 
 
 |Smart_traffic_light|ADC_0804LCN:c_ADC_TEMP|CLK_DIV:c_ADC_CLK
+i_out_freq[0] => Div0.IN63
+i_out_freq[1] => Div0.IN62
+i_out_freq[2] => Div0.IN61
+i_out_freq[3] => Div0.IN60
+i_out_freq[4] => Div0.IN59
+i_out_freq[5] => Div0.IN58
+i_out_freq[6] => Div0.IN57
+i_out_freq[7] => Div0.IN56
+i_out_freq[8] => Div0.IN55
+i_out_freq[9] => Div0.IN54
+i_out_freq[10] => Div0.IN53
+i_out_freq[11] => Div0.IN52
+i_out_freq[12] => Div0.IN51
+i_out_freq[13] => Div0.IN50
+i_out_freq[14] => Div0.IN49
+i_out_freq[15] => Div0.IN48
+i_out_freq[16] => Div0.IN47
+i_out_freq[17] => Div0.IN46
+i_out_freq[18] => Div0.IN45
+i_out_freq[19] => Div0.IN44
+i_out_freq[20] => Div0.IN43
+i_out_freq[21] => Div0.IN42
+i_out_freq[22] => Div0.IN41
+i_out_freq[23] => Div0.IN40
+i_out_freq[24] => Div0.IN39
+i_out_freq[25] => Div0.IN38
+i_out_freq[26] => Div0.IN37
+i_out_freq[27] => Div0.IN36
+i_out_freq[28] => Div0.IN35
+i_out_freq[29] => Div0.IN34
+i_out_freq[30] => Div0.IN33
+i_out_freq[31] => ~NO_FANOUT~
+i_CLK => CLK.CLK
+i_CLK => clks[0].CLK
+i_CLK => clks[1].CLK
+i_CLK => clks[2].CLK
+i_CLK => clks[3].CLK
+i_CLK => clks[4].CLK
+i_CLK => clks[5].CLK
+i_CLK => clks[6].CLK
+i_CLK => clks[7].CLK
+i_CLK => clks[8].CLK
+i_CLK => clks[9].CLK
+i_CLK => clks[10].CLK
+i_CLK => clks[11].CLK
+i_CLK => clks[12].CLK
+i_CLK => clks[13].CLK
+i_CLK => clks[14].CLK
+i_CLK => clks[15].CLK
+i_CLK => clks[16].CLK
+i_CLK => clks[17].CLK
+i_CLK => clks[18].CLK
+i_CLK => clks[19].CLK
+i_CLK => clks[20].CLK
+i_CLK => clks[21].CLK
+i_CLK => clks[22].CLK
+i_CLK => clks[23].CLK
+i_CLK => clks[24].CLK
+i_CLK => clks[25].CLK
+i_CLK => clks[26].CLK
+i_CLK => clks[27].CLK
+i_CLK => clks[28].CLK
+i_CLK => clks[29].CLK
+i_CLK => clks[30].CLK
+i_CLK => clks[31].CLK
+o_CLK <= CLK.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|US_HCSR_04:c_US_HCSR_04
+i_CLK => CLK_DIV:c_US_CLK.i_CLK
+i_RST => o_DIST[0]~reg0.ACLR
+i_RST => o_DIST[1]~reg0.ACLR
+i_RST => o_DIST[2]~reg0.ACLR
+i_RST => o_DIST[3]~reg0.ACLR
+i_RST => o_DIST[4]~reg0.ACLR
+i_RST => o_DIST[5]~reg0.ACLR
+i_RST => o_DIST[6]~reg0.ACLR
+i_RST => o_DIST[7]~reg0.ACLR
+i_RST => TRIG_state.ACLR
+i_RST => ECHO_state.ACLR
+i_RST => TRIG_clks[0].ACLR
+i_RST => TRIG_clks[1].ACLR
+i_RST => TRIG_clks[2].ACLR
+i_RST => TRIG_clks[3].ACLR
+i_RST => TRIG_clks[4].ACLR
+i_RST => TRIG_clks[5].ACLR
+i_RST => TRIG_clks[6].ACLR
+i_RST => TRIG_clks[7].ACLR
+i_RST => TRIG_clks[8].ACLR
+i_RST => TRIG_clks[9].ACLR
+i_RST => TRIG_clks[10].ACLR
+i_RST => TRIG_clks[11].ACLR
+i_RST => TRIG_clks[12].ACLR
+i_RST => TRIG_clks[13].ACLR
+i_RST => TRIG_clks[14].ACLR
+i_RST => TRIG_clks[15].ACLR
+i_RST => TRIG_clks[16].ACLR
+i_RST => TRIG_clks[17].ACLR
+i_RST => TRIG_clks[18].ACLR
+i_RST => TRIG_clks[19].ACLR
+i_RST => TRIG_clks[20].ACLR
+i_RST => TRIG_clks[21].ACLR
+i_RST => TRIG_clks[22].ACLR
+i_RST => TRIG_clks[23].ACLR
+i_RST => TRIG_clks[24].ACLR
+i_RST => TRIG_clks[25].ACLR
+i_RST => TRIG_clks[26].ACLR
+i_RST => TRIG_clks[27].ACLR
+i_RST => TRIG_clks[28].ACLR
+i_RST => TRIG_clks[29].ACLR
+i_RST => TRIG_clks[30].ACLR
+i_RST => TRIG_clks[31].ACLR
+i_RST => ECHO_clks[0].ACLR
+i_RST => ECHO_clks[1].ACLR
+i_RST => ECHO_clks[2].ACLR
+i_RST => ECHO_clks[3].ACLR
+i_RST => ECHO_clks[4].ACLR
+i_RST => ECHO_clks[5].ACLR
+i_RST => ECHO_clks[6].ACLR
+i_RST => ECHO_clks[7].ACLR
+i_RST => ECHO_clks[8].ACLR
+i_RST => ECHO_clks[9].ACLR
+i_RST => ECHO_clks[10].ACLR
+i_RST => ECHO_clks[11].ACLR
+i_RST => ECHO_clks[12].ACLR
+i_RST => ECHO_clks[13].ACLR
+i_RST => ECHO_clks[14].ACLR
+i_RST => ECHO_clks[15].ACLR
+i_RST => ECHO_clks[16].ACLR
+i_RST => ECHO_clks[17].ACLR
+i_RST => ECHO_clks[18].ACLR
+i_RST => ECHO_clks[19].ACLR
+i_RST => ECHO_clks[20].ACLR
+i_RST => ECHO_clks[21].ACLR
+i_RST => ECHO_clks[22].ACLR
+i_RST => ECHO_clks[23].ACLR
+i_RST => ECHO_clks[24].ACLR
+i_RST => ECHO_clks[25].ACLR
+i_RST => ECHO_clks[26].ACLR
+i_RST => ECHO_clks[27].ACLR
+i_RST => ECHO_clks[28].ACLR
+i_RST => ECHO_clks[29].ACLR
+i_RST => ECHO_clks[30].ACLR
+i_RST => ECHO_clks[31].ACLR
+i_RST => o_TRIG~reg0.ENA
+o_DIST[0] <= o_DIST[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[1] <= o_DIST[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[2] <= o_DIST[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[3] <= o_DIST[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[4] <= o_DIST[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[5] <= o_DIST[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[6] <= o_DIST[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_DIST[7] <= o_DIST[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_state.DATAIN
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => o_DIST.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+i_ECHO => ECHO_clks.OUTPUTSELECT
+o_TRIG <= o_TRIG~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|US_HCSR_04:c_US_HCSR_04|CLK_DIV:c_US_CLK
+i_out_freq[0] => Div0.IN63
+i_out_freq[1] => Div0.IN62
+i_out_freq[2] => Div0.IN61
+i_out_freq[3] => Div0.IN60
+i_out_freq[4] => Div0.IN59
+i_out_freq[5] => Div0.IN58
+i_out_freq[6] => Div0.IN57
+i_out_freq[7] => Div0.IN56
+i_out_freq[8] => Div0.IN55
+i_out_freq[9] => Div0.IN54
+i_out_freq[10] => Div0.IN53
+i_out_freq[11] => Div0.IN52
+i_out_freq[12] => Div0.IN51
+i_out_freq[13] => Div0.IN50
+i_out_freq[14] => Div0.IN49
+i_out_freq[15] => Div0.IN48
+i_out_freq[16] => Div0.IN47
+i_out_freq[17] => Div0.IN46
+i_out_freq[18] => Div0.IN45
+i_out_freq[19] => Div0.IN44
+i_out_freq[20] => Div0.IN43
+i_out_freq[21] => Div0.IN42
+i_out_freq[22] => Div0.IN41
+i_out_freq[23] => Div0.IN40
+i_out_freq[24] => Div0.IN39
+i_out_freq[25] => Div0.IN38
+i_out_freq[26] => Div0.IN37
+i_out_freq[27] => Div0.IN36
+i_out_freq[28] => Div0.IN35
+i_out_freq[29] => Div0.IN34
+i_out_freq[30] => Div0.IN33
+i_out_freq[31] => ~NO_FANOUT~
+i_CLK => CLK.CLK
+i_CLK => clks[0].CLK
+i_CLK => clks[1].CLK
+i_CLK => clks[2].CLK
+i_CLK => clks[3].CLK
+i_CLK => clks[4].CLK
+i_CLK => clks[5].CLK
+i_CLK => clks[6].CLK
+i_CLK => clks[7].CLK
+i_CLK => clks[8].CLK
+i_CLK => clks[9].CLK
+i_CLK => clks[10].CLK
+i_CLK => clks[11].CLK
+i_CLK => clks[12].CLK
+i_CLK => clks[13].CLK
+i_CLK => clks[14].CLK
+i_CLK => clks[15].CLK
+i_CLK => clks[16].CLK
+i_CLK => clks[17].CLK
+i_CLK => clks[18].CLK
+i_CLK => clks[19].CLK
+i_CLK => clks[20].CLK
+i_CLK => clks[21].CLK
+i_CLK => clks[22].CLK
+i_CLK => clks[23].CLK
+i_CLK => clks[24].CLK
+i_CLK => clks[25].CLK
+i_CLK => clks[26].CLK
+i_CLK => clks[27].CLK
+i_CLK => clks[28].CLK
+i_CLK => clks[29].CLK
+i_CLK => clks[30].CLK
+i_CLK => clks[31].CLK
+o_CLK <= CLK.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm
+i_CLK => UART_TX_string:c_TX_message.i_CLK
+i_CLK => CLK_DIV:c_TEM_CLK.i_CLK
+i_RST => UART_TX_string:c_TX_message.i_RST
+i_RST => TX_nxt_state.WAIT_TIME.OUTPUTSELECT
+i_RST => TX_nxt_state.SEND_PTL_DIST.OUTPUTSELECT
+i_RST => TX_nxt_state.SEND_WE_CAR_FLOW.OUTPUTSELECT
+i_RST => TX_nxt_state.SEND_EW_CAR_FLOW.OUTPUTSELECT
+i_RST => TX_nxt_state.SEND_SN_CAR_FLOW.OUTPUTSELECT
+i_RST => TX_nxt_state.SEND_NS_CAR_FLOW.OUTPUTSELECT
+i_RST => TX_nxt_state.SEND_TEMP.OUTPUTSELECT
+i_RST => TX_nxt_state.TX_SEND.OUTPUTSELECT
+i_RST => act_state~11.DATAIN
+i_RST => clks[0].ENA
+i_RST => TX_ST.ENA
+i_RST => TX_message[39].ENA
+i_RST => TX_message[38].ENA
+i_RST => TX_message[37].ENA
+i_RST => TX_message[36].ENA
+i_RST => TX_message[35].ENA
+i_RST => TX_message[34].ENA
+i_RST => TX_message[33].ENA
+i_RST => TX_message[32].ENA
+i_RST => TX_message[31].ENA
+i_RST => TX_message[30].ENA
+i_RST => TX_message[29].ENA
+i_RST => TX_message[28].ENA
+i_RST => TX_message[27].ENA
+i_RST => TX_message[26].ENA
+i_RST => TX_message[25].ENA
+i_RST => TX_message[24].ENA
+i_RST => TX_message[23].ENA
+i_RST => TX_message[22].ENA
+i_RST => TX_message[21].ENA
+i_RST => TX_message[20].ENA
+i_RST => TX_message[19].ENA
+i_RST => TX_message[18].ENA
+i_RST => TX_message[17].ENA
+i_RST => TX_message[16].ENA
+i_RST => TX_message[15].ENA
+i_RST => TX_message[14].ENA
+i_RST => TX_message[13].ENA
+i_RST => TX_message[12].ENA
+i_RST => TX_message[11].ENA
+i_RST => TX_message[10].ENA
+i_RST => TX_message[9].ENA
+i_RST => TX_message[8].ENA
+i_RST => TX_message[7].ENA
+i_RST => TX_message[6].ENA
+i_RST => TX_message[5].ENA
+i_RST => TX_message[4].ENA
+i_RST => TX_message[3].ENA
+i_RST => TX_message[2].ENA
+i_RST => TX_message[1].ENA
+i_RST => TX_message[0].ENA
+i_RST => clks[31].ENA
+i_RST => clks[30].ENA
+i_RST => clks[29].ENA
+i_RST => clks[28].ENA
+i_RST => clks[27].ENA
+i_RST => clks[26].ENA
+i_RST => clks[25].ENA
+i_RST => clks[24].ENA
+i_RST => clks[23].ENA
+i_RST => clks[22].ENA
+i_RST => clks[21].ENA
+i_RST => clks[20].ENA
+i_RST => clks[19].ENA
+i_RST => clks[18].ENA
+i_RST => clks[17].ENA
+i_RST => clks[16].ENA
+i_RST => clks[15].ENA
+i_RST => clks[14].ENA
+i_RST => clks[13].ENA
+i_RST => clks[12].ENA
+i_RST => clks[11].ENA
+i_RST => clks[10].ENA
+i_RST => clks[9].ENA
+i_RST => clks[8].ENA
+i_RST => clks[7].ENA
+i_RST => clks[6].ENA
+i_RST => clks[5].ENA
+i_RST => clks[4].ENA
+i_RST => clks[3].ENA
+i_RST => clks[2].ENA
+i_RST => clks[1].ENA
+i_TEMP[0] => BCD_byte:c_BCD_TEMP.i_DATA[0]
+i_TEMP[1] => BCD_byte:c_BCD_TEMP.i_DATA[1]
+i_TEMP[2] => BCD_byte:c_BCD_TEMP.i_DATA[2]
+i_TEMP[3] => BCD_byte:c_BCD_TEMP.i_DATA[3]
+i_TEMP[4] => BCD_byte:c_BCD_TEMP.i_DATA[4]
+i_TEMP[5] => BCD_byte:c_BCD_TEMP.i_DATA[5]
+i_TEMP[6] => BCD_byte:c_BCD_TEMP.i_DATA[6]
+i_TEMP[7] => BCD_byte:c_BCD_TEMP.i_DATA[7]
+i_PTL_DIST[0] => BCD_byte:c_BCD_PTL_DIST.i_DATA[0]
+i_PTL_DIST[1] => BCD_byte:c_BCD_PTL_DIST.i_DATA[1]
+i_PTL_DIST[2] => BCD_byte:c_BCD_PTL_DIST.i_DATA[2]
+i_PTL_DIST[3] => BCD_byte:c_BCD_PTL_DIST.i_DATA[3]
+i_PTL_DIST[4] => BCD_byte:c_BCD_PTL_DIST.i_DATA[4]
+i_PTL_DIST[5] => BCD_byte:c_BCD_PTL_DIST.i_DATA[5]
+i_PTL_DIST[6] => BCD_byte:c_BCD_PTL_DIST.i_DATA[6]
+i_PTL_DIST[7] => BCD_byte:c_BCD_PTL_DIST.i_DATA[7]
+i_NS_CAR_FLOW[0] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[0]
+i_NS_CAR_FLOW[1] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[1]
+i_NS_CAR_FLOW[2] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[2]
+i_NS_CAR_FLOW[3] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[3]
+i_NS_CAR_FLOW[4] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[4]
+i_NS_CAR_FLOW[5] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[5]
+i_NS_CAR_FLOW[6] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[6]
+i_NS_CAR_FLOW[7] => BCD_byte:c_BCD_NS_CAR_FLOW.i_DATA[7]
+i_SN_CAR_FLOW[0] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[0]
+i_SN_CAR_FLOW[1] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[1]
+i_SN_CAR_FLOW[2] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[2]
+i_SN_CAR_FLOW[3] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[3]
+i_SN_CAR_FLOW[4] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[4]
+i_SN_CAR_FLOW[5] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[5]
+i_SN_CAR_FLOW[6] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[6]
+i_SN_CAR_FLOW[7] => BCD_byte:c_BCD_SN_CAR_FLOW.i_DATA[7]
+i_EW_CAR_FLOW[0] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[0]
+i_EW_CAR_FLOW[1] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[1]
+i_EW_CAR_FLOW[2] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[2]
+i_EW_CAR_FLOW[3] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[3]
+i_EW_CAR_FLOW[4] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[4]
+i_EW_CAR_FLOW[5] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[5]
+i_EW_CAR_FLOW[6] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[6]
+i_EW_CAR_FLOW[7] => BCD_byte:c_BCD_EW_CAR_FLOW.i_DATA[7]
+i_WE_CAR_FLOW[0] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[0]
+i_WE_CAR_FLOW[1] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[1]
+i_WE_CAR_FLOW[2] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[2]
+i_WE_CAR_FLOW[3] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[3]
+i_WE_CAR_FLOW[4] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[4]
+i_WE_CAR_FLOW[5] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[5]
+i_WE_CAR_FLOW[6] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[6]
+i_WE_CAR_FLOW[7] => BCD_byte:c_BCD_WE_CAR_FLOW.i_DATA[7]
+i_RX => ~NO_FANOUT~
+o_TX <= UART_TX_string:c_TX_message.o_TX
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_TEMP|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_PTL_DIST|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_NS_CAR_FLOW|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_SN_CAR_FLOW|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_EW_CAR_FLOW|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW
+i_DATA[0] => o_DATA[0].DATAIN
+i_DATA[1] => BCD_4bit:BCD_4bit_6.i_DATA[0]
+i_DATA[2] => BCD_4bit:BCD_4bit_4.i_DATA[0]
+i_DATA[3] => BCD_4bit:BCD_4bit_2.i_DATA[0]
+i_DATA[4] => BCD_4bit:BCD_4bit_1.i_DATA[0]
+i_DATA[5] => BCD_4bit:BCD_4bit_0.i_DATA[0]
+i_DATA[6] => BCD_4bit:BCD_4bit_0.i_DATA[1]
+i_DATA[7] => BCD_4bit:BCD_4bit_0.i_DATA[2]
+o_DATA[0] <= i_DATA[0].DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= BCD_4bit:BCD_4bit_6.o_DATA[0]
+o_DATA[2] <= BCD_4bit:BCD_4bit_6.o_DATA[1]
+o_DATA[3] <= BCD_4bit:BCD_4bit_6.o_DATA[2]
+o_DATA[4] <= BCD_4bit:BCD_4bit_6.o_DATA[3]
+o_DATA[5] <= BCD_4bit:BCD_4bit_5.o_DATA[0]
+o_DATA[6] <= BCD_4bit:BCD_4bit_5.o_DATA[1]
+o_DATA[7] <= BCD_4bit:BCD_4bit_5.o_DATA[2]
+o_DATA[8] <= BCD_4bit:BCD_4bit_5.o_DATA[3]
+o_DATA[9] <= BCD_4bit:BCD_4bit_3.o_DATA[3]
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_0
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_1
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_2
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_3
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_4
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_5
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|BCD_byte:c_BCD_WE_CAR_FLOW|BCD_4bit:BCD_4bit_6
+i_DATA[0] => LessThan0.IN8
+i_DATA[0] => Add0.IN8
+i_DATA[0] => o_DATA.DATAA
+i_DATA[1] => LessThan0.IN7
+i_DATA[1] => Add0.IN7
+i_DATA[1] => o_DATA.DATAA
+i_DATA[2] => LessThan0.IN6
+i_DATA[2] => Add0.IN6
+i_DATA[2] => o_DATA.DATAA
+i_DATA[3] => LessThan0.IN5
+i_DATA[3] => Add0.IN5
+i_DATA[3] => o_DATA.DATAA
+o_DATA[0] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[1] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[2] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+o_DATA[3] <= o_DATA.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|UART_TX_string:c_TX_message
+i_CLK => CLK_DIV:c_UART_CLK.i_CLK
+i_CLK => UART_TX_byte:TX_byte.i_CLK
+i_RST => UART_TX_byte:TX_byte.i_RST
+i_RST => act_state~3.DATAIN
+i_RST => UART_DATA[0].ENA
+i_RST => o_RDY~reg0.ENA
+i_RST => UART_ST.ENA
+i_RST => char_index[31].ENA
+i_RST => char_index[30].ENA
+i_RST => char_index[29].ENA
+i_RST => char_index[28].ENA
+i_RST => char_index[27].ENA
+i_RST => char_index[26].ENA
+i_RST => char_index[25].ENA
+i_RST => char_index[24].ENA
+i_RST => char_index[23].ENA
+i_RST => char_index[22].ENA
+i_RST => char_index[21].ENA
+i_RST => char_index[20].ENA
+i_RST => char_index[19].ENA
+i_RST => char_index[18].ENA
+i_RST => char_index[17].ENA
+i_RST => char_index[16].ENA
+i_RST => char_index[15].ENA
+i_RST => char_index[14].ENA
+i_RST => char_index[13].ENA
+i_RST => char_index[12].ENA
+i_RST => char_index[11].ENA
+i_RST => char_index[10].ENA
+i_RST => char_index[9].ENA
+i_RST => char_index[8].ENA
+i_RST => char_index[7].ENA
+i_RST => char_index[6].ENA
+i_RST => char_index[5].ENA
+i_RST => char_index[4].ENA
+i_RST => char_index[3].ENA
+i_RST => char_index[2].ENA
+i_RST => char_index[1].ENA
+i_RST => char_index[0].ENA
+i_RST => UART_DATA[7].ENA
+i_RST => UART_DATA[6].ENA
+i_RST => UART_DATA[5].ENA
+i_RST => UART_DATA[4].ENA
+i_RST => UART_DATA[3].ENA
+i_RST => UART_DATA[2].ENA
+i_RST => UART_DATA[1].ENA
+i_string[0] => Mux7.IN69
+i_string[1] => Mux6.IN69
+i_string[2] => Mux5.IN69
+i_string[3] => Mux4.IN69
+i_string[4] => Mux3.IN69
+i_string[5] => Mux2.IN69
+i_string[6] => Mux1.IN69
+i_string[7] => Mux0.IN69
+i_string[8] => Mux7.IN61
+i_string[9] => Mux6.IN61
+i_string[10] => Mux5.IN61
+i_string[11] => Mux4.IN61
+i_string[12] => Mux3.IN61
+i_string[13] => Mux2.IN61
+i_string[14] => Mux1.IN61
+i_string[15] => Mux0.IN61
+i_string[16] => Mux7.IN53
+i_string[17] => Mux6.IN53
+i_string[18] => Mux5.IN53
+i_string[19] => Mux4.IN53
+i_string[20] => Mux3.IN53
+i_string[21] => Mux2.IN53
+i_string[22] => Mux1.IN53
+i_string[23] => Mux0.IN53
+i_string[24] => Mux7.IN45
+i_string[25] => Mux6.IN45
+i_string[26] => Mux5.IN45
+i_string[27] => Mux4.IN45
+i_string[28] => Mux3.IN45
+i_string[29] => Mux2.IN45
+i_string[30] => Mux1.IN45
+i_string[31] => Mux0.IN45
+i_string[32] => Mux7.IN37
+i_string[33] => Mux6.IN37
+i_string[34] => Mux5.IN37
+i_string[35] => Mux4.IN37
+i_string[36] => Mux3.IN37
+i_string[37] => Mux2.IN37
+i_string[38] => Mux1.IN37
+i_string[39] => Mux0.IN37
+i_ST => Selector33.IN2
+i_ST => Selector32.IN1
+i_ST => process_0.IN1
+o_RDY <= o_RDY~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_TX <= UART_TX_byte:TX_byte.o_TX
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|UART_TX_string:c_TX_message|CLK_DIV:c_UART_CLK
+i_out_freq[0] => Div0.IN63
+i_out_freq[1] => Div0.IN62
+i_out_freq[2] => Div0.IN61
+i_out_freq[3] => Div0.IN60
+i_out_freq[4] => Div0.IN59
+i_out_freq[5] => Div0.IN58
+i_out_freq[6] => Div0.IN57
+i_out_freq[7] => Div0.IN56
+i_out_freq[8] => Div0.IN55
+i_out_freq[9] => Div0.IN54
+i_out_freq[10] => Div0.IN53
+i_out_freq[11] => Div0.IN52
+i_out_freq[12] => Div0.IN51
+i_out_freq[13] => Div0.IN50
+i_out_freq[14] => Div0.IN49
+i_out_freq[15] => Div0.IN48
+i_out_freq[16] => Div0.IN47
+i_out_freq[17] => Div0.IN46
+i_out_freq[18] => Div0.IN45
+i_out_freq[19] => Div0.IN44
+i_out_freq[20] => Div0.IN43
+i_out_freq[21] => Div0.IN42
+i_out_freq[22] => Div0.IN41
+i_out_freq[23] => Div0.IN40
+i_out_freq[24] => Div0.IN39
+i_out_freq[25] => Div0.IN38
+i_out_freq[26] => Div0.IN37
+i_out_freq[27] => Div0.IN36
+i_out_freq[28] => Div0.IN35
+i_out_freq[29] => Div0.IN34
+i_out_freq[30] => Div0.IN33
+i_out_freq[31] => ~NO_FANOUT~
+i_CLK => CLK.CLK
+i_CLK => clks[0].CLK
+i_CLK => clks[1].CLK
+i_CLK => clks[2].CLK
+i_CLK => clks[3].CLK
+i_CLK => clks[4].CLK
+i_CLK => clks[5].CLK
+i_CLK => clks[6].CLK
+i_CLK => clks[7].CLK
+i_CLK => clks[8].CLK
+i_CLK => clks[9].CLK
+i_CLK => clks[10].CLK
+i_CLK => clks[11].CLK
+i_CLK => clks[12].CLK
+i_CLK => clks[13].CLK
+i_CLK => clks[14].CLK
+i_CLK => clks[15].CLK
+i_CLK => clks[16].CLK
+i_CLK => clks[17].CLK
+i_CLK => clks[18].CLK
+i_CLK => clks[19].CLK
+i_CLK => clks[20].CLK
+i_CLK => clks[21].CLK
+i_CLK => clks[22].CLK
+i_CLK => clks[23].CLK
+i_CLK => clks[24].CLK
+i_CLK => clks[25].CLK
+i_CLK => clks[26].CLK
+i_CLK => clks[27].CLK
+i_CLK => clks[28].CLK
+i_CLK => clks[29].CLK
+i_CLK => clks[30].CLK
+i_CLK => clks[31].CLK
+o_CLK <= CLK.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte
+i_CLK => CLK_DIV:c_UART_CLK.i_CLK
+i_RST => act_state~3.DATAIN
+i_RST => data_index[0].ENA
+i_RST => o_TX~reg0.ENA
+i_RST => o_RDY~reg0.ENA
+i_RST => data_index[2].ENA
+i_RST => data_index[1].ENA
+i_DATA[0] => Mux0.IN7
+i_DATA[0] => o_TX.IN0
+i_DATA[1] => Mux0.IN6
+i_DATA[1] => o_TX.IN1
+i_DATA[2] => Mux0.IN5
+i_DATA[2] => o_TX.IN0
+i_DATA[3] => Mux0.IN4
+i_DATA[3] => o_TX.IN1
+i_DATA[4] => Mux0.IN3
+i_DATA[4] => o_TX.IN0
+i_DATA[5] => Mux0.IN2
+i_DATA[5] => o_TX.IN1
+i_DATA[6] => Mux0.IN1
+i_DATA[6] => o_TX.IN0
+i_DATA[7] => Mux0.IN0
+i_DATA[7] => o_TX.IN1
+i_ST => data_index.OUTPUTSELECT
+i_ST => data_index.OUTPUTSELECT
+i_ST => data_index.OUTPUTSELECT
+i_ST => act_state.DATAB
+i_ST => Selector6.IN3
+i_ST => Selector4.IN1
+o_RDY <= o_RDY~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_TX <= o_TX~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|UART_TX_string:c_TX_message|UART_TX_byte:TX_byte|CLK_DIV:c_UART_CLK
+i_out_freq[0] => Div0.IN63
+i_out_freq[1] => Div0.IN62
+i_out_freq[2] => Div0.IN61
+i_out_freq[3] => Div0.IN60
+i_out_freq[4] => Div0.IN59
+i_out_freq[5] => Div0.IN58
+i_out_freq[6] => Div0.IN57
+i_out_freq[7] => Div0.IN56
+i_out_freq[8] => Div0.IN55
+i_out_freq[9] => Div0.IN54
+i_out_freq[10] => Div0.IN53
+i_out_freq[11] => Div0.IN52
+i_out_freq[12] => Div0.IN51
+i_out_freq[13] => Div0.IN50
+i_out_freq[14] => Div0.IN49
+i_out_freq[15] => Div0.IN48
+i_out_freq[16] => Div0.IN47
+i_out_freq[17] => Div0.IN46
+i_out_freq[18] => Div0.IN45
+i_out_freq[19] => Div0.IN44
+i_out_freq[20] => Div0.IN43
+i_out_freq[21] => Div0.IN42
+i_out_freq[22] => Div0.IN41
+i_out_freq[23] => Div0.IN40
+i_out_freq[24] => Div0.IN39
+i_out_freq[25] => Div0.IN38
+i_out_freq[26] => Div0.IN37
+i_out_freq[27] => Div0.IN36
+i_out_freq[28] => Div0.IN35
+i_out_freq[29] => Div0.IN34
+i_out_freq[30] => Div0.IN33
+i_out_freq[31] => ~NO_FANOUT~
+i_CLK => CLK.CLK
+i_CLK => clks[0].CLK
+i_CLK => clks[1].CLK
+i_CLK => clks[2].CLK
+i_CLK => clks[3].CLK
+i_CLK => clks[4].CLK
+i_CLK => clks[5].CLK
+i_CLK => clks[6].CLK
+i_CLK => clks[7].CLK
+i_CLK => clks[8].CLK
+i_CLK => clks[9].CLK
+i_CLK => clks[10].CLK
+i_CLK => clks[11].CLK
+i_CLK => clks[12].CLK
+i_CLK => clks[13].CLK
+i_CLK => clks[14].CLK
+i_CLK => clks[15].CLK
+i_CLK => clks[16].CLK
+i_CLK => clks[17].CLK
+i_CLK => clks[18].CLK
+i_CLK => clks[19].CLK
+i_CLK => clks[20].CLK
+i_CLK => clks[21].CLK
+i_CLK => clks[22].CLK
+i_CLK => clks[23].CLK
+i_CLK => clks[24].CLK
+i_CLK => clks[25].CLK
+i_CLK => clks[26].CLK
+i_CLK => clks[27].CLK
+i_CLK => clks[28].CLK
+i_CLK => clks[29].CLK
+i_CLK => clks[30].CLK
+i_CLK => clks[31].CLK
+o_CLK <= CLK.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Smart_traffic_light|Interface_Comm:c_Interface_Comm|CLK_DIV:c_TEM_CLK
 i_out_freq[0] => Div0.IN63
 i_out_freq[1] => Div0.IN62
 i_out_freq[2] => Div0.IN61

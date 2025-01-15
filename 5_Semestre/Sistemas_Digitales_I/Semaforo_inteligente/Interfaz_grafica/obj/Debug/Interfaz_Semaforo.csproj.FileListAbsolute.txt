@@ -1,0 +1,11 @@
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\bin\Debug\Wire-Trimmer.exe.config
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\bin\Debug\Wire-Trimmer.exe
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\bin\Debug\Wire-Trimmer.pdb
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Interfaz_Semaforo.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Interfaz_Semaforo.csproj.SuggestedBindingRedirects.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Wire_Trimmer.Main.resources
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Wire_Trimmer.Properties.Resources.resources
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Interfaz_Semaforo.csproj.GenerateResource.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Interfaz_Semaforo.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Wire-Trimmer.exe
+C:\Users\diego\Desktop\Ing_en_automatizacion\5_Semestre\Sistemas_Digitales_I\Semaforo_inteligente\Interfaz_grafica\obj\Debug\Wire-Trimmer.pdb

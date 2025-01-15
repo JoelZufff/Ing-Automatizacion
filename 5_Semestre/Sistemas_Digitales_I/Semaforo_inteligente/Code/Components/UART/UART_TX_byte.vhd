@@ -12,7 +12,7 @@ entity UART_TX_byte is
     );
     port
 	(
-        i_FPGA_clk      : in STD_LOGIC;                         -- Señal de reloj base
+        i_CLK           : in STD_LOGIC;                         -- Señal de reloj base
         i_RST           : in STD_LOGIC;                         -- Señal de RST
         i_DATA          : in STD_LOGIC_VECTOR(7 downto 0);      -- Dato a enviar
         i_ST            : in STD_LOGIC;                         -- Señal para indicar inicio de transmision
@@ -34,7 +34,7 @@ architecture TX_BYTE of UART_TX_byte is
             (
                 i_out_freq      : integer;              -- Frequencia deseada
                 
-                i_FPGA_clk      : in STD_LOGIC;         -- Señal de reloj base
+                i_CLK      : in STD_LOGIC;         -- Señal de reloj base
                 -- Ver si poner RST
                 o_clk           : out STD_LOGIC    
             );
@@ -54,7 +54,7 @@ begin
     ------------------------------------------------------------------------------
     c_UART_CLK : CLK_DIV
         generic map ( clk_freq => clk_freq ) 
-        port map ( i_out_freq => baud_freq, i_FPGA_clk => i_FPGA_clk, o_clk => UART_clk );
+        port map ( i_out_freq => baud_freq, i_CLK => i_CLK, o_clk => UART_clk );
     ------------------------------------------------------------------------------
                             -- MAQUINA DE ESTADOS FINITOS --
     ------------------------------------------------------------------------------ 

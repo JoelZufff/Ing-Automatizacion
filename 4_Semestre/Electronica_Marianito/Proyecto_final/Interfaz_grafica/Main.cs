@@ -104,6 +104,7 @@ namespace Wire_Trimmer
                     // Almacenamos variables recibidas
                     X_temp_string = SerialPort.ReadLine() + "° C";                     // Temperatura de motor 1
                     THETA_temp_string = SerialPort.ReadLine() + "° C";                     // Temperatura de motor
+                    
                     SerialPort.Write("+");          // Devolvemos confirmacion de 
                     
                     break;

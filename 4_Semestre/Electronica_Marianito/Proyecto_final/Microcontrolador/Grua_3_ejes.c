@@ -4,7 +4,7 @@
 #fuses      HS, PLL1, CPUDIV1, NOWDT, NOPROTECT, NOLVP               // Fusibles (Configuraciones del microcontrolador)
 #use        delay(clock = 20MHz)                                     // Configuracion de delay
 
-#use        rs232(rcv = pin_c7, xmit = pin_c6, baud = 115200, bits = 8, parity = n)         // Recibir instrucciones
+#use        rs232(rcv = pin_c7, xmit = pin_c6, baud = 9600, bits = 8, parity = n)         // Recibir instrucciones
 
 #include    <stdlib.h>
 
