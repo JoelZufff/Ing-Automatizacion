@@ -1,0 +1,151 @@
+ELEMENTOS
+
+    -- General
+        Entradas:
+            i_START1    -- Primer boton de start
+            i_START2    -- Segundo boton de start
+            i_STOP      -- Boton de stop
+
+            i_
+            i_SIF       -- Sensor infrarojo de presencia de mano
+
+        Salidas:
+            o_PPO       -- Piston eje x izquierda
+            o_PPI       -- Piston eje x derecha
+            o_PEG       -- Piston gris de eje y
+            o_RED       -- Luz indicadora roja
+            o_GREEN     -- Luz indicadora verde
+            
+            
+
+------------------------------------------------------------------------------------------------------------------------------
+MAQUINA DE ESTADOS FINITOS (CORREGIR)
+
+    -- Colocar estado que posicione todos los elementos en su posicion inicial, se ejecutara una vez al comenzar
+
+    -- Estacion FESTO 1 --
+    
+    FESTO1 <= !E0 * !E1 * !E2 * !E3;                            -- Esperamos deteccion de caja si no se ha sobrepasado el max
+
+    E0                                                                              -- TON (5 s)
+        Esperamos presencia de tapa en dispensador
+        Activamos dispensador
+
+        Latch:      EN * FESTO1 * i_S5
+        Unlatch:    E1
+        Outputs:    o_1Y1+
+
+    E1
+        Esperamos final de carrera de piston
+        Bajamos brazo
+
+        Latch:      EN * E0 * i_S2
+        Unlatch:    E2
+        Outputs:    o_2Y2+
+
+    E2                                                                              TON (2 s)
+        Esperamos a que se baje el brazo y active limit switch
+        Activamos chupachups
+        
+        Latch:      EN * E1 * i_S3
+        Unlatch:    E3
+        Outputs:    o_3Y1+
+
+    E3                                                                              -- RTO (3 s)
+        Esperamos a que absorba chido los x segundos
+        Activamos subida de brazo
+
+        Latch:      EN * E2
+        Unlatch:    E4
+        Outputs:    o_2Y1, o_2Y2-, o_1Y1-
+
+    -- Agregar un estado que se active si cadena no se detecta abajo, se puede o no activar ese estado, pero no desenclavara E3
+
+    E4
+        Esperamos a que brazo se lleve pieza
+        Desenclavamos chupachups y regresamos brazo a mitad
+
+        Latch:      EN * E3 * i_S4
+        Unlatch:    E5
+        Outputs:    o_3Y1-, o_2Y2+
+
+    E5                                                                              -- RTO (3 s)
+        Esperamos a que brazo se lleve pieza
+        Desenclavamos chupachups y regresamos brazo a mitad
+
+        Trigger:    EN * E4
+        Outputs:    o_2Y2-
+
+    --CHECAR
+    -- Estacion FESTO 2 --
+
+    E5                                                                              TON (3 s)
+        Esperamos 3 segundos a la deteccion de tapa en inicio de FESTO 2
+        Regresamos brazo de distribucion
+
+        Latch:      EN * i_S7
+        Unlatch:    E6_1 || E6_2
+        Outputs:    o_2Y2           -- Checar
+
+    E6_1                                                                            -- TON (3 s)
+        Esperamos que no se active sensor inductivo
+        Aumentamos contador de piezas plasticas y elevamos cadena
+
+        Latch:      EN * E5 * !i_S6
+        Unlatch:    E7
+        Outputs:    CONT_PLAST, O_4Y1
+
+    E6_2                                                                            -- TON (3 s)
+        Esperamos que se active sensor inductivo
+        Aumentamos contador de piezas metalicas y activamos piston
+
+        Trigger:    EN * E5 * i_S6
+        Outputs:    CONT_MET, o_5Y1
+
+    E7      
+        Esperamos a que se active sensor cadena arriba
+        Activamos piston racista y cama de aire
+
+        Latch:      EN * E6_1 * I_S8
+        Unlatch:    E8
+        Outputs:    O_5Y1, O_6Y1
+
+    E8                                                                                  -- TON (3s)
+        Esperamos el tiempo a que salga piston racista
+        Bajamos cadena
+
+        Latch:      EN * E7
+        Unlatch:    i_S9
+        Outputs:    o_4Y2
+                  
+------------------------------------------------------------------------------------------------------------------------------
+SALIDAS FISICAS
+
+    -- FESTO 1
+        o_1Y1                                                                   -- Piston empuja tapa
+            Latch :     E0
+            Unlatch :   E2
+
+        o_2Y1                                                                   -- Saca brazo
+            Trigger:    E3
+        
+        o_2Y2                                                                   -- Mete brazo
+            Latch :     E1
+            Unlatch :   E3
+        
+        o_3Y1                                                                   -- Chupachups
+            Latch :     E2
+            Unlatch :   E4
+
+    -- FESTO 2
+        o_4Y1           -- Cadena arriba
+            Trigger:    E6_1
+        
+        o_4Y2           -- Cadena abajo
+            Trigger:    E8
+
+        o_5Y1           -- Piston racista
+            Trigger:    E7, E6_2
+        
+        o_6Y1           -- Cama de aire
+            Trigger:    E7

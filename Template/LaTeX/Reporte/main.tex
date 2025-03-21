@@ -1,0 +1,151 @@
+\documentclass{report}          % Definimos el tipo de documento
+
+%% Paquetes
+    % Paquetes de Formato y Tipografía
+        \usepackage[T1]{fontenc}            % Codificación de fuente que mejora la salida en PDF
+        \usepackage[utf8]{inputenc}         % Permite el uso de caracteres especiales (tildes, ñ, etc.)
+        \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} % Configura los márgenes del documento
+        \usepackage{times}                  % Usa la fuente Times New Roman
+        \hyphenation{co-mer-cial rea-li-zan si-guien-te si-mu-la-ción ke-lly con-si-de-ra-da}                   % Silabeo de palabras
+
+
+    % Paquetes de Idioma
+        \usepackage[spanish]{babel}         % Configura el idioma a español (traduce títulos, orden de palabras, etc.)
+        \spanishdecimal{.}                  % Establece el punto como separador decimal en español
+
+    % Paquetes Matemáticos
+        \usepackage{amsmath}      % Soporte para ecuaciones matemáticas avanzadas
+        \usepackage{amssymb}      % Símbolos matemáticos adicionales
+        \usepackage{mathrsfs}     % Fuente matemática caligráfica
+
+    % Paquetes para Figuras y Tablas
+        \usepackage{graphicx}      % Permite incluir imágenes en el documento
+        \usepackage{float}         % Controla la posición de imágenes y tablas
+        \usepackage{subfigure}     % Permite incluir subfiguras dentro de una figura
+        \usepackage{tabularx}      % Mejora el control de tablas con ancho ajustable
+        \usepackage[table]{xcolor} % Permite usar colores en tablas
+
+    % Paquetes de Hipervínculos y Referencias
+        \usepackage{natbib}                           % Manejo de referencias bibliográficas
+        \usepackage[colorlinks=true, allcolors=blue]{hyperref} % Habilita enlaces internos y externos en color azul
+        \bibpunct{(}{)}{;}{a}{,}{,}                  % Configuración del formato de citas
+
+    % Paquetes para formato de Código Fuente
+        \usepackage{listingsutf8}     % Paquete para mostrar código fuente con sintaxis destacada
+        \definecolor{codegreen}{rgb}{0,0.6,0}  % Color para comentarios en código
+        \definecolor{codegray}{rgb}{0.5,0.5,0.5} % Color para números de línea
+        \definecolor{codepurple}{rgb}{0.58,0,0.82} % Color para cadenas de texto
+        \definecolor{backcolour}{rgb}{0.95,0.95,0.92} % Color de fondo para bloques de código
+
+        \lstdefinestyle{mystyle} 
+        {
+            frame=single,                       % Marco alrededor del código
+            backgroundcolor=\color{white},      % Fondo blanco
+            commentstyle=\color{codegreen},     % Comentarios en verde
+            keywordstyle=\color{magenta},       % Palabras clave en magenta
+            numberstyle=\tiny\color{codegray},  % Números de línea en gris
+            stringstyle=\color{codepurple},     % Cadenas en púrpura
+            basicstyle=\ttfamily\footnotesize,  % Fuente monoespaciada pequeña
+            breaklines=true,                    % Permitir saltos de línea en código
+            captionpos=b,                       % Coloca los títulos del código abajo
+            numbers=left,                       % Números de línea a la izquierda
+            tabsize=2                           % Espaciado de tabulación de 2
+        }
+        \lstset{style=mystyle}                  % Aplica el estilo definido
+        \lstset{inputencoding=utf8/latin1}      % Permite caracteres especiales en código
+
+    % Paquetes para Diagramas y Gráficos
+        \usepackage{tikz}                           % Paquete para gráficos vectoriales
+        \usetikzlibrary{shapes.geometric, arrows}   % Librerías de TikZ para diagramas de flujo
+
+    % Definición de estilos de nodos y flechas en diagramas de flujo
+        \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+        \tikzstyle{arrow} = [thick,->,>=stealth]
+
+% Macros para palabras importantes
+    \newcommand{\fullname}      {Nombre completo del proyecto}
+    \newcommand{\shortname}     {Nombre corto del proyecto}
+    \newcommand{\docdate}       {15 de marzo del 2025}
+
+%---------------------------------------------------------------------%
+
+\begin{document}
+
+    %----------------- PORTADA -----------------%
+    \begin{titlepage}
+        \centering
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[width=0.3\textwidth]{Recursos/Imagenes/Portada/logos_fi_uaq.png}
+        \end{figure}
+        
+        \vspace{1cm}
+        {\scshape\LARGE Universidad Autónoma de Querétaro \par}
+        \vspace{0.5cm}
+        {\scshape\Large Facultad de Ingeniería \par}
+        \vspace{0.5cm}
+        {\scshape\Large Ingeniería en Automatización \par}
+        
+        \vspace{1.5cm}
+        {\Large\bfseries T.D.T.A. IV \par}
+        
+        \vspace{1cm}
+        {\Large\bfseries \fullname \par}
+        
+        \vspace{1.5cm}
+        {\large \textbf{Profesor:} \par}
+        {\large Dr. Gonzalo Macías Bobadilla \par}
+        
+        \vspace{1.5cm}
+        {\large \textbf{Integrantes:} \par}
+        \begin{center}
+            \large
+            Integrante 1\par
+            \vspace{0.4cm}
+            Integrante 2\par
+            \vspace{0.4cm}
+            Integrante 3\par
+            \vspace{0.4cm}
+            Integrante 4\par
+        \end{center}
+        
+        \vfill      % Rellenamos espacio restante
+
+        {\large Fecha de entrega: \docdate \par}
+    \end{titlepage}
+
+    \tableofcontents
+    %\listoffigures             % Lista de figuras
+    %\listoftables              % Lista de tablas
+    %\newpage
+    
+    %----------------- RESUMEN -----------------%
+    \chapter{Resumen}
+
+    %----------------- INTRODUCCION -----------------%
+    \chapter{Introducción}
+        \section{Planteamiento del problema}
+
+        \section{Objetivos generales}
+
+        \section{Objetivos específicos}
+
+
+    %----------------- MARCO TEORICO -----------------%
+    \chapter{Marco teórico}  
+        
+        
+    %----------------- METODOLOGIA -----------------%
+    \chapter{Metodología}
+            
+    %----------------- RESULTADOS Y DISCUSION -----------------%
+    \chapter{Resultados y discusión}
+
+    %----------------- CONCLUSIONES -----------------%
+    \chapter{Conclusiones}
+        
+
+    %----------------- REFERENCIAS -----------------%
+    \chapter{Referencias}
+
+\end{document}

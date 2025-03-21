@@ -1,0 +1,449 @@
+\documentclass[letterpaper,12pt]{extarticle}
+
+%% Paquetes
+    \usepackage[utf8]{inputenc}         % Unicode support (Umlauts etc.)
+    \usepackage{amsmath,mathtools}      % Advanced math typesetting
+    \usepackage{circuitikz}             % Circuit drawings
+    \usepackage{amssymb}
+    \usepackage{physics}                % Physics notation
+    \usepackage{hyperref}               % Add a link to your document
+    \usepackage{geometry}               % Margins
+    \usepackage{multicol}               % for multicolumn layout
+    \usepackage{xcolor}                 % For color
+    \usepackage{tcolorbox}              % For colored boxes
+    \usepackage{fancyhdr}               % Headers and footers
+
+%---------------------------------------------------------------------%
+
+\geometry{top=1in, headheight=0.5in, headsep=0.1in, margin=0.4in}
+
+% Compact itemize
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Compact sections
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+% Reduce line spacing
+\renewcommand{\baselinestretch}{0.8}
+
+% Color scheme
+\definecolor{color}{rgb}{0.694, 0.094, 0.153}
+
+% Headers
+\pagestyle{fancy}
+\fancyhf{}              % clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyhead[C]{Electrónica Avanzada} % Center
+\fancyhead[R]{Joel Zuñiga}
+
+% New command for creating boxes with black text
+\newcommand{\mybox}[2]
+{
+    \begin{tcolorbox}[colback=color!5!white,colframe=color!75!black,boxsep=1pt,arc=0pt,outer arc=0pt,title={\textcolor{white}{#1}}]
+        \textcolor{black}{#2}
+    \end{tcolorbox}
+}
+
+% Variables de los circuitos
+\ctikzset{bipoles/thickness=1}
+\ctikzset{bipoles/length=1cm}
+\ctikzset{every node/.style={font=\normalsize}}
+\ctikzset{every path/.style={line width=1, line cap=round}}
+
+
+% Start the document
+\begin{document}
+
+    \fontsize{10pt}{11pt}\selectfont
+
+    \begin{multicols}{2}
+
+    \mybox{Gain}
+    {
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Entrada con etiqueta Vi
+                \draw (0,0) node[above] {$V_i$} to[short, o-] (1,0);
+                % Buffer con etiqueta A
+                \node[buffer port, anchor=in] (buffer) at (1,0) {A};
+                % Conexiones
+                \draw (buffer.out) to[short, -o] (3,0) node[above] {$V_o$};
+            \end{circuitikz}
+        \end{center}
+        Para la conversion de la ganancia de decibeles a la ganancia en magnitud se utilizan las siguientes ecuaciones:
+        \begin{equation}
+            \boxed{A = \frac{V_o}{V_{in}}}
+        \end{equation}
+        \begin{equation}
+            \boxed{A[dB] = 20log_{10}(A[])}
+        \end{equation}
+        \begin{equation}
+            \boxed{A[] = 10^{\frac{A[dB]}{20}}}
+        \end{equation}
+    }
+    
+    \mybox{Equivalent diagram of OPAMP}
+    {
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo de la fuente de voltaje entrando a terminal del opamp
+                \draw (0,0) node[sground] {} to[sV={$V_s$}] ++(0,1.5) to[R=$R_s$] ++(0,2) -- ++(2,0) node[plain amp, anchor=bin up, scale=3.5](A){};
+                % Dibujo de la resistencia de entrada
+                \draw[red] (A.bin up) -- ++(0.4,0) coordinate (tmp) to[R, l=$R_i$] (tmp|-A.bin down) -- (A.bin down);
+                % Dibujo de la resistencia de salida
+                \draw[red] (A.bout) to[R, l_={$R_o$}] ++(-2.3,0) to[sV_={$AV_{id}$}] ++(0,-1.5) node[sground] {};
+                % Dibujo del gnd saliendo de la otra terminal del opamp
+                \draw (A.bin down) -- ++(-1,0) node[sground] {};
+                % Dibujo de la resistencia de salida del opamp
+                \draw (A.bout) -- ++(1,0) to[R=$R_L$] ++(0,-2) node[sground] {};
+            \end{circuitikz}
+        \end{center}
+        La \textcolor{red}{$R_i$} de un OPAMP para minimizar las perdidas de potencia, debe ser de la siguiente forma: \\
+        \begin{itemize}
+            \item Para una fuente de voltaje: $R_i \rightarrow \infty$
+            \item Para una fuente de corriente: $R_i \rightarrow 0$ \\
+        \end{itemize}
+        La \textcolor{red}{$R_o$} de un OPAMP para minimizar las perdidas de potencia, debe ser lo mas pequeña posible.
+    }
+
+    \mybox{Input Offset Voltage}
+    {
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.5) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.5) node[vee] {$-V$};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) -- ++(-1,0) node[sground] {};
+                % Dibujo de terminal negativa
+                \draw (opamp.-) -- ++(-2,0) node[sground] {};
+                % Dibujo de salida
+                \draw (opamp.out) -- ++(0.5,0) coordinate(Rl) to[R=$R_L$] ++(0,-2) node[sground] {};
+                \draw (Rl) to[short, -o] ++(1,0) node[above] {$V_o$};
+                % Dibujo de voltaje
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{io}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{equation}
+            V_{io} \rightarrow 0;
+        \end{equation}
+        \textbf{Input offset voltage ($V_{io}$):} Diferencia de voltaje entre las terminales de entrada causada por las imprefecciones de diseño. \\
+    }
+
+    \mybox{Input Offset and Bias Currents}
+    {
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.5) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.5) node[vee] {$-V$};
+                % Dibujo de terminal negativa
+                \draw (opamp.-) to[short, f<_={\textcolor{red}{$I_{B2}$}}, color=red] ++(-2.5,0) node[sground] {};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) to[short, f<_={\textcolor{red}{$I_{B2}$}}, color=red] ++(-2.5,0) node[sground] {};
+                % Dibujo de salida
+                \draw (opamp.out) -- ++(0.5,0) coordinate(Rl) to[R=$R_L$] ++(0,-2) node[sground] {};
+                \draw (Rl) to[short, -o] ++(1,0) node[above] {$V_o$};
+                % Dibujo de voltaje
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{id}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{equation}
+            \boxed{I_{io} = \abs{I_{B1} - I_{B2}}}
+        \end{equation}
+        \begin{equation}
+            \boxed{I_{B} = \frac{I_{B1} + I_{B2}}{2}}
+        \end{equation}
+        \textbf{Input Offset Current ($I_{io}$):} Fuga de corriente restante entre las entradas del OPAMP, debido a la imperfección de los transistores en las entradas.  \\
+        \textbf{Input Bias Current ($I_{B}$):} Corriente promedio que fluye hacia o desde las entradas del OPAMP, debido a la imperfección de los transistores en las entradas. \\
+    }
+
+    \mybox{Common Mode Rejection Ratio (CMRR)}
+    {
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.5) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.5) node[vee] {$-V$};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) -- ++(-2,0) coordinate(sV) to[sV={$V_s$}] ++(0,-2) node[sground] {};
+                % Dibujo de terminal negativa
+                \draw (opamp.-) -- ++(-2,0) -- (sV);
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{id} = 0[V]$};
+                % Dibujo de salida
+                \draw (opamp.out) -- ++(0.5,0) coordinate(Rl) to[R=$R_L$] ++(0,-2) node[sground] {};
+                \draw (Rl) to[short, -o] ++(1,0) node[above] {$V_{ocm}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{A_{cm} = \frac{V_{ocm}}{V_{cm}}} && \boxed{CMRR = \frac{A}{A_{cm}} > 120 \hspace{1mm} [dB]}
+        \end{align}
+        \textbf{Common Mode Rejection Ratio (CMRR):} Es la capacidad del amplificador diferencial, para rechazar señales comunes.
+    }
+
+    \mybox{Comportamiento en Frecuencia}
+    {
+        \begin{equation}
+            \boxed{UGB = Af_o}
+        \end{equation}
+        \textbf{Unit Gain Bandwidth (UGB):} Frecuencia a la cual el amplificador tiene una ganancia unitaria. \\
+        \textbf{Breaking Frequency:} Frecuencia de corte en la que el amplificador pierde 3 [$db$] de ganancia. \\
+        \begin{equation}
+            \boxed{SR = \frac{dV_o}{dt}}
+        \end{equation}
+        \textbf{Slew Rate:} Es el tiempo de respuesta a cambios de polaridad del $V_{id{}}$. Es el factor que determina el ancho de banda del amplificador.
+    }
+
+    \mybox{Voltage Follower}
+    {
+        Amplificador no inversor con ganancia unitaria, consigue: \\
+        \begin{itemize}
+            \item Maximo ancho de banda \\
+            \item Maxima impedancia de entrada \\
+            \item Minima impedancia de salida 
+        \end{itemize}
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{id}$};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) -- ++(-1,0) to[sV={$V_{in}$}] ++(0,-1.1) node[sground] {};
+                % Dibujo de realimentacion
+                \draw (opamp.-) -- ++(-1,0) -- ++(0,1.5) coordinate(Rf) -- (opamp.out|-Rf) -- (opamp.out);
+                % Dibujo de salida
+                \draw (opamp.out) to[R=$R_L$] ++(0,-1.5) node[sground] {};
+                \draw (opamp.out) to[short, -o] ++(1,0) node[above] {$V_{o}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{B = 1} && \boxed{A_F = 1}
+        \end{align}
+        \begin{equation}
+            \boxed{R_{iF} = R_i(1+A)}
+        \end{equation}
+        \begin{equation}
+            \boxed{R_{oF} = \frac{R_o}{(1+A)}}
+        \end{equation}
+        \begin{equation}
+            \boxed{f_F=f_o(1+A)}
+        \end{equation}
+    }
+
+    \mybox{Non-inverting amplifier}
+    {
+        Configuración con alta impedancia de entrada, ideal para fuentes de voltaje.\\
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{id}$};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) -- ++(-1,0) to[sV={$V_{in}$}] ++(0,-1.1) node[sground] {};
+                % Dibujo de terminal negativa
+                \draw (opamp.-) -- coordinate(FB) ++(-2,0) to[R={$R_1$}] ++(0,-1.5) node[sground] {};
+                % Dibujo de realimentacion
+                \draw (FB) -- ++(0,1.5) coordinate(Rf) to[R={$R_F$}] (opamp.out|-Rf) -- (opamp.out);
+                % Dibujo de salida
+                \draw (opamp.out) to[R=$R_L$] ++(0,-1.5) node[sground] {};
+                \draw (opamp.out) to[short, -o] ++(1,0) node[above] {$V_{o}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{B = \frac{1}{A_F}} && \boxed{A_F = \frac{A}{1+AB} = 1 + \frac{R_F}{R_1}}
+        \end{align}
+        \begin{equation}
+            \boxed{R_{iF} = R_i(1+AB)}
+        \end{equation}
+        \begin{equation}
+            \boxed{R_{oF} = \frac{R_o}{(1+AB)}}
+        \end{equation}
+        \begin{equation}
+            \boxed{f_F=f_o(1+AB)}
+        \end{equation}
+    }
+
+    \mybox{Inverting amplifier}
+    {
+        Configuración con baja impedancia de entrada, ideal para fuentes de corriente.\\
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{id}$};
+                % Dibujo de terminal negativa
+                \draw (opamp.-) -- ++(-3,0) to[sV={$V_{in}$}] ++(0,-1.5) node[sground] {};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) -- coordinate(FB) ++(-1.5,0) to[R={$R_1$}] ++(0,-1.5) node[sground] {};
+                % Dibujo de realimentacion
+                \draw (opamp.out) -- ++(0,-2) coordinate(Rf) to[R, l={$R_F$}] (FB|-Rf) -- (FB);
+                % Dibujo de salida
+                \draw (opamp.out) -- ++(0.5,0) coordinate(Vo) to[R, l={$R_L$}] ++(0,-2) node[sground] {};
+                \draw (Vo) to[short, -o] ++(1,0) node[above] {$V_{o}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{B = \frac{R_1}{R_1+R_F}} && \boxed{K = \frac{R_F}{R_1+R_F}}
+        \end{align}
+        \begin{equation}
+            \boxed{A_F = -\frac{AK}{1+AB} = -\frac{R_F}{R_1}}
+        \end{equation}
+        \begin{equation}
+            \boxed{R_{iF} = R_1}
+        \end{equation}
+        \begin{equation}
+            \boxed{R_{oF} = \frac{R_o}{(1+AB)}}
+        \end{equation}
+        \begin{equation}
+            \boxed{f_F=f_o(1+AB) = \frac{UGB * K}{A_F}}
+        \end{equation}
+    } 
+    
+    \mybox{Differential Amplifier}
+    {
+        Tiene una baja impedancia de entrada.
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp) {A};
+                % Fuentes de alimentacion del opamp
+                \draw (opamp.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (opamp.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (opamp.-) -- (opamp.+) node[midway, left] {$V_{id}$};
+                % Dibujo de terminal positiva
+                \draw (opamp.+) to[R, l={$R_2$}] ++(-2.5,0) to[sV={$V_{y}$}] ++(0,-1.3) node[sground] {};
+                \draw (opamp.+) to[R, l={$R_3$}] ++(0,-1.3) node[sground] {};
+                % Dibujo de terminal negativa
+                \draw (opamp.-) -- ++(-1,0) -- ++(0,1.5) coordinate(FB) node[above] {$V_2$} to[R={$R_1$}] ++(-2.5,0) to[sV={$V_x$}] ++(0,-2) node[sground] {};
+                % Dibujo de realimentacion
+                \draw (FB) to[R={$R_F$}] (opamp.out|-FB) -- (opamp.out);
+                % Dibujo de salida
+                \draw (opamp.out) to[R=$R_L$] ++(0,-1.5) node[sground] {};
+                \draw (opamp.out) to[short, -o] ++(1,0) node[above] {$V_{o}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{V_o = -\frac{R_F}{R_1}(V_x-V_y)} && \boxed{A_D = -\frac{R_F}{R_1}}
+        \end{align}
+        \begin{align}
+            \boxed{R_{iFx} = R_1} && \boxed{R_{iFy} = R_2 + R_3} 
+        \end{align}
+        \begin{equation}
+            \boxed{R_{oF} = \frac{R_o}{(1+\frac{A}{A_D})}}
+        \end{equation}
+        \begin{equation}
+            \boxed{f_F= \frac{UGB}{A_D} = f_o\left(\frac{A}{A_D}\right)}
+        \end{equation}  
+    }
+    \end{multicols}
+    
+    \mybox{Differential Amplifier whith 2 OPAMP'S}
+    {
+        Amplificador diferencial conformado por dos amplificadores no inversores en cascada. \\ \\
+        Una ventaja sobre el diferencial simple, es que tiene capacidad de tener una alta impedancia de entrada. 
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (opamp1) {};
+                % Fuentes de alimentacion del opamp1
+                \draw (opamp1.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (opamp1.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (opamp1.-) -- (opamp1.+) node[midway, left] {$V_{id}$};
+                % Dibujo de terminal positiva
+                \draw (opamp1.+) -- ++(-1.5,0) to[sV={$V_{y}$}] ++(0, -1) node[sground] {};
+                % Dibujo de terminal negativa
+                \draw (opamp1.-) -- ++(-1.5,0) -- ++(0,1.5) coordinate(FB1) to[R, l_={$R_2$}] ++(-2.5,0) -- ++(0,-1) node[sground] {};
+                % Dibujo de realimentacion
+                \draw (FB1) to[R={$R_3$}] (opamp1.out|-FB1) -- (opamp1.out);
+                % Dibujo de salida
+                \draw (opamp1.out) to[R=$R_1$] ++(2,0) coordinate(FB2) -- ++(0.5,0) node[op amp, anchor=-] (opamp2) {};
+                % Fuentes de alimentacion del opamp2
+                \draw (opamp2.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (opamp2.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de terminal positiva del otro OPAMP
+                \draw (opamp2.+) -- ++(-1.5,0) to[sV={$V_{x}$}] ++(0, -1) node[sground] {};
+                % Dibujo de realimentacion
+                \draw (FB2) -- (FB2|-FB1) to[R={$R_F$}] (opamp2.out|-FB1) -- (opamp2.out);
+                % Dibujo de salida
+                \draw (opamp2.out) to[R=$R_L$] ++(0,-1.35) node[sground] {};
+                \draw (opamp2.out) to[short, -o] ++(1,0) node[above] {$V_{o}$};
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{V_o = \left(1 + \frac{R_F}{R_1}\right)(V_x-V_y)} && \boxed{A_D = 1 + \frac{R_F}{R_1}}
+        \end{align}
+        \begin{align}
+            \boxed{B_x = \frac{R_1}{R_1+R_F}} && \boxed{B_y = \frac{R_2}{R_2+R_3}} 
+        \end{align}
+        \begin{align}
+            \boxed{R_{iFx} = R_i(1+AB_x)} && \boxed{R_{iFy} = R_i(1+AB_y)} 
+        \end{align}
+    }
+
+    \mybox{Instrumentation Amplifier}
+    {
+        Amplificador diferencial con alta impedancia de entrada por los seguidores de voltaje en sus entradas. Esto tambien provoca una mejora en el CMRR.
+        \begin{center}
+            \begin{circuitikz}[american]
+                % Dibujo del OP AMP
+                \draw (0,0) node[op amp, anchor=+] (fopamp1) {};
+                % Fuentes de alimentacion del fopamp1
+                \draw (fopamp1.up) -- ++(0,0.3) node[vcc] {$+V$};
+                \draw (fopamp1.down) -- ++(0,-0.3) node[vee] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (fopamp1.-) -- (fopamp1.+) node[midway, left] {$V_{id}$};
+                % Dibujo de realimentacion
+                \draw (fopamp1.-) -- ++(-1,0) -- ++(0,1.5) coordinate(Rf) -- (fopamp1.out|-Rf) -- (fopamp1.out);
+                % Dibujo de terminal positiva
+                \draw (fopamp1.+) -- ++(-1,0) to[sV={$V_{xy}$}] ++(0,-2.5) -- ++(1,0) node[op amp, anchor=+, yscale=-1] (fopamp2) {};
+                % Fuentes de alimentacion del fopamp2
+                \draw (fopamp2.up) -- ++(0,-0.3) node[vee] {$+V$};
+                \draw (fopamp2.down) -- ++(0,0.3) node[vcc] {$-V$};
+                % Dibujo de voltaje entre terminales
+                \draw [latexslim-latexslim] (fopamp2.-) -- (fopamp2.+) node[midway, left] {$V_{id}$};
+                % Dibujo de realimentacion
+                \draw (fopamp2.-) -- ++(-1,0) -- ++(0,-1.5) coordinate(Rf) -- (fopamp2.out|-Rf) -- (fopamp2.out);
+                % Dibujo de salida de fopamp1
+                \draw (fopamp1.out) to[R, l={$R_1$}] ++(2,0) coordinate(CFB) -- ++(0,-1.3) node[op amp, anchor=-] (Copamp) {};
+                % Dibujo de salida de fopamp2
+                \draw (fopamp2.out) to[R, l={$R_1$}] ++(2,0) coordinate(Rl) -- (Copamp.+);
+                % Resistencia de referencia de fopamp2
+                \draw (Rl) to[R, l={$R_F$}] ++(0,-1.5) node[sground] {};
+                % Dibujo de salida OPAMP diferenciador
+                \draw (Copamp.out) to[R=$R_L$] ++(0,-1.35) node[sground] {};
+                \draw (Copamp.out) to[short, -o] ++(1,0) node[above] {$V_{o}$};
+                % Dibujo de realimentacion de opamp diferenciador
+                \draw (CFB) to[R, l={$R_F$}] (Copamp.out|-CFB) -- (Copamp.out); 
+            \end{circuitikz}
+        \end{center}
+        \begin{align}
+            \boxed{V_o = \left(-\frac{R_F}{R_1}\right)(V_x-V_y)} && \boxed{A_D = -\frac{R_F}{R_1}}
+        \end{align}
+    }
+
+\end{document}

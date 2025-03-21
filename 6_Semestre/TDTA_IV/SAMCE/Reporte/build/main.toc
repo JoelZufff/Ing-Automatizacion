@@ -1,0 +1,38 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Resumen}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Introducción}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Planteamiento del problema}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Objetivos generales}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Objetivos específicos}{2}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Fundamentación teórica}{3}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Potencia eléctrica}{3}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Potencia eléctrica en circuitos de corriente directa (DC)}{3}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Triangulo de potencia}{3}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Definicion e impacto del factor de potencia}{4}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Elementos que afectan al factor de potencia}{5}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Consecuencias de un bajo factor de potencia}{5}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Corrección del factor de potencia}{5}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Métodos actuales de corrección del factor de potencia}{6}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {4}Metodología}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Especificación}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Requerimientos funcionales}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Especificaciones técnicas}{7}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Diseño}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Evaluación de plataformas de procesamiento}{8}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Diseño del subsistema de adquisición de datos}{9}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Diseño del subsistema de control}{9}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Diseño del subsistema de conectividad IoT}{10}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Implementación}{10}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Desarrollo de hardware}{10}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Desarrollo de firmware}{11}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Desarrollo de software}{12}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Integración y ensamblaje}{12}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Validación y pruebas}{13}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Pruebas de laboratorio}{13}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Pruebas de campo}{13}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Verificación de conformidad}{13}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Evaluación de rendimiento IoT}{14}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Proceso de optimización}{14}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Resultados y discusión}{16}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Referencias}{18}{chapter.7}%
