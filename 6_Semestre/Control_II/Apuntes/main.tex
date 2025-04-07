@@ -1,0 +1,210 @@
+\documentclass{article}          % Definimos el tipo de documento
+
+%% Paquetes
+    % Formato y Tipografía
+        \usepackage[T1]{fontenc}            % Codificación de fuente que mejora la salida en PDF
+        \usepackage[utf8]{inputenc}         % Permite el uso de caracteres especiales (tildes, ñ, etc.)
+        \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} % Configura los márgenes del documento
+        \usepackage{times}                  % Usa la fuente Times New Roman
+        \usepackage{fancyhdr}               % Headers and footers
+        \hyphenation{co-mer-cial rea-li-zan si-guien-te si-mu-la-ción ke-lly con-si-de-ra-da}                   % Silabeo de palabras
+
+
+    % Idioma
+        \usepackage[spanish]{babel}         % Configura el idioma a español (traduce títulos, orden de palabras, etc.)
+        \spanishdecimal{.}                  % Establece el punto como separador decimal en español
+
+    % Matemáticas
+        \usepackage{amsmath}      % Soporte para ecuaciones matemáticas avanzadas
+        \usepackage{amssymb}      % Símbolos matemáticos adicionales
+        \usepackage{mathrsfs}     % Fuente matemática caligráfica
+
+    % Figuras y Tablas
+        \usepackage{graphicx}      % Permite incluir imágenes en el documento
+        \usepackage{float}         % Controla la posición de imágenes y tablas
+        \usepackage{subfigure}     % Permite incluir subfiguras dentro de una figura
+        \usepackage{tabularx}      % Mejora el control de tablas con ancho ajustable
+        \usepackage[table]{xcolor} % Permite usar colores en tablas
+
+    % Hipervínculos y Referencias
+        \usepackage{natbib}                           % Manejo de referencias bibliográficas
+        \usepackage[colorlinks=true, allcolors=blue]{hyperref} % Habilita enlaces internos y externos en color azul
+        \bibpunct{(}{)}{;}{a}{,}{,}                  % Configuración del formato de citas
+
+    % Formato de Código Fuente
+        \usepackage{listingsutf8}     % Paquete para mostrar código fuente con sintaxis destacada
+        \definecolor{codegreen}{rgb}{0,0.6,0}  % Color para comentarios en código
+        \definecolor{codegray}{rgb}{0.5,0.5,0.5} % Color para números de línea
+        \definecolor{codepurple}{rgb}{0.58,0,0.82} % Color para cadenas de texto
+        \definecolor{backcolour}{rgb}{0.95,0.95,0.92} % Color de fondo para bloques de código
+
+        \lstdefinestyle{mystyle} 
+        {
+            frame=single,                       % Marco alrededor del código
+            backgroundcolor=\color{white},      % Fondo blanco
+            commentstyle=\color{codegreen},     % Comentarios en verde
+            keywordstyle=\color{magenta},       % Palabras clave en magenta
+            numberstyle=\tiny\color{codegray},  % Números de línea en gris
+            stringstyle=\color{codepurple},     % Cadenas en púrpura
+            basicstyle=\ttfamily\footnotesize,  % Fuente monoespaciada pequeña
+            breaklines=true,                    % Permitir saltos de línea en código
+            captionpos=b,                       % Coloca los títulos del código abajo
+            numbers=left,                       % Números de línea a la izquierda
+            tabsize=2                           % Espaciado de tabulación de 2
+        }
+        \lstset{style=mystyle}                  % Aplica el estilo definido
+        \lstset{inputencoding=utf8/latin1}      % Permite caracteres especiales en código
+
+    % Diagramas y Gráficos
+        \usepackage{tikz}                           % Paquete para gráficos vectoriales
+        \usetikzlibrary{shapes.geometric, arrows}   % Librerías de TikZ para diagramas de flujo
+        \usepackage{blox}
+
+    % Definición de estilos de nodos y flechas en diagramas de flujo
+        \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+        \tikzstyle{arrow} = [thick,->,>=stealth]
+
+% Macros para palabras importantes
+    \newcommand{\fullname}      {Nombre completo del proyecto}
+    \newcommand{\shortname}     {Nombre corto del proyecto}
+    \newcommand{\docdate}       {15 de marzo del 2025}
+
+%---------------------------------------------------------------------%
+
+\fancyhead[C]{Control II} % Center
+\fancyhead[R]{Joel Zuñiga}
+
+\begin{document}    
+    
+    \section{Analisis de la respuesta en frecuencia}
+        \subsection{Margen de fase}
+            Es la cantida de atraso de fase que se requiere añadir al sistema en la frecuencia de cruce de ganancia $\omega_1=\omega_g$ (Es decir en la frecuencia en la cual la magnitud es unitaria o cruza por 0 [dB]) para llevar al sistema al límite de estabilidad.\\
+
+            \begin{equation}
+                K_f = 180 [^\circ] - \angle G(j\omega)H(j\omega)
+            \end{equation}
+
+            Un $K_f > 0$ implica estabilidad en el lazo cerrado mientras que un $K_f < 0$ implica inestabilidad en el lazo cerrado. Es decir, que si la respuesta en frecuencia tiene un desface mayor a $180^\circ$ en la frecuencia cruce de ganancia, el sistema es inestable.\\ 
+
+        \subsection{Margen de ganancia}
+            Sea $K_g$ el margen de ganancia donde $\omega_2 = \omega_1$, conocida tambien como la frecuencia de cruce de fase.
+
+            \begin{equation}
+                K_g = \frac{1}{\lvert G(j\omega)H(j\omega) \rvert}
+            \end{equation}
+
+            Un $K_g > 1$ o lo que es lo mismo $20\log{K_g} > 0 [dB]$ implica estabilidad en el lazo cerrado mientras que un $K_g < 1$ implica inestabilidad en el lazo cerrado. Es decir, que si la respuesta en frecuencia tiene una magnitud menor a 1 en la frecuencia cruce de fase, el sistema es inestable.\\
+
+        \subsection{Relacion entre $\zeta$ y $K_f$}
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{c c c c c c c c c c c c}
+                    \hline
+                    $K_f$ & 0 & 11 & 23 & 33 & 43 & 52 & 59 & 65 & 70 & 74 & 76 \\
+                    \hline
+                    $\zeta$ & 0 & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1 \\
+                \end{tabular}
+                \caption{ Tabla de relación entre $\zeta$ y $K_f$ }
+            \end{table}
+            Se puede observar que existe una relacion de aproximadamente 100 a 1, entre el margen de fase y el coeficiente de amortiguamiento $\zeta$.
+    
+    \section{Ejemplo con control de posición de un motor de corriente directa}
+
+        Diagrama de Bloques del sistema de control de posición de un motor de corriente directa (CD) con escobillas con control proporcional (P):
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                % Entrada R(s)
+                \bXInput{A} 
+                % Comparador de error
+                \bXCompSum{B}{A}{}{$-$}{$+$}{} \bXLink[$R(s)$]{A}{B}
+                % Bloque Kp
+                \bXBloc[3]{C}{$K_p$}{B}\bXLink[$E(s)$]{B}{C}
+                % Bloque Ck/s(s+Cp)
+                \bXBloc[3]{D}{$\frac{C_k}{s(s+C_p)}$}{C}\bXLink[$U(s)$]{C}{D}
+                % Salida Y(s)
+                \bXOutput[3]{E}{D} 
+                \bXLink[$Y(s)$]{D}{E}
+                % Retroalimentación con bajada, horizontal y subida
+                \bXBranchy[4]{D-E}{F}
+                \bXLinkxy[]{E}{F}
+                \bXBranchy[0]{F}{G}
+                \bXLinkxy[]{G}{B}
+            \end{tikzpicture}
+
+            \caption{Sistema de control de posición con controlador proporcional}
+        \end{figure}
+
+        Para saber el amortiguamiento necesario para un $20 \ [\%]$ de sobrepaso, se aplica la fórmula de segundo orden subamortiguado
+        \begin{equation}
+            \zeta = \sqrt{\frac{C^{2}}{\pi^{2}+C^{2}}}, \ C=\ln\left[ \frac{M_p \ [\%]}{100}  \right]
+        \end{equation}
+
+        La función de transferencia del motor CD con escobillas con la posición como salida es:
+
+        \begin{equation}
+            \frac{Y(s)}{U(s)} = \frac{C_k}{s(s+C_p)}
+        \end{equation}
+
+        \subsection{identificación de los parámetros \( C_p \) y \( C_k \)}
+
+        Se basa en la ecuación de la función de transferencia de un motor de corriente directa (CD) con escobillas:
+
+        \begin{equation}
+        \frac{\Theta(s)}{V_a(s)} = \frac{K_m}{R_a b + K_m K_b} \cdot \frac{1}{s \left( \frac{R_a J}{R_a b + K_m K_b} s + 1 \right)}
+        = \frac{C_k}{s(s + C_p)}
+        \end{equation}
+
+        Donde:
+        \begin{itemize}
+            \item \( K_m \): Constante de par.
+            \item \( R_a \): Resistencia de la armadura.
+            \item \( b \): Coeficiente de fricción viscosa.
+            \item \( J \): Momento de inercia.
+            \item \( K_b \): Constante de fuerza electromotriz (FEM).
+        \end{itemize}
+
+        Así, los parámetros se definen como:
+        \begin{equation}
+        C_k = \frac{K_m}{R_a J}, \quad C_p = \frac{R_a b + K_m K_b}{R_a J}
+        \end{equation}
+
+        La función de transferencia en posición se expresa como:
+        \begin{equation}
+        \frac{Y(s)}{U(s)} = \frac{C_k}{s(s+C_p)}
+        \end{equation}
+
+        Dado que el operador \( s \) representa la derivada en el dominio de Laplace, al multiplicar \( s \) en el numerador se obtiene la función de transferencia en velocidad angular:
+        \begin{equation}
+        \frac{\Omega(s)}{U(s)} = \frac{C_k}{s + C_p}
+        \end{equation}
+
+        Donde:
+        \begin{itemize}
+            \item \( \Omega(s) \) representa la velocidad angular de la flecha del motor.
+            \item \( U(s) \) representa el voltaje de la armadura.
+        \end{itemize}
+
+        Sustituyendo \( s \) por \( j\omega \), se obtiene la expresión en el dominio de frecuencia:
+        \begin{equation}
+        G(j\omega) = \frac{C_k}{C_p + j\omega}
+        \end{equation}
+
+        La magnitud de la función de transferencia es:
+        \begin{equation}
+        |G(j\omega)| = \frac{C_k}{\sqrt{C_p^2 + \omega^2}}
+        \end{equation}
+
+        Y su fase se calcula como:
+        \begin{equation}
+        \angle G(j\omega) = -\tan^{-1} \left( \frac{\omega}{C_p} \right)
+        \end{equation}
+
+        Finalmente, despejando \( C_k \):
+        \begin{equation}
+        C_k = \frac{B}{A} \sqrt{C_p^2 + \omega^2}
+        \label{equ:8}
+        \end{equation}
+
+\end{document}

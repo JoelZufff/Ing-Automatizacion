@@ -16,6 +16,19 @@
         "corecrt_wstdlib.h": "c",
         "system_error": "c",
         "pic18f4550_registers.h": "c",
-        "cstddef": "c"
-    }
+        "cstddef": "c",
+        "stdio.h": "c",
+        "timers.h": "c",
+        "gpio.h": "c"
+    },
+    "idf.portWin": "COM7",
+    "idf.customExtraVars": {
+        "IDF_TARGET": "esp32"
+    },
+    "idf.openOcdConfigs": [
+        "board/esp32-wrover-kit-3.3v.cfg"
+    ],
+    "idf.espIdfPathWin": "C:\\Users\\diego\\esp\\v5.4\\esp-idf",
+    "idf.toolsPathWin": "C:\\ESP",
+    "idf.pythonInstallPath": "C:\\ESP\\tools\\idf-python\\3.11.2\\python.exe"
 }
