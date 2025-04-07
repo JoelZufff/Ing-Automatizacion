@@ -1,0 +1,71 @@
+/* FALTA
+* Ver que tareas le doy a nucleo 1
+* Ver si la mitad de los calculos del control se ejecutan en nucleo 1 despues de ejecucion de sampling_timer
+*/
+// --------------- Preprocesadores de microcontrolador -------------- //
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/gpio.h"
+#include "esp_log.h"
+
+#include "freertos/timers.h"
+
+// --------------------------- Constantes --------------------------- //
+static const char *tag = "Main";
+
+// ----------------------------- Clases ----------------------------- //
+
+// ----------------------- Variables Globales ----------------------- //
+TimerHandle_t sampling_timer;
+
+// -------------------------- Interrupciones ------------------------ //
+// Interrupcion de timer
+void sampling_data(TimerHandle_t pxTimer)
+{
+    // Realizamos el muestreo de datos
+    static bool on = false;
+
+    on = !on; // Cambiamos el estado del GPIO de encoder
+
+    gpio_set_level(GPIO_NUM_2, on); // Cambiamos el estado del GPIO de encoder
+}
+
+// ---------------------------- Funciones --------------------------- //
+esp_err_t init_sampling_timer()
+{
+	// Configuracion de timers
+	sampling_timer = xTimerCreate("Sampling_timer", pdMS_TO_TICKS(1000), pdTRUE, (void *) 1, sampling_data);
+					
+    // Comprobacion de creacion del timer
+    if (sampling_timer == NULL)
+    {
+        ESP_LOGE(tag, "El timer no fue creado.");
+        return ESP_FAIL;
+    }
+    
+    if (xTimerStart(sampling_timer, 0) != pdPASS)
+    {
+        ESP_LOGE(tag, "El timer no se pudo poner en estado activo.");
+        return ESP_FAIL;
+    }
+
+    // EL timer se ha creado y se ha puesto en estado activo
+	ESP_LOGI(tag, "Ha comenzado el muestreo de datos.");
+	return ESP_OK;
+}
+
+// ------------------------ Codigo Principal ------------------------ //
+extern "C" void app_main(void)
+{
+    // Configuracion de GPIOs
+    gpio_reset_pin(GPIO_NUM_2); // GPIO de encoder
+    gpio_set_direction(GPIO_NUM_2, GPIO_MODE_OUTPUT); // Configuracion de GPIO como entrada
+
+    // Inicializacion de timer de muestreo
+    init_sampling_timer();
+
+    while (true)
+    {
+        vTaskDelay(pdMS_TO_TICKS(1000));  // Espera para no saturar el CPU
+    }    
+}
