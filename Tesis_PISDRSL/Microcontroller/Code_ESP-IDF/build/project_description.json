@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "Code_ESP-IDF",
-    "project_version":    "13e8f71-dirty",
+    "project_version":    "028239a-dirty",
     "project_path":       "C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF",
     "idf_path":           "C:/Users/diego/esp/v5.4/esp-idf",
     "build_dir":          "C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build",
