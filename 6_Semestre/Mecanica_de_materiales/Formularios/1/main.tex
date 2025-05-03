@@ -1,4 +1,4 @@
-\documentclass[letterpaper,12pt]{extarticle}
+\documentclass[letterpaper,11pt]{extarticle}
 
 %% Paquetes
     \usepackage[utf8]{inputenc}         % Unicode support (Umlauts etc.)
@@ -11,10 +11,11 @@
     \usepackage{xcolor}                 % For color
     \usepackage{tcolorbox}              % For colored boxes
     \usepackage{fancyhdr}               % Headers and footers
+    \usepackage{array}
 
 %---------------------------------------------------------------------%
 
-\geometry{top=1in, headheight=0.5in, headsep=0.1in, margin=0.7in}
+\geometry{top=1in, headheight=0.5in, headsep=0.1in, margin=0.5in}
 
 % Compact itemize
 \usepackage{enumitem}
@@ -36,7 +37,8 @@
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \renewcommand{\headrulewidth}{0pt} % no line in header area
-\fancyhead[C]{Mecanica de materiales \par 1° Parcial} % Center
+\fancyhead[L]{Mecánica de materiales} % Left
+\fancyhead[R]{Joel Zuñiga} % Right
 
 % New command for creating boxes with black text
 \newcommand{\mybox}[2]
@@ -49,55 +51,295 @@
 % Start the document
 \begin{document}
 
+    \renewcommand{\arraystretch}{1.5} % <--- Más espacio entre filas
     \fontsize{10pt}{11pt}\selectfont
+    
+    \begin{center} 
+        \textbf{Análisis de elementos sujetos a carga axial}
+    \end{center}
 
     \begin{multicols}{2}
+        \mybox{Esfuerzo normal:}
+        {
+            Es generado cuando la viga está sometida a un momento flector, es decir, cuando actúa una fuerza transversal sobre ella. Se mide con las unidades de [$Pa$] ó [$psi$].
+            \begin{equation}
+                \epsilon = \frac{\triangle L}{L_0}
+            \end{equation}
+            \begin{equation}
+                \sigma = \frac{P}{A} = E\epsilon
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $\epsilon$ & Deformación unitaria & [ ]\\
+                    $L$ & Longitud del elemento & [$m$] ó [$in$]\\
+                    $P$ & Fuerza axial aplicada & [$N$] ó [$lb_f$]\\
+                    $A$ & Área transversal a la fuerza & [$m^2$] ó [$in^2$]\\
+                    $E$ & Módulo de elasticidad o módulo de Young & [$Pa$] ó [$psi$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
 
-    \mybox{Condiciones de equilibrio}
-    {
-        Cuando un elemento esta en equilibrio, debe de cumplir con estas condiciones.
-        \begin{subequations}
-            \begin{align}
-                +\circlearrowleft \sum F_x &= 0 \\
-                +\uparrow \sum F_y &= 0 \\
-                +\rightarrow \sum M_o &= 0
-            \end{align}
-        \end{subequations}
-    }
+        \mybox{Esfuerzo cortante:}
+        {
+            Es generado cuando hay una fuerza cortante en la sección transversal la viga. Se mide con las unidades de [$Pa$] ó [$psi$].\\\\
+            \textbf{Cortante simple:}
+            \begin{equation}
+                \tau = \frac{P}{A}
+            \end{equation}
+            \textbf{Cortante doble:}
+            \begin{equation}
+                \tau = \frac{P}{2A}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $P$ & Fuerza perpendicular cortante & [$N$] ó [$lb_f$]\\
+                    $A$ & Área de corte & [$m^2$] ó [$in^2$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
 
-    \mybox{Analisis de esfuerzos}
-    {
-        \textbf{Esfuerzo promedio normal:}
-        \begin{equation}
-            \sigma = \frac{P}{A}
-        \end{equation}
-        Donde: \space
-        \begin{itemize}
-            \item \( P \): Carga aplicada
-            \item \( A \): Área de la sección transversal
-        \end{itemize}
-        \vspace{5mm}
-        \textbf{Esfuerzo cortante simple:}
-        \begin{equation}
-            \tau = \frac{P}{A}
-        \end{equation}
-        Donde: \space
-        \begin{itemize}
-            \item \( P \): Carga aplicada
-            \item \( A \): Área de la sección de corte
-        \end{itemize}
-        \vspace{5mm}
-        \textbf{Esfuerzo máximo:}
-        \begin{equation}
-            \sigma_{max} = \frac{P}{A}
-        \end{equation}
-        Donde: \space
-        \begin{itemize}
-            \item \( P \): Carga aplicada
-            \item \( A \): Mínima area de la sección transversal
-        \end{itemize}
-    }
+        \mybox{Esfuerzo por aplastamiento:}
+        {
+            Es generado cuando una fuerza se transmite a través de superficies de contacto pequeñas, como en uniones con pernos o pasadores, donde el perno presiona el material. Se mide con las unidades de [$Pa$] ó [$psi$].
+            \begin{equation}
+                \sigma_B = \frac{P}{A}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $P$ & Fuerza perpendicular cortante & [$N$] ó [$lb_f$]\\
+                    $A$ & Área proyectada del barreno & [$m^2$] ó [$in^2$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+        
+        \mybox{Deformación axial:}
+        {
+            Se genera cuando un elemento está sometido a una carga axial centrada, generando una deformación uniforme (extensión o compresión) a lo largo de su longitud. Se mide con las unidades de [$m$] ó [$in$].
+            \begin{equation}
+                \delta = \frac{PL}{AE}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $P$ & Fuerza axial aplicada & [$N$] ó [$lb_f$]\\
+                    $L$ & Longitud del elemento & [$N$] ó [$lb_f$]\\
+                    $A$ & Área transversal a la fuerza & [$m^2$] ó [$in^2$]\\
+                    $E$ & Módulo de elasticidad o módulo de Young & [$Pa$] ó [$psi$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
 
+        \mybox{Modulo de Poisson:}
+        {
+            Se aplica cuando un material es sometido a una carga axial y, como resultado, además de extenderse o comprimirse en la dirección de la carga, también cambia de tamaño en la dirección perpendicular a la carga.
+            \begin{equation}
+                \epsilon_x = \frac{\sigma_x}{E} - \frac{\nu\sigma_y}{E} - \frac{\nu\sigma_z}{E}
+            \end{equation}
+            \begin{equation}
+                \epsilon_y = -\frac{\sigma_x}{E} + \frac{\sigma_y}{E} - \frac{\nu\sigma_z}{E}
+            \end{equation}
+            \begin{equation}
+                \epsilon_z = -\frac{\nu\sigma_x}{E} - \frac{\nu\sigma_y}{E} + \frac{\sigma_z}{E}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $\sigma$ & Esfuerzo aplicado & [$m^2$] ó [$in^2$]\\
+                    $\nu$ & Modulo de Poisson & [ ]\\
+                    $E$ & Módulo de elasticidad o módulo de Young & [$Pa$] ó [$psi$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+    \end{multicols}
+    
+    \newpage
+
+    \begin{center} 
+        \textbf{Análisis de elementos sujetos a torsión} 
+    \end{center}
+    \begin{multicols}{2}
+        \mybox{Relación de engranajes:}
+        {
+            \textbf{Análisis estatico:}
+            \begin{equation}
+                \frac{T_A}{r_A} = \frac{T_B}{r_B}
+            \end{equation}
+            \textbf{Análisis cinematico:}
+            \begin{equation}
+                r_A \omega_A = r_B \omega_B
+            \end{equation}
+            \begin{equation}
+                r_A \phi_A = r_B \phi_B
+            \end{equation}
+            Donde: 
+            \begin{center}
+                \begin{tabular}{ c | p{28mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $T$ & Torque aplicado & [$N \cdot m$] ó [$lb_f \cdot in$]\\
+                    $r$ & Radio de eje sometido a torsion & [$m$] ó [$in$]\\
+                    $\omega$ & Velocidad angular  & [$\frac{rad}{s}$]\\
+                    $\phi$ & Desplazamiento angular  & [$rad$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+        \mybox{Momento polar de inercia ($J$):}
+        {
+            Es generado cuando una sección estructural está sometida a torsión (giro alrededor de su eje longitudinal). \\\\
+            \textbf{Eje redondo sólido:}
+            \begin{equation}
+                J = \frac{\pi}{2}r^4 = \frac{\pi}{32}d^4
+            \end{equation}
+            \textbf{Eje redondo tubular:}
+            \begin{equation}
+                J = \frac{\pi}{2}\left(r_1^4 - r_2^4\right) = \frac{\pi}{32}\left(d_1^4 - d_2^4\right)
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $r$ & Radio de eje sometido a torsion & [$m$] ó [$in$]\\
+                    $d$ & Diametro de eje sometido a torsion & [$m$] ó [$in$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+        
+        \mybox{Esfuerzo cortante por torsión:}
+        {
+            Es generado cuando hay un momento de torsión $T$ aplicado sobre el eje longitudinal de la viga.
+            \begin{equation}
+                \tau = \frac{Tc}{J}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{25mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $T$ & Torque aplicado & [$N \cdot m$] ó [$lb_f \cdot in$]\\
+                    $c$ & Distancia desde el eje neutro hasta la fibra extrema & [$m$] ó [$in$]\\
+                    $J$ & Momento polar de inercia de la sección transversal & [$m^2$] ó [$in^2$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Deformacion por torsion:}
+        {
+            Es generado cuando la viga es sometida a un momento torsional, es decir, cuando se aplica una fuerza que genera un giro en torno al eje longitudinal de la viga. Se mide en [$rad$] ó [$^\circ$].
+            \begin{equation}
+                \phi = \frac{TL}{GJ}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{25mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $T$ & Torque aplicado & [$N \cdot m$] ó [$lb_f \cdot in$]\\
+                    $L$ & Longitud de la viga & [$m$] ó [$in$]\\
+                    $G$ & Módulo de rigidez del material $x$ & [$Pa$] ó [$psi$]\\
+                    $J$ & Momento polar de inercia de la sección transversal & [$m^4$] ó [$in^4$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
     \end{multicols}
 
+    \newpage
+
+    \begin{center} \textbf{Análisis de elementos sujetos a flexión} \end{center}
+    \begin{multicols}{2}
+        \mybox{Momento de inercia ($I$):}
+        {
+            Es generado cuando una sección estructural está sometida a flexión. Se mide en [$m^4$] ó [$in^4$] \\\\
+            \textbf{Viga con forma rectangular:}
+            \begin{equation}
+                I_x = \frac{bh^3}{12}
+            \end{equation}
+            \begin{equation}
+                I_y = \frac{hb^3}{12}
+            \end{equation}
+            \textbf{Viga con forma redonda:}
+            \begin{equation}
+                I_x = I_y = \frac{\pi}{4}r^4 = \frac{\pi}{64}d^4
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $b$ & Longitud de la base del rectángulo & [$m$] ó [$in$]\\
+                    $h$ & Longitud de la altura del rectángulo & [$m$] ó [$in$]\\
+                    $r$ & Radio de eje sometido a flexión & [$m$] ó [$in$]\\
+                    $d$ & Diámetro de eje sometido a flexión & [$m$] ó [$in$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Esfuerzo normal:}
+        {
+            Es generado cuando la viga está sometida a un momento flector, es decir, cuando actúa una fuerza transversal sobre ella. Se mide con las unidades de [$Pa$] ó [$psi$]. \\ 
+            \begin{equation}
+                \sigma = \frac{M(x)c}{I}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{25mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $M(x)$ & Ecuación de momento flector en sección $x$ & [$N \cdot m$] ó [$lb_f\cdot in$]\\
+                    $c$ & Distancia desde el eje neutro hasta la fibra extrema & [$m$] ó [$in$]\\
+                    $I$ & Momento de inercia & [$m^4$] ó [$in^4$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Esfuerzo cortante:}
+        {
+            Es generado cuando hay una fuerza cortante en la sección transversal la viga. Se mide con las unidades de [$Pa$] ó [$psi$]. \\\\
+            \textbf{Viga con forma rectangular:}
+            \begin{equation}
+                \tau = \left(\frac{3}{2}\right)\left(\frac{V(x)}{A}\right)
+            \end{equation}
+            \textbf{Viga con forma redonda:}
+            \begin{equation}
+                \tau = \left(\frac{4}{3}\right)\left(\frac{V(x)}{A}\right)
+            \end{equation}
+            \textbf{Viga con forma redonda hueca:}
+            \begin{equation}
+                \tau = \frac{2V(x)}{A}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $V(x)$ & Ecuacion de fuerza cortante en sección $x$ & [$N$] ó [$lb_f$]\\
+                    $A$ & Área transversal a la fuerza & [$m^2$] ó [$in^2$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Deformacion por flexión:}
+        {
+            Es generada cuando una viga es sometida a un momento flector, es decir, cuando una fuerza transversal actúa sobre la viga en un punto determinado. Se mide en [$m$] ó [$in$].
+            \begin{equation}
+                EI\frac{d^2y}{dx^2} = M(x)
+            \end{equation}
+            \begin{equation}
+                \frac{dy}{dx} = \frac{1}{EI}\int M(x)dx + C_1
+            \end{equation}
+            \begin{equation}
+                y(x) = \frac{1}{EI}\iint M(x)dxdx + C_1x + C_2
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{25mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $E$ & Modulo de Young & [$Pa$] ó [$psi$]\\
+                    $I$ & Momento de inercia & [$m^4$] ó [$in^4$]\\
+                    $M(x)$ & Ecuación de momento flector en sección $x$ & [$N \cdot m$] ó [$lb_f \cdot in$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+    \end{multicols}
 \end{document}
