@@ -15,7 +15,8 @@
         "task.h": "c",
         "freertos.h": "c",
         "compare": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "encoder.h": "c"
     },
     "idf.customExtraVars": {
         "IDF_TARGET": "esp32"

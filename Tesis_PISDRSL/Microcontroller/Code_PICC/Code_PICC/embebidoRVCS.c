@@ -54,6 +54,8 @@
 
    #define tauM   0.3                  // Par maximo de rueda [Nm]
    #define alphaM 1.4                  // 1.57
+   
+   
    #define omegaM 16.0                 // Omega maximo // 70 rev en 30 s, 140 rev/min, 14.7 rad/s 
    #define uM     10.55                // Voltaje maximo   
    #define uNM    10.00                // Voltaje nominal maximo
