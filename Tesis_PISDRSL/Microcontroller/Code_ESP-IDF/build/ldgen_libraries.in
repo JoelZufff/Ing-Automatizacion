@@ -82,8 +82,10 @@ $<TARGET_FILE:__idf_rt>
 $<TARGET_FILE:__idf_spiffs>
 $<TARGET_FILE:__idf_wifi_provisioning>
 $<TARGET_FILE:__idf_main>
+$<TARGET_FILE:__idf_AccessPoint>
 $<TARGET_FILE:__idf_Encoder>
 $<TARGET_FILE:__idf_DCMotor>
 $<TARGET_FILE:__idf_L298N>
 $<TARGET_FILE:__idf_MPU6050>
+$<TARGET_FILE:__idf_TCP_server>
 $<TARGET_FILE:__idf_TCRT5000>

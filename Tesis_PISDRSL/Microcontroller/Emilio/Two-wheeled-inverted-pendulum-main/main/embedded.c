@@ -34,8 +34,8 @@ const char TAG[] = "balancin";
 #define BUF_SIZE 512
 #define PACKET_SIZE 9
 
-#define TXD_PIN (GPIO_NUM_47)
-#define RXD_PIN (GPIO_NUM_21)
+#define TXD_PIN (GPIO_NUM_38)
+#define RXD_PIN (GPIO_NUM_39)
 
 
 #define PORT                        4545
