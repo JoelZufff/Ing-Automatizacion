@@ -16,7 +16,15 @@
         "freertos.h": "c",
         "compare": "c",
         "cstdint": "c",
-        "encoder.h": "c"
+        "encoder.h": "c",
+        "bitset": "cpp",
+        "thread": "cpp",
+        "functional": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "span": "cpp",
+        "adc_continuous.h": "c"
     },
     "idf.customExtraVars": {
         "IDF_TARGET": "esp32"

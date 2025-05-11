@@ -36,7 +36,7 @@ void DC_motor_t::init(config_s cfg)
     ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(gen,MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
     ESP_ERROR_CHECK(mcpwm_generator_set_actions_on_compare_event(gen,MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comp, MCPWM_GEN_ACTION_LOW)));
 
-    ESP_LOGI(TAG, "Motor inicializado -> IN1_pin = %d, IN2_pin = %d, EN_pin = %d", config.IN1_pin, config.IN2_pin, config.EN_pin);
+    ESP_LOGI(TAG, "IN1_pin = %d | IN2_pin = %d | EN_pin = %d", config.IN1_pin, config.IN2_pin, config.EN_pin);
 }
 
 void DC_motor_t::set_movement(uint16_t duty_cycle, bool direction)

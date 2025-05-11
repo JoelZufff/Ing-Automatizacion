@@ -75,5 +75,5 @@ void AP_init(AP_config_s cfg)     // Inicializamos el Access Point
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_AP, &wifi_config)); // Asignamos a la interfaz AP la configuración que acabamos de rellenar en wifi_config 
     ESP_ERROR_CHECK(esp_wifi_start());                              // Iniciamos el controlador Wi-Fi, que comienza a emitir el SSID y espera conexiones de clientes.
 
-    ESP_LOGI(TAG, "Red inicializada -> SSID: %s | Password: %s | Channel: %d", cfg.ssid, cfg.password, cfg.channel);      // Imprimimos por consola los datos de la red
+    ESP_LOGI(TAG, "SSID: %s | Password: %s | Channel: %d", cfg.ssid, cfg.password, cfg.channel);      // Imprimimos por consola los datos de la red
 }
