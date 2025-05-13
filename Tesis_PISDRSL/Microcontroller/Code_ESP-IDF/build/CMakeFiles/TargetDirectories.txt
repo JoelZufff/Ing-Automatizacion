@@ -838,6 +838,13 @@ C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/AccessPoint/CMakeFiles/install.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/AccessPoint/CMakeFiles/install/local.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/AccessPoint/CMakeFiles/install/strip.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/__idf_Control_System.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/edit_cache.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/rebuild_cache.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/list_install_components.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/install.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/install/local.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Control_System/CMakeFiles/install/strip.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Encoder/CMakeFiles/__idf_Encoder.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Encoder/CMakeFiles/edit_cache.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/Encoder/CMakeFiles/rebuild_cache.dir
@@ -852,13 +859,6 @@ C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/DCMotor/CMakeFiles/install.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/DCMotor/CMakeFiles/install/local.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/DCMotor/CMakeFiles/install/strip.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/__idf_L298N.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/edit_cache.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/rebuild_cache.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/list_install_components.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/install.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/install/local.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/L298N/CMakeFiles/install/strip.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/MPU6050/CMakeFiles/__idf_MPU6050.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/MPU6050/CMakeFiles/edit_cache.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/MPU6050/CMakeFiles/rebuild_cache.dir

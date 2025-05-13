@@ -2,7 +2,34 @@
 #include "DCMotor.hpp"
 
 // ==================== Definicion de funciones ===================== //
-DC_motor_t::DC_motor_t(mcpwm_oper_handle_t *op) : op(op) {}     // Inicializamos el operador el PWM 
+DC_motor_t::DC_motor_t()    // Inicializamos el operador el PWM 
+{
+    if (tmr == NULL)   // Si el timer no ha sido creado
+    {
+        // Configuramos timer y operador de las señales PWM de los 2 motores //
+        mcpwm_timer_config_t timer_config = 
+        {
+            .group_id = 0,
+            .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT,         // PLL Clock 240 MHz
+            .resolution_hz = 10000000,                      // 10 MHz Prescaler, 0.1us/ticks
+            .count_mode = MCPWM_TIMER_COUNT_MODE_UP,
+            .period_ticks = MAX_DUTY_CYCLE,                 // 1000 ticks for 1 cycle, 10 MHz/1000 = 10 KHz Timer
+            .intr_priority = 0,                             // Low priority
+        };
+        ESP_ERROR_CHECK(mcpwm_new_timer(&timer_config, &tmr));
+        
+        ESP_ERROR_CHECK(mcpwm_timer_enable(tmr));
+        ESP_ERROR_CHECK(mcpwm_timer_start_stop(tmr, MCPWM_TIMER_START_NO_STOP));   
+    }
+
+    if (op == NULL)   // Si el operador no ha sido creado
+    {
+        // Creacion de operador, para coordinar los comparadores y generadores con el timer //
+        mcpwm_operator_config_t operator_config = { .group_id = 0, };
+        ESP_ERROR_CHECK(mcpwm_new_operator(&operator_config, &op));
+        ESP_ERROR_CHECK(mcpwm_operator_connect_timer(op, tmr));
+    }
+}
     
 void DC_motor_t::init(config_s cfg) 
 {
@@ -24,13 +51,13 @@ void DC_motor_t::init(config_s cfg)
     mcpwm_comparator_config_t compare_config;
     compare_config.flags.update_cmp_on_tez = true;
     compare_config.intr_priority = 0;
-    ESP_ERROR_CHECK(mcpwm_new_comparator(*op, &compare_config, &comp));
+    ESP_ERROR_CHECK(mcpwm_new_comparator(op, &compare_config, &comp));
     ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comp, 0));       // 0% duty cycle
 
     // Creacion de generador, para generar la señal PWM en el pin seleccionado //
     mcpwm_generator_config_t gen_config; 
     gen_config.gen_gpio_num = config.EN_pin;         // GPIO para la señal PWM
-    ESP_ERROR_CHECK(mcpwm_new_generator(*op, &gen_config, &gen));
+    ESP_ERROR_CHECK(mcpwm_new_generator(op, &gen_config, &gen));
 
     // Configuracion de la señal PWM //
     ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(gen,MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));

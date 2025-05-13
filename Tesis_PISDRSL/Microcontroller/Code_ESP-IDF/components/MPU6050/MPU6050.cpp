@@ -6,13 +6,14 @@ void MPU6050_t::init(config_s config)
 {
 // Declaramos bus I2C como maestro
     i2c_master_bus_config_t i2c_mst_config;
-        i2c_mst_config.clk_source = I2C_CLK_SRC_DEFAULT;     // Fuente de reloj por defecto
-        i2c_mst_config.i2c_port = I2C_NUM_0;                 // Puerto I2C 0
-        i2c_mst_config.scl_io_num = config.SCL_pin;          // Pin SCL
-        i2c_mst_config.sda_io_num = config.SDA_pin;          // Pin SDA
-        i2c_mst_config.glitch_ignore_cnt = 7;                // Ignora hasta 7 ciclos de reloj de ruido
-        i2c_mst_config.flags.enable_internal_pullup = true;  // Habilita resistencias pull-up internas
-        i2c_mst_config.intr_priority = 1;   // Prioridad de interrupción válida
+        i2c_mst_config.clk_source = I2C_CLK_SRC_DEFAULT;        // Fuente de reloj por defecto
+        i2c_mst_config.i2c_port = I2C_NUM_0;                    // Puerto I2C 0
+        i2c_mst_config.scl_io_num = config.SCL_pin;             // Pin SCL
+        i2c_mst_config.sda_io_num = config.SDA_pin;             // Pin SDA
+        i2c_mst_config.glitch_ignore_cnt = 7;                   // Ignora hasta 7 ciclos de reloj de ruido
+        i2c_mst_config.flags.enable_internal_pullup = true;     // Habilita resistencias pull-up internas
+        i2c_mst_config.intr_priority = 1;                       // Prioridad de interrupción válida
+        i2c_mst_config.trans_queue_depth = 0;                   // Desactiva modo asíncrono
     i2c_master_bus_handle_t bus_handle;
     ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_mst_config, &bus_handle));
     
@@ -72,7 +73,7 @@ void MPU6050_t::read_data()
 
     // Leemos los datos de todos los registros a la vez
     write_buffer[0] = ACCEL_XOUT_H; // Registro de inicio para leer datos
-    i2c_master_transmit_receive(dev_handle, write_buffer, 1, read_buffer, 14, 1);
+    i2c_master_transmit_receive(dev_handle, write_buffer, 1, read_buffer, 14, 2);
 
     // Convertimos los datos leidos a enteros de 16 bits
     A[0] = (int16_t)((read_buffer[0] << 8) | read_buffer[1]);       // Acelerómetro X

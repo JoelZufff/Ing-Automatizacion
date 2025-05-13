@@ -114,7 +114,7 @@
    float accelx=0.15,angulox=0.15,angulox_1=0.0,c2=1.0-c1;
 
 // Variables auxiliares
-   float t=0.0,iTs=1.0/Ts,esc=pi_/(2.0*ppr*NR),escs=255.0/uM;
+   float t=0.0,iTs=1.0/Ts,esc = pi_/(2.0*ppr*NR), escs = 255.0 / uM;
 
 //Velocidades
    float omegar=0,omegal=0;
@@ -278,39 +278,44 @@ int main()
       MPU6050_get_Ax();
       MPU6050_get_Gy();
       
+      // Se obtiene la aceleracion en X
       Ax = 0;
       Ax = A_data_x[0];
       Ax = Ax<<8;
-      Ax = Ax+A_data_x[1];    //Lectura cargada en variable Ax
+      Ax = Ax+A_data_x[1];    // Lectura cargada en variable Ax
       
+      // Se obtiene la velocidad angular en Y
       Gy = 0;
       Gy = G_data_y[0];
       Gy = Gy<<8;
       Gy = Gy+G_data_y[1];    // Lectura cargada en variable Gy
       
+      // Calculo de error de seguimiento
       theta = Sr-Sl;
 
+      // Saturación del ángulo theta para mantenerlo dentro del rango [-160, 160] grados
       if(theta > 160.0)
          theta = 160.0;
       if(theta < -160.0)
-         theta =- 160.0;
+         theta = -160.0;
 
-      theta =- 0.3*theta/160.0;   //Error de seguimiento en radianes  
+      // Convertimos el error de seguimiento en radianes
+      theta =- 0.3 * theta / 160.0;
       
       //Calculo de velocidad derecha en radianes
-      incr=127-posr;
-      posr=127;
-      omegar=incr*esc*iTs;
+      incr = 127 - posr;
+      posr = 127;
+      omegar = incr * esc * iTs;
 
       //Calculo de velocidad izquierda en radianes
-      incl=127-posl;
-      posl=127;
-      omegal=incl*esc*iTs;
+      incl = 127 - posl;
+      posl = 127;
+      omegal = incl * esc * iTs;
       
       //Los valores del MPU los paso a valores flotantes con sus respectivas escalas
       Xa=-Ax*accel_factor; //Xa en rango de -1 a 1
-      Yg=Gy*gyro_factor;   //Yg en grados sobre segundo
-      Yg=deg_2_rad*Yg;     //Yg en rad sobre segundo 
+      Yg=Gy*gyro_factor;   //Yg en grados sobre segundo 
+      Yg=deg_2_rad*Yg;     //Yg en rad sobre segundo
       
       //Calculo del filtro complementario
       accelx=Xa*pi_s2;  //Inclinaci�n en rango de -pi/2 a pi/2 rad

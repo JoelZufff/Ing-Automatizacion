@@ -1,3 +1,6 @@
+#ifndef TCRT5000_H
+#define TCRT5000_H
+
 // ============================ Librerias =========================== //
 #include "driver/gpio.h"
 #include "esp_log.h"
@@ -24,3 +27,5 @@ public:     // METODOS
     void init(adc_channel_t AO_chann);      // Inicializamos el TCRT5000
     void read_data(uint16_t data_num);           // Obtiene un promedio de los data_num valores leidos del ADC 
 };
+
+#endif

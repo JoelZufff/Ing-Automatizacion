@@ -4,7 +4,7 @@
 // =========================== Constantes =========================== //
 static const char *TAG = "TCP_server";  // Etiqueta para el registro de logs
 static TCP_server_config_s config;      // Configuración del servidor TCP
-TCP_client_t* TCP_client = NULL;            // Objeto cliente para manejar la conexión con el cliente
+TCP_client_t* TCP_client = NULL;        // Objeto cliente para manejar la conexión con el cliente
 
 
 // ==================== Definicion de funciones ===================== //
@@ -21,7 +21,7 @@ void TCP_init(TCP_server_config_s cfg) // Inicializa el servidor TCP
     }
     
     // Creamos la tarea del servidor TCP, que se encargará de aceptar conexiones y manejar la comunicación con los clientes.
-    xTaskCreate(TCP_task, "TCP_server", 4096, (void*)AF_INET, 5, NULL);
+    xTaskCreate(TCP_task, "TCP_server", 4096, (void*)AF_INET, 2, NULL);
     vTaskDelay(pdMS_TO_TICKS(10));       // Esperamos un poco para asegurarnos de que la tarea se haya creado correctamente
 }
 
@@ -72,7 +72,7 @@ static void TCP_task(void *pvParameters)
     {
         ESP_LOGI(TAG, "Esperando conexiones -> PUERTO: %d", config.Port);
         
-        sockaddr_storage source_addr; // Large enough for both IPv4 or IPv6
+        sockaddr_storage source_addr;               // Large enough for both IPv4 or IPv6
         socklen_t addr_len = sizeof(source_addr);
         
         // Se detiene el codigo hasta detectar la llegada de un cliente. Al aceptar la conexion, se crea un nuevo socket para manejar la comunicacion con el.
@@ -85,16 +85,17 @@ static void TCP_task(void *pvParameters)
 
         // Se crea un nuevo objeto cliente para manejar la comunicacion con el cliente.
         TCP_client = new TCP_client_t(socket, source_addr, addr_len);
-        // Esperamos y procesamos los datos recibidos del cliente.
+        
+        // Se entra en un bucle esperando datos del cliente
         TCP_client->dataReception();
 
         // Apagamos el socket de conexión y lo cerramos. Depues de la desconexión del cliente.
-        delete TCP_client;   // Liberamos la memoria del objeto cliente.
+        delete TCP_client;                          // Liberamos la memoria del objeto cliente.
     }
 
-    CLEAN_UP:       // Cierra el socket de escucha y elimina la tarea si hubo error en alguna parte.
-        close(listen_sock);
-        vTaskDelete(NULL);
+CLEAN_UP:       // Cierra el socket de escucha y elimina la tarea si hubo error en alguna parte.
+    close(listen_sock);
+    vTaskDelete(NULL);
 }
 
 TCP_client_t::TCP_client_t(int socket, sockaddr_storage address, socklen_t addr_len) : socket(socket) // Constructor de la clase TCP_client

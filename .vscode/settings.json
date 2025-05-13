@@ -20,7 +20,8 @@
         "stdio.h": "c",
         "timers.h": "c",
         "gpio.h": "c",
-        "encoder.h": "c"
+        "encoder.h": "c",
+        "random": "c"
     },
     "idf.portWin": "COM7",
     "idf.customExtraVars": {
