@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
-// asociada a un ensamblado.
+// asociada con un ensamblado.
 [assembly: AssemblyTitle("Graphic_interface")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("045206b4-4aa4-436c-8e05-70088fe50ab0")]
+[assembly: Guid("7110d9bb-2972-4efc-a318-9204f8b54f0d")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

@@ -4,6 +4,7 @@
 // ============================ Librerias =========================== //
 #include "esp_timer.h"
 #include "esp_log.h"
+#include "math.h"
 
 // ====================== Prototipos de clase ======================= //
 class Control_System_t
@@ -39,10 +40,8 @@ public:     // ESTRUCTURAS
 
         struct DC_motor_s
         {
-            float Ra;       // Resistencia de bobinas [Ohms]
-            float k_m;      // Constante de torque-corriente [Nm/A]
-            //float Rasnkm  = Ra / (NR * km); // ?? 
-            //float nkm     = NR * km;      // ??
+            float Ra;           // Resistencia de bobinas [Ohms]
+            float k_m;          // Constante de torque-corriente [Nm/A]
         } DC_motor;
 
         struct Geometry_s
@@ -53,13 +52,14 @@ public:     // ESTRUCTURAS
 
         struct Max_Values_s
         {
-            float tau;      // Torque máximo por rueda [Nm]
-            float alpha;    // Ángulo máximo de inclinación [rad]
-            float omega;    // Velocidad angular máxima [rad/s]
-            float uN;       // Voltaje nominal máximo [V]
-            float u;        // Voltaje máximo [V]
+            float tau;              // Torque máximo por rueda [Nm]
+            float alpha;            // Ángulo máximo de inclinación [rad]
+            float omega;            // Velocidad angular máxima [rad/s]
+            uint32_t duty_Cicle;    // Valor maximo del Duty Cicle del PWM
+            float uN;               // Voltaje nominal máximo [V]
+            float u;                // Voltaje máximo [V]
         } Max_Values;
-    } Syst_Config;
+    };
 
     struct Control_Config_s
     {
@@ -80,7 +80,7 @@ public:     // ESTRUCTURAS
             float V_d;      // Velocidad traslacional deseada [m/s]
             float theta_d;  // Angulo theta deseado
         } References;
-    } Ctrl_Config;
+    };
 
     struct Inputs_s
     {
@@ -97,11 +97,32 @@ public:     // ESTRUCTURAS
 
     struct Outputs_s
     {
-        float uL;   // Valor del voltaje para rueda izquierda
-        float uR;   // Valor del voltaje para rueda derecha
+        struct Motor_movement_s         // Salida del compensador para el movimiento de los motores
+        {
+            uint32_t dutyCicle; // Valor del duty cicle para rueda izquierda
+            bool direction;     // Direccion de giro de la rueda
+        } movL, movR;
+        /*
+        struct Monitor_Data_s           // Variables del compensador para monitoreo
+        {
+            char vd;        // Velocidad traslacional deseada [m/s]
+            char v;         // Velocidad traslacional [m/s]
+            char theta;     // Angulo theta [rad]
+            char alpha;     // Angulo alpha [rad]
+            char omegaL;    // Velocidad angular llanta izquierda [rad/s]
+            char uL;        // Voltaje de salida llanta izquierda [V]
+            char omegaR;    // Velocidad angular llanta izquierda [rad/s]
+            char uR;        // Voltaje de salida llanta izquierda [V]
+        } monit_Data;
+        */
     };
 
 private:    // CAMPOS
+// Variables de configuracion
+    System_Config_s Syst_Config;        // Configuracion del sistema
+    Control_Config_s Ctrl_Config;       // Configuracion del controlador
+
+// Variables para timer de ciclo de control
     esp_timer_handle_t control_Timer;
 
     /*      // Ver por si ocupamos reiniciar, y resetear integrales
@@ -114,8 +135,10 @@ private:    // CAMPOS
 
 public:     // METODOS
     Control_System_t() = default;
-    void init(System_Config_s Syst_cfg, Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle);
-    Outputs_s controlLoop(Inputs_s Inputs);
+    void init(System_Config_s Syst_cfg);                              // Inicializar sistema
+    void init(Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle);    // Inicializar controlador
+    void init(Control_Config_s Ctrl_cfg);                               // Reinicializar controlador
+    Outputs_s controlLoop(Inputs_s Inputs);                             // Ciclo de control
 };
 
 #endif

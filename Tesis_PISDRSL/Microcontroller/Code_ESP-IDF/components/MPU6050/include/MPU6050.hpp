@@ -59,8 +59,8 @@ public:     // ESTRUCTURAS
     };
 
 public:     // CAMPOS
-    int A[3];                 // Aceleracion en X, Y y Z
-    int G[3];                 // Velocidad angular en X, Y y Z
+    int a[3];                 // Aceleracion en X, Y y Z
+    int g[3];                 // Velocidad angular en X, Y y Z
 
 private:
     i2c_master_dev_handle_t dev_handle;     // Handle del dispositivo I2C    

@@ -2,12 +2,12 @@
 #include "Control_System.hpp"
 
 // ==================== Definicion de funciones ===================== //
+void Control_System_t::init(System_Config_s Syst_cfg) { Syst_Config = Syst_cfg; }
 
-void Control_System_t::init(System_Config_s Syst_cfg, Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle)
+void Control_System_t::init(Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle)
 {
 // Almacenamos configuracion recibida
-    this->Syst_Config = Syst_cfg;
-    this->Ctrl_Config = Ctrl_cfg;
+    Ctrl_Config = Ctrl_cfg;
 
 // Creamos el timer periodico para la rutina de control
     const esp_timer_create_args_t timer_args =
@@ -18,15 +18,22 @@ void Control_System_t::init(System_Config_s Syst_cfg, Control_Config_s Ctrl_cfg,
     ESP_ERROR_CHECK(esp_timer_create(&timer_args, &control_Timer));
 
     // Iniciamos el timer
-    ESP_ERROR_CHECK(esp_timer_start_periodic(control_Timer, Ctrl_cfg.Ts * 1000000));
+    ESP_ERROR_CHECK(esp_timer_start_periodic(control_Timer, Ctrl_Config.Ts * 1000000));
 
     // El timer se ha inicializado
     ESP_LOGI(TAG, "Timer de lazo de control iniciado correctamente");
 }
 
+void Control_System_t::init(Control_Config_s Ctrl_cfg)
+{
+    // Modificamos periodo de muestreo y las variables de nuestro sistema de control
+
+    // Debemos limpiar las variables de integrales
+}
+
 Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
 {
-// Calculo de error de seguimiento de linea
+// Calculo angulo theta de error de seguimiento de linea
     float theta = In.sR - In.sL;
 
     // Saturación del ángulo theta para mantenerlo dentro del rango [-160, 160] grados
@@ -35,33 +42,33 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
     else if (theta < -160.0)
         theta = -160.0;
 
-    // Convertimos el error de seguimiento a radianes
-    theta = -0.3 * theta / 160.0;
+    theta = -0.3 * theta / 160.0;   // ?? REVISAR
 
-// Calculo de velocidad angular de rueda derecha en radidanes (REVISAR)
-    static float esc = pi / (2.0 * Syst_Config.Encoder.PPR * Syst_Config.Encoder.NR);  // Pulsos de encoder a radianes
+// Calculo de velocidad angular de cada rueda
+    static float PULSE_to_RAD = pi / (2.0 * Syst_Config.Encoder.PPR * Syst_Config.Encoder.NR);  // Constante para convertir de pulsos de encoder a radianes
+    
+    float omegaL = (float) (In.posL * PULSE_to_RAD) / Ctrl_Config.Ts;       
+    float omegaR = (float) (In.posR * PULSE_to_RAD) / Ctrl_Config.Ts;
 
-    float omegaL = (float) (In.posL * esc) / Ctrl_Config.Ts;
-    float omegaR = (float) (In.posR * esc) * Ctrl_Config.Ts;
+// Calculo de angulo alpha
+    // Escalamos los valores de MPU6050
+        float Xa = -(In.aX) * accel_factor;         // Xa en rango de -1 a 1
+        float Yg = In.gY * gyro_factor * deg_2_rad; // [rad/s]
 
-// Escalamos los valores de MPU6050
-    float Xa = -(In.aX) * accel_factor;         // Xa en rango de -1 a 1
-    float Yg = In.gY * gyro_factor * deg_2_rad; // [rad/s]
+    // Filtro complementario para estimar el angulo alpha a partir de la aceleracion en x y velocidad angular en y
+        static float angulox_1 = 0.0;       // Valor anterior de angulo x_1
 
-// Calculo del filtro complementario
-    static float angulox_1 = 0.0;       // Valor anterior de angulo x_1
-
-    float accelx = Xa * pi_2;                                               // Inclinacion en rango de -pi/2 a pi/2 [rad]
-    float angulox = c1 * (angulox_1 + Yg * Ctrl_Config.Ts) + c2 * accelx;  // Ecuacion del filtro complementario
-    angulox_1 = angulox;                                                    // Respaldando valor pasado
-    float alpha = -angulox;
-    alpha = alpha - calpha;                                                 // Compensaci�n de alineacion del MPU
+        float accelx = Xa * pi_2;                                               // Inclinacion en rango de -pi/2 a pi/2 [rad]
+        float angulox = c1 * (angulox_1 + Yg * Ctrl_Config.Ts) + c2 * accelx;   // Ecuacion del filtro complementario
+        angulox_1 = angulox;                                                    // Respaldando valor pasado
+        float alpha = -angulox;
+        alpha = alpha - calpha;                                                 // Compensaci�n de alineacion del MPU
 
     // Saturación de valores de angulo alpha
-    if(alpha >= Syst_Config.Max_Values.alpha)
-        alpha = Syst_Config.Max_Values.alpha;
-    if(alpha <= (-Syst_Config.Max_Values.alpha))
-        alpha = -Syst_Config.Max_Values.alpha;
+        if(alpha >= Syst_Config.Max_Values.alpha)
+            alpha = Syst_Config.Max_Values.alpha;
+        if(alpha <= (-Syst_Config.Max_Values.alpha))
+            alpha = -Syst_Config.Max_Values.alpha;
 
 // Calculo de velocidad traslacional
     float v = (omegaL + omegaR) * Syst_Config.Geometry.R / 2.0;   
@@ -88,19 +95,19 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
             intvtil = -0.95 * v2tauM; 
     }
 
-// Calculo de esfuerzos de control   
+// Calculo de esfuerzo de control
     float taua = (-Ctrl_Config.Gains.kv * thetap - Ctrl_Config.Gains.kp * thetatil) * 2.0 * Syst_Config.Geometry.b / Syst_Config.Geometry.R;
     float u = (Ctrl_Config.Gains.k1 * alphap) + (Ctrl_Config.Gains.k2 * alpha) + (Ctrl_Config.Gains.k3 * vtil) + (Ctrl_Config.Gains.k4 * intvtil);
     
     // Saturación de voltaje de salida
-    if(u >= v2tauM)
-        u = v2tauM;
-    if(u <= (-v2tauM))
-        u =- v2tauM; 
+        if(u >= v2tauM)
+            u = v2tauM;
+        if(u <= (-v2tauM))
+            u =- v2tauM; 
                            
-// Calculo de pares por rueda      
-    float tauL = (-taua + u) / 2.0;     // par izquierdo
-    float tauR = (taua + u) / 2.0;      // par derecho
+    // Calculo de pares por rueda      
+        float tauL = (-taua + u) / 2.0;     // par izquierdo
+        float tauR = (taua + u) / 2.0;      // par derecho
                            
 // Calculo de voltaje de rueda izquierda
     static float Rasnkm = Syst_Config.DC_motor.Ra / (Syst_Config.Encoder.NR * Syst_Config.DC_motor.k_m);
@@ -110,14 +117,10 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
     //ul=uNM*sin(0.314*t);
 
     // Saturacion de voltaje para que no exceda el voltaje nominal
-    if(uL >= Syst_Config.Max_Values.uN)
-        uL = Syst_Config.Max_Values.uN;
-    if(uL <= (-Syst_Config.Max_Values.uN))
-        uL = -Syst_Config.Max_Values.uN;
-
-    /* Convertimos el voltaje en un valor valido para el Duty Cicle
-    uWl = escs * fabs(ul); 
-    */
+        if(uL >= Syst_Config.Max_Values.uN)
+            uL = Syst_Config.Max_Values.uN;
+        if(uL <= (-Syst_Config.Max_Values.uN))
+            uL = -Syst_Config.Max_Values.uN;
   
 // Calculo de voltaje de rueda derecha
     float uR = (tauR * Rasnkm) + (nkm * omegaR);
@@ -128,11 +131,24 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
         uR = Syst_Config.Max_Values.uN;
     if(uR <= (-Syst_Config.Max_Values.uN))
         uR = -Syst_Config.Max_Values.uN;
-        
-    /*
-    // Convertimos el voltaje en un valor valido para el Duty Cicle
-    uWr = escs * fabs(uR);
-    */
-   
-    return { uL, uR };
+
+// Salida del sistema de control
+    static float V_to_DC = Syst_Config.Max_Values.duty_Cicle / Syst_Config.Max_Values.uN;   // Constante para convertir voltaje a duty cicle
+
+    Outputs_s Out = 
+    {
+        .movL = 
+        {
+            .dutyCicle = (uint32_t) fabsf(uL * V_to_DC),
+            .direction = (uL >= 0) ? true : false
+        },
+        .movR = 
+        {
+            .dutyCicle = (uint32_t) fabsf(uR * V_to_DC),
+            .direction = (uR >= 0) ? true : false
+        }
+        // FALTA AGREGAR MONITDATA
+    };
+
+    return Out;
 }

@@ -127,7 +127,7 @@ TCP_client_t::~TCP_client_t()       // Apagamos el socket de conexión y lo cerr
 void TCP_client_t::dataReception()
 {
     // Comunicamos la conexion del cliente al grupo de eventos
-    xEventGroupSetBits( eventGroup, 0x1 );
+    xEventGroupSetBits(eventGroup, 0x1);
 
     // Se asigna el socket de conexión a la variable global para su uso posterior
     char rx_buffer[BUF_SIZE];
@@ -141,6 +141,8 @@ void TCP_client_t::dataReception()
 
         if (data_length > 0)       // Se recibieron datos validos
         {
+            // Llamamos la funcion para procesar los datos recibidos
+
             rx_buffer[data_length] = 0; // Null-terminate whatever is received and treat it like a string
             ESP_LOGI(TAG, "Received %d bytes: %s", data_length, rx_buffer);
         }

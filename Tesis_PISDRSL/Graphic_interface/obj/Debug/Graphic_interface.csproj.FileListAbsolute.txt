@@ -3,6 +3,9 @@ C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\bin
 C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\bin\Debug\Graphic_interface.pdb
 C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.csproj.AssemblyReference.cache
 C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.csproj.SuggestedBindingRedirects.cache
+C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.Properties.Resources.resources
+C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.csproj.GenerateResource.cache
 C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.csproj.CoreCompileInputs.cache
 C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.exe
 C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.pdb
+C:\Users\diego\Desktop\Ing_en_automatizacion\Tesis_PISDRSL\Graphic_interface\obj\Debug\Graphic_interface.TCP_connection.resources

@@ -15,18 +15,24 @@ class DC_motor_t
 {
 private:    // CONSTANTES
     inline static const char *TAG = "DC_motor";   // Etiqueta para el registro de logs
-public:     
-    inline static const uint16_t MAX_DUTY_CYCLE = 10000;   // 10000 ticks para el ciclo de trabajo, 10 MHz/10000 = 1 KHz Timer
 
 public:     // ESTRUCTURAS
     struct config_s
     {
-        gpio_num_t EN_pin;          // Pin de habilitacion del motor
-        gpio_num_t IN1_pin;         // Pin de direccion 1 del motor
-        gpio_num_t IN2_pin;         // Pin de direccion 2 del motor
+        struct pins_s
+        {
+            gpio_num_t EN_pin;          // Pin de habilitacion del motor
+            gpio_num_t IN1_pin;         // Pin de direccion 1 del motor
+            gpio_num_t IN2_pin;         // Pin de direccion 2 del motor
+        } pins;
+        struct PWM_s
+        {
+            uint32_t resolution_hz;     // Resolucion del PWM
+            uint32_t period_ticks;      // Valor maximo del ciclo de trabajo
+        } PWM;
     };
-    
-private:    // CAMPOS
+
+private:
     config_s config;    // Configuracion del motor
     
     // Variables para generacion de PWM
@@ -36,11 +42,10 @@ private:    // CAMPOS
     mcpwm_gen_handle_t gen;                         // Generador para el operador
 
 public:     // METODOS
-    DC_motor_t();  // Inicializamos el operador el PWM 
-    
-    void init(config_s cfg); // Inicializa el motor DC
-
-    void set_movement(uint16_t duty_cycle, bool direction);
+    DC_motor_t() = default;
+    void init(config_s cfg);                                // Inicializa pines de GPIO y PWM para el movimiento del motor
+    uint32_t get_MAX_DC();                                  // Devuelve el valor maximo del ciclo de trabajo
+    void set_movement(uint16_t duty_cycle, bool direction); // Realiza un movimiento a la velocidad y direccion deseada
 };
 
 #endif

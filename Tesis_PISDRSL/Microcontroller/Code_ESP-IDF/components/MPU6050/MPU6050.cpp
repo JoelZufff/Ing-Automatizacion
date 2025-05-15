@@ -76,11 +76,11 @@ void MPU6050_t::read_data()
     i2c_master_transmit_receive(dev_handle, write_buffer, 1, read_buffer, 14, 2);
 
     // Convertimos los datos leidos a enteros de 16 bits
-    A[0] = (int16_t)((read_buffer[0] << 8) | read_buffer[1]);       // Acelerómetro X
-    A[1] = (int16_t)((read_buffer[2] << 8) | read_buffer[3]);       // Acelerómetro Y
-    A[2] = (int16_t)((read_buffer[4] << 8) | read_buffer[5]);       // Acelerómetro Z
+    a[0] = (int16_t)((read_buffer[0] << 8) | read_buffer[1]);       // Acelerómetro X
+    a[1] = (int16_t)((read_buffer[2] << 8) | read_buffer[3]);       // Acelerómetro Y
+    a[2] = (int16_t)((read_buffer[4] << 8) | read_buffer[5]);       // Acelerómetro Z
 
-    G[0] = (int16_t)((read_buffer[8] << 8) | read_buffer[9]);       // Giroscopio X
-    G[1] = (int16_t)((read_buffer[10] << 8) | read_buffer[11]);     // Giroscopio Y
-    G[2] = (int16_t)((read_buffer[12] << 8) | read_buffer[13]);     // Giroscopio Z
+    g[0] = (int16_t)((read_buffer[8] << 8) | read_buffer[9]);       // Giroscopio X
+    g[1] = (int16_t)((read_buffer[10] << 8) | read_buffer[11]);     // Giroscopio Y
+    g[2] = (int16_t)((read_buffer[12] << 8) | read_buffer[13]);     // Giroscopio Z
 }
