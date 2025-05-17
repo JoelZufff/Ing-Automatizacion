@@ -19,6 +19,9 @@ namespace Graphic_interface
         private TcpClient client;
         static NetworkStream stream;
 
+        // Para medir el tiempo desde la presion de start
+        private DateTime startTime;
+
         public TCP_connection()
         {
             InitializeComponent();
@@ -105,38 +108,91 @@ namespace Graphic_interface
 
         private void processData(string receivedData)
         {
-            richTextBox1.Text = receivedData;
+            
         }
 
         private async Task dataReception()
         {
             try
             {
-                while(client.Connected)
+                while (client.Connected)
                 {
-                    List<byte> messageBuffer = new List<byte>();
+                    byte[] data = new byte[32];
+                    int totalRead = 0;
 
-                    byte[] buffer = new byte[1];
-                    int bytesRead = await stream.ReadAsync(buffer, 0, 1);   // Leer un byte
-                    
-                    if (bytesRead == 0)
-                        break;  // Conexion cerrada
-
-                    if (buffer[0] == 0xAA)   // Caracter de inicio
+                    while (totalRead < 32)
                     {
-                        messageBuffer.Clear();      // Limpiar buffer
+                        int bytesRead = await stream.ReadAsync(data, totalRead, 32 - totalRead);
+                        if (bytesRead == 0)
+                            break; // conexión cerrada o error
 
-                        // Leer los siguientes mensajes
-                        for(int i = 0; i < 8; i++)
-                        {
-                            // Almacenar datos de variables
-                        }
+                        totalRead += bytesRead;
+                    }
+
+                    if (totalRead == 32)        // Se leyeron los 32 bytes
+                    {
+                        // Almacenar los datos en un archivo, graficar en tiempo real ciertos datos 
+
+                        // Almacenamos el tiempo para graficar
+                        TimeSpan elapsed = DateTime.Now - startTime;
+                        double seconds = elapsed.TotalSeconds;
+
+                        string path = "Muestreo.txt"; // Puedes poner ruta completa si quieres
+
+                        // Abre el archivo para agregar (append), si no existe se crea
+                        using (StreamWriter sw = new StreamWriter(path, true))
+                            sw.WriteLine(BitConverter.ToSingle(data, 24).ToString("F4"));    // Guarda con 4 decimales (opcional)
+                        /*
+                        // Agregar punto con X = tiempo transcurrido en segundos
+                        Chart_Vel.Series["v_d"].Points.AddXY(seconds, BitConverter.ToSingle(data, 0));
+                        //Chart_Vel.Series["v"].Points.AddXY(seconds, BitConverter.ToSingle(data, 1));
+
+                        // Refrescar el gráfico si es necesario
+                        Chart_Vel.Invalidate();
+                        */
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se recibieron los bytes completos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break; // o manejar reconexión, etc.
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                Console.WriteLine("Error en recepción de datos: " + ex.Message);
+            }
+        }
 
+        private async void Button_Start_Click(object sender, EventArgs e)
+        {
+            if (client != null && client.Connected && stream != null)
+            {
+                List<byte> buffer = new List<byte>();
+
+                // Byte de inicio del mensaje
+                buffer.Add(0xAA);
+
+                // Empaquetamos valores de ganancias
+                buffer.AddRange(BitConverter.GetBytes((float)UD_k1.Value));
+                buffer.AddRange(BitConverter.GetBytes((float)UD_k2.Value));
+                buffer.AddRange(BitConverter.GetBytes((float)UD_k3.Value));
+                buffer.AddRange(BitConverter.GetBytes((float)UD_k4.Value));
+                buffer.AddRange(BitConverter.GetBytes((float)UD_kp.Value));
+                buffer.AddRange(BitConverter.GetBytes((float)UD_kv.Value));
+
+                // Empaquetamos valores de configuracion
+                buffer.AddRange(BitConverter.GetBytes((float)UD_Time.Value));
+                buffer.AddRange(BitConverter.GetBytes((float)UD_Vel.Value));
+
+                // Enviar todos los bytes por el stream
+                await stream.WriteAsync(buffer.ToArray(), 0, buffer.Count);
+
+                startTime = DateTime.Now;       // Guardar el momento de inicio
+            }
+            else
+            {
+                MessageBox.Show("No hay conexión con el servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

@@ -5,7 +5,7 @@
     "idf.openOcdConfigs": [
         "board/esp32-wrover-kit-3.3v.cfg"
     ],
-    "idf.portWin": "COM7",
+    "idf.portWin": "COM3",
     "idf.toolsPathWin": "C:\\ESP",
     "idf.flashType": "UART",
     "files.associations": {
@@ -29,7 +29,9 @@
         "cmath": "cpp",
         "random": "cpp",
         "numbers": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "esp_wifi.h": "c",
+        "string.h": "c"
     },
     "idf.customExtraVars": {
         "IDF_TARGET": "esp32"

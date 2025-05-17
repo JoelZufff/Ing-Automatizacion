@@ -87,5 +87,5 @@ $<TARGET_FILE:__idf_Control_System>
 $<TARGET_FILE:__idf_Encoder>
 $<TARGET_FILE:__idf_DCMotor>
 $<TARGET_FILE:__idf_MPU6050>
-$<TARGET_FILE:__idf_TCP_server>
+$<TARGET_FILE:__idf_TCP_Server>
 $<TARGET_FILE:__idf_TCRT5000>

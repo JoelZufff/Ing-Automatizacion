@@ -28,6 +28,11 @@ void TCRT5000_t::init(adc_channel_t AO_chann)
     ESP_LOGI(TAG, "ADC: A%d", AO_chann);
 }
 
+void TCRT5000_t::read_data()           // Obtiene un promedio de los data_num valores leidos del ADC 
+{        
+    ESP_ERROR_CHECK(adc_oneshot_read(ADC_handle, AO_chann, &this->ADC_data));    // Leemos el valor del ADC    
+}
+
 void TCRT5000_t::read_data(uint16_t data_num)           // Obtiene un promedio de los data_num valores leidos del ADC 
 {        
     uint32_t ADC_sum = 0;                   // Variable para almacenar la suma de los i valores leidos del ADC

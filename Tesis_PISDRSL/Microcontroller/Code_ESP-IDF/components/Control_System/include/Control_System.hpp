@@ -26,7 +26,7 @@ private:    // CONSTANTES
     static constexpr float c1 = 0.995; //0.993
     static constexpr float c2 = 1.0 - c1;// ??
 
-    static constexpr float calpha  = 0.145f;   // Compensación del ángulo del IMU [rad]
+    static constexpr float calpha  = 0.145;   // Compensación del ángulo del IMU [rad]
 
 public:     // ESTRUCTURAS
     
@@ -102,28 +102,27 @@ public:     // ESTRUCTURAS
             uint32_t dutyCicle; // Valor del duty cicle para rueda izquierda
             bool direction;     // Direccion de giro de la rueda
         } movL, movR;
-        /*
+
         struct Monitor_Data_s           // Variables del compensador para monitoreo
         {
-            char vd;        // Velocidad traslacional deseada [m/s]
-            char v;         // Velocidad traslacional [m/s]
-            char theta;     // Angulo theta [rad]
-            char alpha;     // Angulo alpha [rad]
-            char omegaL;    // Velocidad angular llanta izquierda [rad/s]
-            char uL;        // Voltaje de salida llanta izquierda [V]
-            char omegaR;    // Velocidad angular llanta izquierda [rad/s]
-            char uR;        // Voltaje de salida llanta izquierda [V]
+            float vd;        // Velocidad traslacional deseada [m/s]
+            float v;         // Velocidad traslacional [m/s]
+            float theta;     // Angulo theta [rad]
+            float alpha;     // Angulo alpha [rad]
+            float omegaL;    // Velocidad angular llanta izquierda [rad/s]
+            float uL;        // Voltaje de salida llanta izquierda [V]
+            float omegaR;    // Velocidad angular llanta izquierda [rad/s]
+            float uR;        // Voltaje de salida llanta izquierda [V]
         } monit_Data;
-        */
     };
 
 private:    // CAMPOS
 // Variables de configuracion
-    System_Config_s Syst_Config;        // Configuracion del sistema
-    Control_Config_s Ctrl_Config;       // Configuracion del controlador
+    System_Config_s Syst_Config;                    // Configuracion del sistema
+    Control_Config_s Ctrl_Config;                   // Configuracion del controlador
 
 // Variables para timer de ciclo de control
-    esp_timer_handle_t control_Timer;
+    esp_timer_handle_t timer_handle = nullptr;      // Handle del timer
 
     /*      // Ver por si ocupamos reiniciar, y resetear integrales
     // Variables para integrales
@@ -135,9 +134,8 @@ private:    // CAMPOS
 
 public:     // METODOS
     Control_System_t() = default;
-    void init(System_Config_s Syst_cfg);                              // Inicializar sistema
+    void init(System_Config_s Syst_cfg);                                // Inicializar sistema
     void init(Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle);    // Inicializar controlador
-    void init(Control_Config_s Ctrl_cfg);                               // Reinicializar controlador
     Outputs_s controlLoop(Inputs_s Inputs);                             // Ciclo de control
 };
 

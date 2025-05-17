@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746020987.95937 "c:/Users/diego/Desktop/Ing_en_automatizacion/6_Semestre/Mecanica_de_materiales/Formularios/1/main.tex" "build/main.pdf" "main" 1746020992.83629 0
+["pdflatex"] 1747421509.51396 "c:/Users/diego/Desktop/Ing_en_automatizacion/6_Semestre/Mecanica_de_materiales/Formularios/1/main.tex" "build/main.pdf" "main" 1747421510.85425 0
   "C:/Users/diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1742620602 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1733329462 11986913 535a3efccd3ba90bc77a16ff2c872be7 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -154,10 +154,10 @@
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "build/main.aux" 1746020991 162 fa61bf9ecf9314f94d51aa32222a725c "pdflatex"
-  "build/main.out" 1746020991 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "c:/Users/diego/Desktop/Ing_en_automatizacion/6_Semestre/Mecanica_de_materiales/Formularios/1/main.tex" 1746020983 14777 a1fee9e2050153abb74122c2f9b0f18c ""
-  "main.tex" 1746020983 14777 a1fee9e2050153abb74122c2f9b0f18c ""
+  "build/main.aux" 1747421510 162 59504cb8f8bee0a3f0488d753cb23a1e "pdflatex"
+  "build/main.out" 1747421510 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "c:/Users/diego/Desktop/Ing_en_automatizacion/6_Semestre/Mecanica_de_materiales/Formularios/1/main.tex" 1747421508 18980 7b3213d8d0d035479247a0825c49448c ""
+  "main.tex" 1747421508 18980 7b3213d8d0d035479247a0825c49448c ""
   (generated)
   "build/main.aux"
   "build/main.log"

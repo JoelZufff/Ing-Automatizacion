@@ -11,17 +11,17 @@
 #include "string.h"         // Funciones de manipulación de cadenas, como strcpy y strlen
 
 // =========================== Estructuras ========================== //
-struct AP_config_s
+namespace AP
 {
-    const char* ssid;            // Nombre de la red (SSID)
-    const char* password;             // Contraseña de la red
-    int channel;                 // Canal de radio (1-13) que usará el AP
-    int maxconn;                 // Número máximo de clientes simultáneos que podrán conectarse al AP (1-10)
-};
+    struct config_s
+    {
+        const char* ssid;            // Nombre de la red (SSID)
+        const char* password;             // Contraseña de la red
+        int channel;                 // Canal de radio (1-13) que usará el AP
+        int maxconn;                 // Número máximo de clientes simultáneos que podrán conectarse al AP (1-10)
+    };
 
-// ===================== Prototipos de funcion ====================== //
-
-static void event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data);  // Funcion para manejar eventos de Wi-Fi (conexiones, desconexiones, errores, etc.)
-void AP_init(AP_config_s cfg);      // Inicializamos el Access Point
-
+    void init(config_s cfg);      // Inicializamos el Access Point
+    static void event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data);  // Funcion para manejar eventos de Wi-Fi (conexiones, desconexiones, errores, etc.)
+}
 #endif

@@ -342,4 +342,100 @@
             \end{center}
         }
     \end{multicols}
+
+    \newpage
+
+    \begin{center} \textbf{Esfuerzos principales} \end{center}
+    \begin{multicols}{2}
+        \mybox{Esfuerzos principales:}
+        {
+            Se mide en [$m^4$] ó [$in^4$] \\\\
+            \textbf{Viga con forma rectangular:}
+            \begin{equation}
+                I_x = \frac{bh^3}{12}
+            \end{equation}
+            \begin{equation}
+                I_y = \frac{hb^3}{12}
+            \end{equation}
+            \textbf{Viga con forma redonda:}
+            \begin{equation}
+                I_x = I_y = \frac{\pi}{4}r^4 = \frac{\pi}{64}d^4
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $b$ & Longitud de la base del rectángulo & [$m$] ó [$in$]\\
+                    $h$ & Longitud de la altura del rectángulo & [$m$] ó [$in$]\\
+                    $r$ & Radio de eje sometido a flexión & [$m$] ó [$in$]\\
+                    $d$ & Diámetro de eje sometido a flexión & [$m$] ó [$in$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Esfuerzo normal:}
+        {
+            Es generado cuando la viga está sometida a un momento flector, es decir, cuando actúa una fuerza transversal sobre ella. Se mide con las unidades de [$Pa$] ó [$psi$]. \\ 
+            \begin{equation}
+                \sigma = \frac{M(x)c}{I}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{25mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $M(x)$ & Ecuación de momento flector en sección $x$ & [$N \cdot m$] ó [$lb_f\cdot in$]\\
+                    $c$ & Distancia desde el eje neutro hasta la fibra extrema & [$m$] ó [$in$]\\
+                    $I$ & Momento de inercia & [$m^4$] ó [$in^4$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Esfuerzo cortante:}
+        {
+            Es generado cuando hay una fuerza cortante en la sección transversal la viga. Se mide con las unidades de [$Pa$] ó [$psi$]. \\\\
+            \textbf{Viga con forma rectangular:}
+            \begin{equation}
+                \tau = \left(\frac{3}{2}\right)\left(\frac{V(x)}{A}\right)
+            \end{equation}
+            \textbf{Viga con forma redonda:}
+            \begin{equation}
+                \tau = \left(\frac{4}{3}\right)\left(\frac{V(x)}{A}\right)
+            \end{equation}
+            \textbf{Viga con forma redonda hueca:}
+            \begin{equation}
+                \tau = \frac{2V(x)}{A}
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{35mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $V(x)$ & Ecuacion de fuerza cortante en sección $x$ & [$N$] ó [$lb_f$]\\
+                    $A$ & Área transversal a la fuerza & [$m^2$] ó [$in^2$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+
+        \mybox{Deformacion por flexión:}
+        {
+            Es generada cuando una viga es sometida a un momento flector, es decir, cuando una fuerza transversal actúa sobre la viga en un punto determinado. Se mide en [$m$] ó [$in$].
+            \begin{equation}
+                EI\frac{d^2y}{dx^2} = M(x)
+            \end{equation}
+            \begin{equation}
+                \frac{dy}{dx} = \frac{1}{EI}\int M(x)dx + C_1
+            \end{equation}
+            \begin{equation}
+                y(x) = \frac{1}{EI}\iint M(x)dxdx + C_1x + C_2
+            \end{equation}
+            Donde:
+            \begin{center}
+                \begin{tabular}{ c | p{25mm} | c }
+                    \hline Variable & Definición & Unidad \\ \hline 
+                    $E$ & Modulo de Young & [$Pa$] ó [$psi$]\\
+                    $I$ & Momento de inercia & [$m^4$] ó [$in^4$]\\
+                    $M(x)$ & Ecuación de momento flector en sección $x$ & [$N \cdot m$] ó [$lb_f \cdot in$]\\ \hline
+                \end{tabular}
+            \end{center}
+        }
+    \end{multicols}
 \end{document}

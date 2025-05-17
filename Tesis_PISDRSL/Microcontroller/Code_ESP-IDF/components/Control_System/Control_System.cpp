@@ -6,6 +6,12 @@ void Control_System_t::init(System_Config_s Syst_cfg) { Syst_Config = Syst_cfg; 
 
 void Control_System_t::init(Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle)
 {
+    if(timer_handle == nullptr)     // Se inicializo el timer por primera vez
+    {
+        
+    }
+    
+
 // Almacenamos configuracion recibida
     Ctrl_Config = Ctrl_cfg;
 
@@ -15,20 +21,15 @@ void Control_System_t::init(Control_Config_s Ctrl_cfg, esp_timer_cb_t Tmr_handle
         .callback = Tmr_handle,
         .name = "Control_Loop"
     };
-    ESP_ERROR_CHECK(esp_timer_create(&timer_args, &control_Timer));
+    ESP_ERROR_CHECK(esp_timer_create(&timer_args, &timer_handle));
 
     // Iniciamos el timer
-    ESP_ERROR_CHECK(esp_timer_start_periodic(control_Timer, Ctrl_Config.Ts * 1000000));
+    ESP_ERROR_CHECK(esp_timer_start_periodic(timer_handle, Ctrl_Config.Ts * 1000000));
 
     // El timer se ha inicializado
-    ESP_LOGI(TAG, "Timer de lazo de control iniciado correctamente");
-}
-
-void Control_System_t::init(Control_Config_s Ctrl_cfg)
-{
-    // Modificamos periodo de muestreo y las variables de nuestro sistema de control
-
-    // Debemos limpiar las variables de integrales
+    ESP_LOGI(TAG, "Controlador inicializado con los siguientes valores:");
+    ESP_LOGI(TAG, "k1 = %.3f | k2 = %.2f | k3 = %.2f | k4 =  %.2f | kp =  %.2f | kv = %.3f", Ctrl_cfg.Gains.k1, Ctrl_cfg.Gains.k2, Ctrl_cfg.Gains.k3, Ctrl_cfg.Gains.k4, Ctrl_cfg.Gains.kp, Ctrl_cfg.Gains.kv);
+    ESP_LOGI(TAG, "Ts = %.3f | vd = %.3f", Ctrl_cfg.Ts, Ctrl_cfg.References.V_d);
 }
 
 Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
@@ -36,7 +37,7 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
 // Calculo angulo theta de error de seguimiento de linea
     float theta = In.sR - In.sL;
 
-    // Saturación del ángulo theta para mantenerlo dentro del rango [-160, 160] grados
+    // Saturación del ángulo theta para mantenerlo dentro del rango [-160, 160]
     if (theta > 160.0)
         theta = 160.0;
     else if (theta < -160.0)
@@ -71,7 +72,7 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
             alpha = -Syst_Config.Max_Values.alpha;
 
 // Calculo de velocidad traslacional
-    float v = (omegaL + omegaR) * Syst_Config.Geometry.R / 2.0;   
+    float v = (omegaL + omegaR) * Syst_Config.Geometry.R / 2.0;     // Promedio de velocidad de las 2 ruedas por el radio   
       
 // Calculo de theta punto
     float thetap = (omegaR - omegaL) * Syst_Config.Geometry.R / (2.0 * Syst_Config.Geometry.b);     
@@ -80,6 +81,7 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
     float thetatil = theta - Ctrl_Config.References.theta_d;    // Se calcula theta tilde
     float alphap = (alpha - alpha_1) / Ctrl_Config.Ts;          // Se calcula alpha punto (Derivada sucia de alpha)
     alpha_1 = alpha;                                            // Almacenamos alpha anterior
+    
     float vtil = v - Ctrl_Config.References.V_d;                // Se calcula v tilde
 
     static float intvtil = 0.0;                 // Integral de v tilde
@@ -98,12 +100,14 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
 // Calculo de esfuerzo de control
     float taua = (-Ctrl_Config.Gains.kv * thetap - Ctrl_Config.Gains.kp * thetatil) * 2.0 * Syst_Config.Geometry.b / Syst_Config.Geometry.R;
     float u = (Ctrl_Config.Gains.k1 * alphap) + (Ctrl_Config.Gains.k2 * alpha) + (Ctrl_Config.Gains.k3 * vtil) + (Ctrl_Config.Gains.k4 * intvtil);
+
+    // Parece ser un PD para controlar el angulo alpha y un PI para controlar la velocidad traslacional
     
     // Saturación de voltaje de salida
         if(u >= v2tauM)
             u = v2tauM;
         if(u <= (-v2tauM))
-            u =- v2tauM; 
+            u = -v2tauM; 
                            
     // Calculo de pares por rueda      
         float tauL = (-taua + u) / 2.0;     // par izquierdo
@@ -127,10 +131,10 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
     //ur=uNM*cos(0.314*t);
 
     // Saturacion de voltaje para que no exceda el voltaje nominal
-    if(uR >= Syst_Config.Max_Values.uN)
-        uR = Syst_Config.Max_Values.uN;
-    if(uR <= (-Syst_Config.Max_Values.uN))
-        uR = -Syst_Config.Max_Values.uN;
+        if(uR >= Syst_Config.Max_Values.uN)
+            uR = Syst_Config.Max_Values.uN;
+        if(uR <= (-Syst_Config.Max_Values.uN))
+            uR = -Syst_Config.Max_Values.uN;
 
 // Salida del sistema de control
     static float V_to_DC = Syst_Config.Max_Values.duty_Cicle / Syst_Config.Max_Values.uN;   // Constante para convertir voltaje a duty cicle
@@ -140,14 +144,24 @@ Control_System_t::Outputs_s Control_System_t::controlLoop(Inputs_s In)
         .movL = 
         {
             .dutyCicle = (uint32_t) fabsf(uL * V_to_DC),
-            .direction = (uL >= 0) ? true : false
+            .direction = (uL >= 0)
         },
         .movR = 
         {
             .dutyCicle = (uint32_t) fabsf(uR * V_to_DC),
-            .direction = (uR >= 0) ? true : false
+            .direction = (uR >= 0)
+        },
+        .monit_Data = 
+        {
+            .vd = Ctrl_Config.References.V_d,
+            .v = v,
+            .theta = theta,
+            .alpha = alpha,
+            .omegaL = omegaL,
+            .uL = uL,
+            .omegaR = omegaR,
+            .uR = uR
         }
-        // FALTA AGREGAR MONITDATA
     };
 
     return Out;

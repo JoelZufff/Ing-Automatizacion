@@ -45,7 +45,7 @@ public:     // METODOS
     DC_motor_t() = default;
     void init(config_s cfg);                                // Inicializa pines de GPIO y PWM para el movimiento del motor
     uint32_t get_MAX_DC();                                  // Devuelve el valor maximo del ciclo de trabajo
-    void set_movement(uint16_t duty_cycle, bool direction); // Realiza un movimiento a la velocidad y direccion deseada
+    void set_movement(uint32_t duty_cycle, bool direction); // Realiza un movimiento a la velocidad y direccion deseada
 };
 
 #endif

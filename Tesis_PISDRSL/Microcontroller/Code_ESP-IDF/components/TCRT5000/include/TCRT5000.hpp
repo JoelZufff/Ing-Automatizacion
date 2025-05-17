@@ -25,7 +25,8 @@ private:
 public:     // METODOS
     TCRT5000_t();    // Inicializamos el Handle del ADC
     void init(adc_channel_t AO_chann);      // Inicializamos el TCRT5000
-    void read_data(uint16_t data_num);           // Obtiene un promedio de los data_num valores leidos del ADC 
+    void read_data();                       // Obtiene un valor unico leido del ADC
+    void read_data(uint16_t data_num);      // Obtiene un promedio de los data_num valores leidos del ADC 
 };
 
 #endif

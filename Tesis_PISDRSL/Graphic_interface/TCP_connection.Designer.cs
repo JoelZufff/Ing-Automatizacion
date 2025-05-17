@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series25 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series26 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series27 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series28 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title17 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series29 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title18 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea19 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series30 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title19 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title20 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.Button_Connect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,6 +58,12 @@
             this.Textbox_IP = new System.Windows.Forms.TextBox();
             this.Panel_Connection = new System.Windows.Forms.Panel();
             this.Panel_Graph = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.UD_Vel = new System.Windows.Forms.NumericUpDown();
+            this.UD_Time = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.UD_k1 = new System.Windows.Forms.NumericUpDown();
@@ -71,20 +77,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.UD_Time = new System.Windows.Forms.NumericUpDown();
-            this.UD_Vel = new System.Windows.Forms.NumericUpDown();
-            this.Chart_Vel = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Button_Stop = new System.Windows.Forms.Button();
-            this.Button_Start = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Chart_LeftWheel = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Button_Stop = new System.Windows.Forms.Button();
             this.Chart_Alpha = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Chart_Theta = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Chart_Vel = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Button_Start = new System.Windows.Forms.Button();
             this.Panel_Connection.SuspendLayout();
             this.Panel_Graph.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UD_Vel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UD_Time)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UD_k1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_k2)).BeginInit();
@@ -92,14 +96,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.UD_k4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_kp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_kv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UD_Time)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UD_Vel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Vel)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_LeftWheel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Alpha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Theta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Vel)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_Connect
@@ -181,6 +181,126 @@
             this.Panel_Graph.TabIndex = 6;
             this.Panel_Graph.Visible = false;
             // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea16.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea16.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea16.BorderColor = System.Drawing.Color.Gray;
+            chartArea16.CursorX.LineColor = System.Drawing.Color.Purple;
+            chartArea16.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea16);
+            legend16.BackColor = System.Drawing.Color.White;
+            legend16.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            legend16.BorderColor = System.Drawing.Color.Black;
+            legend16.DockedToChartArea = "ChartArea1";
+            legend16.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend16.IsTextAutoFit = false;
+            legend16.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend16.Name = "Legend1";
+            legend16.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
+            this.chart1.Legends.Add(legend16);
+            this.chart1.Location = new System.Drawing.Point(9, 743);
+            this.chart1.Name = "chart1";
+            series25.ChartArea = "ChartArea1";
+            series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series25.Legend = "Legend1";
+            series25.LegendText = "ω_r [rad/s]";
+            series25.Name = "omega_r";
+            series25.YValuesPerPoint = 6;
+            series26.ChartArea = "ChartArea1";
+            series26.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series26.Legend = "Legend1";
+            series26.LegendText = "u_r [V]";
+            series26.Name = "u_r";
+            this.chart1.Series.Add(series25);
+            this.chart1.Series.Add(series26);
+            this.chart1.Size = new System.Drawing.Size(760, 147);
+            this.chart1.TabIndex = 30;
+            this.chart1.Text = "chart4";
+            title16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title16.Name = "Title1";
+            title16.Text = "Rueda derecha";
+            this.chart1.Titles.Add(title16);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.UD_Vel);
+            this.panel2.Controls.Add(this.UD_Time);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Location = new System.Drawing.Point(400, 14);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(124, 80);
+            this.panel2.TabIndex = 29;
+            // 
+            // UD_Vel
+            // 
+            this.UD_Vel.DecimalPlaces = 3;
+            this.UD_Vel.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.UD_Vel.Location = new System.Drawing.Point(34, 47);
+            this.UD_Vel.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
+            this.UD_Vel.Name = "UD_Vel";
+            this.UD_Vel.Size = new System.Drawing.Size(78, 20);
+            this.UD_Vel.TabIndex = 24;
+            // 
+            // UD_Time
+            // 
+            this.UD_Time.DecimalPlaces = 3;
+            this.UD_Time.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.UD_Time.Location = new System.Drawing.Point(34, 13);
+            this.UD_Time.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.UD_Time.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            196608});
+            this.UD_Time.Name = "UD_Time";
+            this.UD_Time.Size = new System.Drawing.Size(78, 20);
+            this.UD_Time.TabIndex = 25;
+            this.UD_Time.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(8, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(22, 13);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Ts:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(8, 50);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(22, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "vd:";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -224,7 +344,7 @@
             this.UD_k1.Size = new System.Drawing.Size(78, 20);
             this.UD_k1.TabIndex = 3;
             this.UD_k1.Value = new decimal(new int[] {
-            19,
+            20,
             0,
             0,
             196608});
@@ -242,10 +362,10 @@
             this.UD_k2.Size = new System.Drawing.Size(78, 20);
             this.UD_k2.TabIndex = 4;
             this.UD_k2.Value = new decimal(new int[] {
-            194,
+            15,
             0,
             0,
-            131072});
+            65536});
             // 
             // UD_k3
             // 
@@ -295,11 +415,6 @@
             this.UD_kp.Name = "UD_kp";
             this.UD_kp.Size = new System.Drawing.Size(78, 20);
             this.UD_kp.TabIndex = 7;
-            this.UD_kp.Value = new decimal(new int[] {
-            8,
-            0,
-            0,
-            131072});
             // 
             // UD_kv
             // 
@@ -313,11 +428,6 @@
             this.UD_kv.Name = "UD_kv";
             this.UD_kv.Size = new System.Drawing.Size(78, 20);
             this.UD_kv.TabIndex = 8;
-            this.UD_kv.Value = new decimal(new int[] {
-            8,
-            0,
-            0,
-            196608});
             // 
             // label4
             // 
@@ -369,128 +479,51 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "kv:";
             // 
-            // label9
+            // Chart_LeftWheel
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(8, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(22, 13);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Ts:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(8, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(22, 13);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "vd:";
-            // 
-            // UD_Time
-            // 
-            this.UD_Time.DecimalPlaces = 3;
-            this.UD_Time.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-            this.UD_Time.Location = new System.Drawing.Point(34, 13);
-            this.UD_Time.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.UD_Time.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            196608});
-            this.UD_Time.Name = "UD_Time";
-            this.UD_Time.Size = new System.Drawing.Size(78, 20);
-            this.UD_Time.TabIndex = 25;
-            this.UD_Time.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            // 
-            // UD_Vel
-            // 
-            this.UD_Vel.DecimalPlaces = 3;
-            this.UD_Vel.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.UD_Vel.Location = new System.Drawing.Point(34, 47);
-            this.UD_Vel.Maximum = new decimal(new int[] {
-            25,
-            0,
-            0,
-            131072});
-            this.UD_Vel.Minimum = new decimal(new int[] {
-            75,
-            0,
-            0,
-            196608});
-            this.UD_Vel.Name = "UD_Vel";
-            this.UD_Vel.Size = new System.Drawing.Size(78, 20);
-            this.UD_Vel.TabIndex = 24;
-            this.UD_Vel.Value = new decimal(new int[] {
-            75,
-            0,
-            0,
-            196608});
-            // 
-            // Chart_Vel
-            // 
-            this.Chart_Vel.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea5.BorderColor = System.Drawing.Color.Gray;
-            chartArea5.CursorX.LineColor = System.Drawing.Color.Purple;
-            chartArea5.Name = "ChartArea1";
-            this.Chart_Vel.ChartAreas.Add(chartArea5);
-            legend5.BackColor = System.Drawing.Color.White;
-            legend5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            legend5.BorderColor = System.Drawing.Color.Black;
-            legend5.DockedToChartArea = "ChartArea1";
-            legend5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend5.IsTextAutoFit = false;
-            legend5.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend5.Name = "Legend1";
-            legend5.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
-            this.Chart_Vel.Legends.Add(legend5);
-            this.Chart_Vel.Location = new System.Drawing.Point(10, 105);
-            this.Chart_Vel.Name = "Chart_Vel";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series7.Legend = "Legend1";
-            series7.LegendText = "v_d [m/s]";
-            series7.Name = "v_d";
-            series7.YValuesPerPoint = 6;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series8.Legend = "Legend1";
-            series8.LegendText = "v [m/s]";
-            series8.Name = "v";
-            this.Chart_Vel.Series.Add(series7);
-            this.Chart_Vel.Series.Add(series8);
-            this.Chart_Vel.Size = new System.Drawing.Size(760, 147);
-            this.Chart_Vel.TabIndex = 19;
-            this.Chart_Vel.Text = "chart1";
-            title5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title5.Name = "Title1";
-            title5.Text = "Velocidad traslacional";
-            this.Chart_Vel.Titles.Add(title5);
+            this.Chart_LeftWheel.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea17.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea17.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea17.BorderColor = System.Drawing.Color.Gray;
+            chartArea17.CursorX.LineColor = System.Drawing.Color.Purple;
+            chartArea17.Name = "ChartArea1";
+            this.Chart_LeftWheel.ChartAreas.Add(chartArea17);
+            legend17.BackColor = System.Drawing.Color.White;
+            legend17.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            legend17.BorderColor = System.Drawing.Color.Black;
+            legend17.DockedToChartArea = "ChartArea1";
+            legend17.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend17.IsTextAutoFit = false;
+            legend17.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend17.Name = "Legend1";
+            legend17.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
+            this.Chart_LeftWheel.Legends.Add(legend17);
+            this.Chart_LeftWheel.Location = new System.Drawing.Point(11, 582);
+            this.Chart_LeftWheel.Name = "Chart_LeftWheel";
+            series27.ChartArea = "ChartArea1";
+            series27.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series27.Legend = "Legend1";
+            series27.LegendText = "ω_l [rad/s]";
+            series27.Name = "omega_l";
+            series27.YValuesPerPoint = 6;
+            series28.ChartArea = "ChartArea1";
+            series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series28.Legend = "Legend1";
+            series28.LegendText = "u_l [V]";
+            series28.Name = "u_l";
+            this.Chart_LeftWheel.Series.Add(series27);
+            this.Chart_LeftWheel.Series.Add(series28);
+            this.Chart_LeftWheel.Size = new System.Drawing.Size(760, 147);
+            this.Chart_LeftWheel.TabIndex = 22;
+            this.Chart_LeftWheel.Text = "chart4";
+            title17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title17.Name = "Title1";
+            title17.Text = "Rueda izquierda";
+            this.Chart_LeftWheel.Titles.Add(title17);
             // 
             // Button_Stop
             // 
             this.Button_Stop.BackColor = System.Drawing.Color.Crimson;
-            this.Button_Stop.Enabled = false;
             this.Button_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button_Stop.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Stop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -500,6 +533,120 @@
             this.Button_Stop.TabIndex = 17;
             this.Button_Stop.Text = "STOP";
             this.Button_Stop.UseVisualStyleBackColor = false;
+            // 
+            // Chart_Alpha
+            // 
+            this.Chart_Alpha.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea18.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea18.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea18.BorderColor = System.Drawing.Color.Gray;
+            chartArea18.CursorX.LineColor = System.Drawing.Color.Purple;
+            chartArea18.Name = "ChartArea1";
+            this.Chart_Alpha.ChartAreas.Add(chartArea18);
+            legend18.BackColor = System.Drawing.Color.White;
+            legend18.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            legend18.BorderColor = System.Drawing.Color.Black;
+            legend18.DockedToChartArea = "ChartArea1";
+            legend18.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend18.IsTextAutoFit = false;
+            legend18.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend18.Name = "Legend1";
+            legend18.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
+            this.Chart_Alpha.Legends.Add(legend18);
+            this.Chart_Alpha.Location = new System.Drawing.Point(11, 422);
+            this.Chart_Alpha.Name = "Chart_Alpha";
+            series29.ChartArea = "ChartArea1";
+            series29.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series29.Legend = "Legend1";
+            series29.LegendText = "α [rad]";
+            series29.Name = "alpha";
+            series29.YValuesPerPoint = 6;
+            this.Chart_Alpha.Series.Add(series29);
+            this.Chart_Alpha.Size = new System.Drawing.Size(760, 147);
+            this.Chart_Alpha.TabIndex = 21;
+            this.Chart_Alpha.Text = "chart3";
+            title18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title18.Name = "Title1";
+            title18.Text = "Angulo α";
+            this.Chart_Alpha.Titles.Add(title18);
+            // 
+            // Chart_Theta
+            // 
+            this.Chart_Theta.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea19.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea19.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea19.BorderColor = System.Drawing.Color.Gray;
+            chartArea19.CursorX.LineColor = System.Drawing.Color.Purple;
+            chartArea19.Name = "ChartArea1";
+            this.Chart_Theta.ChartAreas.Add(chartArea19);
+            legend19.BackColor = System.Drawing.Color.White;
+            legend19.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            legend19.BorderColor = System.Drawing.Color.Black;
+            legend19.DockedToChartArea = "ChartArea1";
+            legend19.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend19.IsTextAutoFit = false;
+            legend19.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend19.Name = "Legend1";
+            legend19.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
+            this.Chart_Theta.Legends.Add(legend19);
+            this.Chart_Theta.Location = new System.Drawing.Point(11, 263);
+            this.Chart_Theta.Name = "Chart_Theta";
+            series30.ChartArea = "ChartArea1";
+            series30.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series30.Legend = "Legend1";
+            series30.LegendText = "θ [rad]";
+            series30.Name = "theta";
+            series30.YValuesPerPoint = 6;
+            this.Chart_Theta.Series.Add(series30);
+            this.Chart_Theta.Size = new System.Drawing.Size(760, 147);
+            this.Chart_Theta.TabIndex = 20;
+            this.Chart_Theta.Text = "chart2";
+            title19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title19.Name = "Title1";
+            title19.Text = "Angulo θ";
+            this.Chart_Theta.Titles.Add(title19);
+            // 
+            // Chart_Vel
+            // 
+            this.Chart_Vel.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea20.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea20.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea20.BorderColor = System.Drawing.Color.Gray;
+            chartArea20.CursorX.LineColor = System.Drawing.Color.Purple;
+            chartArea20.Name = "ChartArea1";
+            this.Chart_Vel.ChartAreas.Add(chartArea20);
+            legend20.BackColor = System.Drawing.Color.White;
+            legend20.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            legend20.BorderColor = System.Drawing.Color.Black;
+            legend20.DockedToChartArea = "ChartArea1";
+            legend20.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend20.IsTextAutoFit = false;
+            legend20.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend20.Name = "Legend1";
+            legend20.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
+            this.Chart_Vel.Legends.Add(legend20);
+            this.Chart_Vel.Location = new System.Drawing.Point(10, 105);
+            this.Chart_Vel.Name = "Chart_Vel";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series31.Legend = "Legend1";
+            series31.LegendText = "v_d [m/s]";
+            series31.Name = "v_d";
+            series31.YValuesPerPoint = 6;
+            series32.ChartArea = "ChartArea1";
+            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series32.Legend = "Legend1";
+            series32.LegendText = "v [m/s]";
+            series32.Name = "v";
+            this.Chart_Vel.Series.Add(series31);
+            this.Chart_Vel.Series.Add(series32);
+            this.Chart_Vel.Size = new System.Drawing.Size(760, 147);
+            this.Chart_Vel.TabIndex = 19;
+            this.Chart_Vel.Text = "chart1";
+            title20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title20.Name = "Title1";
+            title20.Text = "Velocidad traslacional";
+            this.Chart_Vel.Titles.Add(title20);
             // 
             // Button_Start
             // 
@@ -513,174 +660,7 @@
             this.Button_Start.TabIndex = 16;
             this.Button_Start.Text = "START";
             this.Button_Start.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel2.Controls.Add(this.UD_Vel);
-            this.panel2.Controls.Add(this.UD_Time);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Location = new System.Drawing.Point(400, 14);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(124, 80);
-            this.panel2.TabIndex = 29;
-            // 
-            // Chart_LeftWheel
-            // 
-            this.Chart_LeftWheel.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea2.BorderColor = System.Drawing.Color.Gray;
-            chartArea2.CursorX.LineColor = System.Drawing.Color.Purple;
-            chartArea2.Name = "ChartArea1";
-            this.Chart_LeftWheel.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.White;
-            legend2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            legend2.BorderColor = System.Drawing.Color.Black;
-            legend2.DockedToChartArea = "ChartArea1";
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsTextAutoFit = false;
-            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend2.Name = "Legend1";
-            legend2.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
-            this.Chart_LeftWheel.Legends.Add(legend2);
-            this.Chart_LeftWheel.Location = new System.Drawing.Point(11, 582);
-            this.Chart_LeftWheel.Name = "Chart_LeftWheel";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.Legend = "Legend1";
-            series3.LegendText = "ω_l [rad/s]";
-            series3.Name = "omega_l";
-            series3.YValuesPerPoint = 6;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series4.Legend = "Legend1";
-            series4.LegendText = "u_l [V]";
-            series4.Name = "u_l";
-            this.Chart_LeftWheel.Series.Add(series3);
-            this.Chart_LeftWheel.Series.Add(series4);
-            this.Chart_LeftWheel.Size = new System.Drawing.Size(760, 147);
-            this.Chart_LeftWheel.TabIndex = 22;
-            this.Chart_LeftWheel.Text = "chart4";
-            title2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title1";
-            title2.Text = "Rueda izquierda";
-            this.Chart_LeftWheel.Titles.Add(title2);
-            // 
-            // Chart_Alpha
-            // 
-            this.Chart_Alpha.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea3.BorderColor = System.Drawing.Color.Gray;
-            chartArea3.CursorX.LineColor = System.Drawing.Color.Purple;
-            chartArea3.Name = "ChartArea1";
-            this.Chart_Alpha.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.White;
-            legend3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            legend3.BorderColor = System.Drawing.Color.Black;
-            legend3.DockedToChartArea = "ChartArea1";
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend3.Name = "Legend1";
-            legend3.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
-            this.Chart_Alpha.Legends.Add(legend3);
-            this.Chart_Alpha.Location = new System.Drawing.Point(11, 422);
-            this.Chart_Alpha.Name = "Chart_Alpha";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series5.Legend = "Legend1";
-            series5.LegendText = "α [rad]";
-            series5.Name = "alpha";
-            series5.YValuesPerPoint = 6;
-            this.Chart_Alpha.Series.Add(series5);
-            this.Chart_Alpha.Size = new System.Drawing.Size(760, 147);
-            this.Chart_Alpha.TabIndex = 21;
-            this.Chart_Alpha.Text = "chart3";
-            title3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "Title1";
-            title3.Text = "Angulo α";
-            this.Chart_Alpha.Titles.Add(title3);
-            // 
-            // Chart_Theta
-            // 
-            this.Chart_Theta.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea4.BorderColor = System.Drawing.Color.Gray;
-            chartArea4.CursorX.LineColor = System.Drawing.Color.Purple;
-            chartArea4.Name = "ChartArea1";
-            this.Chart_Theta.ChartAreas.Add(chartArea4);
-            legend4.BackColor = System.Drawing.Color.White;
-            legend4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            legend4.BorderColor = System.Drawing.Color.Black;
-            legend4.DockedToChartArea = "ChartArea1";
-            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend4.IsTextAutoFit = false;
-            legend4.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend4.Name = "Legend1";
-            legend4.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
-            this.Chart_Theta.Legends.Add(legend4);
-            this.Chart_Theta.Location = new System.Drawing.Point(11, 263);
-            this.Chart_Theta.Name = "Chart_Theta";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series6.Legend = "Legend1";
-            series6.LegendText = "θ [rad]";
-            series6.Name = "theta";
-            series6.YValuesPerPoint = 6;
-            this.Chart_Theta.Series.Add(series6);
-            this.Chart_Theta.Size = new System.Drawing.Size(760, 147);
-            this.Chart_Theta.TabIndex = 20;
-            this.Chart_Theta.Text = "chart2";
-            title4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "Title1";
-            title4.Text = "Angulo θ";
-            this.Chart_Theta.Titles.Add(title4);
-            // 
-            // chart1
-            // 
-            this.chart1.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.BorderColor = System.Drawing.Color.Gray;
-            chartArea1.CursorX.LineColor = System.Drawing.Color.Purple;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.White;
-            legend1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
-            legend1.BorderColor = System.Drawing.Color.Black;
-            legend1.DockedToChartArea = "ChartArea1";
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsTextAutoFit = false;
-            legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend1.Name = "Legend1";
-            legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Wide;
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(9, 743);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series1.Legend = "Legend1";
-            series1.LegendText = "ω_r [rad/s]";
-            series1.Name = "omega_r";
-            series1.YValuesPerPoint = 6;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series2.Legend = "Legend1";
-            series2.LegendText = "u_r [V]";
-            series2.Name = "u_r";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(760, 147);
-            this.chart1.TabIndex = 30;
-            this.chart1.Text = "chart4";
-            title1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Title1";
-            title1.Text = "Rueda derecha";
-            this.chart1.Titles.Add(title1);
+            this.Button_Start.Click += new System.EventHandler(this.Button_Start_Click);
             // 
             // TCP_connection
             // 
@@ -695,6 +675,11 @@
             this.Panel_Connection.ResumeLayout(false);
             this.Panel_Connection.PerformLayout();
             this.Panel_Graph.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UD_Vel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UD_Time)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UD_k1)).EndInit();
@@ -703,15 +688,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.UD_k4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_kp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UD_kv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UD_Time)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UD_Vel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart_Vel)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_LeftWheel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Alpha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Theta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_Vel)).EndInit();
             this.ResumeLayout(false);
 
         }

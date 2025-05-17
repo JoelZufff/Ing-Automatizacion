@@ -866,7 +866,7 @@ C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/MPU6050/CMakeFiles/install.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/MPU6050/CMakeFiles/install/local.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/MPU6050/CMakeFiles/install/strip.dir
-C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/TCP_server/CMakeFiles/__idf_TCP_server.dir
+C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/TCP_server/CMakeFiles/__idf_TCP_Server.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/TCP_server/CMakeFiles/edit_cache.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/TCP_server/CMakeFiles/rebuild_cache.dir
 C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/build/esp-idf/TCP_server/CMakeFiles/list_install_components.dir

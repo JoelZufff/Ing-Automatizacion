@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.4)  30 APR 2025 07:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.4)  16 MAY 2025 12:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -832,7 +832,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 343--343
 
 
 
-[3] (c:\Users\diego\Desktop\Ing_en_automatizacion\6_Semestre\Mecanica_de_materiales\Formularios\1\build\main.aux)
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
+[]|\OT1/cmr/m/n/10 Di^^Sametro de eje
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--391
+\OT1/cmr/m/n/10 el eje neu-tro
+ []
+
+
+Underfull \hbox (badness 6300) in paragraph at lines 391--391
+\OT1/cmr/m/n/10 hasta la fi-bra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--439
+[]|\OT1/cmr/m/n/10 Modulo de
+ []
+
+
+
+[4] (c:\Users\diego\Desktop\Ing_en_automatizacion\6_Semestre\Mecanica_de_materiales\Formularios\1\build\main.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -841,17 +878,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24976 strings out of 473682
- 477406 string characters out of 5719216
- 888931 words of memory out of 5000000
- 47653 multiletter control sequences out of 15000+600000
+ 24991 strings out of 473682
+ 477586 string characters out of 5719216
+ 888932 words of memory out of 5000000
+ 47657 multiletter control sequences out of 15000+600000
  560376 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,12n,121p,573b,647s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on c:\Users\diego\Desktop\Ing_en_automatizacion\6_Semestre\Mecanica_de_materiales\Formularios\1\build\main.pdf (3 pages, 118483 bytes).
+Output written on c:\Users\diego\Desktop\Ing_en_automatizacion\6_Semestre\Mecanica_de_materiales\Formularios\1\build\main.pdf (4 pages, 124405 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

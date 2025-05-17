@@ -14,9 +14,9 @@ void DC_motor_t::init(config_s cfg)
         mcpwm_timer_config_t timer_config = 
         {
             .group_id = 0,
-            .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT,         // PLL Clock 240 MHz
+            .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT,         // Clock source
             .resolution_hz = config.PWM.resolution_hz,      // Resolucion del PWM
-            .count_mode = MCPWM_TIMER_COUNT_MODE_UP_DOWN,   // Count up and down 
+            .count_mode = MCPWM_TIMER_COUNT_MODE_UP,        // Count up down
             .period_ticks = config.PWM.period_ticks,        // Valor maximo del ciclo de trabajo
             .intr_priority = 0,                             // Low priority
         };
@@ -47,24 +47,37 @@ void DC_motor_t::init(config_s cfg)
 // Inicializamos el PWM en EN_pin
     // Creacion de comparadores, para definir el punto de cambio (duty cycle) de la señal PWM. //
     mcpwm_comparator_config_t compare_config;
-    compare_config.flags.update_cmp_on_tez = true;
-    compare_config.intr_priority = 0;
+        compare_config.flags.update_cmp_on_tez = true;
+        compare_config.intr_priority = 0;
     ESP_ERROR_CHECK(mcpwm_new_comparator(op, &compare_config, &comp));
     ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comp, 0));       // 0% duty cycle
 
     // Creacion de generador, para generar la señal PWM en el pin seleccionado //
     mcpwm_generator_config_t gen_config; 
     gen_config.gen_gpio_num = config.pins.EN_pin;         // GPIO para la señal PWM
+    gen_config.flags.invert_pwm = 0;                      // No invertimos la señal
     ESP_ERROR_CHECK(mcpwm_new_generator(op, &gen_config, &gen));
 
-    // Configuracion de la señal PWM //
-    ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(gen,MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
-    ESP_ERROR_CHECK(mcpwm_generator_set_actions_on_compare_event(gen,MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comp, MCPWM_GEN_ACTION_LOW)));
+    // Configuracion de acciones del generador
+    ESP_ERROR_CHECK(mcpwm_generator_set_actions_on_timer_event
+    (   
+        gen, 
+        MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH),     // Cuando el timer llega a 0, la señal PWM se pone en alto
+        MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_FULL, MCPWM_GEN_ACTION_LOW),       // Cuando el timer llega a su maximo, la señal PWM se pone en bajo
+        MCPWM_GEN_TIMER_EVENT_ACTION_END()
+    ));
+    
+    ESP_ERROR_CHECK(mcpwm_generator_set_actions_on_compare_event
+    (
+        gen, 
+        MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comp, MCPWM_GEN_ACTION_LOW),   // Cuando el timer llega al comparador, la señal PWM se pone en bajo
+        MCPWM_GEN_COMPARE_EVENT_ACTION_END()
+    ));
 
     ESP_LOGI(TAG, "IN1_pin = %d | IN2_pin = %d | EN_pin = %d", config.pins.IN1_pin, config.pins.IN2_pin, config.pins.EN_pin);
 }
 
-void DC_motor_t::set_movement(uint16_t duty_cycle, bool direction)
+void DC_motor_t::set_movement(uint32_t duty_cycle, bool direction)
 {
 // Establecemos la direccion de movimiento del motor
     gpio_set_level(config.pins.IN1_pin, !direction);

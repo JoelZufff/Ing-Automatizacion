@@ -5,7 +5,7 @@
 static const char *TAG = "AccessPoint";   // Etiqueta para el registro de logs
 
 // ==================== Definicion de funciones ===================== //
-static void event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data)  // Funcion para manejar eventos de Wi-Fi (conexiones, desconexiones, errores, etc.)
+static void AP::event_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data)  // Funcion para manejar eventos de Wi-Fi (conexiones, desconexiones, errores, etc.)
 {
     if (event_id == WIFI_EVENT_AP_STACONNECTED)                 // Detectamos conexion de usuario al Access Point
     {
@@ -20,7 +20,7 @@ static void event_handler(void* arg, esp_event_base_t event_base, int32_t event_
     }
 }
 
-void AP_init(AP_config_s cfg)     // Inicializamos el Access Point
+void AP::init(AP::config_s cfg)     // Inicializamos el Access Point
 {
     esp_err_t ret = nvs_flash_init();                   // Inicializa la NVS (Non-Volatile Storage), para almacenar credenciales de Wi-Fi
 
@@ -44,7 +44,7 @@ void AP_init(AP_config_s cfg)     // Inicializamos el Access Point
     (
         WIFI_EVENT,
         ESP_EVENT_ANY_ID,
-        &event_handler,
+        &AP::event_handler,
         NULL,
         NULL
     ));

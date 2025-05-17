@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/components/TCP_server
+# Install script for directory: C:/Users/diego/Desktop/Ing_en_automatizacion/Tesis_PISDRSL/Microcontroller/Code_ESP-IDF/components/TCP_Server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

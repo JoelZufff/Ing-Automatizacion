@@ -11,37 +11,37 @@
 #include "lwip/sys.h"      // Utilidades del sistema para LwIP
 #include <lwip/netdb.h>    // Resolución de DNS, estructuras de sockets
 
-// =========================== Estructuras ========================== //
-struct TCP_server_config_s
+namespace TCP
 {
-    uint16_t Port;                  // Puerto por defecto para el servidor TCP
-    int KeepAliveIdle;          // Tiempo en segundos para el KeepAlive
-    int KeepAliveInterval;      // Intervalo en segundos para el KeepAlive
-    int KeepAliveCount;         // Número de intentos para el KeepAlive
-};
+    inline EventGroupHandle_t eventGroup = NULL;    // Grupo de eventos para manejar eventos de conexión y desconexión del cliente TCP
 
-class TCP_client_t
-{
-private:    // CONSTANTES
-    inline static const char *TAG       = "TCP_client";     // Etiqueta para el registro de logs
-    inline static const int BUF_SIZE    = 512;              // Tamaño del buffer para recibir datos
-    inline static const int PACKET_SIZE = 9;                // Tamaño del paquete de datos a enviar
+    struct config_s
+    {
+        uint16_t Port;                                      // Puerto por defecto para el servidor TCP        
+        void (*ProcessData_func)(uint8_t * Data, int length);  // Funcion para procesar los datos recibidos por el cliente
+        
+        struct KeepAlive_s
+        {
+            int enabled;            // Activar el KeepAlive (0 = desactivado, 1 = activado)
+            int idle;               // Tiempo en segundos para el KeepAlive
+            int interval;           // Intervalo en segundos para el KeepAlive
+            int count;              // Número de intentos para el KeepAlive
+        } KeepAlive;
+    };
 
-public:    // CAMPOS
-    inline static EventGroupHandle_t eventGroup = NULL;   // Grupo de eventos para manejar eventos de conexión y desconexión de clientes TCP
-    int socket;                          // Socket para manejar la conexión TCP con el cliente
+    namespace Server
+    {
+        void init(config_s cfg);         // Inicializa el servidor TCP
+        static void task(void *pvParameters);       // Tarea principal del servidor TCP
+    }
 
-public:     // METODOS
-    TCP_client_t(int socket, sockaddr_storage address, socklen_t addr_len); // Constructor de la clase TCP_client
-    ~TCP_client_t();            // Destructor de la clase TCP_client
-    void dataReception();       // Maneja los datos recibidos del cliente
-};
-
-// =========================== Variables ============================ //
-extern TCP_client_t* TCP_client;                        // Objeto cliente para manejar la conexión con el cliente
-
-// ===================== Prototipos de funcion ====================== //
-void TCP_init(TCP_server_config_s cfg);         // Inicializa el servidor TCP
-static void TCP_task(void *pvParameters);       // Tarea principal del servidor TCP
-
+    namespace Client
+    {
+        inline int socket = 0;      // Socket para manejar la conexión TCP con el cliente
+        
+        void init(sockaddr_storage address, socklen_t addr_len);    // Inicializa el cliente TCP
+        void deinit();              // Destruye el cliente TCP
+        void dataReception();                                       // Maneja los datos recibidos del cliente
+    }
+}
 #endif
